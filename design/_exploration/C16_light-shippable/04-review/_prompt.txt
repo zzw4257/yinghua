@@ -1,0 +1,84 @@
+Professional product screenshot of a macOS desktop in LIGHT MODE showing the Yinghua app in post-meeting REVIEW mode (a single window where the user can re-read the transcript and read the AI-generated summary), captured as a marketing-quality product screenshot.
+
+## BASE macOS LAYER (light mode)
+
+Desktop wallpaper: warm cream off-white at the edges, with a soft low-saturation aurora wash (pale purple top-left, pale teal bottom-right). No stars, no dark sky, no neon. Subtle warm white gradient throughout, like a real macOS Sonoma light wallpaper.
+
+Menu bar (top, white frosted glass): translucent white panel with a 1px hairline border at the bottom edge. Left side items in dark graphite color: Apple logo, then the active app name "Yinghua" followed by "File  Edit  View  Window  Help". Right side status icons in graphite: Control Center, Battery, Wi-Fi, Search, and clock reading "21:42".
+
+DOCK (bottom center, white frosted glass with 1px graphite hairline) — STRICT 12-ELEMENT LIST, NOTHING MORE, NOTHING LESS, IN THIS ORDER:
+Position 1: Finder icon (blue-white smiling face).
+Position 2: Safari icon (blue compass).
+Position 3: Messages icon (green speech bubble).
+Position 4: Mail icon (blue envelope).
+Position 5: Notes icon (yellow notepad with lines).
+Position 6: Calendar icon (white page, large red number "26" in the center, small grey day name "MON" below — MON must be a real weekday like MON/TUE/WED/THU/FRI/SAT/SUN, NOT gibberish).
+Position 7: Reminders icon (white list with colored dots).
+Position 8: Maps icon (stylized map with roads).
+Position 9: Music icon (red note on white background).
+Position 10: System Settings icon (grey gear).
+Position 11: small separator dot (a thin vertical line or small dot indicating the system/user app boundary).
+Position 12: the Yinghua app icon (a stylized letter Y on a purple-to-teal gradient squircle, with a small magenta active dot below indicating the app is running).
+
+ABSOLUTELY NO OTHER ICONS in the dock. NO Launchpad. NO Contacts. NO Photos. NO Trash. NO FaceTime. NO TV. NO App Store. NO Numbers. NO Pages. NO Keynote. NO iMovie. NO GarageBand. NO Address Book. NO Mail plane variants. Exactly 12 items total — count them: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12. Nothing past position 12.
+
+## APP WINDOW — POST-MEETING REVIEW
+
+A single centered macOS window (the only window), ~75% of desktop width, with three standard traffic light buttons (red close, yellow minimize, green maximize) on the upper left. The window title bar shows "Yinghua" centered in dark graphite. The window has white frosted glass material, with a 1px graphite hairline border and 14px corner radius. The aurora tint wash is very subtle (a soft purple-to-teal tint) on top of the white glass.
+
+The window is a 2-column layout:
+
+### LEFT COLUMN (~38% width) — File card + transcript preview
+
+- Top: a file card looking like a real Finder file card, white frosted glass with 1px graphite border and 12px corner radius. The card contains:
+  - Left: a small file icon (rounded purple Y file icon, ~48x48).
+  - Middle: the Chinese title "张同学-前端-终面" in dark graphite, and below it a subtitle "今天录制 · 48 分钟 · 1.2 GB" in a slightly lighter graphite tone (real Chinese time label, NOT "48 min", NOT English).
+  - Right: a small purple-to-teal gradient pill button (~64x28) with white Chinese text "打开".
+  - Below the title row, three small inline meta tag pills with subtle white glass background and 1px graphite border, each in dark graphite: "MP4", "中英双语", "2 位发言人" (real Chinese words).
+
+- Below the file card, a scrollable compact transcript list with 5 visible rows. Each row has:
+  - Left: a solid color speaker avatar (~28px circle) with a single capital letter in white. Mix purple, teal, pink.
+  - Middle: speaker name in dark graphite (use these 2 Chinese names cycling: "面试官", "候选人 张三"), then a small monospace timecode in a slightly lighter graphite tone (e.g. "12:04"), and below that 1 line of short Chinese placeholder text in a slightly lighter graphite tone. Use REAL Simplified Chinese sentences — NOT lorem ipsum, NOT English, NOT character fragments.
+  - Each row separated by a thin 1px graphite hairline.
+
+- Below the transcript list (inside the left column), a horizontal row of 2 speaker chip pills: "● 候选人 张三  62%" (purple dot, purple progress bar) and "● 面试官  38%" (teal dot, teal progress bar). Each pill is white glass with 1px graphite border, Chinese text in graphite, with a small thin progress bar inside.
+
+### RIGHT COLUMN (~62% width) — AI Summary with collapsible sections
+
+- Top header strip: a small purple sparkle icon (~16px) on the left, then the Chinese label "AI 总结" in dark graphite (this is the only place the letters "AI" are allowed, as part of a real Chinese phrase), and right-aligned a small "重新生成" ghost link (slightly lighter graphite, real Chinese, no underline).
+- Below header, 4 collapsible section cards stacked vertically, each ~80px tall when collapsed, more when expanded. Each card has:
+  - White frosted glass surface, 1px graphite border, 12px corner radius.
+  - Header row: small section icon (left, ~16px graphite), bold section title in dark graphite (real Chinese: "关键瞬间", "达成的决定", "待办", "遗留问题" — in this order), right-side chevron toggle (small graphite chevron).
+  - Content area (the first 2 sections are EXPANDED, the last 2 are COLLAPSED showing only the count badge on the right):
+    - Section 1 "关键瞬间" (expanded): 3 bullet points. Each bullet has a small colored dot prefix (4px, cycle purple/teal/pink), then a monospace timecode prefix in a slightly lighter graphite tone (e.g. "12:04 — "), then 1 short line of real Simplified Chinese placeholder text in dark graphite.
+    - Section 2 "达成的决定" (expanded): 2 bullet points (no timecode, just real Chinese text).
+    - Section 3 "待办" (collapsed): just shows "3 项" badge on the right (real Chinese number + classifier).
+    - Section 4 "遗留问题" (collapsed): just shows "5 项" badge on the right.
+
+- All bullet text in expanded sections is real Simplified Chinese — short interview-style phrases like "候选人展示了 React 性能优化经验" or "决定下一轮 8 月 30 日下午 3 点继续" — NOT lorem ipsum, NOT English.
+
+### BOTTOM-RIGHT inside the window — 2x2 action button cluster
+A 2x2 button cluster inside the right column, at the bottom. Each button ~150x40, 12px corner radius, 16px gap.
+- Top-left: Secondary white glass button with Chinese text "复制总结" (white glass + 1px graphite border, graphite text).
+- Top-right: Secondary white glass button with Chinese text "导出 PDF" (same style).
+- Bottom-left: Secondary white glass button with a small download arrow icon inside and Chinese text "下载".
+- Bottom-right: PRIMARY purple-to-teal gradient button with white Chinese text "分享" + a small share arrow icon — this is the hero CTA, clearly more prominent than the others (slightly larger, gradient fill, white text).
+- Below the cluster, a single small "完成" ghost text link (slightly lighter graphite, no underline) sits centered.
+
+## STRICT RULES (must follow)
+
+- This is LIGHT MODE macOS — warm cream wallpaper, white glass surfaces, graphite text. NOT dark mode with inverted colors.
+- Do NOT render any text that appears inside this prompt itself. Specifically forbidden visible text: "STYLE", "PRIMARY", "SECONDARY", "graphite", any percentage symbol "%" or any number followed by a percent sign, "14pt", "15pt", "18pt", "32pt", any number followed by "pt", "600", "400", "TEST", "Sample", "Placeholder", "SF Pro", "JetBrains Mono", "vibrancy", "regularMaterial", "regular material", "Lorem ipsum", "Zoe", "frontend", "Recorded today", "48 min", "Decisions", "Action items", "Open questions", "Key moments", "Regenerate", "Copy summary", "Export PDF", "Share", "Done", "Lighter", "secondary tone", or any other design-system metadata, font name, font size, weight spec, color name, or opacity value.
+- Do NOT render brand names as icon glyphs.
+- Do NOT invent labels for app menu names, status bars, or dock indicators. If you don't know what the macOS UI text should be, leave that area empty.
+- The Dock calendar app icon must show the number "26" + a real weekday (MON/TUE/WED/THU/FRI/SAT/SUN). Do NOT render gibberish.
+- All visible UI text inside the app window must be in real Simplified Chinese, using real word combinations. NEVER random character fragments, NEVER lorem ipsum, NEVER English UI labels (except "MP4" and "PDF" which are file-format acronyms and the macOS-level menu: Yinghua/File/Edit/View/Window/Help).
+- Use ONLY solid-color-circle speaker avatars (one capital letter in white). NO gradient backgrounds, NO 3D effects, NO 4-style label, NO "STYLE" text.
+- The "AI" letters are only allowed inside the "AI 总结" header label. Do NOT burn "AI" into any other icon, tile, or label.
+- NO waveform, NO EKG, NO sine wave, NO audio bar, NO audio visualizer anywhere.
+- NO cyberpunk glow, NO neon outlines, NO holographic effects, NO dark sky stars.
+- NO two-circle-overlap chat icon. The single purple sparkle is only used ONCE as the AI summary section header marker, NOT sprinkled anywhere else.
+- The single visible main window is centered; nothing else floats over the desktop.
+- Aspect ratio 16:9, 4K resolution.
+
+Output: a single product-quality screenshot, no text overlays, no watermark, no captions, no prompt artifacts.

@@ -1,0 +1,82 @@
+A photorealistic screenshot of a real macOS 26 desktop. 16:9, 4K. The user just opened the Chinese AI meeting app called "映话" (Yinghua). The home screen is empty (no active meeting).
+
+# LAYER 1 — WALLPAPER
+A dark aurora wallpaper with a starry night sky. Deep purple at the left, transitioning through teal/cyan in the middle, with a hint of magenta at the right edge. Subtle aurora ribbon curves. Soft, not cyberpunk, no neon.
+
+# LAYER 2 — TOP MENU BAR (translucent dark glass)
+From left to right exactly these items:
+- An Apple logo icon
+- The text "Yinghua" in white (this is the app name)
+- The text "File" "Edit" "View" "Window" "Help" in white, evenly spaced
+- A wide empty space
+- On the far right: a Control Center icon, a battery icon, a Wi-Fi icon, a Spotlight search icon, a Siri icon, and the text "21:42" in white
+
+That is the entire menu bar. No other text, no other icons, no clock text in any other position.
+
+# LAYER 3 — DOCK (bottom center, glass, blurred backdrop)
+The dock contains exactly TWELVE icons arranged in a single row, with NO MORE AND NO FEWER. The order from left to right is fixed:
+
+Position 1: "Finder" — a square icon with rounded corners showing a blue and white smiling face
+Position 2: "Safari" — a blue compass icon
+Position 3: "Messages" — a green speech bubble icon
+Position 4: "Mail" — a blue envelope icon
+Position 5: "Notes" — a yellow notepad icon with horizontal ruled lines
+Position 6: "Calendar" — a white page icon with ONLY the red number "26" centered on it. NOTHING ELSE. No text, no abbreviation, no weekday, no month name, no Latin letters, no CJK characters, no gibberish. Just the number 26 in red.
+Position 7: "Reminders" — a white list icon with small red, yellow, and green dots
+Position 8: "Maps" — a stylized map icon with road lines
+Position 9: "Music" — a red musical note on a white background
+Position 10: "System Settings" — a gray gear icon
+Position 11: A small thin gray separator (a single thin vertical line or a small dot)
+Position 12: "Yinghua" — a dark glass squircle with a SOLID WARM-WHITE letter "Y" in the center, no gradient, no glow, in the 01 MINIMAL flat style. A tiny magenta dot below this icon indicates the app is running.
+
+There are EXACTLY 12 elements in the dock. There is NO Launchpad, NO Photos, NO Contacts, NO Address Book, NO FaceTime, NO Trash, NO Keynote, NO Pages, NO Numbers, NO iMovie, NO GarageBand, NO App Store, NO TextEdit, NO Terminal. The 12 elements above are the only 12 elements in the dock.
+
+# LAYER 4 — THE APP WINDOW (centered, ~70% of desktop width)
+A single macOS window with three traffic light buttons (red, yellow, green) in the upper left in correct order. The window title text reads "映话" in white, with a small Yinghua Y mark icon to the left of the title. The window background is dark glass with subtle aurora tinting, 14px corner radius, ~70% opacity.
+
+The window has a 3-column layout:
+
+## LEFT COLUMN (18% width) — NAVIGATION
+Four large circular icon buttons stacked vertically, equally spaced. Each is a 56px glass circle with a subtle 1px white hairline and a single icon inside. The icons from top to bottom are:
+1. A microphone icon (a small microphone silhouette) — this first circle has a small MAGENTA dot in its lower right corner, indicating this nav item is active/selected.
+2. A folder icon (representing recordings library)
+3. A document icon (representing transcripts/notes)
+4. A person silhouette icon (representing profile/account)
+
+No text labels next to or below the circles. The circles speak for themselves.
+
+## CENTER COLUMN (44% width) — QUICK ACTIONS
+A bold heading text "开始一次录制" in white at the top of this section.
+
+Below the heading, a 2x2 grid of four large rectangular action tiles (each ~180px tall, 16px corner radius, dark glass, 1px white hairline border). The 4 tiles are:
+
+Top-left tile: a large microphone icon in purple, and below it the text "新建录制".
+Top-right tile: a large import/upload icon in teal, and below it the text "导入音频".
+Bottom-left tile: a large browser/window icon in pink, and below it the text "浏览器扩展".
+Bottom-right tile: a large database/grid icon in white, and below it the text "知识库".
+
+Each tile has a subtle hover/glass effect. The icons inside are simple geometric shapes (no brand logos, no specific app icons).
+
+## RIGHT COLUMN (38% width) — RECENT RECORDINGS
+A bold heading text "最近录音" in white at the top.
+
+Below the heading, three rows of recent recordings, each row is ~64px tall and has:
+- A small purple file icon (a generic audio file shape) on the left
+- In the middle: the file name in bold white on the first line, and the date and duration in light gray on the second line
+- On the right: a small "Open" pill button (secondary glass style)
+
+The three rows, top to bottom:
+ROW 1: name "面试-张同学-前端-终面", date "今天 14:30", duration "48 分钟"
+ROW 2: name "产品评审-智能助手", date "昨天 10:15", duration "1 小时 12 分钟"
+ROW 3: name "用户访谈-李同学-移动端", date "8月20日", duration "32 分钟"
+
+All Chinese text must be real Simplified Chinese. No English placeholders. No "duration" placeholder text. No "2022-03-17" placeholder. No gibberish.
+
+# ABSOLUTE PROHIBITIONS
+- No waveform, no audio bars, no EKG, no sine wave anywhere
+- No "AI" text as a word, no "STYLE 1" label, no "TEST" label, no "Sample" label, no "Placeholder" label
+- No font-size or font-weight text like "14pt" "600" "regular"
+- No cyberpunk glow, no neon outlines, no floating sparkles, no two-circle chat icons
+- No English placeholder text in place of Chinese — all Chinese text must be real Simplified Chinese
+- No Latin gibberish, no Cyrillic, no random letters like "MIY" "tiro" "媛用"
+- 16:9, 4K, no watermark, no caption

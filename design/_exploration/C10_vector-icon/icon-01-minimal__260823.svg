@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1024" height="1024"
+     viewBox="0 0 1024 1024"
+     shape-rendering="geometricPrecision">
+
+  <!-- ============================================================
+       Yinghua · App Icon 01 MINIMAL — master SVG
+       Date:        2026-08-23
+       Source spec: design/design-doc.md §3.1 + C07 _audit-verdict.md
+       C07 audit fixes applied:
+         #1 [高]  single <path>, all three Y strokes meet at (512, 416)
+                  with no seam (V+stem topology)
+         #3 [中]  right arm is a STRAIGHT line (no hook/弯钩)
+         #4 [中]  stroke-width = 58  → 5.66% of 1024  (uniform w/ 02)
+       ============================================================ -->
+
+  <title>Yinghua App Icon — 01 MINIMAL</title>
+  <desc>macOS 26+ squircle 1024x1024, 22.4% corner radius. Warm-white Y on near-black. The Y is one &lt;path&gt; with two subpaths: (A) the V — left arm + right arm meeting at (512, 416) as one continuous stroke, (B) the vertical stem rising from the same point. All three stroke centers converge at (512, 416) so the rounded joins form a single seamless Y junction.</desc>
+
+  <!-- Container: squircle 22.4% (rx = 229.376, the Apple spec).
+       Per C10 spec we accept the rounded-rect approximation; the visual
+       delta vs a true superellipse is sub-pixel at icon sizes. -->
+  <rect x="0" y="0" width="1024" height="1024"
+        rx="229.376" ry="229.376"
+        fill="#0A0A0F" />
+
+  <!-- Y master path: ONE <path> element, two subpaths.
+       Subpath A — the V (left arm + right arm), drawn as ONE continuous
+         stroke that bends at the meeting point:
+           M 372 256  L 512 416  L 652 256
+         The left arm vector is (140, 160), the right arm is (140, -160).
+         At the meeting point (512, 416) the stroke uses a round join so
+         the bottom of the V is a clean concave curve, not a sharp point.
+       Subpath B — the vertical stem, branching from the same (512, 416):
+           M 512 416  L 512 768
+         With round caps top and bottom.
+       Because both subpaths' geometric endpoints coincide at (512, 416),
+       the rounded caps + the V's round join overlap perfectly — no seam. -->
+  <path d="M 372 256 L 512 416 L 652 256 M 512 416 L 512 768"
+        fill="none"
+        stroke="#F4F1EC"
+        stroke-width="58"
+        stroke-linecap="round"
+        stroke-linejoin="round" />
+
+</svg>

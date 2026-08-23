@@ -1,0 +1,205 @@
+name: Release
+
+# 触发：tag push v* (v1.0.0, v0.2.1-beta, ...)
+# 例：git tag v0.1.0 && git push origin v0.1.0
+on:
+  push:
+    tags:
+      - 'v*'
+
+# 同一 tag 多次 push 不取消（要确保 release 一定做完）
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  # ─────────────────────────────────────────
+  # Job: Build + Sign + Notarize + Package
+  # ─────────────────────────────────────────
+  release:
+    name: Build · Sign · Notarize · Package
+    runs-on: macos-14
+    timeout-minutes: 60
+
+    # 写 GitHub Release + 上传 asset 需要 contents: write
+    # notarytool 用 keychain 不需要 id-token（与 App Store Connect API key 不同）
+    # 这里仍加 id-token: write 作为 future-proof，万一以后切到 App Store Connect API key
+    permissions:
+      contents: write
+      id-token: write
+
+    env:
+      # 把 secrets 提升到 env，全局可用，省去每行 ${{ secrets.* }}
+      APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+      APPLE_ID: ${{ secrets.APPLE_ID }}
+      APP_SPECIFIC_PASSWORD: ${{ secrets.APP_SPECIFIC_PASSWORD }}
+      DEVELOPMENT_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+      NOTARYTOOL_KEYCHAIN_PROFILE: yinghua-notarytool
+      VERSION: ${{ github.ref_name }}  # 去掉 v 前缀用 ${VERSION#v}，带前缀用 $VERSION
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Select Xcode 26.6
+        run: |
+          sudo xcode-select -s /Applications/Xcode_26.6.app
+          xcodebuild -version
+          xcrun notarytool --version
+
+      - name: Cache DerivedData
+        uses: actions/cache@v4
+        with:
+          path: ~/Library/Developer/Xcode/DerivedData
+          key: ${{ runner.os }}-derivedData-release-${{ hashFiles('code/Yinghua/project.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-derivedData-release-
+
+      - name: Install xcodegen
+        run: |
+          brew update
+          brew install xcodegen
+
+      - name: Validate secrets
+        run: |
+          if [ -z "$APPLE_TEAM_ID" ]; then
+            echo "::error::APPLE_TEAM_ID secret is empty"
+            exit 1
+          fi
+          if [ -z "$APPLE_ID" ]; then
+            echo "::error::APPLE_ID secret is empty"
+            exit 1
+          fi
+          if [ -z "$APP_SPECIFIC_PASSWORD" ]; then
+            echo "::error::APP_SPECIFIC_PASSWORD secret is empty"
+            exit 1
+          fi
+          echo "✅ All 3 required secrets present (APPLE_TEAM_ID=$APPLE_TEAM_ID, APPLE_ID=$APPLE_ID)"
+
+      - name: Store notarytool credentials in keychain
+        # notarytool 需要从 keychain 读 profile 拿 Apple ID + password
+        # runner 是一次性 VM，跑完即丢，profile 不会泄漏
+        run: |
+          xcrun notarytool store-credentials "$NOTARYTOOL_KEYCHAIN_PROFILE" \
+            --apple-id "$APPLE_ID" \
+            --team-id "$APPLE_TEAM_ID" \
+            --password "$APP_SPECIFIC_PASSWORD"
+
+      - name: Build + Sign + Notarize
+        # sign-and-notarize.sh 内部：
+        #   1. xcodegen generate
+        #   2. xcodebuild archive (Release + Apple Distribution identity)
+        #   3. xcodebuild -exportArchive → Yinghua.app
+        #   4. ditto zip → notarytool submit → stapler staple
+        run: |
+          bash design/_exploration/C33_code-signing/sign-and-notarize.sh
+
+      - name: Verify signature & notarization
+        run: |
+          APP_PATH="build/Yinghua-export/Yinghua.app"
+          echo "=== codesign verify ==="
+          codesign -dvv "$APP_PATH"
+          codesign --verify --deep --strict "$APP_PATH"
+          echo "=== spctl assess ==="
+          spctl -a -vv "$APP_PATH"
+          echo "=== stapler validate ==="
+          xcrun stapler validate "$APP_PATH"
+
+      - name: Create .dmg
+        run: |
+          cd build/Yinghua-export
+          # UDZO = compressed read-only
+          hdiutil create \
+            -volname "Yinghua" \
+            -srcfolder Yinghua.app \
+            -ov \
+            -format UDZO \
+            Yinghua.dmg
+          ls -la Yinghua.dmg
+
+      - name: Rename .pkg with version
+        run: |
+          # xcodebuild -exportArchive 已经把 pkg 导出到 build/Yinghua-export/
+          # 重命名带版本号，方便用户区分
+          cd build/Yinghua-export
+          if [ -f "Yinghua.pkg" ]; then
+            mv Yinghua.pkg "Yinghua-$VERSION.pkg"
+          fi
+          ls -la
+
+      - name: Upload .pkg to App Store Connect
+        # altool 已被 Apple 标记 deprecated，未来切到 notarytool + transporter
+        # 但目前 altool 仍可用且简单，足够 MVP 阶段
+        continue-on-error: true
+        run: |
+          if [ -f "build/Yinghua-export/Yinghua-$VERSION.pkg" ]; then
+            xcrun altool --upload-app \
+              --type osx \
+              --file "build/Yinghua-export/Yinghua-$VERSION.pkg" \
+              --username "$APPLE_ID" \
+              --password "$APP_SPECIFIC_PASSWORD"
+            echo "⚠️ altool deprecated — 未来切到 xcrun notarytool + transporter"
+          else
+            echo "::warning::no .pkg found, skipping App Store Connect upload"
+          fi
+
+      - name: Notify maintainers on failure
+        if: failure()
+        uses: slackapi/slack-github-action@v1.27.0
+        with:
+          payload: |
+            {
+              "text": "❌ Yinghua release failed for tag `${{ github.ref_name }}`\n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        continue-on-error: true
+
+      - name: Create GitHub Release (draft)
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          generate_release_notes: true
+          fail_on_unmatched_files: true
+          files: |
+            build/Yinghua-export/Yinghua.dmg
+            build/Yinghua-export/Yinghua-${{ env.VERSION }}.pkg
+          body: |
+            ## 映话 (Yìnghuà) v${{ env.VERSION }}
+
+            > macOS 26+ · SwiftUI 6 · 本地优先 · BYOK · Sandbox + Hardened Runtime
+
+            ### 下载
+
+            | 文件 | 说明 |
+            |------|------|
+            | `Yinghua.dmg` | 通用安装包（拖到 Applications）· 已签名 + notarized + stapled |
+            | `Yinghua-${{ env.VERSION }}.pkg` | App Store 格式包 · 可上传 App Store Connect |
+
+            ### 安装
+
+            1. 下载 `Yinghua.dmg`
+            2. 打开 dmg，把 **Yinghua** 拖到 **Applications**
+            3. 首次打开如果 Gatekeeper 拦，**右键 → 打开**（已 notarized，正常情况不会出现）
+            4. 设置 → 权限：授权 麦克风 / 屏幕录制 / 语音识别 / 通知
+            5. 设置 → API key：填入你自己的 OpenAI / Anthropic / Custom 端点 key
+
+            ### 系统要求
+
+            - macOS 26.0 (Tahoe) 或更高
+            - Apple Silicon (M1/M2/M3/M4) 推荐
+            - Xcode 26.6+ 开发者需要（运行源码）
+
+            ### 校验
+
+            ```bash
+            # 验证签名
+            codesign --verify --deep --strict /Applications/Yinghua.app
+            # 验证 notarization
+            spctl -a -vv /Applications/Yinghua.app
+            xcrun stapler validate /Applications/Yinghua.app
+            ```
+
+            ### 完整 changelog
+
+            见 [CHANGELOG.md](./CHANGELOG.md) 或 commit history。

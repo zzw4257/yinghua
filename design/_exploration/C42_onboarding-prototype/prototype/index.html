@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>映话 · Onboarding Prototype</title>
+  <meta name="description" content="映话 (Yìnghuà) macOS AI 会议助手 — 首次启动 onboarding 交互原型 (iPhone 14 Pro 模拟)" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;0,600;0,700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <style>
+    /* 宿主页独有 layout */
+    html, body { overflow: hidden; }
+  </style>
+</head>
+<body>
+  <main class="host" role="main">
+    <div class="iphone-stage">
+      <div class="iphone-frame" role="application" aria-label="iPhone 14 Pro 模拟">
+        <div class="iphone-notch" aria-hidden="true"></div>
+        <iframe
+          id="screen-frame"
+          class="iphone-screen"
+          src="screens/01-welcome.html"
+          title="Onboarding screen"
+          loading="eager"
+          allow="clipboard-read; clipboard-write"
+        ></iframe>
+        <div class="iphone-home-indicator" aria-hidden="true"></div>
+      </div>
+    </div>
+    <div class="host-caption">映话 · ONBOARDING PROTOTYPE · C42 · iPhone 14 Pro (375×812)</div>
+  </main>
+
+  <script>
+    /* 宿主页导航桥 — 监听屏内事件, 同步切换 iframe src */
+    (function () {
+      var frame = document.getElementById('screen-frame');
+      var startTime = Date.now();
+
+      /* 记录用户在 onboarding 中走过的屏 (跨刷新) */
+      var STORAGE_KEY = 'yinghua-onboarding';
+      var lastScreen = (function () {
+        try { return localStorage.getItem(STORAGE_KEY); } catch (e) { return null; }
+      })();
+
+      if (lastScreen && /^0[1-4]-/.test(lastScreen)) {
+        frame.src = 'screens/' + lastScreen + '.html';
+      }
+
+      /* 监听屏内 postMessage 跳屏请求 (默认走相对链接, 这里做兜底) */
+      window.addEventListener('message', function (e) {
+        if (!e.data || typeof e.data !== 'object') return;
+        if (e.data.type === 'yh:navigate' && /^0[1-4]-/.test(e.data.screen)) {
+          frame.src = 'screens/' + e.data.screen + '.html';
+        }
+      });
+
+      /* 调试辅助: 把当前屏打印到 console */
+      frame.addEventListener('load', function () {
+        var fname = frame.src.split('/').pop().replace('.html', '');
+        console.log('[YH prototype]', fname, '(', Date.now() - startTime, 'ms)');
+      });
+    })();
+  </script>
+</body>
+</html>

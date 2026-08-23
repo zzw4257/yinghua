@@ -1,0 +1,48 @@
+Professional product screenshot of a macOS desktop in LIGHT MODE showing the Yinghua (映话) app during a meeting recording, captured as a marketing-quality product screenshot.
+
+## BASE macOS LAYER (light mode)
+
+Desktop wallpaper: a real macOS-style LIGHT AURORA — predominantly warm cream off-white (#F4F1EC) at the edges, with a soft low-saturation aurora wash (pale purple top-left ~12% saturation, pale teal bottom-right ~12% saturation). No stars, no dark sky, no neon. Subtle warm white gradient throughout, like a real macOS Tahoe Sonoma light wallpaper.
+
+Menu bar (top, white frosted glass, NOT black): translucent white panel with a 1px hairline border at the bottom edge. Left side items in GRAPHITE color (#1B1D22): Apple logo, then "Yinghua  File  Edit  View  Window  Help" (the active app name is "Yinghua", not "Finder"). Right side status icons in graphite: Control Center, Battery, Wi-Fi, Search, and clock reading EXACTLY "21:42".
+
+Dock (bottom center, white frosted glass with 1px graphite hairline): EXACTLY these 12 elements in this order — Finder, Safari, Messages, Mail, Notes, Calendar, Reminders, Maps, Music, System Settings, a small separator dot, then the Yinghua app icon (purple-to-teal gradient Y on white glass squircle, with a small magenta active dot below indicating the app is running). DO NOT add any other icons (no Launchpad, no Contacts, no Photos, no Trash, no FaceTime, no TV, no App Store). The Calendar icon must show the number "26" in red on a white page background with the day name "MON" (or "TUE"/"WED"/"THU"/"FRI"/"SAT"/"SUN" — any real weekday) in small grey text below — NOT random letters, NOT gibberish.
+
+## APP WINDOW — MEETING IN PROGRESS
+
+A single centered macOS window (NOT multiple windows), ~70% of desktop width, with three standard traffic light buttons (red close, yellow minimize, green maximize) on the upper left. The window has WHITE / VERY LIGHT GLASS material (vibrancy — like a real macOS .regularMaterial in light mode), with a 1px graphite hairline border and 14px corner radius. The aurora tint wash is very subtle (10% opacity purple→teal) on top of the white glass.
+
+### MAIN MEETING AREA (left ~70% of window)
+- A 2x2 video grid of 4 meeting participants. Each video tile is a soft rounded rectangle (~12px radius) with a thin 1px graphite hairline border. Each participant silhouette inside is rendered with a soft gradient (pale purple / pale teal / pale pink / pale amber) — silhouettes are clearly visible against a light background, not too dark. Each tile has a small name pill at the bottom-left with the EXACT Chinese text in graphite: "面试官" (top-left), "我" (top-right), "候选人 张三" (bottom-left), "候选人 李四" (bottom-right). Use these exact names, no other text.
+- At the very bottom of the meeting area, a row of circular icon buttons (mic, video, share, chat, end-call red) sitting on a glass surface — mic is white glass, end-call is solid red #FF3B30 with white phone icon. The 5 button labels (if any) must be in Chinese: "静音", "视频", "共享", "聊天", "挂断" — but keep them minimal, the icons are the primary signal.
+
+### FLOATING CONTROL PANEL (bottom-left, partially overlapping the meeting area)
+A small floating glass card. White frosted glass with 1px graphite border and 14px corner radius. Horizontal sections separated by 1px hairlines:
+- Status section: a small red REC dot (#FF3B30), then "录制中" in graphite, then "02:34" in monospace JetBrains Mono.
+- Transport section: 3 circular icon buttons — pause, stop (this one is filled with the purple-to-teal gradient showing recording is active), play.
+- Secondary section: 3 small circular icon buttons — settings (gear), share, close (X).
+- The panel MUST NOT contain any waveform, sine wave, EKG, or audio visualizer — only the red REC dot + timecode conveys "recording". The panel does NOT overlap or cover any video tile's name pill.
+
+### TRANSCRIPT PANEL (right side, ~30% of window)
+A vertical white glass panel with 1px border. Header row: small "转录" label in graphite, and a small settings gear icon on the right. Below header, 6 transcript rows stacked vertically. Each row has:
+- Left: a small solid color speaker avatar (purple #8A5BFF, teal #2DD4BF, or pink #FF6FA9) — a circle ~32px diameter with a single capital letter in white inside.
+- Middle: speaker name in graphite (use 3 names, cycling: "面试官", "我", "候选人 张三" — same Chinese as the video grid name pills), and a small monospace timecode in graphite at 65% opacity on the right (e.g. "02:34:19"). Use real timecodes like "02:34:19", "02:34:25", "02:34:32" — NOT "02:34:19 @ 65%" or any meta-text.
+- Below the name: 1-2 lines of short Chinese placeholder text in graphite at 65% opacity. Use REAL Simplified Chinese word combinations like "我比较关注项目的长期发展" or "在上一家公司我主要负责" — NOT lorem ipsum, NOT English, NOT character fragments.
+
+## STRICT RULES (must follow)
+
+- This is LIGHT MODE macOS — warm cream wallpaper, white glass surfaces, graphite text. NOT dark mode with inverted colors.
+- Do NOT render any text that appears inside this prompt itself. Specifically forbidden visible text: "STYLE 1", "STYLE 2", "PRIMARY", "graphite", "65%", "80%", "14pt", "15pt", "18pt", "32pt", "600", "400", "AI", "node", "TEST", "Sample", "Placeholder", "SF Pro", "JetBrains Mono", "vibrancy", "regularMaterial", "regular material", or any other design-system metadata, font name, font size, or weight spec.
+- Do NOT render brand names as icon glyphs. The Y in the Yinghua logo is a stylized letter, not a chat icon.
+- Do NOT invent labels for app menu names, status bars, or dock indicators. If you don't know what the macOS UI text should be, leave that area empty.
+- The Dock calendar app icon must show the number "26" + a real weekday (MON/TUE/WED/THU/FRI/SAT/SUN). Do NOT render gibberish like "MIY" or "MEN" or "SUN" alone.
+- All visible UI text inside the app window must be in real Simplified Chinese, using real word combinations. NEVER random character fragments, NEVER lorem ipsum, NEVER English UI labels (except the macOS-level menu items: Yinghua/File/Edit/View/Window/Help).
+- Use ONLY solid-color-circle speaker avatars (one capital letter in white). NO gradient backgrounds, NO 3D effects, NO 4-style label, NO "STYLE 1" text.
+- NO waveform, NO EKG, NO sine wave, NO audio bar, NO audio visualizer anywhere — only the red REC dot + timecode in the control panel.
+- NO cyberpunk glow, NO neon outlines, NO holographic effects, NO dark sky stars (except wallpaper aurora which is pale, not dark).
+- NO "AI" text burned into the image except inside an explicit "AI 总结" section header (this image has no AI section).
+- NO two-circle-overlap chat icon. NO sparkles decoration sprinkled around.
+- The floating control panel and the in-window mic row are the only secondary surfaces. Nothing else floats over the desktop.
+- Aspect ratio 16:9, 4K resolution.
+
+Output: a single product-quality screenshot, no text overlays, no watermark, no captions, no prompt artifacts.

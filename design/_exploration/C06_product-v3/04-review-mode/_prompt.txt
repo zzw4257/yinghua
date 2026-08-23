@@ -1,0 +1,55 @@
+Professional product screenshot of a macOS 26 desktop showing the Yinghua (映话) app post-meeting review window, captured as a marketing-quality product screenshot.
+
+## BASE macOS LAYER (must be IDENTICAL to ref-01-macos-base and ref-02-dock-system)
+
+The desktop wallpaper is a real macOS-style dark aurora over a starry sky — predominantly deep purple at left transitioning to teal/cyan at right, with subtle aurora ribbon curves. Black menu bar at top with system status items: Apple logo, "File Edit View Window Help" (plain English, not styled icons), battery icon, Wi-Fi icon, search icon, control center icon, and clock reading "22:14". All system status text in white. A glass Dock sits at the bottom center of the screen, with EXACTLY these 11 icons in this order, all proper macOS system app icons (NOT generic placeholders): Finder (blue-white face), Safari (compass blue), Messages (green speech bubble), Mail (blue envelope), Notes (yellow notepad), Calendar (white page with "26" in red), Reminders (white list with red/yellow/green dots), Maps (map with roads), Music (red note on white), System Settings (gray gear), separator dot, then Yinghua app icon (purple aurora Y on dark glass, small magenta dot below indicating running). The Dock is glass with subtle blur. Three small dots indicator at the very bottom of the Dock area.
+
+## APP WINDOW — POST-MEETING REVIEW (centered, ~70% of desktop)
+
+A single macOS window (NOT multiple windows) titled at top with three standard traffic light buttons (red close, yellow minimize, green maximize) on the upper left.
+
+The window has a glass dark material (vibrancy) with subtle aurora tint, and its content is a 2-column layout for post-meeting review:
+
+### LEFT COLUMN (~38% width) — Transcript Preview
+- Top: a file card looking like a real Finder file card, showing: small file icon (purple Y), title "Zoe-frontend-final-round", subtitle "Recorded today · 48 min · 1.2 GB", and right-side a small purple "Open" pill button. Below it three small inline meta tags: "MP4", "EN + 中文", "2 speakers".
+- Below the file card, a scrollable compact transcript list (4-5 visible rows): each row has a small STYLE 1 speaker avatar (purple/teal/pink circle with first letter — EXACTLY per ref-03 STYLE 1), bold name, timestamp, and one line of placeholder text ("Lorem ipsum dolor sit amet..."). No waveform anywhere.
+
+### RIGHT COLUMN (~62% width) — AI Summary with collapsible sections
+- Top header strip: small purple sparkle icon + "AI SUMMARY" small caps label, and right-aligned a small "Regenerate" ghost link.
+- Below header, 4 collapsible section cards stacked vertically. Each card has:
+  - Header row: small section icon (left), bold section title (e.g. "Key moments", "Decisions", "Action items", "Open questions"), right-side chevron toggle.
+  - Content area (currently expanded for the first 2, collapsed for the last 2): bullet items with leading colored dots.
+  - Visual: subtle 1px border, 12px corner radius, dark glass surface.
+  - Section 1 "Key moments": 3 bullet points with timestamp prefix in muted color (e.g. "12:04 — ").
+  - Section 2 "Decisions": 2 bullet points.
+  - Section 3 "Action items" (collapsed, just shows count badge "3 items").
+  - Section 4 "Open questions" (collapsed, just shows count badge "5 items").
+- All copy is placeholder Lorem ipsum (real Chinese to be set in Figma later) — do NOT try to render Chinese characters.
+
+### BOTTOM-LEFT inside the window — Speaker chips row
+- Three small pill chips horizontally: "● Zoe  62%" (purple dot), "● Me  38%" (teal dot), with thin progress segments in pill.
+
+### BOTTOM-RIGHT inside the window — Action button group
+- A 2x2 button cluster (per ref-05 button system):
+  - Top-left: Secondary glass button "Copy summary"
+  - Top-right: Secondary glass button "Export PDF"
+  - Bottom-left: Secondary glass button with download icon
+  - Bottom-right: Primary purple-to-teal gradient button "Share", with a small share arrow icon — this is the hero CTA, clearly more prominent than the others.
+- A single small "Done" ghost button (text only with underline) sits below the cluster, centered.
+
+## STRICT RULES (must follow)
+- The base macOS layer (menu bar text, Dock with 11 system icons, aurora wallpaper) must be IDENTICAL to the reference images — not invented.
+- Use ONLY STYLE 1 speaker avatars from ref-03 (solid color circle with single capital letter, no gradient backgrounds).
+- NO waveform, NO EKG, NO sine wave, NO audio visualizer anywhere in the window — use only red REC dot + timecode (per ref-04 control panel).
+- NO cyberpunk glow, NO neon outlines, NO holographic effects.
+- NO "AI" text burned into the image — say "AI SUMMARY" as a small label only.
+- NO two-circle-overlap chat icon. NO floating "sparkles" decoration sprinkled around. Sparkle is only used once as the AI summary section marker.
+- All Chinese text will be replaced in Figma; image should use English placeholders ("Key moments", "Decisions", "Action items", "Open questions", "Zoe", "Me", "AI SUMMARY", "Regenerate", "Copy summary", "Export PDF", "Share", "Done", "Zoe-frontend-final-round", "MP4", "EN + 中文", "2 speakers", "Open", "Lorem ipsum dolor sit amet...").
+- Speaker name font: SF Pro Display style, weight 600, white.
+- Body text: SF Pro Text style, weight 400, light gray (~80% white).
+- Window surface: dark glass with aurora-tinted vibrancy, ~70% opacity, 14px corner radius.
+- The single visible window is centered; nothing else floats over the desktop.
+- Real macOS feel: file card looks like a real Finder info card, not a stylized card. Buttons look like real SwiftUI buttons (per ref-05), not web buttons.
+- Aspect ratio 16:9, 2K resolution.
+
+Output: a single product-quality screenshot, no text overlays, no watermark, no captions.

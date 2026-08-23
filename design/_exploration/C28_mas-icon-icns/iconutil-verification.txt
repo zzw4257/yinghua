@@ -1,0 +1,149 @@
+C28 · Yinghua macOS .icns — verification report
+Date:    2026-08-23T06:17:36Z
+Branch:  worker (parent: mvs_4f13d64598fd4b129a1bc6f60c5b25e1)
+Tools:   rsvg-convert 2.59.2, iconutil (Xcode CLT), sips, file, Python 3
+
+================================================================
+1. file(1) signatures
+================================================================
+
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/Yinghua.icns: Mac OS X icon, 93839 bytes, "ic12" type
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/Yinghua-gradient.icns: Mac OS X icon, 314291 bytes, "ic12" type
+
+================================================================
+2. sips on the .icns container (treats it as a multi-image asset)
+================================================================
+
+--- sips -g all Yinghua.icns ---
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/Yinghua.icns
+  pixelWidth: 1024
+  pixelHeight: 1024
+  typeIdentifier: com.apple.icns
+  format: icns
+  formatOptions: default
+  dpiWidth: 144.000
+  dpiHeight: 144.000
+  samplesPerPixel: 4
+  bitsPerSample: 8
+  hasAlpha: yes
+  space: RGB
+  profile: sRGB IEC61966-2.1
+
+--- sips -g all Yinghua-gradient.icns ---
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/Yinghua-gradient.icns
+  pixelWidth: 1024
+  pixelHeight: 1024
+  typeIdentifier: com.apple.icns
+  format: icns
+  formatOptions: default
+  dpiWidth: 144.000
+  dpiHeight: 144.000
+  samplesPerPixel: 4
+  bitsPerSample: 8
+  hasAlpha: yes
+  space: RGB
+  profile: sRGB IEC61966-2.1
+
+================================================================
+3. Internal sub-icon table (parsed from raw icns stream)
+================================================================
+
+--- Yinghua.icns (01 MINIMAL, 93839 bytes) ---
+=== /Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/Yinghua.icns ===
+  Container: icns, header declares 93839 bytes (on-disk 93839 bytes, matches).
+  Sub-icon table:
+    ic12  bytes=   1485  → 32x32@2x (PNG, 64 px)
+    ic07  bytes=   3057  → 128x128 (PNG, 128 px)
+    ic13  bytes=   6602  → 128x128@2x (PNG, 256 px)
+    ic08  bytes=   6602  → 256x256 (PNG/JP2, 256 px)
+    ic04  bytes=    345  → 16x16 (PNG, 16 px)
+    ic14  bytes=  15065  → 256x256@2x (PNG/JP2, 512 px)
+    ic09  bytes=  15065  → 512x512 (PNG/JP2, 512 px)
+    ic05  bytes=    745  → 32x32 (PNG, 32 px)
+    ic10  bytes=  43778  → 512x512@2x (PNG/JP2, 1024 px — App Store master)
+    ic11  bytes=    769  → 16x16@2x (PNG, 32 px)
+    info  bytes=    318  → info metadata (plist, not an image)
+
+--- Yinghua-gradient.icns (02 GRADIENT, 314291 bytes) ---
+=== /Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/Yinghua-gradient.icns ===
+  Container: icns, header declares 314291 bytes (on-disk 314291 bytes, matches).
+  Sub-icon table:
+    ic12  bytes=   2997  → 32x32@2x (PNG, 64 px)
+    ic07  bytes=   8679  → 128x128 (PNG, 128 px)
+    ic13  bytes=  22834  → 128x128@2x (PNG, 256 px)
+    ic08  bytes=  22834  → 256x256 (PNG/JP2, 256 px)
+    ic04  bytes=    804  → 16x16 (PNG, 16 px)
+    ic14  bytes=  56595  → 256x256@2x (PNG/JP2, 512 px)
+    ic09  bytes=  56595  → 512x512 (PNG/JP2, 512 px)
+    ic05  bytes=   2001  → 32x32 (PNG, 32 px)
+    ic10  bytes= 139427  → 512x512@2x (PNG/JP2, 1024 px — App Store master)
+    ic11  bytes=   1199  → 16x16@2x (PNG, 32 px)
+    info  bytes=    318  → info metadata (plist, not an image)
+
+================================================================
+4. Round-trip: icns → iconset → pixel-dim check on every sub-icon
+================================================================
+
+(Round-trip extracted to _extracted-verify/. Below: pixel sizes of each sub-icon.)
+
+--- Yinghua (01 MINIMAL) extracted sub-icons ---
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/_extracted-verify/Yinghua.iconset/icon_128x128.png   pixelWidth: 128   pixelHeight: 128 
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/_extracted-verify/Yinghua.iconset/icon_128x128@2x.png   pixelWidth: 256   pixelHeight: 256 
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/_extracted-verify/Yinghua.iconset/icon_16x16.png   pixelWidth: 16   pixelHeight: 16 
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/_extracted-verify/Yinghua.iconset/icon_16x16@2x.png   pixelWidth: 32   pixelHeight: 32 
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/_extracted-verify/Yinghua.iconset/icon_256x256.png   pixelWidth: 256   pixelHeight: 256 
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/_extracted-verify/Yinghua.iconset/icon_256x256@2x.png   pixelWidth: 512   pixelHeight: 512 
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/_extracted-verify/Yinghua.iconset/icon_32x32.png   pixelWidth: 32   pixelHeight: 32 
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/_extracted-verify/Yinghua.iconset/icon_32x32@2x.png   pixelWidth: 64   pixelHeight: 64 
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/_extracted-verify/Yinghua.iconset/icon_512x512.png   pixelWidth: 512   pixelHeight: 512 
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/_extracted-verify/Yinghua.iconset/icon_512x512@2x.png   pixelWidth: 1024   pixelHeight: 1024 
+
+--- Yinghua-gradient (02 GRADIENT) extracted sub-icons ---
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/_extracted-verify/Yinghua-gradient.iconset/icon_128x128.png   pixelWidth: 128   pixelHeight: 128 
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/_extracted-verify/Yinghua-gradient.iconset/icon_128x128@2x.png   pixelWidth: 256   pixelHeight: 256 
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/_extracted-verify/Yinghua-gradient.iconset/icon_16x16.png   pixelWidth: 16   pixelHeight: 16 
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/_extracted-verify/Yinghua-gradient.iconset/icon_16x16@2x.png   pixelWidth: 32   pixelHeight: 32 
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/_extracted-verify/Yinghua-gradient.iconset/icon_256x256.png   pixelWidth: 256   pixelHeight: 256 
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/_extracted-verify/Yinghua-gradient.iconset/icon_256x256@2x.png   pixelWidth: 512   pixelHeight: 512 
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/_extracted-verify/Yinghua-gradient.iconset/icon_32x32.png   pixelWidth: 32   pixelHeight: 32 
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/_extracted-verify/Yinghua-gradient.iconset/icon_32x32@2x.png   pixelWidth: 64   pixelHeight: 64 
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/_extracted-verify/Yinghua-gradient.iconset/icon_512x512.png   pixelWidth: 512   pixelHeight: 512 
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/_extracted-verify/Yinghua-gradient.iconset/icon_512x512@2x.png   pixelWidth: 1024   pixelHeight: 1024 
+
+================================================================
+5. Source SVG → PNG fidelity
+================================================================
+
+Source SVGs (C10 master):
+-rw-r--r--@ 1 zzw4257  staff  2466 Aug 23 01:35 /Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/../C10_vector-icon/icon-01-minimal__260823.svg
+-rw-r--r--@ 1 zzw4257  staff  2796 Aug 23 01:35 /Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/../C10_vector-icon/icon-02-gradient__260823.svg
+
+Rasterized PNGs in individual/01-minimal:
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/individual/01-minimal/icon_1024.png   pixelWidth: 1024   pixelHeight: 1024 
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/individual/01-minimal/icon_128.png   pixelWidth: 128   pixelHeight: 128 
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/individual/01-minimal/icon_16.png   pixelWidth: 16   pixelHeight: 16 
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/individual/01-minimal/icon_256.png   pixelWidth: 256   pixelHeight: 256 
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/individual/01-minimal/icon_32.png   pixelWidth: 32   pixelHeight: 32 
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/individual/01-minimal/icon_512.png   pixelWidth: 512   pixelHeight: 512 
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/individual/01-minimal/icon_64.png   pixelWidth: 64   pixelHeight: 64 
+
+Rasterized PNGs in individual/02-gradient:
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/individual/02-gradient/icon_1024.png   pixelWidth: 1024   pixelHeight: 1024 
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/individual/02-gradient/icon_128.png   pixelWidth: 128   pixelHeight: 128 
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/individual/02-gradient/icon_16.png   pixelWidth: 16   pixelHeight: 16 
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/individual/02-gradient/icon_256.png   pixelWidth: 256   pixelHeight: 256 
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/individual/02-gradient/icon_32.png   pixelWidth: 32   pixelHeight: 32 
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/individual/02-gradient/icon_512.png   pixelWidth: 512   pixelHeight: 512 
+/Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon/design/_exploration/C28_mas-icon-icns/individual/02-gradient/icon_64.png   pixelWidth: 64   pixelHeight: 64 
+
+================================================================
+6. PASS / FAIL checklist
+================================================================
+
+[PASS] Yinghua.icns            : 93839 bytes, ic12 type, 10 sub-icons + 1 info
+[PASS] Yinghua-gradient.icns   : 314291 bytes, ic12 type, 10 sub-icons + 1 info
+[PASS] All 7 unique raster sizes (16/32/64/128/256/512/1024) generated for each variant
+[PASS] .iconset has 10 files per variant (32/64/256/512 used twice — base + @2x mapping)
+[PASS] iconutil round-trip: each .icns decodes back to 10 named PNGs with correct pixel dims
+[PASS] All 10 sub-icon pixel dimensions in extracted .iconset match their declared size
+[PASS] Y geometry inherited verbatim from C10 (single <path>, 22.4% squircle, stroke-width 58)

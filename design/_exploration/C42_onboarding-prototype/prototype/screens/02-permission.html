@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>映话 · 授权访问</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;0,600;0,700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+<body>
+  <main class="screen" data-screen="02-permission">
+    <div class="progress-dots" aria-label="Onboarding progress · step 2 of 4">
+      <span class="progress-dot"></span>
+      <span class="progress-dot"></span>
+      <span class="progress-dot"></span>
+      <span class="progress-dot"></span>
+    </div>
+
+    <div class="screen-body">
+      <h1 class="title small">授权访问</h1>
+      <p class="subtitle">映话需要以下 macOS 权限才能录制和转录你的会议</p>
+
+      <ul class="perm-list" role="list">
+        <!-- 麦克风 · 已授权 -->
+        <li class="perm-card" data-perm="microphone">
+          <div class="perm-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="3" width="6" height="12" rx="3" />
+              <path d="M5 11a7 7 0 0 0 14 0" />
+              <path d="M12 18v3" />
+              <path d="M8 21h8" />
+            </svg>
+          </div>
+          <div class="perm-info">
+            <span class="perm-name">麦克风</span>
+            <span class="perm-desc">录制系统音频 + 麦克风</span>
+          </div>
+          <span class="pill granted">Granted</span>
+        </li>
+
+        <!-- 屏幕录制 · 待授权 -->
+        <li class="perm-card" data-perm="screen">
+          <div class="perm-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="14" rx="2" />
+              <path d="M8 21h8" />
+              <path d="M12 18v3" />
+              <rect x="9" y="8" width="6" height="6" rx="1" />
+            </svg>
+          </div>
+          <div class="perm-info">
+            <span class="perm-name">屏幕录制</span>
+            <span class="perm-desc">捕获应用和会议的系统音频</span>
+          </div>
+          <span class="pill pending">Pending</span>
+        </li>
+
+        <!-- 通知 · 可选 -->
+        <li class="perm-card" data-perm="notifications">
+          <div class="perm-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
+              <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" />
+            </svg>
+          </div>
+          <div class="perm-info">
+            <span class="perm-name">通知</span>
+            <span class="perm-desc">会后温和提醒</span>
+          </div>
+          <span class="pill optional">Optional</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="screen-footer">
+      <button class="btn-primary" type="button" onclick="YH.go('03-byok.html')">继续</button>
+      <a class="ghost-link" href="#" onclick="event.preventDefault(); YH.go('03-byok.html')">稍后再说</a>
+    </div>
+  </main>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

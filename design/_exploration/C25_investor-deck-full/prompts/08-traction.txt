@@ -1,0 +1,106 @@
+PAGE 08 — "进度" (Traction / Milestones slide)
+
+A 16:9, 4K ultra high resolution investor deck slide. Pure dark aurora wallpaper background (deep purple at the upper-left fading through teal/cyan at the lower-right, soft subtle aurora ribbon curves, NOT cyberpunk, NOT neon, NOT a starry galaxy, NOT outer space). The slide is a CLEAN editorial slide — no macOS menu bar, no dock. Just the aurora backdrop with milestone timeline content laid on top.
+
+# LAYOUT GRID
+- Top 0%–25% of the canvas: header band
+  - Upper-LEFT corner (small, ~64px squircle, 40px from top, 40px from left): a small dark glass app icon squircle (22.4% corner radius) containing a single letter "Y" rendered in a vivid purple-to-teal diagonal gradient (135deg, vivid purple #B57BFF → mid purple #8A5BFF → vivid teal #2DD4BF). The Y is a clean letterform: V-shape converging to a single point with a straight vertical stem below, no serifs, no glow, no halos, no decorations.
+  - To the right of the icon: small wordmark in white (JetBrains Mono): "YINGHUA · 映话"
+  - Centered horizontally in the header band: the slide title "进度" rendered in warm white (#F4F1EC), 64pt, semibold, SF Pro Display family, single line, NO quotation marks around the title.
+  - Far UPPER-RIGHT (small, JetBrains Mono 12pt, 45% white): "Investor Brief · 2026"
+  - Below the title, a short horizontal gradient line (120px wide, 2px tall, vivid purple-to-teal diagonal gradient), centered.
+
+- Middle 25%–92% of the canvas: the BODY, divided into a LEFT half (4 stacked progress / metric rows) and a RIGHT half (a vertical timeline of milestones).
+
+  ## LEFT 45% of body: 4 PROGRESS / METRIC ROWS
+  - 4 horizontal dark glass cards stacked vertically, each ~22% of body height, with 12px corner radius, 1px hairline border in warm-white at 8% opacity, dark glass at 65% opacity. Each card top to bottom contains:
+    1. A left-aligned small uppercase English label in JetBrains Mono 13pt, warm-white at 60% opacity, ALL CAPS:
+       - Row 1: "DARK SHIPPABLE"
+       - Row 2: "LIGHT SHIPPABLE"
+       - Row 3: "ONBOARDING"
+       - Row 4: "DESIGN AUDIT"
+    2. A right-aligned small Chinese description in 14pt warm-white at 75% opacity, Noto Sans SC:
+       - Row 1: "5 张深色产品图 · C15 完"
+       - Row 2: "5 张浅色产品图 · C16 完"
+       - Row 3: "3 屏 onboarding · C17 完"
+       - Row 4: "4 轮 design audit · 0 fail"
+    3. A thin horizontal PROGRESS BAR in the lower portion of the card: a track (full width, 4px tall, warm-white at 12% opacity rounded ends) with a filled portion (rounded ends, SOLID purple #8A5BFF, no gradient). Fill percentage from left:
+       - Row 1: 100% (fully filled, ends flush with the right edge of the track)
+       - Row 2: 100% (fully filled)
+       - Row 3: 100% (fully filled)
+       - Row 4: 100% (fully filled)
+    4. A small percentage label on the right end of the bar in JetBrains Mono 13pt, warm-white at 60% opacity: "100%".
+
+  ## RIGHT 55% of body: VERTICAL TIMELINE
+  - A thin vertical timeline line (1px wide, warm-white at 30% opacity) running down the left side of the right zone, from top to bottom. 5 milestone dots on this line, evenly spaced:
+    - Dot 1 (top, 20% from top): solid teal #2DD4BF, 8px diameter.
+    - Dot 2 (35%): solid teal #2DD4BF, 8px.
+    - Dot 3 (50%): solid teal #2DD4BF, 8px.
+    - Dot 4 (65%): solid teal #2DD4BF, 8px.
+    - Dot 5 (80%): a small hollow ring (1px teal outline, 8px diameter, no fill) — this marks the CURRENT position. Next to dot 5, in addition to its standard content, add a small uppercase English label "TODAY" in JetBrains Mono 11pt teal #2DD4BF to its right.
+  - To the RIGHT of each milestone dot, a small content block (left-aligned, ~5% offset from the dot). Each block contains:
+    1. A small uppercase English month label in JetBrains Mono 12pt, warm-white at 50% opacity, ALL CAPS:
+       - Dot 1: "MAY 2026"
+       - Dot 2: "JUN 2026"
+       - Dot 3: "JUL 2026"
+       - Dot 4: "AUG 2026"
+       - Dot 5: "SEP 2026"
+    2. A 1-line milestone title in 18pt, warm white, semibold, Noto Serif SC for Chinese:
+       - Dot 1: "品牌资产"
+       - Dot 2: "设计系统"
+       - Dot 3: "5 深 + 5 浅"
+       - Dot 4: "Marketing 套件"
+       - Dot 5: "种子轮"
+    3. A 1-line English sub-caption in JetBrains Mono 12pt, warm-white at 50% opacity:
+       - Dot 1: "Brand kit · 12 SVG"
+       - Dot 2: "Design tokens · 117"
+       - Dot 3: "10 shippable surfaces"
+       - Dot 4: "Landing + Twitter + Email + Deck"
+       - Dot 5: "$2M · 18-month runway"
+
+  ## BELOW THE LEFT/RIGHT ZONES — SHORT KICKER
+  - At the bottom of the body band (above the 8% margin), draw a thin horizontal hairline divider (1px, warm-white at 8% opacity) spanning ~80% of the slide width, centered. Below this divider, place a small centered caption in 14pt warm-white at 60% opacity: "Shipped 4 of 4 milestones · 100% on plan". Single line, centered.
+
+- Bottom 92%–100% of the canvas: BOTTOM MARGIN (8% empty). Do NOT place any content in this band except the page number in the lower-right corner.
+
+# PAGE NUMBER
+- Lower-right corner, ~40px from right edge, ~32px from bottom: small page number text in JetBrains Mono 14pt, warm-white at 35% opacity, EXACTLY the string "08 / 10" (with a single space on each side of the slash). This is the ONLY text in the bottom 8% band.
+
+# TYPE & LANGUAGE POLICY
+- All Chinese text is REAL Simplified Chinese, rendered correctly with proper Chinese characters.
+- Month abbreviations are standard English (MAY / JUN / JUL / AUG / SEP), no Chinese month names.
+- Numbers like "5" / "10" / "12" / "117" / "2" / "18" are rendered as plain integers.
+- The "Y" letterform in the corner icon is a single capital Latin letter Y.
+
+# ABSOLUTE PROHIBITIONS (D1 §7 anti-patterns)
+- No waveform, no EKG, no sine wave, no audio visualizer anywhere.
+- No "AI" word rendered as a standalone icon, no "STYLE 1" label, no "TEST" / "Sample" / "Placeholder" labels.
+- No font-size spec text like "14pt" / "600" / "regular" rendered as visible UI text.
+- No two-circle / infinity / chat-bubble mark.
+- No cyberpunk glow, no neon outlines, no floating sparkles, no halo.
+- ABSOLUTELY NO PIE CHART. NO DONUT CHART. NO GAUGE. NO RADAR CHART. The progress bars are HORIZONTAL bars, not circular gauges.
+- No "Bento" framed box with bold left-side label, no marketing words like 洞察/赋能/智能化/效率提升/全局掌控/AI 驱动.
+- No multi-color neon.
+- No literal single letter "X" used as a data placeholder.
+- No emoji used as icon. No real-person face. No product logo besides the Y mark.
+- No "AI" letters as an icon.
+- No watermark, no caption, no footer other than the page number.
+
+# PALETTE
+- Background: very dark, near-black with aurora wash.
+- Card glass (left zone): #0A0A0F at 65% opacity, 1px border #F4F1EC at 8% opacity.
+- Progress bar track: #F4F1EC at 12% opacity.
+- Progress bar fill: SOLID purple #8A5BFF (no gradient).
+- Timeline line: #F4F1EC at 30% opacity.
+- Milestone dots: solid teal #2DD4BF.
+- "TODAY" dot: hollow ring, teal #2DD4BF at 100% outline.
+- Title: #F4F1EC.
+- Milestone titles: #F4F1EC.
+- Milestone English captions: #F4F1EC at 50% opacity.
+- Bottom kicker: #F4F1EC at 60% opacity.
+- Page number: #F4F1EC at 35% opacity.
+- ONLY these colors plus the aurora wash.
+
+# ASPECT & RESOLUTION
+- 16:9 aspect ratio, 4K ultra high resolution (5504 × 3072 effective output).
+- No letterbox, no border, no frame.

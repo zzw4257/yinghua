@@ -1,0 +1,50 @@
+Professional product screenshot of a macOS 26 desktop in LIGHT MODE showing the Yinghua (映话) app during a meeting recording, captured as a marketing-quality product screenshot.
+
+## BASE macOS LAYER (must be IDENTICAL to ref-01-macos-base and ref-02-dock-system, but in light mode)
+
+The desktop wallpaper is a real macOS-style LIGHT AURORA — predominantly warm cream off-white (#F4F1EC) at the edges, with a soft low-saturation aurora wash (pale purple top-left ~12% saturation, pale teal bottom-right ~12% saturation), no stars, no dark sky, no neon. Subtle warm white gradient throughout, like a real macOS Tahoe Sonoma light wallpaper.
+
+WHITE FROSTED menu bar at top (NOT black): translucent white panel with a 1px hairline #1B1D22 @ 8% border at the bottom edge. Left side items in GRAPHITE color #1B1D22: Apple logo, then "Finder  File  Edit  View  Window  Help" (plain English). Right side status icons in graphite: battery, Wi-Fi, search, control center, and clock reading "21:42".
+
+A WHITE FROSTED glass Dock sits at the bottom center of the screen, with EXACTLY these 11 icons in this order, all proper macOS system app icons (NOT generic placeholders). The Dock surface is translucent white with 1px #1B1D22 @ 8% hairline border and subtle blur: Finder (blue-white face), Safari (compass blue), Messages (green speech bubble), Mail (blue envelope), Notes (yellow notepad), Calendar (white page with "26" in red — make sure the "26" is clearly readable as numerals, not random characters), Reminders (white list with red/yellow/green dots), Maps (map with roads), Music (red note on white), System Settings (gray gear), separator dot, then Yinghua app icon (white Y on subtle aurora gradient squircle, small magenta dot below indicating running).
+
+## APP WINDOW — MEETING IN PROGRESS (centered, ~70% of desktop)
+
+A single macOS window (NOT multiple windows) with three standard traffic light buttons (red close, yellow minimize, green maximize) on the upper left. The window has WHITE / VERY LIGHT GLASS material (vibrancy — like a real macOS .regularMaterial in light mode), with a 1px #1B1D22 @ 8% hairline border and 14px corner radius. The aurora tint wash is very subtle (10% opacity purple→teal) on top of the white glass.
+
+### MAIN MEETING AREA (left ~70% of window)
+- A 2x2 video grid of 4 meeting participants. Each video tile is a soft rounded rectangle (~12px radius) with a thin 1px #1B1D22 @ 8% border. The participant silhouettes inside are rendered with a soft gradient (pale purple / pale teal / pale pink / pale amber) — the silhouettes are clearly visible against a light background, not too dark. Each tile has a small name pill at the bottom-left in graphite text (e.g. "Speaker 1", "Speaker 2", "Speaker 3", "Speaker 4" — keep names simple and in English, Figma will replace).
+- At the very bottom of the meeting area, a row of circular icon buttons (mic, video, share, chat, end-call red) sitting on a glass surface — mic is white glass, end-call is solid red #FF3B30 with white phone icon.
+
+### FLOATING CONTROL PANEL (bottom-left, partially overlapping the meeting area, NSPanel-style)
+A small floating glass card. The card is WHITE frosted glass (light material) with 1px #1B1D22 @ 8% border and 14px corner radius. 4 horizontal sections separated by 1px hairlines:
+- Section 1 (status): a small red REC dot (#FF3B30), then "REC" in graphite, then "02:34" in monospace JetBrains Mono.
+- Section 2 (transport): 3 circular icon buttons — pause, stop (this one is PRIMARY with a glowing purple ring around it, showing the recording is active), play.
+- Section 3 (secondary): 3 small circular icon buttons — settings (gear), share, close (X).
+- The panel MUST NOT contain any waveform, sine wave, EKG, or audio visualizer — only the red REC dot + timecode conveys "recording".
+
+### TRANSCRIPT PANEL (right side, ~30% of window)
+A vertical white glass panel with 1px border. Header row: small "TRANSCRIPT" label in graphite, and a small settings gear icon on the right.
+Below header, 6 transcript rows stacked vertically. Each row has:
+- Left: STYLE 1 speaker avatar — solid color circle (purple #8A5BFF, teal #2DD4BF, pink #FF6FA9) with a single capital letter in white SF Pro Text 600 inside. Circle size ~32px.
+- Middle: bold speaker name in graphite (use simple names like "Alex", "Mei", "Sam", "Pat", "Lee", "Jo" — keep them short and Figma-replaceable) on the left, and a small monospace timecode like "02:34:19" in graphite @ 65% on the right.
+- Below the name: 1-2 lines of placeholder text in graphite @ 65% (use "Lorem ipsum dolor sit amet" — don't try to render real content).
+
+## STRICT RULES (must follow)
+- This is LIGHT MODE macOS — warm cream wallpaper, white glass surfaces, graphite text. NOT a dark mode with inverted colors.
+- The base macOS layer (light wallpaper, white menu bar, white Dock with 11 system icons) must be IDENTICAL to the reference layout but in light colors — do NOT make it dark.
+- Use ONLY STYLE 1 speaker avatars (solid color circle with single capital letter, NO gradient backgrounds, NO 3D effects).
+- NO waveform, NO EKG, NO sine wave, NO audio bar, NO ekg-style visualization anywhere in the window — only red REC dot + timecode in the control panel.
+- NO cyberpunk glow, NO neon outlines, NO holographic effects, NO dark sky stars.
+- NO "AI" text burned into the image.
+- NO two-circle-overlap chat icon. NO sparkles decoration sprinkled around. Sparkle is NOT used in this scene.
+- All visible text in English — no need to render Chinese characters (Figma pass will overlay them).
+- Window surface: white/light glass with very subtle aurora tint vibrancy (~10% opacity), 14px corner radius, 1px #1B1D22 @ 8% hairline border.
+- Speaker name font: SF Pro Display style, weight 600, graphite #1B1D22.
+- Body text: SF Pro Text style, weight 400, graphite #1B1D22 @ 65%.
+- Brand purple-to-teal gradient: the STOP button (transport) and Yinghua app icon use the same purple-to-teal gradient as the brand.
+- The single visible main window is centered; the floating control panel and the in-window mic/video button row are the only secondary surfaces.
+- Real macOS feel: looks like a real SwiftUI meeting app, not a web app overlay.
+- Aspect ratio 16:9, 2K resolution.
+
+Output: a single product-quality screenshot, no text overlays, no watermark, no captions.

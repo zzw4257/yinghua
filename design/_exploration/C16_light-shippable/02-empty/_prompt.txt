@@ -1,0 +1,74 @@
+Professional product screenshot of a macOS desktop in LIGHT MODE showing the Yinghua app empty-state home window (no meeting is running), captured as a marketing-quality product screenshot.
+
+## BASE macOS LAYER (light mode)
+
+Desktop wallpaper: warm cream off-white at the edges, with a soft low-saturation aurora wash (pale purple top-left, pale teal bottom-right). No stars, no dark sky, no neon. Subtle warm white gradient throughout, like a real macOS Sonoma light wallpaper.
+
+Menu bar (top, white frosted glass): translucent white panel with a 1px hairline border at the bottom edge. Left side items in dark graphite color: Apple logo, then the active app name "Yinghua" followed by "File  Edit  View  Window  Help". Right side status icons in graphite: Control Center, Battery, Wi-Fi, Search, and clock reading EXACTLY "21:42".
+
+DOCK (bottom center, white frosted glass with 1px graphite hairline) — STRICT 12-ELEMENT LIST, NOTHING MORE, NOTHING LESS, IN THIS EXACT ORDER:
+Position 1: Finder icon (blue-white smiling face).
+Position 2: Safari icon (blue compass).
+Position 3: Messages icon (green speech bubble).
+Position 4: Mail icon (blue envelope).
+Position 5: Notes icon (yellow notepad with lines).
+Position 6: Calendar icon (white page, large red number "26" in the center, small grey day name "MON" below — MON must be a real weekday like MON/TUE/WED/THU/FRI/SAT/SUN, NOT gibberish).
+Position 7: Reminders icon (white list with colored dots).
+Position 8: Maps icon (stylized map with roads).
+Position 9: Music icon (red note on white background).
+Position 10: System Settings icon (grey gear).
+Position 11: small separator dot (a thin vertical line or small dot indicating the system/user app boundary).
+Position 12: the Yinghua app icon (a stylized letter Y on a purple-to-teal gradient squircle, with a small magenta active dot below indicating the app is running).
+
+ABSOLUTELY NO OTHER ICONS in the dock. NO Launchpad. NO Contacts. NO Photos. NO Trash. NO FaceTime. NO TV. NO App Store. NO Numbers. NO Pages. NO Keynote. NO iMovie. NO GarageBand. NO Address Book. NO Mail plane variants. Exactly 12 items total — count them: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12. Nothing past position 12.
+
+## APP WINDOW — EMPTY STATE
+
+A single centered macOS window (the only window), ~75% of desktop width, with three standard traffic light buttons (red close, yellow minimize, green maximize) on the upper left. The window has white frosted glass material, with a 1px graphite hairline border and 14px corner radius. The aurora tint wash is very subtle (a soft purple-to-teal tint) on top of the white glass.
+
+The window is a 3-column layout:
+
+### LEFT SIDEBAR (~12% width) — Vertical icon nav
+A column of 4 circular glass nav buttons stacked vertically, centered. Each button is a white frosted glass circle (~48px diameter) with a 1px graphite border and a small graphite icon inside (mic, chat-bubble, book, gear — in this order top to bottom). The TOP button (mic) is ACTIVE — it has a soft purple-to-teal gradient background and a small magenta dot below it. The other 3 buttons are inactive (white glass only). NO text labels on these nav buttons — they are icon-only.
+
+### CENTER (~55% width) — Hero empty state with 2x2 big action tiles
+Section title (centered above the tiles, in dark graphite): the Chinese text "新建录制". No English subtitle. No font names. No metadata.
+
+Below the title, a 2x2 grid of 4 large rounded square tiles (~28% of window width each, ~180px tall), each white frosted glass with 1px graphite border and 16px corner radius. Each tile has a single small graphite icon centered and ONE single Chinese label below the icon in a slightly lighter graphite tone (NOT pure black, NOT a meta label like a number, opacity value, font name, weight, or style name). The 4 tile labels in order:
+- Top-left tile (mic icon): Chinese text "开始录制"
+- Top-right tile (upload icon): Chinese text "导入音频"
+- Bottom-left tile (book icon): Chinese text "查看文档"
+- Bottom-right tile (share icon): Chinese text "分享"
+
+The top-left tile is subtly highlighted with a faint purple-to-teal aurora glow to suggest it is the primary action. The tiles are evenly spaced with 16px gap.
+
+### RIGHT SIDEBAR (~33% width) — Recent recordings list
+Column header: Chinese text "最近录音" in dark graphite. Thin 1px hairline divider below the header. NO English subtitle, NO font name, NO metadata text.
+
+Below the header, 3 recent recording rows stacked vertically. Each row is a white glass card (~64px tall) with 1px graphite border and 12px corner radius. Each row has:
+- Left: a small file icon (rounded purple Y file icon, ~28px).
+- Middle: a recording title in dark graphite (use these exact Chinese names: "面试-张同学-前端-终面", "组会-产品-周三", "客户沟通-周老师"), and a subtitle in a slightly lighter graphite tone (use these exact Chinese time labels: "今天 14:30 · 48 分钟", "昨天 10:00 · 22 分钟", "8月20日 · 15 分钟").
+- Right: a small "打开" text button in lighter graphite (no fill, just text — this is a GHOST button style). "打开" means "Open" in Chinese.
+
+The right column should feel light and airy with consistent vertical spacing.
+
+## STRICT RULES (must follow)
+
+- This is LIGHT MODE macOS — warm cream wallpaper, white glass surfaces, graphite text. NOT dark mode with inverted colors.
+- Do NOT render any text that appears inside this prompt itself. Specifically forbidden visible text: "STYLE", "PRIMARY", "graphite", any percentage symbol "%" or any number followed by a percent sign, "14pt", "15pt", "18pt", "32pt", any number followed by "pt", "600", "400", "AI", "node", "TEST", "Sample", "Placeholder", "SF Pro", "JetBrains Mono", "vibrancy", "regularMaterial", "regular material", "Recording", "Today", "Open", "New", "Recent", "Lighter", "secondary tone", or any other design-system metadata, font name, font size, weight spec, color name, or opacity value.
+- Do NOT render brand names as icon glyphs.
+- Do NOT invent labels for app menu names, status bars, or dock indicators. If you don't know what the macOS UI text should be, leave that area empty.
+- The Dock calendar app icon must show the number "26" + a real weekday (MON/TUE/WED/THU/FRI/SAT/SUN). Do NOT render gibberish.
+- All visible UI text inside the app window must be in real Simplified Chinese, using real word combinations. NEVER random character fragments, NEVER lorem ipsum, NEVER English UI labels (except macOS-level: Yinghua/File/Edit/View/Window/Help).
+- The 4 left nav buttons are ICON-ONLY — no text under or beside the icons.
+- The 2x2 center tiles each have icon + 1 line of Chinese placeholder only — no big marketing language, no English subtitles, NO meta labels (no percentage, no font name, no size spec).
+- The right column "最近录音" header should be the only header in that column — do not duplicate.
+- Use the same purple-to-teal brand gradient (vivid purple to teal) for the active mic nav button and the top-left tile's subtle highlight.
+- NO waveform, NO EKG, NO sine wave anywhere.
+- NO cyberpunk glow, NO neon outlines, NO holographic effects, NO dark sky stars.
+- NO "AI" text burned into the image.
+- NO two-circle-overlap chat icon. NO sparkles decoration sprinkled around.
+- The single visible main window is centered; nothing else floats over the desktop.
+- Aspect ratio 16:9, 4K resolution.
+
+Output: a single product-quality screenshot, no text overlays, no watermark, no captions, no prompt artifacts.

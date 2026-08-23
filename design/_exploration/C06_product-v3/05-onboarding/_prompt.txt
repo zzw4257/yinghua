@@ -1,0 +1,44 @@
+Professional product screenshot of a macOS 26 desktop showing the Yinghua (映话) app first-launch welcome window, captured as a marketing-quality product screenshot.
+
+## BASE macOS LAYER (must be IDENTICAL to ref-01-macos-base and ref-02-dock-system)
+
+The desktop wallpaper is a real macOS-style dark aurora over a starry sky — predominantly deep purple at left transitioning to teal/cyan at right, with subtle aurora ribbon curves. Black menu bar at top with system status items: Apple logo, "File Edit View Window Help" (plain English, not styled icons), battery icon, Wi-Fi icon, search icon, control center icon, and clock reading "09:42". All system status text in white. A glass Dock sits at the bottom center of the screen, with EXACTLY these 11 icons in this order, all proper macOS system app icons (NOT generic placeholders): Finder (blue-white face), Safari (compass blue), Messages (green speech bubble), Mail (blue envelope), Notes (yellow notepad), Calendar (white page with "26" in red), Reminders (white list with red/yellow/green dots), Maps (map with roads), Music (red note on white), System Settings (gray gear), separator dot, then Yinghua app icon (purple aurora Y on dark glass, small magenta dot below indicating running). The Dock is glass with subtle blur. Three small dots indicator at the very bottom of the Dock area.
+
+## APP WINDOW — FIRST-LAUNCH WELCOME (centered, ~55% of desktop width)
+
+A single macOS window (NOT multiple windows) with three standard traffic light buttons (red close, yellow minimize, green maximize) on the upper left. The window is taller than wide (~3:4 ratio), centered horizontally, with dark glass material (vibrancy) and 14px corner radius.
+
+### CONTENT (centered, vertical stack)
+
+- **Brand mark**: A 96x96 square with 22px corner radius, dark glass surface with subtle aurora gradient inside, containing the Yinghua Y mark in white (same style as the Dock icon, just larger). NO glow, NO halo, NO sparkles around it.
+
+- **Brand name**: "Yinghua" in SF Pro Display, weight 600, white, ~32pt, with a small "映话" subtitle below in slightly muted white, ~14pt regular. (Use the English "Yinghua" + a small Chinese subtitle "映话" — the model can render both; the main title is English to avoid relying on Chinese rendering.)
+
+- **Tagline**: One line of plain SF Pro Text, weight 400, ~15pt, muted gray (~70% white): "Local-first meeting intelligence for Mac."
+
+- **3 feature bullets** (no icons, just text rows, generous spacing ~14px between):
+  - "Record system audio + mic, fully on-device"
+  - "Live transcript with speaker labels"
+  - "AI summary, decisions, and action items"
+  Each row starts with a tiny purple dot (4px), then the text.
+
+- **Single hero CTA**: A wide purple-to-teal gradient button, ~360px wide, ~48px tall, 12px corner radius, label "Get started" in white SF Pro Text 600 15pt, with a small right-arrow icon. This is the ONLY primary button in the window.
+
+- **Secondary link below CTA**: A small "I already have an account" ghost text link (gray, underlined on hover — show as gray, no underline in static screenshot).
+
+- **At the very bottom of the window**: A 3-dot progress indicator showing step 1 of 3, where dot 1 is solid purple (active), dots 2 and 3 are small gray hollow circles. Centered, ~16px above the window bottom edge.
+
+## STRICT RULES (must follow)
+- The base macOS layer (menu bar text, Dock with 11 system icons, aurora wallpaper) must be IDENTICAL to the reference images — not invented.
+- This is a MINIMAL window. Do NOT add sidebar, do NOT add toolbar with multiple icons, do NOT add search box, do NOT add preferences. The window has ONLY the brand block + tagline + 3 bullets + 1 CTA + 1 ghost link + 3-dot progress.
+- NO waveform, NO EKG, NO sine wave anywhere.
+- NO cyberpunk glow, NO neon outlines, NO holographic effects, NO "futuristic" decoration.
+- NO "AI" text burned into the image except the word "AI" inside the third bullet "AI summary, decisions, and action items" — and even there, render it small, not as decoration.
+- NO sparkles decoration around the brand mark. NO halo. NO glow ring.
+- Use the same purple-to-teal gradient for the CTA as the Yinghua brand Y (consistent with all other v3 product images).
+- All visible text in English — no need to render Chinese characters (the Figma pass will overlay "映话" properly).
+- Window surface: dark glass with aurora-tinted vibrancy, ~70% opacity, 14px corner radius.
+- Real macOS feel: looks like a real SwiftUI welcome sheet, not a web landing page overlay.
+- Aspect ratio 16:9, 2K resolution.
+
+Output: a single product-quality screenshot, no text overlays, no watermark, no captions.

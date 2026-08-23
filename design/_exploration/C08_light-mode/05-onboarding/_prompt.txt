@@ -1,0 +1,53 @@
+Professional product screenshot of a macOS 26 desktop in LIGHT MODE showing the Yinghua (映话) app first-launch welcome window, captured as a marketing-quality product screenshot.
+
+## BASE macOS LAYER (must be IDENTICAL to ref-01-macos-base and ref-02-dock-system, but in light mode)
+
+The desktop wallpaper is a real macOS-style LIGHT AURORA — predominantly warm cream off-white (#F4F1EC) at the edges, with a soft low-saturation aurora wash (pale purple top-left ~12% saturation, pale teal bottom-right ~12% saturation), no stars, no dark sky, no neon. Subtle warm white gradient throughout, like a real macOS Tahoe Sonoma light wallpaper.
+
+WHITE FROSTED menu bar at top (NOT black): translucent white panel with a 1px hairline #1B1D22 @ 8% border at the bottom edge. Left side items in GRAPHITE color #1B1D22: Apple logo, then "Finder  File  Edit  View  Window  Help" (plain English). Right side status icons in graphite: battery, Wi-Fi, search, control center, and clock reading "09:42".
+
+A WHITE FROSTED glass Dock sits at the bottom center of the screen, with EXACTLY these 11 icons in this order, all proper macOS system app icons (NOT generic placeholders). The Dock surface is translucent white with 1px #1B1D22 @ 8% hairline border and subtle blur: Finder (blue-white face), Safari (compass blue), Messages (green speech bubble), Mail (blue envelope), Notes (yellow notepad), Calendar (white page with the number "26" in red — make sure the "26" is clearly readable as numerals, not random letters), Reminders (white list with red/yellow/green dots), Maps (map with roads), Music (red note on white), System Settings (gray gear), separator dot, then Yinghua app icon (white Y on subtle aurora gradient squircle, small magenta dot below indicating running).
+
+## APP WINDOW — FIRST-LAUNCH WELCOME (centered, ~45% of desktop width, ~70% of desktop height)
+
+A single macOS window (NOT multiple windows) with three standard traffic light buttons (red close, yellow minimize, green maximize) on the upper left. The window is taller than wide (~3:4 ratio), centered horizontally, with WHITE / VERY LIGHT GLASS material (vibrancy — like a real macOS .regularMaterial in light mode), 1px #1B1D22 @ 8% hairline border, 14px corner radius. The aurora tint wash is very subtle (10% opacity purple→teal) on top of the white glass.
+
+### CONTENT (centered, vertical stack with generous spacing)
+
+- **Brand mark**: A 96x96 square with 22px corner radius (squircle), white frosted glass surface with a SUBTLE purple-to-teal aurora gradient inside, containing the Yinghua Y mark in WHITE (same style as the Dock icon, just larger). NO glow, NO halo, NO sparkles around it. The Y is white on the gradient.
+
+- **Brand name**: "Yinghua" in graphite SF Pro Display weight 600 ~32pt. (No Chinese subtitle — Figma pass will overlay "映话" below later.)
+
+- **Tagline**: One line of plain SF Pro Text, weight 400 ~15pt, in graphite @ 65% opacity: "Local-first meeting intelligence for Mac."
+
+- **3 feature bullets** (no icons, just text rows, generous spacing ~16px between rows):
+  - "Record system audio + mic, fully on-device"
+  - "Live transcript with speaker labels"
+  - "AI summary, decisions, and action items"
+  Each row starts with a tiny 4px solid dot in purple, then the text in graphite.
+
+- **Single hero CTA**: A wide purple-to-teal gradient button, ~360px wide, ~48px tall, 12px corner radius, label "Get started" in white SF Pro Text 600 15pt, with a small right-arrow icon. This is the ONLY primary button in the window. (Do NOT include any font names, sizes, or weights as visible text inside the button — only "Get started" + the arrow icon.)
+
+- **Secondary link below CTA**: A small ghost text link "I already have an account" in graphite @ 65% (no underline in static screenshot, gray text only).
+
+- **At the very bottom of the window, centered, ~16px above the window bottom edge**: A 3-dot progress indicator showing step 1 of 3, where dot 1 is solid purple (active), dots 2 and 3 are small gray hollow circles.
+
+## STRICT RULES (must follow)
+- This is LIGHT MODE macOS — warm cream wallpaper, white glass surfaces, graphite text. NOT a dark mode with inverted colors.
+- The base macOS layer (light wallpaper, white menu bar, white Dock with 11 system icons) must be IDENTICAL to the reference layout but in light colors — do NOT make it dark.
+- Do NOT print any of these as visible text in the image: color names, style names, font names (SF Pro, JetBrains Mono), font sizes (14pt, 15pt, 18pt, 32pt, 600, 400), opacity values (65%, 80%), or any other design-system metadata. Only actual UI text (the brand name, tagline, 3 bullet strings, CTA label, ghost link) should be present.
+- This is a MINIMAL window. Do NOT add a sidebar, do NOT add a toolbar with multiple icons, do NOT add a search box, do NOT add preferences UI. The window has ONLY the brand block + tagline + 3 bullets + 1 CTA + 1 ghost link + 3-dot progress.
+- NO waveform, NO EKG, NO sine wave anywhere.
+- NO cyberpunk glow, NO neon outlines, NO holographic effects, NO "futuristic" decoration, NO dark sky stars.
+- NO "AI" text burned into the image except the word "AI" inside the third bullet "AI summary, decisions, and action items" — and render it small, as part of normal text.
+- NO sparkles decoration around the brand mark. NO halo. NO glow ring.
+- Use the same purple-to-teal gradient for the CTA as the Yinghua brand Y (consistent with all other v3 product images).
+- All visible text in English — no need to render Chinese characters (the Figma pass will overlay "映话" below "Yinghua" later).
+- Window surface: white/light glass with very subtle aurora tint vibrancy (~10% opacity), 14px corner radius, 1px #1B1D22 @ 8% hairline border.
+- Title text: SF Pro Display style, weight 600, graphite #1B1D22.
+- Body text: SF Pro Text style, weight 400, graphite #1B1D22 with 65% opacity for tagline and ghost link.
+- The single visible main window is centered; nothing else floats over the desktop.
+- Real macOS feel: looks like a real SwiftUI welcome sheet, not a web landing page overlay.
+- Aspect ratio 16:9, 2K resolution.
+
+Output: a single product-quality screenshot, no text overlays, no watermark, no captions.

@@ -1,0 +1,81 @@
+/* Yinghua · VU Meter Styles
+ * 12-bar spectrum, rendered inside the panel iframe.
+ * Color thresholds: <5% quiet (gray) · <60% green · <80% yellow · >=80% red.
+ * Levels come from panel.js via inline data-level attribute and height %.
+ */
+
+:root {
+  --yh-vu-green: #34C759;     /* semantic.success-green */
+  --yh-vu-yellow: #FF9F0A;    /* semantic.warning-orange */
+  --yh-vu-red: #FF3B30;       /* semantic.recording-red */
+  --yh-vu-quiet: rgba(244, 241, 236, 0.18);
+  --yh-vu-track: rgba(244, 241, 236, 0.06);
+  --yh-vu-baseline: rgba(244, 241, 236, 0.08);
+}
+
+.yh-panel-vu {
+  margin-top: 14px;
+  padding: 10px 12px 8px;
+  border: 1px solid var(--yh-hairline);
+  border-radius: 12px;
+  background: var(--yh-glass-soft);
+}
+
+.yh-vu {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 3px;
+  height: 48px;
+  padding: 2px 0 0;
+  border-bottom: 1px solid var(--yh-vu-baseline);
+}
+
+.yh-vu-bar {
+  flex: 1 1 0;
+  min-width: 4px;
+  max-width: 18px;
+  height: 0%;
+  border-radius: 2px;
+  background: var(--yh-vu-quiet);
+  transition: height 60ms linear, background-color 80ms linear;
+  pointer-events: none;
+}
+
+.yh-vu-bar[data-level="green"] {
+  background: var(--yh-vu-green);
+  box-shadow: 0 0 6px rgba(52, 199, 89, 0.35);
+}
+
+.yh-vu-bar[data-level="yellow"] {
+  background: var(--yh-vu-yellow);
+  box-shadow: 0 0 6px rgba(255, 159, 10, 0.4);
+}
+
+.yh-vu-bar[data-level="red"] {
+  background: var(--yh-vu-red);
+  box-shadow: 0 0 8px rgba(255, 59, 48, 0.55);
+}
+
+.yh-vu-bar[data-level="quiet"] {
+  background: var(--yh-vu-quiet);
+  box-shadow: none;
+}
+
+.yh-vu-scale {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  font-size: 9px;
+  color: var(--yh-quaternary);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+/* Reduced motion: drop the bar height transition */
+@media (prefers-reduced-motion: reduce) {
+  .yh-vu-bar { transition: background-color 80ms linear !important; }
+}

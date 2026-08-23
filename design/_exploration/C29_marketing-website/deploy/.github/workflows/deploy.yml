@@ -1,0 +1,47 @@
+name: Deploy to Cloudflare Pages
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'design/_exploration/C29_marketing-website/website/**'
+      - 'design/_exploration/C39_website-i18n/**'
+      - 'deploy/**'
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build deploy bundle
+        run: |
+          mkdir -p deploy/public
+          cp -r design/_exploration/C29_marketing-website/website/* deploy/public/
+          cp -r design/_exploration/C39_website-i18n/zh-Hans/* deploy/public/zh-Hans/
+          cp -r design/_exploration/C39_website-i18n/ja-JP/* deploy/public/ja-JP/
+
+          # Fix broken relative paths in ja-JP (C39 source uses ../C29_marketing-website/website/...)
+          # Rewrite to ../assets/ and ../favicon.png (locale self-contained)
+          for f in deploy/public/ja-JP/*.html; do
+            sed -i 's|../C29_marketing-website/website/|../|g' "$f"
+          done
+
+          # Copy Cloudflare Pages config + assets (3 locales: root, zh-Hans, ja-JP)
+          cp -r deploy/public/assets deploy/public/zh-Hans/
+          cp -r deploy/public/assets deploy/public/ja-JP/
+          cp deploy/public/favicon.png deploy/public/zh-Hans/
+          cp deploy/public/favicon.png deploy/public/ja-JP/
+
+          # Copy wrangler.toml (for Pages config reference)
+          cp deploy/wrangler.toml deploy/
+          cp deploy/_redirects deploy/public/
+          cp deploy/_headers deploy/public/
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: yinghua-marketing
+          directory: deploy/public
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}

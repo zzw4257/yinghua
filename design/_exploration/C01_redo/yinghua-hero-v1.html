@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>映话 (Yìnghuà) — 实时会议 / 面试助手 · macOS 26</title>
+<style>
+  /* macOS 26 inspired design tokens — these are real values, not placeholders */
+  :root {
+    --bg-base: #0A0A12;
+    --bg-elevated: rgba(28, 24, 40, 0.6);
+    --bg-glass: rgba(255, 255, 255, 0.04);
+    --stroke: rgba(255, 255, 255, 0.08);
+    --stroke-accent: rgba(123, 63, 228, 0.4);
+    --ink-0: #F5F2FA;
+    --ink-1: #B8B0CC;
+    --ink-2: #8077A0;
+    --ink-3: #544A6E;
+    --accent-1: #7B3FE4;
+    --accent-2: #B57AFF;
+    --signal-green: #4AE08A;
+    --signal-orange: #FFB05A;
+    --signal-red: #FF5A6E;
+    --radius-card: 16px;
+    --radius-pill: 999px;
+    --font-display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "PingFang SC", "Helvetica Neue", sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC", "Helvetica Neue", sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    background: var(--bg-base);
+    color: var(--ink-0);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Background — abstract cosmic, no text, real CSS */
+  .bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 15% 20%, rgba(123, 63, 228, 0.18) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 85% 80%, rgba(181, 122, 255, 0.10) 0%, transparent 55%),
+      radial-gradient(ellipse 100% 80% at 50% 100%, rgba(46, 230, 224, 0.04) 0%, transparent 60%),
+      var(--bg-base);
+  }
+  .bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 20% 30%, rgba(255,255,255,0.6) 50%, transparent 100%),
+      radial-gradient(1px 1px at 60% 70%, rgba(255,255,255,0.4) 50%, transparent 100%),
+      radial-gradient(1px 1px at 80% 20%, rgba(255,255,255,0.5) 50%, transparent 100%),
+      radial-gradient(1px 1px at 30% 80%, rgba(255,255,255,0.3) 50%, transparent 100%),
+      radial-gradient(1px 1px at 90% 50%, rgba(255,255,255,0.5) 50%, transparent 100%),
+      radial-gradient(1px 1px at 10% 60%, rgba(255,255,255,0.4) 50%, transparent 100%),
+      radial-gradient(1px 1px at 50% 10%, rgba(255,255,255,0.6) 50%, transparent 100%);
+    background-size: 1200px 800px;
+    background-repeat: repeat;
+    opacity: 0.4;
+  }
+
+  /* Window chrome — top bar to imply macOS */
+  .window-chrome {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 28px;
+    background: rgba(20, 18, 30, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--stroke);
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    z-index: 100;
+    font-size: 12px;
+    color: var(--ink-2);
+  }
+  .window-chrome .lights { display: flex; gap: 8px; }
+  .window-chrome .lights span {
+    width: 12px; height: 12px; border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+  }
+  .window-chrome .lights span:nth-child(1) { background: #FF5F57; }
+  .window-chrome .lights span:nth-child(2) { background: #FEBC2E; }
+  .window-chrome .lights span:nth-child(3) { background: #28C840; }
+  .window-chrome .title {
+    position: absolute; left: 50%; transform: translateX(-50%);
+    font-weight: 500;
+  }
+
+  /* Menu bar — minimal */
+  .menu-bar {
+    position: fixed;
+    top: 28px;
+    left: 0;
+    right: 0;
+    height: 28px;
+    background: rgba(20, 18, 30, 0.6);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border-bottom: 1px solid var(--stroke);
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    gap: 18px;
+    z-index: 99;
+    font-size: 13px;
+    color: var(--ink-1);
+  }
+  .menu-bar .app-name { font-weight: 600; color: var(--ink-0); }
+  .menu-bar .right { margin-left: auto; display: flex; gap: 12px; color: var(--ink-2); }
+
+  /* Main content */
+  main {
+    position: relative;
+    z-index: 1;
+    padding: 100px 64px 64px;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 80px;
+    align-items: start;
+  }
+
+  /* Left side */
+  .hero-left { padding-top: 32px; }
+  .badge-row {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    background: var(--bg-glass);
+    border: 1px solid var(--stroke);
+    border-radius: var(--radius-pill);
+    font-size: 12px;
+    color: var(--ink-1);
+    margin-bottom: 28px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .badge-row .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--signal-green);
+    box-shadow: 0 0 8px var(--signal-green);
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-size: 96px;
+    line-height: 1.05;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    margin-bottom: 12px;
+    background: linear-gradient(180deg, #F5F2FA 0%, #B8B0CC 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  h1 .romaji {
+    display: block;
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: var(--accent-2);
+    margin-top: 8px;
+    -webkit-text-fill-color: var(--accent-2);
+  }
+  .tagline {
+    font-size: 22px;
+    line-height: 1.5;
+    color: var(--ink-1);
+    margin: 32px 0;
+    max-width: 520px;
+    font-weight: 400;
+  }
+  .tagline em {
+    font-style: normal;
+    color: var(--ink-0);
+    font-weight: 500;
+  }
+  .cta-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 40px;
+  }
+  .btn {
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+  }
+  .btn-primary {
+    background: linear-gradient(180deg, var(--accent-1) 0%, #5A2BC0 100%);
+    color: white;
+    box-shadow: 0 4px 16px rgba(123, 63, 228, 0.4), inset 0 1px 0 rgba(255,255,255,0.15);
+  }
+  .btn-primary:hover { transform: translateY(-1px); }
+  .btn-ghost {
+    background: var(--bg-glass);
+    color: var(--ink-0);
+    border: 1px solid var(--stroke);
+    backdrop-filter: blur(12px);
+  }
+  .trust-row {
+    display: flex;
+    gap: 24px;
+    margin-top: 28px;
+    color: var(--ink-2);
+    font-size: 13px;
+  }
+  .trust-row span { display: inline-flex; align-items: center; gap: 6px; }
+  .trust-row svg { width: 14px; height: 14px; }
+
+  /* Right side — stacked real components */
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    perspective: 1500px;
+  }
+
+  .card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--stroke);
+    border-radius: var(--radius-card);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    padding: 16px 18px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  /* Card 1 — Live recording status */
+  .card-recording {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .live-pulse {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    background: rgba(74, 224, 138, 0.15);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .live-pulse::before {
+    content: ""; position: absolute; inset: 0;
+    border-radius: 50%; background: var(--signal-green);
+    opacity: 0.4;
+    animation: pulse 1.6s ease-out infinite;
+  }
+  .live-pulse::after {
+    content: ""; width: 8px; height: 8px;
+    border-radius: 50%; background: var(--signal-green);
+    box-shadow: 0 0 12px var(--signal-green);
+  }
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 0.4; }
+    100% { transform: scale(1.6); opacity: 0; }
+  }
+  .recording-info { flex: 1; min-width: 0; }
+  .recording-info .label {
+    font-size: 12px; color: var(--ink-2);
+    text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .recording-info .title {
+    font-size: 15px; font-weight: 500; color: var(--ink-0);
+    margin-top: 2px;
+  }
+  .recording-timer {
+    font-family: var(--font-mono);
+    font-size: 18px; font-weight: 500;
+    color: var(--ink-0);
+    font-variant-numeric: tabular-nums;
+  }
+  .waveform {
+    display: flex; align-items: center; gap: 2px;
+    height: 24px; margin-left: auto;
+  }
+  .waveform span {
+    display: block; width: 2.5px;
+    background: var(--accent-2);
+    border-radius: 2px;
+    animation: wave 1.2s ease-in-out infinite;
+  }
+  .waveform span:nth-child(1) { height: 30%; animation-delay: 0s; }
+  .waveform span:nth-child(2) { height: 60%; animation-delay: 0.1s; }
+  .waveform span:nth-child(3) { height: 90%; animation-delay: 0.2s; }
+  .waveform span:nth-child(4) { height: 50%; animation-delay: 0.3s; }
+  .waveform span:nth-child(5) { height: 80%; animation-delay: 0.15s; }
+  .waveform span:nth-child(6) { height: 40%; animation-delay: 0.25s; }
+  .waveform span:nth-child(7) { height: 70%; animation-delay: 0.05s; }
+  @keyframes wave {
+    0%, 100% { transform: scaleY(0.5); }
+    50% { transform: scaleY(1.2); }
+  }
+
+  /* Card 2 — Transcript */
+  .card-transcript .header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  .card-transcript .header .left { display: flex; align-items: center; gap: 8px; }
+  .card-transcript .tab {
+    padding: 4px 10px;
+    font-size: 12px;
+    color: var(--ink-2);
+    border-radius: var(--radius-pill);
+  }
+  .card-transcript .tab.active {
+    background: var(--accent-1);
+    color: white;
+  }
+  .card-transcript .header .right { font-size: 11px; color: var(--ink-3); font-family: var(--font-mono); }
+
+  .turn { display: flex; gap: 10px; margin-bottom: 10px; }
+  .turn:last-child { margin-bottom: 0; }
+  .turn .avatar {
+    width: 24px; height: 24px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 600;
+    flex-shrink: 0;
+  }
+  .turn.them .avatar { background: linear-gradient(135deg, #4A1FB0, #7B3FE4); color: white; }
+  .turn.me .avatar { background: linear-gradient(135deg, #2EE6E0, #4A1FB0); color: white; }
+  .turn .body { flex: 1; min-width: 0; }
+  .turn .meta {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 11px; color: var(--ink-2);
+    margin-bottom: 2px;
+  }
+  .turn .meta .name { font-weight: 500; color: var(--ink-1); }
+  .turn .text {
+    font-size: 14px; line-height: 1.5;
+    color: var(--ink-0);
+  }
+  .turn .text .en {
+    display: block;
+    font-size: 12px;
+    color: var(--ink-2);
+    margin-top: 4px;
+    font-style: italic;
+  }
+  .turn.me .text .en { color: var(--signal-green); }
+
+  /* Card 3 — Knowledge base reference */
+  .card-kb {
+    display: flex; align-items: center; gap: 12px;
+  }
+  .kb-icon {
+    width: 36px; height: 36px;
+    border-radius: 9px;
+    background: linear-gradient(135deg, rgba(123, 63, 228, 0.2), rgba(46, 230, 224, 0.15));
+    border: 1px solid var(--stroke-accent);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent-2);
+    flex-shrink: 0;
+  }
+  .kb-content { flex: 1; min-width: 0; }
+  .kb-content .source {
+    font-size: 11px; color: var(--accent-2);
+    text-transform: uppercase; letter-spacing: 0.05em;
+    font-weight: 500;
+  }
+  .kb-content .text {
+    font-size: 13px; color: var(--ink-1);
+    margin-top: 2px;
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  .kb-relevance {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--signal-green);
+    flex-shrink: 0;
+  }
+
+  /* Card 4 — AI suggestion */
+  .card-suggestion .badge {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 3px 8px;
+    background: linear-gradient(90deg, rgba(123, 63, 228, 0.2), rgba(181, 122, 255, 0.15));
+    border: 1px solid var(--stroke-accent);
+    border-radius: var(--radius-pill);
+    font-size: 11px;
+    color: var(--accent-2);
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .card-suggestion .badge svg { width: 10px; height: 10px; }
+  .card-suggestion .text {
+    font-size: 14px; line-height: 1.55;
+    color: var(--ink-0);
+    margin-bottom: 12px;
+  }
+  .card-suggestion .actions { display: flex; gap: 8px; }
+  .card-suggestion .action {
+    flex: 1;
+    padding: 7px 10px;
+    background: var(--bg-glass);
+    border: 1px solid var(--stroke);
+    border-radius: 8px;
+    font-size: 12px;
+    color: var(--ink-1);
+    display: flex; align-items: center; justify-content: center; gap: 4px;
+    cursor: pointer;
+  }
+  .card-suggestion .action.primary {
+    background: var(--accent-1);
+    color: white;
+    border-color: var(--accent-1);
+  }
+
+  /* Card 5 — Ask input */
+  .card-input {
+    display: flex; align-items: center; gap: 10px;
+    padding: 12px 14px;
+  }
+  .card-input .icon {
+    width: 22px; height: 22px;
+    border-radius: 6px;
+    background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+    display: flex; align-items: center; justify-content: center;
+    color: white;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(123, 63, 228, 0.4);
+  }
+  .card-input .placeholder {
+    flex: 1; font-size: 14px; color: var(--ink-2);
+  }
+  .card-input .send {
+    width: 28px; height: 28px;
+    border-radius: 6px;
+    background: var(--bg-glass);
+    border: 1px solid var(--stroke);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--ink-1);
+  }
+
+  /* Card layering visual: cards slightly offset to imply depth */
+  .card-recording { transform: translateX(40px); width: calc(100% - 40px); }
+  .card-transcript { transform: translateX(-20px); }
+  .card-kb { transform: translateX(60px); width: calc(100% - 60px); }
+  .card-suggestion { transform: translateX(-10px); }
+  .card-input { transform: translateX(30px); width: calc(100% - 30px); }
+
+  /* Bottom section — quick feature row */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    margin-top: 80px;
+    padding: 24px 0;
+    border-top: 1px solid var(--stroke);
+    border-bottom: 1px solid var(--stroke);
+  }
+  .feature {
+    padding: 8px 20px 8px 0;
+  }
+  .feature:not(:last-child) { border-right: 1px solid var(--stroke); padding-right: 20px; }
+  .feature .label {
+    font-size: 11px; color: var(--ink-2);
+    text-transform: uppercase; letter-spacing: 0.06em;
+    margin-bottom: 6px;
+  }
+  .feature .value {
+    font-size: 14px; color: var(--ink-0);
+    font-weight: 500;
+  }
+  .feature .value .accent { color: var(--accent-2); }
+</style>
+</head>
+<body>
+  <div class="bg"></div>
+
+  <div class="window-chrome">
+    <div class="lights"><span></span><span></span><span></span></div>
+    <div class="title">映话 · Live</div>
+  </div>
+
+  <div class="menu-bar">
+    <span class="app-name">◉ 映话</span>
+    <span>File</span>
+    <span>Edit</span>
+    <span>View</span>
+    <span>Window</span>
+    <span>Help</span>
+    <div class="right">
+      <span>100%</span>
+      <span>Sat 17:42</span>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero">
+      <!-- LEFT: brand + CTA -->
+      <div class="hero-left">
+        <div class="badge-row">
+          <span class="dot"></span>
+          <span>macOS 26 · 完全本地 · 不上传音频</span>
+        </div>
+
+        <h1>
+          映话
+          <span class="romaji">Yìnghuà</span>
+        </h1>
+
+        <p class="tagline">
+          实时映射对方的每一句话。<br>
+          <em>专为 Mac 26 而生</em>，Apple Silicon 跑满血，<em>完全本地</em>，离线即用。
+        </p>
+
+        <div class="cta-row">
+          <button class="btn btn-primary">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 4v-2h14v2H5z"/></svg>
+            下载映话
+          </button>
+          <button class="btn btn-ghost">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            看演示
+          </button>
+        </div>
+
+        <div class="trust-row">
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3 9 8 10 5-1 8-5 8-10V6l-8-4z"/></svg>
+            WhisperKit
+          </span>
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
+            实时翻译
+          </span>
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            知识库
+          </span>
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+            隐身模式
+          </span>
+        </div>
+      </div>
+
+      <!-- RIGHT: stacked real components -->
+      <div class="hero-right">
+        <!-- Card 1: Live recording status -->
+        <div class="card card-recording">
+          <div class="live-pulse"></div>
+          <div class="recording-info">
+            <div class="label">正在录制</div>
+            <div class="title">腾讯会议 · 张老师 1v1 模拟面试</div>
+          </div>
+          <div class="waveform">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+          </div>
+          <div class="recording-timer">02:34</div>
+        </div>
+
+        <!-- Card 2: Transcript with translation -->
+        <div class="card card-transcript">
+          <div class="header">
+            <div class="left">
+              <span class="tab active">转录</span>
+              <span class="tab">翻译</span>
+              <span class="tab">建议</span>
+            </div>
+            <div class="right">实时</div>
+          </div>
+          <div class="turn them">
+            <div class="avatar">面</div>
+            <div class="body">
+              <div class="meta">
+                <span class="name">面试官</span>
+                <span>02:32</span>
+              </div>
+              <div class="text">
+                你能讲讲你之前那个推荐系统是怎么处理冷启动的吗？
+                <span class="en">Can you walk me through how your recommendation system handles cold start?</span>
+              </div>
+            </div>
+          </div>
+          <div class="turn me">
+            <div class="avatar">我</div>
+            <div class="body">
+              <div class="meta">
+                <span class="name">我</span>
+                <span>02:33</span>
+              </div>
+              <div class="text">
+                冷启动我们分三层处理——用户侧、内容侧、模型侧。
+                <span class="en">We handle cold start in three layers: user-side, content-side, and model-side.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Knowledge base reference -->
+        <div class="card card-kb">
+          <div class="kb-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          </div>
+          <div class="kb-content">
+            <div class="source">知识库 · 项目经验.pdf</div>
+            <div class="text">推荐系统项目：初期用规则 + 热门排序兜底冷启动，后期引入内容 embedding + Few-shot LLM 增强</div>
+          </div>
+          <div class="kb-relevance">92%</div>
+        </div>
+
+        <!-- Card 4: AI suggestion -->
+        <div class="card card-suggestion">
+          <div class="badge">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 21c0 .5.4 1 1 1h4c.6 0 1-.5 1-1v-1H9v1zm3-19C8.1 2 5 5.1 5 9c0 2.4 1.2 4.5 3 5.7V17c0 .5.4 1 1 1h6c.6 0 1-.5 1-1v-2.3c1.8-1.3 3-3.4 3-5.7 0-3.9-3.1-7-7-7z"/></svg>
+            AI 建议
+          </div>
+          <div class="text">
+            既然提了"三层处理"——先说用户侧（最直接），再说内容侧，再补模型侧。<br>
+            补充数据：项目里具体用了 2-shot prompt，命中率 71%。
+          </div>
+          <div class="actions">
+            <div class="action primary">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+              插入到对话
+            </div>
+            <div class="action">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v12M18 9a3 3 0 1 1 0 6h-2v6"/></svg>
+              复制
+            </div>
+            <div class="action">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+              收藏
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5: Ask input -->
+        <div class="card card-input">
+          <div class="icon">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="placeholder">问映话：这场面试你建议我注意什么？</div>
+          <div class="send">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom: feature strip -->
+    <section class="features">
+      <div class="feature">
+        <div class="label">本地</div>
+        <div class="value"><span class="accent">100%</span> 离线可用</div>
+      </div>
+      <div class="feature">
+        <div class="label">速度</div>
+        <div class="value"><span class="accent">&lt;300ms</span> 端到端延迟</div>
+      </div>
+      <div class="feature">
+        <div class="label">翻译</div>
+        <div class="value"><span class="accent">40+</span> 语种实时互译</div>
+      </div>
+      <div class="feature">
+        <div class="label">隐身</div>
+        <div class="value">屏幕共享 <span class="accent">不可见</span></div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

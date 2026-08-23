@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0A0A0F" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#F4F1EC" media="(prefers-color-scheme: light)" />
+
+  <title>映话 — 为面试而生的 macOS 智能助手</title>
+  <meta name="description" content="映话 (Yìnghuà) 是一款 macOS 26+ 原生、本地优先的会议与面试智能助手。实时转录、说话人分离、AI 总结、本地存储，高级 BYOK。" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="映话 — 为面试而生的 macOS 智能助手" />
+  <meta property="og:description" content="macOS 26+ 原生 · 本地优先 · 高级 BYOK。下载映话，让每一次对话都被记住。" />
+  <meta property="og:image" content="../C29_marketing-website/website/assets/img/hero-typography.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="../C29_marketing-website/website/favicon.png" />
+  <link rel="apple-touch-icon" href="../C29_marketing-website/website/assets/img/icon-02-gradient-128.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" />
+
+  <link rel="stylesheet" href="../C29_marketing-website/website/assets/css/main.css" />
+
+  <script>
+    // Early theme init to prevent flash
+    (function () {
+      try {
+        var t = localStorage.getItem('yinghua-theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+</head>
+<body>
+
+<!-- ========================================================================
+     Navigation
+     ======================================================================== -->
+<header class="nav" role="banner">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-brand" aria-label="映话 主页">
+      <img src="../C29_marketing-website/website/assets/img/icon-02-gradient-32.png" alt="" width="32" height="32" />
+      <span class="brand-name"><span class="brand-zh">映话</span> · Yinghua</span>
+    </a>
+
+    <nav class="nav-links" aria-label="主导航">
+      <a href="#features">功能</a>
+      <a href="#preview">预览</a>
+      <a href="#teams">团队</a>
+      <a href="#pricing">定价</a>
+      <a href="features.html">所有功能</a>
+      <a href="download.html">下载</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="theme-toggle" data-theme-toggle aria-label="切换主题" title="切换主题">
+        <svg class="icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+        </svg>
+        <svg class="icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+      <a href="download.html" class="btn btn-primary btn-sm">免费下载</a>
+      <button class="nav-mobile-toggle" data-mobile-toggle aria-label="打开菜单" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <line x1="4" y1="7" x2="20" y2="7"></line>
+          <line x1="4" y1="12" x2="20" y2="12"></line>
+          <line x1="4" y1="17" x2="20" y2="17"></line>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="nav-mobile-menu" aria-label="移动导航">
+    <a href="#features">功能</a>
+    <a href="#preview">预览</a>
+    <a href="#teams">团队</a>
+    <a href="#pricing">定价</a>
+    <a href="features.html">所有功能</a>
+    <a href="download.html">下载</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- ========================================================================
+     Hero
+     ======================================================================== -->
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-noise" aria-hidden="true"></div>
+
+  <div class="container hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="pulse" aria-hidden="true"></span>
+        <span>macOS 26+ Tahoe 原生应用</span>
+      </div>
+
+      <h1 id="hero-title">
+        <span class="brand-zh">映话</span>
+        <span class="brand-en">Yìnghuà · Yinghua</span>
+      </h1>
+
+      <p class="hero-tagline">为面试而生的 macOS 智能助手。<br />实时转录、说话人分离、AI 总结 — 全在本地。</p>
+
+      <div class="hero-cta-row">
+        <a href="download.html" class="btn btn-primary btn-lg">
+          免费下载 macOS
+          <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M7 17L17 7M9 7h8v8"></path>
+          </svg>
+        </a>
+        <a href="#preview" class="btn btn-secondary btn-lg">先看预览</a>
+      </div>
+
+      <div class="hero-microcopy" aria-label="系统要求">
+        <span>macOS 26+</span>
+        <span>本地优先</span>
+        <span>高级 BYOK</span>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <img src="../C29_marketing-website/website/assets/img/hero-typography.png" alt="映话主视觉：暗色 macOS 桌面与 02 GRADIENT Y 标志" width="1600" height="900" />
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================================
+     Features
+     ======================================================================== -->
+<section id="features" class="section section-divider" aria-labelledby="features-title">
+  <div class="container">
+    <header class="section-header">
+      <span class="eyebrow">核心能力</span>
+      <h2 id="features-title">安静地记录，<br class="hide-mobile" />清晰地总结。</h2>
+      <p>三件映话擅长的事：不打断会议、不丢失上下文、不把你的对话送上别人的服务器。</p>
+    </header>
+
+    <div class="features-grid">
+
+      <article class="feature-card">
+        <div class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="9" y="2" width="6" height="12" rx="3"></rect>
+            <path d="M5 10a7 7 0 0 0 14 0"></path>
+            <line x1="12" y1="19" x2="12" y2="22"></line>
+            <line x1="8" y1="22" x2="16" y2="22"></line>
+          </svg>
+        </div>
+        <h3>实时转录</h3>
+        <p>系统音频 + 麦克风双轨录入，自动按声纹分人。讲到哪儿，文字就跟到哪儿。</p>
+        <div class="feature-visual" aria-hidden="true"></div>
+        <div class="feature-meta">
+          <span class="dot" aria-hidden="true"></span>
+          <span>本地 Whisper · 中文优化</span>
+        </div>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="9" y1="13" x2="15" y2="13"></line>
+            <line x1="9" y1="17" x2="15" y2="17"></line>
+          </svg>
+        </div>
+        <h3>AI 总结</h3>
+        <p>关键时刻、决定事项、待办、未解问题 — 会后立刻按结构整理，不用再翻录音。</p>
+        <div class="feature-visual" aria-hidden="true"></div>
+        <div class="feature-meta">
+          <span class="dot" aria-hidden="true"></span>
+          <span>BYOK · Anthropic / OpenAI / 本地</span>
+        </div>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+        </div>
+        <h3>本地优先</h3>
+        <p>录音、文本、向量索引全部存在你的 Mac 上。端到端加密，iCloud 同步可选。</p>
+        <div class="feature-visual" aria-hidden="true"></div>
+        <div class="feature-meta">
+          <span class="dot" aria-hidden="true"></span>
+          <span>零遥测 · 你掌控数据</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================================
+     Product preview (App Store screenshots)
+     ======================================================================== -->
+<section id="preview" class="section section-divider" aria-labelledby="preview-title">
+  <div class="container">
+    <header class="section-header">
+      <span class="eyebrow">应用预览</span>
+      <h2 id="preview-title">每一个角落都为效率而设计。</h2>
+      <p>从启动到会议结束，映话的每个界面都遵循 macOS 26 的设计语言 — 玻璃面、紫青渐变、克制留白。</p>
+    </header>
+
+    <div class="screenshots-row">
+      <div class="screenshot-card">
+        <div class="screenshot-frame">
+          <img src="../C29_marketing-website/website/assets/img/screenshots/01-meeting.png" alt="映话主窗口：正在进行中的 4 人会议" width="800" height="500" />
+        </div>
+        <div class="screenshot-label">实时会议</div>
+        <div class="screenshot-caption">REC · 时间码 · 声纹分人</div>
+      </div>
+
+      <div class="screenshot-card">
+        <div class="screenshot-frame">
+          <img src="../C29_marketing-website/website/assets/img/screenshots/02-transcript.png" alt="映话转录视图：说话人分离的实时文本" width="800" height="500" />
+        </div>
+        <div class="screenshot-label">说话人转录</div>
+        <div class="screenshot-caption">按声纹分人 · 时间码定位</div>
+      </div>
+
+      <div class="screenshot-card">
+        <div class="screenshot-frame">
+          <img src="../C29_marketing-website/website/assets/img/screenshots/03-summary.png" alt="映话 AI 总结视图：关键时刻与待办" width="800" height="500" />
+        </div>
+        <div class="screenshot-label">AI 总结</div>
+        <div class="screenshot-caption">关键时刻 · 决定 · 待办 · 问题</div>
+      </div>
+
+      <div class="screenshot-card">
+        <div class="screenshot-frame">
+          <img src="../C29_marketing-website/website/assets/img/screenshots/04-onboarding.png" alt="映话首次启动引导：BYOK 与权限设置" width="800" height="500" />
+        </div>
+        <div class="screenshot-label">首次启动</div>
+        <div class="screenshot-caption">BYOK · 麦克风 · 屏幕录制权限</div>
+      </div>
+
+      <div class="screenshot-card">
+        <div class="screenshot-frame">
+          <img src="../C29_marketing-website/website/assets/img/screenshots/05-empty.png" alt="映话空状态：未开始录制时的等待视图" width="800" height="500" />
+        </div>
+        <div class="screenshot-label">空状态</div>
+        <div class="screenshot-caption">零干扰 · 一键开始</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================================
+     For teams
+     ======================================================================== -->
+<section id="teams" class="section section-divider" aria-labelledby="teams-title">
+  <div class="container">
+    <div class="teams-grid">
+      <div class="teams-content">
+        <span class="eyebrow">为团队</span>
+        <h2 id="teams-title">面试官、招聘官、<br />研究员的共享知识库。</h2>
+        <p>每场面试结束后，映话自动归档候选人、问题清单、决策点。Team 席位的共享工作区让评审会议不再需要重新看 90 分钟的录音。</p>
+
+        <ul class="teams-list">
+          <li>
+            <span class="check" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </span>
+            <span>候选人评估模板（行为面 / 系统设计 / 案例）</span>
+          </li>
+          <li>
+            <span class="check" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </span>
+            <span>团队共享的面试问题库与评分卡</span>
+          </li>
+          <li>
+            <span class="check" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </span>
+            <span>SSO 登录、审计日志、角色权限</span>
+          </li>
+          <li>
+            <span class="check" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </span>
+            <span>每周 5 场 · 每场 90 分钟免费额度</span>
+          </li>
+        </ul>
+
+        <a href="pricing.html" class="btn btn-secondary">
+          查看团队方案
+          <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M12 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+
+      <div class="teams-visual">
+        <div class="teams-card">
+          <img src="../C29_marketing-website/website/assets/img/screenshots/03-summary.png" alt="映话 AI 总结视图：团队共享的工作区" />
+          <div class="teams-card-label">共享工作区</div>
+        </div>
+        <div class="teams-card">
+          <img src="../C29_marketing-website/website/assets/img/screenshots/02-transcript.png" alt="映话转录视图：候选人评估实时同步" />
+          <div class="teams-card-label">候选人评估</div>
+        </div>
+        <div class="teams-card">
+          <img src="../C29_marketing-website/website/assets/img/screenshots/04-onboarding.png" alt="映话团队管理：SSO 与审计日志" />
+          <div class="teams-card-label">团队管理</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================================
+     Pricing
+     ======================================================================== -->
+<section id="pricing" class="section section-divider" aria-labelledby="pricing-title">
+  <div class="container">
+    <header class="section-header">
+      <span class="eyebrow">定价</span>
+      <h2 id="pricing-title">选一个最合适的，<br class="hide-mobile" />不合适随时退订。</h2>
+      <p>所有方案都包含完整的本地转录、玻璃界面、macOS 26 优化。区别在于 AI 总结与团队协作。</p>
+    </header>
+
+    <div class="pricing-grid">
+
+      <article class="price-card">
+        <div class="price-tier">Free</div>
+        <div class="price-amount">
+          <span class="currency">¥</span>
+          <span class="value">0</span>
+          <span class="period">/ 永久</span>
+        </div>
+        <p class="price-description">个人使用、所有核心转录功能、本地存储无上限。</p>
+        <ul class="price-features">
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>每月 5 场免费转录</li>
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>本地 Whisper 转录（自带模型）</li>
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>录音、文本、向量本地存储</li>
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>导出 Markdown / SRT / JSON</li>
+        </ul>
+        <div class="price-cta">
+          <a href="download.html" class="btn btn-secondary">下载</a>
+        </div>
+      </article>
+
+      <article class="price-card featured">
+        <div class="price-tier">Pro</div>
+        <div class="price-amount">
+          <span class="currency">$</span>
+          <span class="value">19</span>
+          <span class="period">/ 月</span>
+        </div>
+        <p class="price-description">BYOK 解锁 AI 总结、无限转录、跨设备同步。</p>
+        <ul class="price-features">
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>包含 Free 所有功能</li>
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>无限转录场次</li>
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>AI 总结（Anthropic / OpenAI BYOK）</li>
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>关键时刻、决定、待办、问题分类</li>
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>iCloud 端到端加密同步</li>
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Chrome 浏览器扩展（网页会议）</li>
+        </ul>
+        <div class="price-cta">
+          <a href="download.html" class="btn btn-primary">开始 14 天试用</a>
+        </div>
+      </article>
+
+      <article class="price-card">
+        <div class="price-tier">Team</div>
+        <div class="price-amount">
+          <span class="currency">$</span>
+          <span class="value">49</span>
+          <span class="period">/ 席位 / 月</span>
+        </div>
+        <p class="price-description">团队共享工作区、SSO、审计日志、统一账单。</p>
+        <ul class="price-features">
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>包含 Pro 所有功能</li>
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>团队共享工作区</li>
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>SSO 登录（Okta / Azure AD）</li>
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>审计日志与角色权限</li>
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>候选人评估模板库</li>
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>专属客户成功经理</li>
+        </ul>
+        <div class="price-cta">
+          <a href="mailto:team@yinghua.app" class="btn btn-secondary">联系销售</a>
+        </div>
+      </article>
+
+    </div>
+
+    <p style="text-align:center; color: var(--text-tertiary); font-size: 14px; margin-top: var(--space-4xl);">
+      院校与非营利组织 7 折 · <a href="pricing.html" style="color: var(--color-brand-purple-vivid);">查看完整定价 →</a>
+    </p>
+  </div>
+</section>
+
+</main>
+
+<!-- ========================================================================
+     Footer
+     ======================================================================== -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-brand" aria-label="映话 主页">
+          <img src="../C29_marketing-website/website/assets/img/icon-02-gradient-32.png" alt="" width="32" height="32" />
+          <span class="brand-zh">映话 · Yinghua</span>
+        </a>
+        <p>为面试而生的 macOS 智能助手。本地优先、克制、可靠。</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="features.html">所有功能</a></li>
+          <li><a href="pricing.html">定价</a></li>
+          <li><a href="download.html">下载</a></li>
+          <li><a href="features.html#changelog">更新日志</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="features.html#docs">使用文档</a></li>
+          <li><a href="features.html#privacy">隐私保护</a></li>
+          <li><a href="mailto:support@yinghua.app">技术支持</a></li>
+          <li><a href="mailto:press@yinghua.app">媒体询问</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="features.html#about">关于我们</a></li>
+          <li><a href="mailto:hello@yinghua.app">联系我们</a></li>
+          <li><a href="privacy.html">隐私政策</a></li>
+          <li><a href="terms.html">服务条款</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>© <span data-current-year>2026</span> 映话 · Yinghua. All rights reserved.</div>
+
+      <div class="footer-socials" aria-label="社交媒体">
+        <a href="https://twitter.com/yinghua_app" aria-label="Twitter / X">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+        </a>
+        <a href="https://github.com/yinghua-app" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"></path></svg>
+        </a>
+        <a href="mailto:hello@yinghua.app" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><polyline points="3 7 12 13 21 7"></polyline></svg>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+<script src="../C29_marketing-website/website/assets/js/main.js"></script>
+</body>
+</html>

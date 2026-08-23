@@ -1,0 +1,33 @@
+import Foundation
+
+/// 转录单行（与 D1 §4.5 Transcript Row 对应）
+public struct TranscriptLine: Identifiable, Hashable, Codable, Sendable {
+    public let id: UUID
+    public let speakerId: String
+    public let speakerName: String
+    /// 录制内相对时间（秒）
+    public let timestamp: TimeInterval
+    public let text: String
+
+    public init(
+        id: UUID = UUID(),
+        speakerId: String,
+        speakerName: String,
+        timestamp: TimeInterval,
+        text: String
+    ) {
+        self.id = id
+        self.speakerId = speakerId
+        self.speakerName = speakerName
+        self.timestamp = timestamp
+        self.text = text
+    }
+
+    /// 格式化为 JetBrains Mono 风格时间码 `MM:SS`
+    public var timecode: String {
+        let total = Int(timestamp)
+        let m = total / 60
+        let s = total % 60
+        return String(format: "%02d:%02d", m, s)
+    }
+}

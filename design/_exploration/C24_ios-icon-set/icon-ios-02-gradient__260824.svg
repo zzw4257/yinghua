@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1024" height="1024"
+     viewBox="0 0 1024 1024"
+     shape-rendering="geometricPrecision">
+
+  <!--
+    Yinghua - iOS App Icon 02 GRADIENT - master SVG
+    Date:        2026-08-24
+    Source spec: design/design-doc.md section 3.2 + C10 master + C07 _audit-verdict.md
+    Platform:    iOS 18+ (superellipse, 22.37% corner radius)
+
+    Marketing alternate iOS icon (same role as C10 02 GRADIENT):
+      - Landing hero, App Store promotional, Twitter profile, Product Hunt,
+        investor deck cover. iOS users first see this in marketing channels.
+      - NOT the Xcode asset catalog default app icon (that one uses 01 MINIMAL).
+    Y master identical to C10 02 GRADIENT (path d character-for-character).
+    iOS squircle 22.37% (rx=229.069) vs macOS 22.4% (rx=229.376).
+    C07 audit 6 fixes all inherited:
+      #1 [high]   V+stem topology, zero seam at (512, 416)
+      #2 [high]   identical Y master as 01 MINIMAL; only fill changes
+      #3 [medium] straight right arm (no hook)
+      #4 [medium] stroke-width = 58, uniform across variants
+  -->
+
+  <title>Yinghua App Icon - iOS 02 GRADIENT</title>
+  <desc>iOS 18+ squircle 1024x1024, 22.37% corner radius. Aurora purple-to-teal Y on near-black with subtle 15% gradient wash background. Same Y master path as 01 MINIMAL and C10 macOS master. 135deg diagonal gradient, three stops: #B57BFF - #8A5BFF - #2DD4BF. Marketing use (Landing, App Store promo, Twitter profile, Product Hunt, deck cover).</desc>
+
+  <defs>
+    <!--
+      Y stroke gradient: vivid aurora purple to mid purple to vivid teal,
+      135deg diagonal (top-left to bottom-right), per D1 section 3.2.
+    -->
+    <linearGradient id="yGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"   stop-color="#B57BFF" />
+      <stop offset="50%"  stop-color="#8A5BFF" />
+      <stop offset="100%" stop-color="#2DD4BF" />
+    </linearGradient>
+
+    <!--
+      Background wash: same hue pair at 15% opacity, diagonal.
+      Drawn on top of the solid #0A0A0F base to give the
+      "glass + aurora tint" feel without going glassmorphic.
+    -->
+    <linearGradient id="bgWash" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%"   stop-color="#B57BFF" stop-opacity="0.15" />
+      <stop offset="100%" stop-color="#2DD4BF" stop-opacity="0.15" />
+    </linearGradient>
+  </defs>
+
+  <!-- Solid near-black base, iOS 22.37% squircle -->
+  <rect x="0" y="0" width="1024" height="1024"
+        rx="229.069" ry="229.069"
+        fill="#0A0A0F" />
+
+  <!-- Aurora wash on top, same squircle clip, 15% opacity -->
+  <rect x="0" y="0" width="1024" height="1024"
+        rx="229.069" ry="229.069"
+        fill="url(#bgWash)" />
+
+  <!--
+    Y master path: IDENTICAL to C10 macOS 02 GRADIENT (byte-for-byte).
+    V+stem topology - both subpaths meet at (512, 416), no seam.
+    Only the stroke color changes (gradient instead of warm white).
+  -->
+  <path d="M 372 256 L 512 416 L 652 256 M 512 416 L 512 768"
+        fill="none"
+        stroke="url(#yGradient)"
+        stroke-width="58"
+        stroke-linecap="round"
+        stroke-linejoin="round" />
+
+</svg>

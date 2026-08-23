@@ -1,0 +1,63 @@
+PAGE 02 — "我们看到了 3 个问题" (Problem slide)
+
+A 16:9, 4K ultra high resolution investor deck slide. Pure dark aurora wallpaper background (deep purple at the upper-left fading through teal/cyan at the lower-right, soft subtle aurora ribbon curves, NOT cyberpunk, NOT neon, NOT a starry galaxy, NOT outer space). The slide is a CLEAN editorial slide — no macOS menu bar, no dock, no full desktop window, no traffic lights. Just the aurora backdrop with editorial content laid on top.
+
+# LAYOUT GRID
+- Top 0%–25% of the canvas: header band
+  - Upper-LEFT corner (small, ~64px squircle, 40px from top, 40px from left): a small dark glass app icon squircle (22.4% corner radius) containing a single letter "Y" rendered in a vivid purple-to-teal diagonal gradient (135deg, vivid purple #B57BFF → mid purple #8A5BFF → vivid teal #2DD4BF). The Y is a clean letterform: V-shape converging to a single point with a straight vertical stem below, no serifs, no glow, no halos, no decorations.
+  - To the right of the icon: small wordmark in white (JetBrains Mono): "YINGHUA · 映话"
+  - Centered horizontally in the header band (vertically positioned in the upper third, NOT at the very top, leaving breathing room for the corner wordmark): the slide title "我们看到了 3 个问题" rendered in warm white (#F4F1EC), 64pt, semibold, SF Pro Display family, single line, NO quotation marks around the title.
+  - Far UPPER-RIGHT (small, JetBrains Mono 12pt, 45% white): "Investor Brief · 2026"
+  - Below the title, a short horizontal gradient line (120px wide, 2px tall, vivid purple-to-teal diagonal gradient), centered.
+
+- Middle 25%–92% of the canvas: the BODY, 3 equal-width vertical columns (each ~30% wide, with 5% gutter on each side, total 3 columns fit horizontally with 16:9 aspect). Each column is a tall dark glass card (12px corner radius, 1px hairline border in warm-white at 8% opacity, subtle inner aurora tint, semi-transparent so the backdrop shows through softly). Inside each card, top to bottom:
+  - Top of card: a large number "01" / "02" / "03" in JetBrains Mono, 48pt, vivid teal #2DD4BF, 80% opacity, semibold.
+  - Below the number: a small horizontal teal-to-purple gradient line (40px wide, 1px tall).
+  - Below the line: a 3-4 character short Chinese label (24pt, warm white, semibold, SF Pro Display / Noto Serif SC for Chinese). For column 1 use "会议没记录". For column 2 use "跨语言听不清". For column 3 use "AI 都在云端".
+  - Below the label, 2-3 lines of body copy in Simplified Chinese, 16pt, warm white at 75% opacity, SF Pro Text / Noto Sans SC for Chinese, line-height ~1.6:
+    - Column 1 (会议没记录): "开完 1 小时会议\n重要的决定都散落在聊天记录里\n没有人愿意花 30 分钟整理"
+    - Column 2 (跨语言听不清): "跨国面试 / 国际会议\n对方说英文 / 日文 / 西班牙文\n你只能听懂一半"
+    - Column 3 (AI 都在云端): "录音传云 = 暴露客户数据\n合规要求本地化\n现有工具做不到"
+  - At the bottom of each card: a thin horizontal hairline divider (1px, warm-white 8%), and below it a single short caption in JetBrains Mono, 13pt, warm-white at 50% opacity, in English only:
+    - Column 1: "Notes vanish"
+    - Column 2: "Languages break"
+    - Column 3: "Privacy gaps"
+
+- Bottom 92%–100% of the canvas: BOTTOM MARGIN (8% empty). Do NOT place any content in this band except the page number in the lower-right corner.
+
+# PAGE NUMBER
+- Lower-right corner, ~40px from right edge, ~32px from bottom: small page number text in JetBrains Mono 14pt, warm-white at 35% opacity, EXACTLY the string "02 / 10" (with a single space on each side of the slash). This is the ONLY text in the bottom 8% band.
+
+# TYPE & LANGUAGE POLICY
+- All Chinese text is REAL Simplified Chinese, rendered correctly with proper Chinese characters (no Latin letters, no Pinyin, no gibberish, no Cyrillic, no random Latin like "MIY" or "TUE").
+- English captions are short words, not sentences.
+- The "Y" letterform in the corner icon is a single capital Latin letter Y (not Chinese, not Cyrillic). The icon background is a dark glass squircle with subtle aurora gradient wash; the Y itself uses a vivid purple-to-teal gradient stroke/fill.
+
+# ABSOLUTE PROHIBITIONS (D1 §7 anti-patterns)
+- No waveform, no EKG, no sine wave, no audio visualizer anywhere.
+- No "AI" word rendered as a standalone icon, no "STYLE 1" label, no "TEST" / "Sample" / "Placeholder" labels.
+- No font-size spec text like "14pt" / "600" / "regular" rendered as visible UI text.
+- No two-circle / infinity / chat-bubble mark, no two-circles-intersecting logo.
+- No cyberpunk glow, no neon outlines, no floating sparkles scattered around the slide, no halo.
+- No pie chart, no donut chart, no gauge, no radar chart.
+- No "Bento" framed box with bold left-side label, no marketing words like 洞察/赋能/智能化/效率提升/全局掌控/AI 驱动.
+- No multi-color neon (only purple + teal + warm-white + a single accent teal line; the page number is the only grey).
+- No literal single letter "X" used as a data placeholder.
+- No gradient-filled chart bars (chart bars if any must be solid purple or solid teal, never a gradient).
+- No emoji used as icon. No real-person face on the slide. No product logo besides the Y mark.
+- No watermark, no caption, no footer other than the page number.
+
+# PALETTE
+- Background: very dark, near-black with aurora wash (top-left vivid purple #B57BFF at ~20% opacity, bottom-right vivid teal #2DD4BF at ~18% opacity, blending smoothly).
+- Card glass: #0A0A0F at 65% opacity, with 1px border #F4F1EC at 8% opacity.
+- Text warm-white: #F4F1EC.
+- Title text: #F4F1EC.
+- Gradient accent line: #B57BFF → #8A5BFF → #2DD4BF (135deg).
+- Number "01"/"02"/"03": #2DD4BF at 80% opacity.
+- Caption English (column bottom): #F4F1EC at 50% opacity.
+- Page number: #F4F1EC at 35% opacity.
+- ONLY these colors plus the aurora wash. No other accent colors.
+
+# ASPECT & RESOLUTION
+- 16:9 aspect ratio, 4K ultra high resolution (5504 × 3072 effective output).
+- No letterbox, no border, no frame.

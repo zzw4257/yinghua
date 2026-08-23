@@ -1,0 +1,284 @@
+name: Chrome Extension
+
+# 触发：tag push ext-v* (ext-v0.1.0, ext-v1.0.0-rc1, ...)
+# 例：git tag ext-v0.1.0 && git push origin ext-v0.1.0
+# 注意 tag prefix 与主 app 区分：v* 是 macOS app，ext-v* 是 extension
+on:
+  push:
+    tags:
+      - 'ext-v*'
+
+# 同一 tag 多次 push 不取消
+concurrency:
+  group: ext-release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  # ─────────────────────────────────────────
+  # Job: Package + Validate + Release
+  # ─────────────────────────────────────────
+  package:
+    name: Package · Validate · Release
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    permissions:
+      contents: write
+
+    env:
+      VERSION: ${{ github.ref_name }}  # ext-v0.1.0
+      VERSION_CLEAN: ${{ github.ref_name }}  # 后续会替换前缀
+      EXT_DIR: code/yinghua-extension
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Validate manifest.json
+        # manifest_version 必须是 3（MV3）
+        # 必填字段：name / version / manifest_version
+        run: |
+          cd "$EXT_DIR"
+          python3 - <<'PY'
+          import json, sys
+          with open('manifest.json') as f:
+              m = json.load(f)
+          # 必填字段校验
+          for k in ('manifest_version', 'name', 'version'):
+              assert k in m, f"missing required field: {k}"
+          assert m['manifest_version'] == 3, f"manifest_version must be 3 (MV3), got {m['manifest_version']}"
+          # version 必须是 semver
+          import re
+          assert re.match(r'^\d+\.\d+\.\d+', m['version']), f"version must be semver, got {m['version']}"
+          print(f"✅ manifest.json valid: {m['name']} v{m['version']} (MV{m['manifest_version']})")
+          PY
+
+      - name: Validate JavaScript syntax
+        # 4 个 JS 文件必须 node --check 通过
+        # node --check 只做语法检查，不执行，安全
+        run: |
+          cd "$EXT_DIR"
+          for f in background.js content.js offscreen.js popup.js; do
+            if [ ! -f "$f" ]; then
+              echo "::error::missing file: $f"
+              exit 1
+            fi
+            node --check "$f" && echo "✅ $f syntax OK"
+          done
+
+      - name: Verify all referenced files exist
+        # manifest 引用的所有 file path 必须真实存在
+        run: |
+          cd "$EXT_DIR"
+          python3 - <<'PY'
+          import json, os, sys
+          with open('manifest.json') as f:
+              m = json.load(f)
+          missing = []
+          # background service worker
+          if 'background' in m and 'service_worker' in m['background']:
+              sw = m['background']['service_worker']
+              if not os.path.exists(sw):
+                  missing.append(sw)
+          # content scripts
+          for cs in m.get('content_scripts', []):
+              for f in cs.get('js', []) + cs.get('css', []):
+                  if not os.path.exists(f):
+                      missing.append(f)
+          # action popup
+          if 'action' in m and 'default_popup' in m['action']:
+              p = m['action']['default_popup']
+              if not os.path.exists(p):
+                  missing.append(p)
+          # icons
+          for size, path in m.get('icons', {}).items():
+              if not os.path.exists(path):
+                  missing.append(f"icons/{path}")
+          if missing:
+              print(f"❌ manifest references missing files: {missing}")
+              sys.exit(1)
+          print(f"✅ all manifest-referenced files exist")
+          PY
+
+      - name: Check for secrets in source
+        # 防误提交：源码里不应有 api key / token / password
+        # extension 是公开包，发到 GitHub Release / Chrome Web Store 之前必须 catch
+        run: |
+          cd "$EXT_DIR"
+          # 排除 node_modules / .git / icons (二进制)
+          PATTERNS='(api[_-]?key|secret|password|token|bearer|credential).*=.*["\x27][A-Za-z0-9+/=]{16,}'
+          if grep -rEn --binary-files=without-match \
+              --include='*.js' --include='*.html' --include='*.css' --include='*.json' \
+              "$PATTERNS" . 2>/dev/null; then
+            echo "::error::potential hardcoded secret detected (see above)"
+            echo "audit-security.md §1.4 说代码库 0 secrets — CI 必须 catch"
+            exit 1
+          fi
+          echo "✅ no hardcoded secrets detected"
+
+      - name: Zip extension
+        run: |
+          cd code
+          # zip 整个 yinghua-extension/ 目录
+          # zip 里顶层目录名就叫 yinghua-extension/（Chrome Web Store 要求）
+          zip -r "yinghua-extension-${VERSION}.zip" yinghua-extension/ \
+            -x "yinghua-extension/_audit-security.md" \
+            -x "yinghua-extension/README.md" \
+            -x "yinghua-extension/.DS_Store"
+          ls -la "yinghua-extension-${VERSION}.zip"
+          unzip -l "yinghua-extension-${VERSION}.zip" | head -30
+
+      - name: Upload zip as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: yinghua-extension-zip
+          path: code/yinghua-extension-${{ env.VERSION }}.zip
+          retention-days: 30
+
+      - name: Create GitHub Release (draft)
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.ref_name }}
+          draft: true
+          generate_release_notes: true
+          fail_on_unmatched_files: true
+          files: code/yinghua-extension-${{ env.VERSION }}.zip
+          body: |
+            ## Yinghua · Meeting Recorder v${{ env.VERSION }}
+
+            > Chrome / Edge / Brave MV3 extension · 录音 Zoom / Meet / Teams 到本地
+
+            ### 安装（开发模式）
+
+            1. 下载 `yinghua-extension-${{ env.VERSION }}.zip`
+            2. 解压到本地目录
+            3. 打开 `chrome://extensions/`
+            4. 右上角开 **Developer mode**
+            5. 点 **Load unpacked** → 选解压后的 `yinghua-extension/` 目录
+
+            ### 安装（Chrome Web Store）
+
+            等待审核通过后，搜索 "Yinghua Meeting Recorder"。
+
+            ### 权限说明
+
+            | 权限 | 用途 |
+            |------|------|
+            | `tabCapture` | 捕获当前 tab 的音频流 |
+            | `offscreen` | 用 OffscreenDocument 跑 MediaRecorder（MV3 service worker 不能直接用）|
+            | `activeTab` | 注入 content script 到当前会议页 |
+            | `storage` | 存用户偏好（不开网络）|
+            | `scripting` | 动态注入 content script |
+
+            **网络外发**：0。所有录音写本地 IndexedDB。详见 [security audit](./_audit-security.md)。
+
+            ### 系统要求
+
+            - Chrome / Edge / Brave 120+（MV3 + OffscreenDocument）
+            - macOS / Windows / Linux
+
+            ### 已知 trade-off
+
+            - 当前 MVP 只支持 Zoom / Meet / Teams（manifest host_permissions 限定）
+            - Speaker diarization 待补（现在只有"我" / "远端"两路）
+            - 跨标签页录制需要用户授权 tab audio
+
+  # ─────────────────────────────────────────
+  # Job: Upload to Chrome Web Store
+  # 4 个 secret 全部存在才跑（可选 — MVP 可先只在 GitHub Release 发）
+  # ─────────────────────────────────────────
+  chrome-webstore:
+    name: Publish to Chrome Web Store
+    needs: package
+    # 4 个 CWS secret 全部存在才跑 — 任意一个缺失就 skip
+    # 用 secrets.* (workflow-level) 而不是 env.* (job-level) 触发 gating
+    if: ${{ secrets.CHROME_WEBSTORE_CLIENT_ID != '' && secrets.CHROME_WEBSTORE_CLIENT_SECRET != '' && secrets.CHROME_WEBSTORE_REFRESH_TOKEN != '' && secrets.CHROME_WEBSTORE_EXTENSION_ID != '' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    env:
+      CHROME_WEBSTORE_CLIENT_ID: ${{ secrets.CHROME_WEBSTORE_CLIENT_ID }}
+      CHROME_WEBSTORE_CLIENT_SECRET: ${{ secrets.CHROME_WEBSTORE_CLIENT_SECRET }}
+      CHROME_WEBSTORE_REFRESH_TOKEN: ${{ secrets.CHROME_WEBSTORE_REFRESH_TOKEN }}
+      CHROME_WEBSTORE_EXTENSION_ID: ${{ secrets.CHROME_WEBSTORE_EXTENSION_ID }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Validate Chrome Web Store secrets
+        run: |
+          for s in CHROME_WEBSTORE_CLIENT_ID CHROME_WEBSTORE_CLIENT_SECRET CHROME_WEBSTORE_REFRESH_TOKEN CHROME_WEBSTORE_EXTENSION_ID; do
+            if [ -z "${!s}" ]; then
+              echo "::error::$s is empty"
+              exit 1
+            fi
+          done
+          echo "✅ all 4 Chrome Web Store secrets present"
+
+      - name: Upload to Chrome Web Store (draft)
+        # chrome-webstore-upload-cli 把 zip 上传到 CWS dashboard（draft state）
+        # 审核 + publish 通常需要 CWS 团队手动操作（除非开了 auto-publish）
+        run: |
+          npm install -g chrome-webstore-upload-cli
+          chrome-webstore-upload upload \
+            --source "code/yinghua-extension-${{ github.ref_name }}.zip" \
+            --extension-id "$CHROME_WEBSTORE_EXTENSION_ID" \
+            --client-id "$CHROME_WEBSTORE_CLIENT_ID" \
+            --client-secret "$CHROME_WEBSTORE_CLIENT_SECRET" \
+            --refresh-token "$CHROME_WEBSTORE_REFRESH_TOKEN"
+          echo "✅ uploaded to Chrome Web Store as draft"
+
+      - name: Publish (auto, if enabled)
+        # 默认不自动 publish — 走 CWS dashboard 人工 review
+        # 想自动 publish 的话：把 if 改成 'true'，并确认 CWS 账号已开 auto-publish
+        if: 'false'
+        run: |
+          chrome-webstore-upload publish \
+            --extension-id "$CHROME_WEBSTORE_EXTENSION_ID" \
+            --client-id "$CHROME_WEBSTORE_CLIENT_ID" \
+            --client-secret "$CHROME_WEBSTORE_CLIENT_SECRET" \
+            --refresh-token "$CHROME_WEBSTORE_REFRESH_TOKEN"
+
+      - name: Update release notes with CWS status
+        # 把 CWS 上传结果 append 到 draft release 的 notes 末尾
+        # maintainer 打开 release 就能看到 web store 上传状态
+        # always() 让 skip / fail 也能写入（这种情况 status 是 skipped 或 failed）
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ "${{ job.status }}" = "success" ]; then
+            EMOJI="✅"
+            TEXT="uploaded to Chrome Web Store as draft"
+          else
+            EMOJI="❌"
+            TEXT="upload FAILED — see Actions log"
+          fi
+
+          NOTES="$(cat <<EOF
+          ## Chrome Web Store status
+
+          ${EMOJI} CWS upload: ${TEXT}
+
+          - Extension ID: \`${CHROME_WEBSTORE_EXTENSION_ID}\`
+          - ZIP: \`code/yinghua-extension-${GITHUB_REF_NAME}.zip\`
+          - Publish: **manual** (Chrome Web Store dashboard → review → publish)
+          - Job: [view logs](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})
+          EOF
+          )"
+
+          gh release edit "${GITHUB_REF_NAME}" \
+            --repo "${GITHUB_REPOSITORY}" \
+            --append-notes "${NOTES}"

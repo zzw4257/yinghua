@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>映话 · 已就绪</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;0,600;0,700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+<body>
+  <main class="screen" data-screen="04-done">
+    <div class="progress-dots" aria-label="Onboarding complete">
+      <span class="progress-dot passed"></span>
+      <span class="progress-dot passed"></span>
+      <span class="progress-dot passed"></span>
+      <span class="progress-dot passed"></span>
+    </div>
+
+    <div class="screen-body">
+      <div class="done-wrap">
+        <!-- 大 checkmark · 紫青渐变 + 弹跳动画 -->
+        <div class="checkmark" aria-label="Setup complete">
+          <svg viewBox="0 0 48 48" aria-hidden="true">
+            <polyline points="12,24 20,32 36,16" />
+          </svg>
+        </div>
+
+        <h1 class="title">映话已就绪</h1>
+        <p class="done-subtitle">5 秒开始你的第一场会议</p>
+      </div>
+    </div>
+
+    <div class="screen-footer">
+      <button class="btn-primary" type="button" onclick="YH.go('01-welcome.html')">打开映话</button>
+    </div>
+  </main>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,401 @@
+{
+  "images": [
+    {
+      "filename": "icon-ios-default-1024.png",
+      "idiom": "universal",
+      "platform": "ios",
+      "size": "1024x1024"
+    },
+    {
+      "filename": "icon-ios-default-180.png",
+      "idiom": "iphone",
+      "platform": "ios",
+      "size": "60x60",
+      "scale": "3x"
+    },
+    {
+      "filename": "icon-ios-default-167.png",
+      "idiom": "ipad",
+      "platform": "ios",
+      "size": "83.5x83.5",
+      "scale": "2x"
+    },
+    {
+      "filename": "icon-ios-default-152.png",
+      "idiom": "ipad",
+      "platform": "ios",
+      "size": "76x76",
+      "scale": "2x"
+    },
+    {
+      "filename": "icon-ios-default-120.png",
+      "idiom": "iphone",
+      "platform": "ios",
+      "size": "60x60",
+      "scale": "2x"
+    },
+    {
+      "filename": "icon-ios-default-87.png",
+      "idiom": "iphone",
+      "platform": "ios",
+      "size": "29x29",
+      "scale": "3x"
+    },
+    {
+      "filename": "icon-ios-default-80.png",
+      "idiom": "iphone",
+      "platform": "ios",
+      "size": "40x40",
+      "scale": "2x"
+    },
+    {
+      "filename": "icon-ios-default-76.png",
+      "idiom": "ipad",
+      "platform": "ios",
+      "size": "76x76",
+      "scale": "1x"
+    },
+    {
+      "filename": "icon-ios-default-60.png",
+      "idiom": "iphone",
+      "platform": "ios",
+      "size": "60x60",
+      "scale": "1x"
+    },
+    {
+      "filename": "icon-ios-default-58.png",
+      "idiom": "iphone",
+      "platform": "ios",
+      "size": "29x29",
+      "scale": "2x"
+    },
+    {
+      "filename": "icon-ios-default-40.png",
+      "idiom": "iphone",
+      "platform": "ios",
+      "size": "40x40",
+      "scale": "1x"
+    },
+    {
+      "filename": "icon-ios-default-29.png",
+      "idiom": "iphone",
+      "platform": "ios",
+      "size": "29x29",
+      "scale": "1x"
+    },
+    {
+      "filename": "icon-ios-dark-1024.png",
+      "idiom": "universal",
+      "platform": "ios",
+      "size": "1024x1024",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "dark"
+        }
+      ]
+    },
+    {
+      "filename": "icon-ios-dark-180.png",
+      "idiom": "iphone",
+      "platform": "ios",
+      "size": "60x60",
+      "scale": "3x",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "dark"
+        }
+      ]
+    },
+    {
+      "filename": "icon-ios-dark-167.png",
+      "idiom": "ipad",
+      "platform": "ios",
+      "size": "83.5x83.5",
+      "scale": "2x",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "dark"
+        }
+      ]
+    },
+    {
+      "filename": "icon-ios-dark-152.png",
+      "idiom": "ipad",
+      "platform": "ios",
+      "size": "76x76",
+      "scale": "2x",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "dark"
+        }
+      ]
+    },
+    {
+      "filename": "icon-ios-dark-120.png",
+      "idiom": "iphone",
+      "platform": "ios",
+      "size": "60x60",
+      "scale": "2x",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "dark"
+        }
+      ]
+    },
+    {
+      "filename": "icon-ios-dark-87.png",
+      "idiom": "iphone",
+      "platform": "ios",
+      "size": "29x29",
+      "scale": "3x",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "dark"
+        }
+      ]
+    },
+    {
+      "filename": "icon-ios-dark-80.png",
+      "idiom": "iphone",
+      "platform": "ios",
+      "size": "40x40",
+      "scale": "2x",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "dark"
+        }
+      ]
+    },
+    {
+      "filename": "icon-ios-dark-76.png",
+      "idiom": "ipad",
+      "platform": "ios",
+      "size": "76x76",
+      "scale": "1x",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "dark"
+        }
+      ]
+    },
+    {
+      "filename": "icon-ios-dark-60.png",
+      "idiom": "iphone",
+      "platform": "ios",
+      "size": "60x60",
+      "scale": "1x",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "dark"
+        }
+      ]
+    },
+    {
+      "filename": "icon-ios-dark-58.png",
+      "idiom": "iphone",
+      "platform": "ios",
+      "size": "29x29",
+      "scale": "2x",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "dark"
+        }
+      ]
+    },
+    {
+      "filename": "icon-ios-dark-40.png",
+      "idiom": "iphone",
+      "platform": "ios",
+      "size": "40x40",
+      "scale": "1x",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "dark"
+        }
+      ]
+    },
+    {
+      "filename": "icon-ios-dark-29.png",
+      "idiom": "iphone",
+      "platform": "ios",
+      "size": "29x29",
+      "scale": "1x",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "dark"
+        }
+      ]
+    },
+    {
+      "filename": "icon-ios-tinted-1024.png",
+      "idiom": "universal",
+      "platform": "ios",
+      "size": "1024x1024",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "tinted"
+        }
+      ]
+    },
+    {
+      "filename": "icon-ios-tinted-180.png",
+      "idiom": "iphone",
+      "platform": "ios",
+      "size": "60x60",
+      "scale": "3x",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "tinted"
+        }
+      ]
+    },
+    {
+      "filename": "icon-ios-tinted-167.png",
+      "idiom": "ipad",
+      "platform": "ios",
+      "size": "83.5x83.5",
+      "scale": "2x",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "tinted"
+        }
+      ]
+    },
+    {
+      "filename": "icon-ios-tinted-152.png",
+      "idiom": "ipad",
+      "platform": "ios",
+      "size": "76x76",
+      "scale": "2x",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "tinted"
+        }
+      ]
+    },
+    {
+      "filename": "icon-ios-tinted-120.png",
+      "idiom": "iphone",
+      "platform": "ios",
+      "size": "60x60",
+      "scale": "2x",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "tinted"
+        }
+      ]
+    },
+    {
+      "filename": "icon-ios-tinted-87.png",
+      "idiom": "iphone",
+      "platform": "ios",
+      "size": "29x29",
+      "scale": "3x",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "tinted"
+        }
+      ]
+    },
+    {
+      "filename": "icon-ios-tinted-80.png",
+      "idiom": "iphone",
+      "platform": "ios",
+      "size": "40x40",
+      "scale": "2x",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "tinted"
+        }
+      ]
+    },
+    {
+      "filename": "icon-ios-tinted-76.png",
+      "idiom": "ipad",
+      "platform": "ios",
+      "size": "76x76",
+      "scale": "1x",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "tinted"
+        }
+      ]
+    },
+    {
+      "filename": "icon-ios-tinted-60.png",
+      "idiom": "iphone",
+      "platform": "ios",
+      "size": "60x60",
+      "scale": "1x",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "tinted"
+        }
+      ]
+    },
+    {
+      "filename": "icon-ios-tinted-58.png",
+      "idiom": "iphone",
+      "platform": "ios",
+      "size": "29x29",
+      "scale": "2x",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "tinted"
+        }
+      ]
+    },
+    {
+      "filename": "icon-ios-tinted-40.png",
+      "idiom": "iphone",
+      "platform": "ios",
+      "size": "40x40",
+      "scale": "1x",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "tinted"
+        }
+      ]
+    },
+    {
+      "filename": "icon-ios-tinted-29.png",
+      "idiom": "iphone",
+      "platform": "ios",
+      "size": "29x29",
+      "scale": "1x",
+      "appearances": [
+        {
+          "appearance": "luminosity",
+          "value": "tinted"
+        }
+      ]
+    }
+  ],
+  "info": {
+    "author": "yinghua-design-system",
+    "version": 1
+  }
+}

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1024" height="1024"
+     viewBox="0 0 1024 1024"
+     shape-rendering="geometricPrecision">
+
+  <!--
+    Yinghua - iOS App Icon TINTED variant - master SVG
+    Date:        2026-08-24
+    Source spec: Apple HIG 2025 "App Icon" + design-doc.md section 3
+    Platform:    iOS 18+ tinted appearance (system-rendered)
+
+    iOS 18 introduced a "Tinted" icon appearance (alongside Light/Dark).
+    When the user enables tinted mode, iOS automatically:
+      1. Renders the icon with a system-tinted background
+         (typically a brand-aligned tint, user-customizable in iOS 18).
+      2. Replaces the foreground with a monochrome shape
+         (iOS extracts the alpha mask and recolors it).
+    Convention: the tinted variant is a SINGLE-LAYER image:
+      - Transparent background (no squircle fill).
+      - White (#FFFFFF) foreground shape (the Y).
+      - iOS system handles the rest.
+    Y geometry: same master path as 01 MINIMAL / 02 GRADIENT / C10.
+    No squircle - system draws the rounded container with its tint.
+  -->
+
+  <title>Yinghua App Icon - iOS TINTED</title>
+  <desc>iOS 18+ tinted appearance variant. Transparent background, monochrome white Y using the same master path as 01/02. iOS automatically extracts the alpha mask and applies a system-selected tint color. The squircle container is drawn by the system; this asset provides only the foreground Y shape.</desc>
+
+  <!--
+    Y master path on transparent background.
+    Same d attribute as 01 MINIMAL and 02 GRADIENT.
+    iOS will extract the alpha channel and recolor the Y per the
+    system tint (typically a 60% brand grey or user-selected color).
+  -->
+  <path d="M 372 256 L 512 416 L 652 256 M 512 416 L 512 768"
+        fill="none"
+        stroke="#FFFFFF"
+        stroke-width="58"
+        stroke-linecap="round"
+        stroke-linejoin="round" />
+
+</svg>

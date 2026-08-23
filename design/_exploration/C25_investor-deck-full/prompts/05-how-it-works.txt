@@ -1,0 +1,75 @@
+PAGE 05 — "技术架构" (How it works / Architecture diagram)
+
+A 16:9, 4K ultra high resolution investor deck slide. Pure dark aurora wallpaper background (deep purple at the upper-left fading through teal/cyan at the lower-right, soft subtle aurora ribbon curves, NOT cyberpunk, NOT neon, NOT a starry galaxy, NOT outer space). The slide is a CLEAN editorial slide — no macOS menu bar, no dock. Just the aurora backdrop with an architecture diagram laid on top.
+
+# LAYOUT GRID
+- Top 0%–25% of the canvas: header band
+  - Upper-LEFT corner (small, ~64px squircle, 40px from top, 40px from left): a small dark glass app icon squircle (22.4% corner radius) containing a single letter "Y" rendered in a vivid purple-to-teal diagonal gradient (135deg, vivid purple #B57BFF → mid purple #8A5BFF → vivid teal #2DD4BF). The Y is a clean letterform: V-shape converging to a single point with a straight vertical stem below, no serifs, no glow, no halos, no decorations.
+  - To the right of the icon: small wordmark in white (JetBrains Mono): "YINGHUA · 映话"
+  - Centered horizontally in the header band: the slide title "技术架构" rendered in warm white (#F4F1EC), 64pt, semibold, SF Pro Display family, single line, NO quotation marks around the title.
+  - Far UPPER-RIGHT (small, JetBrains Mono 12pt, 45% white): "Investor Brief · 2026"
+  - Below the title, a short horizontal gradient line (120px wide, 2px tall, vivid purple-to-teal diagonal gradient), centered.
+
+- Middle 25%–92% of the canvas: the BODY, a left-to-right FLOW DIAGRAM showing 5 boxes connected by thin arrows. All 5 boxes are identical dark glass panels (12px corner radius, 1px hairline border in warm-white at 8% opacity, subtle inner aurora tint). Each box has a small solid purple OR teal accent strip (4px wide, full height of box) on its LEFT edge, indicating category. Inside each box, top to bottom:
+  1. A small uppercase English category label in JetBrains Mono 11pt, warm-white at 50% opacity, ALL CAPS, short:
+     - Box 1: "INPUT"
+     - Box 2: "ENGINE"
+     - Box 3: "MODEL"
+     - Box 4: "SUMMARIZE"
+     - Box 5: "KEYCHAIN"
+  2. A medium English component name in JetBrains Mono 20pt, warm white, semibold:
+     - Box 1: "tab audio + mic"
+     - Box 2: "AVAudioEngine"
+     - Box 3: "SpeechAnalyzer"
+     - Box 4: "Anthropic API"
+     - Box 5: "macOS Keychain + BYOK"
+  3. A 1-line Chinese description in 14pt, warm-white at 70% opacity, Noto Sans SC:
+     - Box 1: "系统音频 + 麦克风双轨"
+     - Box 2: "本地音频流 tap"
+     - Box 3: "macOS 26 实时转录"
+     - Box 4: "关键时刻 / 待办"
+     - Box 5: "API key 不出本机"
+
+- ARRANGEMENT: the 5 boxes are arranged in a single horizontal row, evenly spaced, centered vertically in the body band. Each box is approximately 16% wide and 50% tall of the body area. Between consecutive boxes, draw a thin horizontal arrow line (1px thick, vivid purple-to-teal gradient stroke) with a small arrowhead at the right end. The arrows indicate the data flow direction (left to right). Each box's left accent strip alternates: Box 1 = purple #8A5BFF, Box 2 = teal #2DD4BF, Box 3 = purple #8A5BFF, Box 4 = teal #2DD4BF, Box 5 = purple #8A5BFF.
+
+- Below the row of 5 boxes, in the bottom 25% of the body band, draw a thin horizontal hairline divider (1px, warm-white at 8% opacity) spanning ~80% of the slide width, centered. Below this divider, place a small centered caption in 14pt warm-white at 60% opacity: "Local-first. BYOK. Data never leaves your Mac." (this is one short English sentence, single line, centered). The English text uses SF Pro Text family, semibold.
+
+- Bottom 92%–100% of the canvas: BOTTOM MARGIN (8% empty). Do NOT place any content in this band except the page number in the lower-right corner.
+
+# PAGE NUMBER
+- Lower-right corner, ~40px from right edge, ~32px from bottom: small page number text in JetBrains Mono 14pt, warm-white at 35% opacity, EXACTLY the string "05 / 10" (with a single space on each side of the slash). This is the ONLY text in the bottom 8% band.
+
+# TYPE & LANGUAGE POLICY
+- All Chinese text is REAL Simplified Chinese, rendered correctly with proper Chinese characters.
+- English component names and labels use real macOS / Apple API names: AVAudioEngine, SpeechAnalyzer, Anthropic API, macOS Keychain, BYOK. These are exact API names — render them exactly as written, do NOT abbreviate, do NOT add suffixes like "16pt" or "API" in parentheses.
+- English caption at the bottom is one short sentence, factual.
+- The "Y" letterform in the corner icon is a single capital Latin letter Y.
+
+# ABSOLUTE PROHIBITIONS (D1 §7 anti-patterns)
+- No waveform, no EKG, no sine wave, no audio visualizer anywhere.
+- No "AI" word rendered as a standalone icon, no "STYLE 1" label, no "TEST" / "Sample" / "Placeholder" labels.
+- No font-size spec text like "14pt" / "600" / "regular" rendered as visible UI text.
+- No two-circle / infinity / chat-bubble mark.
+- No cyberpunk glow, no neon outlines, no floating sparkles, no halo.
+- No pie chart, no donut chart, no gauge, no radar chart.
+- No "Bento" framed box with bold left-side label, no marketing words like 洞察/赋能/智能化/效率提升/全局掌控/AI 驱动.
+- No multi-color neon.
+- No literal single letter "X" used as a data placeholder.
+- No emoji used as icon. No real-person face. No product logo besides the Y mark.
+- No "AI" letters as an icon.
+- No watermark, no caption, no footer other than the page number.
+
+# PALETTE
+- Background: very dark, near-black with aurora wash (top-left vivid purple #B57BFF at ~20% opacity, bottom-right vivid teal #2DD4BF at ~18% opacity).
+- Box glass: #0A0A0F at 65% opacity, with 1px border #F4F1EC at 8% opacity.
+- Box left accent strip: alternates between #8A5BFF (purple) and #2DD4BF (teal), solid color (NOT gradient).
+- Arrow lines: gradient stroke #B57BFF → #2DD4BF.
+- Text warm-white: #F4F1EC.
+- Title: #F4F1EC.
+- Caption below diagram: #F4F1EC at 60% opacity.
+- Page number: #F4F1EC at 35% opacity.
+- ONLY these colors plus the aurora wash.
+
+# ASPECT & RESOLUTION
+- 16:9 aspect ratio, 4K ultra high resolution (5504 × 3072 effective output).
+- No letterbox, no border, no frame.

@@ -1,0 +1,76 @@
+A photorealistic screenshot of a real macOS 26 desktop. 16:9 aspect, 4K resolution. The user has a Chinese AI meeting app called "映话" open during a live interview.
+
+# LAYER 1 — DESKTOP WALLPAPER
+A dark aurora wallpaper with a starry night sky. Deep purple at the left, transitioning through teal/cyan in the middle, with a hint of magenta at the right edge. Subtle aurora ribbon curves. Soft, not cyberpunk, no neon, no glow.
+
+# LAYER 2 — TOP MENU BAR (translucent dark glass)
+From left to right exactly these items:
+- An Apple logo icon
+- The text "Yinghua" in white (this is the app name)
+- The text "File" "Edit" "View" "Window" "Help" in white, evenly spaced
+- A wide empty space
+- On the far right: a Control Center icon, a battery icon, a Wi-Fi icon, a Spotlight search icon, a Siri icon, and the text "21:42" in white
+
+That is the entire menu bar. No other text, no other icons, no clock text in any other position.
+
+# LAYER 3 — DOCK (bottom center, glass, blurred backdrop)
+The dock contains exactly TWELVE icons arranged in a single row, with NO MORE AND NO FEWER. The order from left to right is fixed:
+
+Position 1: "Finder" — a square icon with rounded corners showing a blue and white smiling face
+Position 2: "Safari" — a blue compass icon
+Position 3: "Messages" — a green speech bubble icon
+Position 4: "Mail" — a blue envelope icon
+Position 5: "Notes" — a yellow notepad icon with horizontal ruled lines
+Position 6: "Calendar" — a white page icon with ONLY the red number "26" centered on it. NOTHING ELSE. No text, no abbreviation, no weekday, no month name, no Latin letters, no CJK characters, no gibberish. Just the number 26 in red.
+Position 7: "Reminders" — a white list icon with small red, yellow, and green dots
+Position 8: "Maps" — a stylized map icon with road lines
+Position 9: "Music" — a red musical note on a white background
+Position 10: "System Settings" — a gray gear icon
+Position 11: A small thin gray separator (a single thin vertical line or a small dot)
+Position 12: "Yinghua" — a dark glass squircle with a SOLID WARM-WHITE letter "Y" in the center, no gradient, no glow, in the 01 MINIMAL flat style. A tiny magenta dot below this icon indicates the app is running.
+
+There are EXACTLY 12 elements in the dock. There is NO Launchpad, NO Photos, NO Contacts, NO Address Book, NO FaceTime, NO Trash, NO Keynote, NO Pages, NO Numbers, NO iMovie, NO GarageBand, NO App Store, NO TextEdit, NO Terminal. The 12 elements above are the only 12 elements in the dock.
+
+# LAYER 4 — THE APP WINDOW (centered, ~70% of desktop width)
+A single macOS window with three traffic light buttons (red, yellow, green) in the upper left in correct order. The window title text reads "面试 · 前端终面" in white. The window background is dark glass with subtle aurora tinting, 14px corner radius, ~70% opacity.
+
+The window has a 2-column layout:
+
+## LEFT COLUMN (60% width) — VIDEO GRID
+A 2x2 grid of four video tiles, each showing a heavily blurred face silhouette in muted purple/teal (NOT a real person, NOT a recognizable face). 1px hairline dividers between tiles. Each tile is 16:9 aspect. The top-left tile has a small magenta active-speaker dot in its upper right corner. The top-left corner of the top-left tile has a small speaker/audio icon.
+
+Above the video grid is a thin status strip: a small red dot followed by the text "录制中  02:34" in white (JetBrains Mono for the timecode). To the right of this text is a single thin static horizontal line (NOT a waveform, NOT bars, NOT an EKG).
+
+## RIGHT COLUMN (40% width) — TRANSCRIPT LIST
+Five transcript rows stacked vertically. Each row is exactly 64px tall. Each row has:
+- A 28px circular avatar on the left. The avatar is a SOLID COLORED CIRCLE (purple #8A5BFF for 面试官, teal #2DD4BF for 我, pink #FF6FA9 for 候选人 张三) with ONE white capital letter centered inside: "M" for 面试官, "W" for 我, "Z" for 候选人 张三.
+- To the right of the avatar, on the first line, the SPEAKER NAME in bold white (面试官, 我, or 候选人 张三).
+- On the second line, the BODY TEXT in light gray, which is real Simplified Chinese interview content.
+
+The five rows in order:
+ROW 1: avatar M (purple), name "面试官", body "请介绍一下你在 React 方面的经验"
+ROW 2: avatar W (teal), name "我", body "好的，我主要负责了公司核心组件库的开发"
+ROW 3: avatar Z (pink), name "候选人 张三", body "我之前在字节跳动做了三年的 React 开发"
+ROW 4: avatar M (purple), name "面试官", body "能否详细讲讲你在性能优化方面遇到的最大挑战"
+ROW 5: avatar W (teal), name "我", body "最近我们在做一个大型数据可视化项目"
+
+Every speaker name must be visible in the image. Every body text must be visible in the image. Do not omit the names. Do not omit the body text.
+
+# LAYER 5 — FLOATING CONTROL PANEL (bottom-right of the window, overlapping the bottom-right corner)
+A small dark glass panel with 14px corner radius. The panel has exactly 4 horizontal segments separated by 1px hairlines:
+
+Segment 1 (top, status): a small red dot + the text "录制中" + the text "02:34" in white
+Segment 2 (transport): three circular icon buttons in a row — pause icon, stop icon, play icon. No text.
+Segment 3 (secondary): two circular icon buttons in a row — settings (gear) icon, share (arrow up out of box) icon. No text.
+Segment 4 (bottom, close): one circular icon button — close (X) icon. No text.
+
+The panel ends after Segment 4. There are no extra empty rows, no extra hairlines, no extra content below the close button.
+
+# ABSOLUTE PROHIBITIONS
+- No waveform, no audio bars, no EKG, no sine wave anywhere
+- No "AI" text as a word, no "STYLE 1" label, no "TEST" label, no "Sample" label, no "Placeholder" label
+- No font-size or font-weight text like "14pt" "600" "regular"
+- No cyberpunk glow, no neon outlines, no floating sparkles, no two-circle chat icons
+- No English placeholder text in place of Chinese — all Chinese text must be real Simplified Chinese
+- No Latin gibberish, no Cyrillic, no random letters like "MIY" "tiro" "媛用"
+- 16:9, 4K, no watermark, no caption

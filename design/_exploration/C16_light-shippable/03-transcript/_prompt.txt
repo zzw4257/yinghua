@@ -1,0 +1,55 @@
+Professional product screenshot of a macOS desktop in LIGHT MODE showing the Yinghua (映话) app in transcript-focus mode (a single, focused, full-height window dedicated to the live transcript of a meeting being recorded), captured as a marketing-quality product screenshot.
+
+## BASE macOS LAYER (light mode)
+
+Desktop wallpaper: a real macOS-style LIGHT AURORA — predominantly warm cream off-white (#F4F1EC) at the edges, with a soft low-saturation aurora wash (pale purple top-left ~12% saturation, pale teal bottom-right ~12% saturation). No stars, no dark sky, no neon. Subtle warm white gradient throughout, like a real macOS Tahoe Sonoma light wallpaper.
+
+Menu bar (top, white frosted glass, NOT black): translucent white panel with a 1px hairline border at the bottom edge. Left side items in GRAPHITE color (#1B1D22): Apple logo, then "Yinghua  File  Edit  View  Window  Help" (the active app name is "Yinghua", not "Finder"). Right side status icons in graphite: Control Center, Battery, Wi-Fi, Search, and clock reading "21:42".
+
+Dock (bottom center, white frosted glass with 1px graphite hairline): EXACTLY these 12 elements in this order — Finder, Safari, Messages, Mail, Notes, Calendar, Reminders, Maps, Music, System Settings, a small separator dot, then the Yinghua app icon (purple-to-teal gradient Y on white glass squircle, with a small magenta active dot below indicating the app is running). DO NOT add any other icons (no Launchpad, no Contacts, no Photos, no Trash, no FaceTime, no TV, no App Store). The Calendar icon must show the number "26" in red on a white page background with the day name "MON" (or "TUE"/"WED"/"THU"/"FRI"/"SAT"/"SUN" — any real weekday) in small grey text below — NOT random letters, NOT gibberish.
+
+## APP WINDOW — TRANSCRIPT FOCUS
+
+A single tall, centered macOS window (NOT multiple windows), ~55% of desktop width, ~85% of desktop height, with three standard traffic light buttons (red close, yellow minimize, green maximize) on the upper left. The window has WHITE / VERY LIGHT GLASS material (vibrancy — like a real macOS .regularMaterial in light mode), with a 1px graphite hairline border and 14px corner radius. The aurora tint wash is very subtle (10% opacity purple→teal) on top of the white glass.
+
+### TOP HEADER STRIP (~70px tall, full width inside window)
+A thin header bar across the top of the window content. From left to right:
+- Left: a small red REC dot (#FF3B30), then "录制中" in graphite, then "02:34" in monospace JetBrains Mono.
+- Right edge: a small circular settings gear icon button (white glass, 1px graphite border, 32px diameter).
+
+### MAIN CONTENT (single scrollable column)
+A vertical stack of 7 transcript rows, each ~96px tall, separated by a thin 1px graphite hairline. Each row has the same structure:
+- Left (column ~64px wide): a solid color speaker avatar (~44px diameter circle) with a single capital letter in white inside. Use a mix of 3 colors across the 7 rows: purple #8A5BFF, teal #2DD4BF, and pink #FF6FA9. The same color is used every time the same speaker appears in this list, so different speakers have different stable colors.
+- Middle (flex): speaker name in graphite (use these 3 Chinese names, cycling: "面试官", "我", "候选人 张三"), and right next to it (same line) a small monospace timecode in graphite at 65% opacity (e.g. "02:34:55"). Below the name: 1-2 lines of short Chinese placeholder text in graphite at 65% opacity. Use REAL Simplified Chinese sentences like "我比较关注候选人的系统设计能力" or "在上一段经历里你主要负责什么" or "能详细讲一下这个项目的技术选型吗" — NOT lorem ipsum, NOT English, NOT character fragments.
+
+The rows should feel airy and readable. Generous padding around the avatar. The 7 rows in order (speaker name, timecode, content):
+- "面试官" 02:34:19 — Chinese placeholder
+- "我" 02:34:25 — Chinese placeholder
+- "候选人 张三" 02:34:32 — Chinese placeholder
+- "面试官" 02:34:41 — Chinese placeholder
+- "我" 02:34:48 — Chinese placeholder
+- "候选人 张三" 02:34:55 — Chinese placeholder
+- "面试官" 02:35:02 — Chinese placeholder
+
+### BOTTOM-RIGHT FLOATING ACTION
+A single small circular STOP button (~48px diameter) sitting in the bottom-right corner of the window, clearly OUTSIDE the last transcript row (with at least 32px gap above the last row so it does NOT overlap or cover any text). It has a white frosted glass background, 1px graphite border, and a small solid graphite square icon inside. Below or next to the stop button, a small Chinese label "停止" in graphite.
+
+## STRICT RULES (must follow)
+
+- This is LIGHT MODE macOS — warm cream wallpaper, white glass surfaces, graphite text. NOT dark mode with inverted colors.
+- Do NOT render any text that appears inside this prompt itself. Specifically forbidden visible text: "STYLE 1", "STYLE 2", "PRIMARY", "graphite", "65%", "80%", "14pt", "15pt", "18pt", "32pt", "600", "400", "AI", "node", "TEST", "Sample", "Placeholder", "SF Pro", "JetBrains Mono", "vibrancy", "regularMaterial", "regular material", "Lorem ipsum", "Alex", "Mei", "Sam", "Pat", "Lee", "Jo", or any other design-system metadata, font name, font size, or weight spec.
+- Do NOT render brand names as icon glyphs.
+- Do NOT invent labels for app menu names, status bars, or dock indicators. If you don't know what the macOS UI text should be, leave that area empty.
+- The Dock calendar app icon must show the number "26" + a real weekday (MON/TUE/WED/THU/FRI/SAT/SUN). Do NOT render gibberish.
+- All visible UI text inside the app window must be in real Simplified Chinese, using real word combinations. NEVER random character fragments, NEVER lorem ipsum, NEVER English UI labels (except macOS-level: Yinghua/File/Edit/View/Window/Help).
+- Use ONLY solid-color-circle speaker avatars (one capital letter in white). NO gradient backgrounds, NO 3D effects, NO 4-style label, NO "STYLE 1" text.
+- The transcript window is the SOLE window — no side panel, no transcript preview, no AI summary, no settings drawer, nothing else visible inside the window beyond the header + 7 rows + bottom-right stop button.
+- The stop button MUST NOT overlap or cover any transcript row's text. Place it with at least 32px gap from the last row's content.
+- NO waveform, NO EKG, NO sine wave anywhere.
+- NO cyberpunk glow, NO neon outlines, NO holographic effects, NO dark sky stars.
+- NO "AI" text burned into the image.
+- NO two-circle-overlap chat icon. NO sparkles decoration sprinkled around.
+- The single visible main window is centered; nothing else floats over the desktop except the in-window stop button.
+- Aspect ratio 16:9, 4K resolution.
+
+Output: a single product-quality screenshot, no text overlays, no watermark, no captions, no prompt artifacts.

@@ -1,0 +1,76 @@
+A photorealistic screenshot of a real macOS 26 desktop. 16:9, 4K. The user just installed the Chinese AI meeting app "映话" (Yinghua) and is seeing the welcome screen for the first time.
+
+# CRITICAL: DOCK COUNT ENFORCEMENT
+
+The dock at the bottom contains EXACTLY 12 ICONS. NOT 13. NOT 14. NOT 15. EXACTLY 12. The model is known to add extra system icons like Launchpad, Photos, Contacts, Trash, FaceTime, or duplicate Notes and Calendar. DO NOT add any of these. ONLY the 12 listed below are in the dock.
+
+# LAYER 1 — WALLPAPER
+A dark aurora wallpaper with a starry night sky. Deep purple at the left, transitioning through teal/cyan in the middle, with a hint of magenta at the right edge. Subtle aurora ribbon curves. Soft, not cyberpunk.
+
+# LAYER 2 — TOP MENU BAR (translucent dark glass)
+From left to right exactly these items:
+- An Apple logo icon
+- The text "Yinghua" in white (this is the app name)
+- The text "File" "Edit" "View" "Window" "Help" in white, evenly spaced
+- A wide empty space
+- On the far right: a Control Center icon, a battery icon, a Wi-Fi icon, a Spotlight search icon, a Siri icon, and the text "21:42" in white
+
+# LAYER 3 — DOCK (bottom center, glass, blurred backdrop)
+EXACTLY 12 icons in a single row, this order:
+
+Position 1: "Finder" — blue and white smiling face
+Position 2: "Safari" — blue compass
+Position 3: "Messages" — green speech bubble
+Position 4: "Mail" — blue envelope
+Position 5: "Notes" — yellow notepad with horizontal lines
+Position 6: "Calendar" — white page with ONLY the red number "26". No text, no day name, no month, no gibberish, just the number 26 in red.
+Position 7: "Reminders" — white list with small colored dots
+Position 8: "Maps" — map with road lines
+Position 9: "Music" — red musical note on white
+Position 10: "System Settings" — gray gear
+Position 11: A small thin gray separator
+Position 12: "Yinghua" — dark glass squircle with a SOLID WARM-WHITE letter "Y" in 01 MINIMAL flat style, with a tiny magenta active dot below
+
+FORBIDDEN IN THE DOCK: Launchpad, Photos, Contacts, Address Book, FaceTime, Trash, Keynote, Pages, Numbers, iMovie, GarageBand, App Store, TextEdit, Terminal, any duplicate.
+
+# LAYER 4 — WELCOME SCREEN (centered, single full-height column)
+
+This is NOT a regular app window. This is a centered welcome/onboarding overlay. There is NO window chrome (no traffic lights, no title bar). The content is centered on the desktop, floating, with generous whitespace around it.
+
+From top to bottom, centered horizontally:
+
+### 1. BRAND MARK (centered, ~120px tall)
+A 96x96 squircle icon (macOS superellipse shape with 22.4% corner radius) with a SOLID DARK BACKGROUND (#0A0A0F near-black). In the center of the squircle, a SOLID WARM-WHITE letter "Y" (style 01 MINIMAL — flat, no gradient, no glow, no neon). The Y is a single solid warm-white color (#F4F1EC) on the dark background. The Y is centered, takes up about 52% of the squircle's inner area. This is NOT a gradient, NOT a glow, NOT a neon, NOT a colorful mark. It is FLAT BLACK + FLAT WARM-WHITE.
+
+### 2. APP TITLE (centered, large)
+Below the brand mark, the text "映话" in large bold white text (Noto Serif SC or PingFang SC, ~64pt font size). This is the only product name displayed.
+
+### 3. SUBTITLE (centered, medium)
+Below the app title, the text "为面试而生的 macOS 智能助手" in medium-sized light gray text (~22pt, PingFang SC, 60% white opacity).
+
+### 4. THREE BULLET FEATURES (centered, stacked, with icons and text)
+Below the subtitle, three feature rows stacked vertically. Each row has a small icon on the left (24px) and a short Chinese text on the right (16pt PingFang SC, white). The three rows, top to bottom:
+
+Row 1: a small purple microphone icon + the text "系统级录音 + 麦克风，全程本地"
+Row 2: a small teal audio waveform icon (just a single smooth wave shape, NOT a complex waveform) + the text "实时转录，自动分说话人"
+Row 3: a small pink sparkle icon (4-point star) + the text "AI 总结、决定、待办"
+
+### 5. PRIMARY CTA BUTTON (centered, large, gradient)
+Below the features, a large primary CTA button, ~280px wide, 52px tall, 12px corner radius. The button background is a smooth gradient from purple (#B57BFF) on the left to teal (#2DD4BF) on the right, diagonal direction (135 degrees). The button text "开始使用 ↗" is white, large (~18pt bold PingFang SC), with a small arrow icon.
+
+### 6. GHOST LINK (centered, small, below CTA)
+Below the CTA, a small ghost text link "已有账号" in light gray (60% white opacity) with a subtle underline.
+
+### 7. PROGRESS DOTS (centered, very bottom)
+Below the ghost link, 3 small horizontal dots in a row, evenly spaced. The first dot is filled (solid purple), the other two dots are outlined (white border with transparent fill). This indicates step 1 of 3.
+
+# ABSOLUTE PROHIBITIONS
+- No waveform, no audio bars, no EKG, no sine wave (the only wave allowed is a single smooth wave in the teal feature icon)
+- No "AI" text as a word by itself — the bullet text is "AI 总结、决定、待办" as a single phrase
+- No "STYLE 1" label, no "TEST" label, no "Sample" label, no "Placeholder" label, no "MINIMAL" label
+- No font-size or font-weight text like "64pt" "18pt" "600" "regular"
+- No cyberpunk glow, no neon outlines, no floating sparkles around the brand mark (the sparkle is only the small icon next to the AI bullet)
+- No two-circle chat icons
+- No English placeholder text in place of Chinese — all Chinese text must be real Simplified Chinese
+- No Latin gibberish, no Cyrillic, no random letters
+- 16:9, 4K, no watermark, no caption

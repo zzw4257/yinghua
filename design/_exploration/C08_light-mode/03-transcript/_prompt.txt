@@ -1,0 +1,49 @@
+Professional product screenshot of a macOS 26 desktop in LIGHT MODE showing the Yinghua (映话) app in transcript-focus mode (a single, focused, full-height window dedicated to the live transcript of a meeting being recorded), captured as a marketing-quality product screenshot.
+
+## BASE macOS LAYER (must be IDENTICAL to ref-01-macos-base and ref-02-dock-system, but in light mode)
+
+The desktop wallpaper is a real macOS-style LIGHT AURORA — predominantly warm cream off-white (#F4F1EC) at the edges, with a soft low-saturation aurora wash (pale purple top-left ~12% saturation, pale teal bottom-right ~12% saturation), no stars, no dark sky, no neon. Subtle warm white gradient throughout, like a real macOS Tahoe Sonoma light wallpaper.
+
+WHITE FROSTED menu bar at top (NOT black): translucent white panel with a 1px hairline #1B1D22 @ 8% border at the bottom edge. Left side items in GRAPHITE color #1B1D22: Apple logo, then "Finder  File  Edit  View  Window  Help" (plain English). Right side status icons in graphite: battery, Wi-Fi, search, control center, and clock reading "21:42".
+
+A WHITE FROSTED glass Dock sits at the bottom center of the screen, with EXACTLY these 11 icons in this order, all proper macOS system app icons (NOT generic placeholders). The Dock surface is translucent white with 1px #1B1D22 @ 8% hairline border and subtle blur: Finder (blue-white face), Safari (compass blue), Messages (green speech bubble), Mail (blue envelope), Notes (yellow notepad), Calendar (white page with the number "26" in red — make sure the "26" is clearly readable as numerals, not random letters), Reminders (white list with red/yellow/green dots), Maps (map with roads), Music (red note on white), System Settings (gray gear), separator dot, then Yinghua app icon (white Y on subtle aurora gradient squircle, small magenta dot below indicating running).
+
+## APP WINDOW — TRANSCRIPT FOCUS (centered, ~55% of desktop width, ~85% of desktop height)
+
+A single, tall, macOS window (NOT multiple windows) with three standard traffic light buttons (red close, yellow minimize, green maximize) on the upper left. The window has WHITE / VERY LIGHT GLASS material (vibrancy — like a real macOS .regularMaterial in light mode), with a 1px #1B1D22 @ 8% hairline border and 14px corner radius. The aurora tint wash is very subtle (10% opacity purple→teal) on top of the white glass.
+
+### TOP HEADER STRIP (~70px tall, full width inside window)
+A thin header bar across the top of the window content. From left to right:
+- Center: a small red REC dot (#FF3B30), then "REC" in graphite SF Pro Text 600 ~14pt, then "02:34" in monospace JetBrains Mono ~18pt.
+- Right edge: a small circular settings gear icon button (white glass, 1px #1B1D22 @ 8% border, 32px diameter).
+
+### MAIN CONTENT (single scrollable column)
+A vertical stack of 7 transcript rows, each ~96px tall, separated by a thin 1px #1B1D22 @ 8% hairline. Each row has the same structure:
+- Left (column ~64px wide): STYLE 1 speaker avatar — solid color circle (~44px diameter) with a single capital letter in white SF Pro Text 600 inside. Use a mix of 3 colors across the 7 rows: purple #8A5BFF, teal #2DD4BF, and pink #FF6FA9. The same color is used every time the same speaker appears in this list, so different speakers have different stable colors.
+- Middle (flex): speaker name in graphite SF Pro Display 600 ~16pt, and right next to it (same line) a small monospace timecode in graphite ~65% opacity 14pt (e.g. "02:34:55"). Below the name: 1-2 lines of placeholder text in graphite ~65% opacity 14pt regular (use generic English placeholder like "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." — this is the standard Lorem ipsum text, Figma will replace).
+- The rows should feel airy and readable. Generous padding around the avatar.
+
+Use these simple, short speaker names in order: "Alex", "Mei", "Sam", "Pat", "Mei", "Alex", "Sam" (so Alex = purple, Mei = teal, Sam = pink, Pat = purple or teal again — pick consistently so the same name = same color).
+
+### BOTTOM-RIGHT FLOATING ACTION
+A single small circular STOP button (~48px diameter) in the bottom-right corner of the window content area, slightly overlapping the last row. It has a white frosted glass background, 1px #1B1D22 @ 8% border, and a small solid graphite square icon inside (the stop icon). This is NOT a primary CTA — it's just a contextual stop button.
+
+## STRICT RULES (must follow)
+- This is LIGHT MODE macOS — warm cream wallpaper, white glass surfaces, graphite text. NOT a dark mode with inverted colors.
+- The base macOS layer (light wallpaper, white menu bar, white Dock with 11 system icons) must be IDENTICAL to the reference layout but in light colors — do NOT make it dark.
+- Do NOT print any of these as visible text in the image: color names (purple, teal, pink), style names (STYLE 1, STYLE 2), font names (SF Pro, JetBrains Mono), font sizes (14pt, 18pt), opacity values (65%, 80%), or any other design-system metadata. Only actual UI text (names, timecodes, Lorem ipsum placeholder) should be present.
+- Use ONLY STYLE 1 speaker avatars (solid color circle with single capital letter, NO gradient backgrounds, NO 3D effects, NO 4-style label).
+- The transcript window is the SOLE window — no side panel, no transcript preview, no AI summary, no settings drawer, nothing else visible inside the window beyond the header + 7 rows + bottom-right stop button.
+- NO waveform, NO EKG, NO sine wave anywhere.
+- NO cyberpunk glow, NO neon outlines, NO holographic effects, NO dark sky stars.
+- NO "AI" text burned into the image.
+- NO two-circle-overlap chat icon. NO sparkles decoration sprinkled around.
+- All visible text in English — no need to render Chinese characters (Figma pass will overlay them).
+- Window surface: white/light glass with very subtle aurora tint vibrancy (~10% opacity), 14px corner radius, 1px #1B1D22 @ 8% hairline border.
+- Speaker name font: SF Pro Display style, weight 600, graphite #1B1D22.
+- Body text: SF Pro Text style, weight 400, graphite #1B1D22 with 65% opacity for timecodes and Lorem ipsum.
+- The single visible main window is centered; nothing else floats over the desktop except the in-window stop button.
+- Real macOS feel: looks like a real SwiftUI transcript window, not a chat-app mockup.
+- Aspect ratio 16:9, 2K resolution.
+
+Output: a single product-quality screenshot, no text overlays, no watermark, no captions.

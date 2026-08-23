@@ -1,0 +1,72 @@
+Professional product screenshot of a macOS 26 desktop in LIGHT MODE showing the Yinghua (映话) app in post-meeting REVIEW mode (a single window where the user can re-read the transcript and read the AI-generated summary), captured as a marketing-quality product screenshot.
+
+## BASE macOS LAYER (must be IDENTICAL to ref-01-macos-base and ref-02-dock-system, but in light mode)
+
+The desktop wallpaper is a real macOS-style LIGHT AURORA — predominantly warm cream off-white (#F4F1EC) at the edges, with a soft low-saturation aurora wash (pale purple top-left ~12% saturation, pale teal bottom-right ~12% saturation), no stars, no dark sky, no neon. Subtle warm white gradient throughout, like a real macOS Tahoe Sonoma light wallpaper.
+
+WHITE FROSTED menu bar at top (NOT black): translucent white panel with a 1px hairline #1B1D22 @ 8% border at the bottom edge. Left side items in GRAPHITE color #1B1D22: Apple logo, then "Finder  File  Edit  View  Window  Help" (plain English). Right side status icons in graphite: battery, Wi-Fi, search, control center, and clock reading "22:14".
+
+A WHITE FROSTED glass Dock sits at the bottom center of the screen, with EXACTLY these 11 icons in this order, all proper macOS system app icons (NOT generic placeholders). The Dock surface is translucent white with 1px #1B1D22 @ 8% hairline border and subtle blur: Finder (blue-white face), Safari (compass blue), Messages (green speech bubble), Mail (blue envelope), Notes (yellow notepad), Calendar (white page with the number "26" in red — make sure the "26" is clearly readable as numerals, not random letters), Reminders (white list with red/yellow/green dots), Maps (map with roads), Music (red note on white), System Settings (gray gear), separator dot, then Yinghua app icon (white Y on subtle aurora gradient squircle, small magenta dot below indicating running).
+
+## APP WINDOW — POST-MEETING REVIEW (centered, ~75% of desktop)
+
+A single macOS window (NOT multiple windows) titled "Yinghua" at the top center, with three standard traffic light buttons (red close, yellow minimize, green maximize) on the upper left. The window has WHITE / VERY LIGHT GLASS material (vibrancy — like a real macOS .regularMaterial in light mode), with a 1px #1B1D22 @ 8% hairline border and 14px corner radius. The aurora tint wash is very subtle (10% opacity purple→teal) on top of the white glass.
+
+The window is a 2-column layout:
+
+### LEFT COLUMN (~38% width) — File card + transcript preview
+
+- Top: a file card looking like a real Finder file card, white frosted glass with 1px #1B1D22 @ 8% border and 12px corner radius. The card contains:
+  - Left: a small file icon (rounded purple Y file icon, ~48x48).
+  - Middle: title "Zoe-frontend-final-round" in graphite SF Pro Text 600 16pt, and below it a subtitle "Recorded today · 48 min · 1.2 GB" in graphite @ 65% 12pt.
+  - Right: a small purple-teal gradient "Open" pill button (~64x28) with white text.
+  - Below the title row, three small inline meta tag pills with subtle white glass background and 1px #1B1D22 @ 8% border, each ~12pt text in graphite: "MP4", "EN + 中文", "2 speakers".
+
+- Below the file card, a scrollable compact transcript list with 5 visible rows. Each row has:
+  - Left: STYLE 1 speaker avatar (~28px) — solid color circle with single capital letter in white. Mix purple, teal, pink.
+  - Middle: bold speaker name in graphite 14pt 600, then a small monospace timecode in graphite @ 65% 12pt (e.g. "12:04"), and below that 1 line of Lorem ipsum placeholder in graphite @ 65% 14pt regular.
+  - Each row separated by a thin 1px #1B1D22 @ 8% hairline.
+
+- Below the transcript list (inside the left column), a horizontal row of 2 speaker chip pills: "● Zoe  62%" (purple dot, purple progress bar) and "● Me  38%" (teal dot, teal progress bar). Each pill is white glass with 1px #1B1D22 @ 8% border, ~12pt text in graphite, with a small thin progress bar inside.
+
+### RIGHT COLUMN (~62% width) — AI Summary with collapsible sections
+
+- Top header strip: a small purple sparkle icon (~16px) on the left, then "AI SUMMARY" small caps label in graphite 12pt 600, and right-aligned a small "Regenerate" ghost link (graphite @ 65% text, no underline, ~13pt).
+- Below header, 4 collapsible section cards stacked vertically, each ~80px tall when collapsed, more when expanded. Each card has:
+  - White frosted glass surface, 1px #1B1D22 @ 8% border, 12px corner radius.
+  - Header row: small section icon (left, ~16px graphite), bold section title in graphite SF Pro Text 600 16pt (titles: "Key moments", "Decisions", "Action items", "Open questions"), right-side chevron toggle (small graphite chevron).
+  - Content area (the first 2 sections are EXPANDED, the last 2 are COLLAPSED showing only the count badge like "3 items" on the right):
+    - Section 1 "Key moments" (expanded): 3 bullet points. Each bullet has a small colored dot prefix (4px, cycle purple/teal/pink), then a monospace timecode prefix in graphite @ 65% (e.g. "12:04 — "), then Lorem ipsum text in graphite 14pt regular.
+    - Section 2 "Decisions" (expanded): 2 bullet points (no timecode).
+    - Section 3 "Action items" (collapsed): just shows "3 items" badge on the right.
+    - Section 4 "Open questions" (collapsed): just shows "5 items" badge on the right.
+
+- All bullet text is placeholder Lorem ipsum (the standard "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." or shorter fragments) — Figma will replace with real Chinese summary text later.
+
+### BOTTOM-RIGHT inside the window — 2x2 action button cluster
+A 2x2 button cluster inside the right column, at the bottom. Each button ~150x40, 12px corner radius, 16px gap.
+- Top-left: Secondary white glass button "Copy summary" (white glass + 1px #1B1D22 @ 8% border, graphite text).
+- Top-right: Secondary white glass button "Export PDF" (same style).
+- Bottom-left: Secondary white glass button with a small download arrow icon inside.
+- Bottom-right: PRIMARY purple-to-teal gradient button "Share" with a small share arrow icon — this is the hero CTA, clearly more prominent than the others (slightly larger, gradient fill, white text).
+- Below the cluster, a single small "Done" ghost text link (graphite @ 65%, no underline) sits centered.
+
+## STRICT RULES (must follow)
+- This is LIGHT MODE macOS — warm cream wallpaper, white glass surfaces, graphite text. NOT a dark mode with inverted colors.
+- The base macOS layer (light wallpaper, white menu bar, white Dock with 11 system icons) must be IDENTICAL to the reference layout but in light colors — do NOT make it dark.
+- Do NOT print any of these as visible text in the image: color names, style names, font names, font sizes, opacity values, or any other design-system metadata. Only actual UI text (titles, names, Lorem ipsum, button labels) should be present.
+- Use ONLY STYLE 1 speaker avatars (solid color circle with single capital letter, NO gradient backgrounds, NO 3D effects, NO 4-style label).
+- NO waveform, NO EKG, NO sine wave, NO audio bar, NO ekg-style visualization anywhere in the window.
+- NO cyberpunk glow, NO neon outlines, NO holographic effects, NO dark sky stars.
+- NO "AI" text burned into the image except the word "AI" inside the small "AI SUMMARY" header label.
+- NO two-circle-overlap chat icon. NO floating "sparkles" decoration sprinkled around. The single purple sparkle is only used ONCE as the AI summary section header marker.
+- All visible text in English — no need to render Chinese characters (Figma pass will overlay them).
+- Window surface: white/light glass with very subtle aurora tint vibrancy (~10% opacity), 14px corner radius, 1px #1B1D22 @ 8% hairline border.
+- Title text: SF Pro Display style, weight 600, graphite #1B1D22.
+- Body text: SF Pro Text style, weight 400, graphite #1B1D22 with 65% opacity for secondary text.
+- Brand purple-to-teal gradient: ONLY the "Open" pill on the file card AND the "Share" primary button use the same purple-to-teal gradient as the brand. Other buttons are white glass.
+- The single visible main window is centered; nothing else floats over the desktop.
+- Real macOS feel: looks like a real SwiftUI review window, not a web app.
+- Aspect ratio 16:9, 2K resolution.
+
+Output: a single product-quality screenshot, no text overlays, no watermark, no captions.

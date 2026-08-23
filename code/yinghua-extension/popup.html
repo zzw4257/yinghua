@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=360" />
+  <title>Yinghua</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <main class="yh-popup">
+    <header class="yh-header">
+      <div class="yh-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="24" height="24">
+          <defs>
+            <linearGradient id="yh-popup-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#B57BFF"/>
+              <stop offset="50%" stop-color="#8A5BFF"/>
+              <stop offset="100%" stop-color="#2DD4BF"/>
+            </linearGradient>
+          </defs>
+          <path d="M5 5 L13 13 L13 27 M27 5 L19 13"
+                fill="none" stroke="url(#yh-popup-grad)" stroke-width="4.5"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="yh-header-text">
+        <div class="yh-header-title">Yinghua</div>
+        <div class="yh-header-subtitle" id="yh-subtitle">本地录制 · 不上传</div>
+      </div>
+    </header>
+
+    <section class="yh-meeting" id="yh-meeting">
+      <div class="yh-meeting-row">
+        <span class="yh-meeting-label">当前会议</span>
+        <span class="yh-meeting-platform" id="yh-meeting-platform">—</span>
+      </div>
+      <div class="yh-meeting-url" id="yh-meeting-url">未检测到会议</div>
+    </section>
+
+    <section class="yh-record">
+      <div class="yh-record-status">
+        <span class="yh-record-dot" id="yh-record-dot" aria-hidden="true"></span>
+        <span id="yh-record-label">未在录制</span>
+      </div>
+      <div class="yh-record-time" id="yh-record-time">00:00:00</div>
+      <button class="yh-cta" id="yh-cta" type="button">开始录制</button>
+      <p class="yh-record-hint" id="yh-record-hint">仅录制会议音频，文件保存在浏览器本地。</p>
+    </section>
+
+    <section class="yh-list" aria-label="已录制列表">
+      <div class="yh-list-header">
+        <h2>已录制</h2>
+        <span class="yh-list-count" id="yh-list-count">0</span>
+      </div>
+      <ul class="yh-list-items" id="yh-list-items">
+        <li class="yh-list-empty">尚无录音</li>
+      </ul>
+    </section>
+
+    <footer class="yh-footer">
+      <button class="yh-link" id="yh-open-app" type="button" disabled>在桌面 App 中打开</button>
+      <span class="yh-footer-meta">v0.1.0 · MVP</span>
+    </footer>
+  </main>
+
+  <script src="export.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>映话</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>app.yinghua.Yinghua</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>Yinghua</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.productivity</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>26.0</string>
+	<key>NSAppleEventsUsageDescription</key>
+	<string>映话使用 Apple Events 自动化控制会议应用。</string>
+	<key>NSHumanReadableCopyright</key>
+	<string>© 2026 Yinghua Inc.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>映话 needs microphone access to record your voice during meetings.</string>
+	<key>NSScreenCaptureUsageDescription</key>
+	<string>映话 needs screen recording access to capture system audio from meetings.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>映话 uses on-device speech recognition to transcribe your meetings in real time.</string>
+	<key>NSSupportsAppIntents</key>
+	<true/>
+	<key>NSUserNotificationUsageDescription</key>
+	<string>映话 can notify you when a meeting ends and your AI summary is ready.</string>
+</dict>
+</plist>

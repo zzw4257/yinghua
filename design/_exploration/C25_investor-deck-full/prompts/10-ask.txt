@@ -1,0 +1,98 @@
+PAGE 10 — "要融 $2M" (The Ask / Use of funds + 18-month milestones)
+
+A 16:9, 4K ultra high resolution investor deck slide. Pure dark aurora wallpaper background (deep purple at the upper-left fading through teal/cyan at the lower-right, soft subtle aurora ribbon curves, NOT cyberpunk, NOT neon, NOT a starry galaxy, NOT outer space). The slide is a CLEAN editorial slide — no macOS menu bar, no dock. Just the aurora backdrop with editorial content laid on top.
+
+# LAYOUT GRID
+- Top 0%–25% of the canvas: header band
+  - Upper-LEFT corner (small, ~64px squircle, 40px from top, 40px from left): a small dark glass app icon squircle (22.4% corner radius) containing a single letter "Y" rendered in a vivid purple-to-teal diagonal gradient (135deg, vivid purple #B57BFF → mid purple #8A5BFF → vivid teal #2DD4BF). The Y is a clean letterform: V-shape converging to a single point with a straight vertical stem below, no serifs, no glow, no halos, no decorations.
+  - To the right of the icon: small wordmark in white (JetBrains Mono): "YINGHUA · 映话"
+  - Centered horizontally in the header band: the slide title "要融 $2M" rendered in warm white (#F4F1EC), 64pt, semibold, SF Pro Display family, single line, NO quotation marks around the title.
+  - Far UPPER-RIGHT (small, JetBrains Mono 12pt, 45% white): "Investor Brief · 2026"
+  - Below the title, a short horizontal gradient line (120px wide, 2px tall, vivid purple-to-teal diagonal gradient), centered.
+
+- Middle 25%–92% of the canvas: the BODY, split into a LEFT 50% (USE OF FUNDS as 4 horizontal stacked bars) and a RIGHT 50% (18-MONTH MILESTONES as a vertical timeline of 4 phases).
+
+  ## LEFT 45% of body: 4 HORIZONTAL STACKED BARS (Use of Funds)
+  - Above the 4 bars, place a small uppercase kicker in JetBrains Mono 14pt, warm-white at medium opacity, ALL CAPS, single line: "USE OF FUNDS" (the only text in this kicker, no opacity value, no percentage, no spec).
+  - 4 horizontal bars, stacked vertically with small gap. Each bar is the full width of the left zone, height ~12% of the body height. For each bar, top to bottom contains:
+    1. A LEFT-ALIGNED Chinese label in 16pt warm-white, semibold, Noto Sans SC. The label sits ABOVE the bar (not on the bar).
+    2. The BAR ITSELF: a 36px tall horizontal rectangle with 8px corner radius. Solid purple #8A5BFF (NO gradient, NO pie slice, NO donut shape). The bar's WIDTH encodes the percentage (full bar = full width of the left zone; shorter bar = proportionally narrower, all bars LEFT-aligned to a common left edge). A 1px hairline track (warm-white at very low opacity, like a subtle grey line) extends from the bar's right edge to the right edge of the left zone, to show the "100% of total funds" reference visually.
+    3. A percentage value in JetBrains Mono 18pt, warm-white, semibold, positioned at the right end of the BAR (inside the bar, near its right edge): "40%" / "25%" / "20%" / "15%". Render these as plain text labels ONLY.
+    4. A dollar value in JetBrains Mono 14pt, warm-white at medium opacity, positioned to the right of the bar (in the track region, far right): "$800K" / "$500K" / "$400K" / "$300K". Render these as plain text labels ONLY.
+
+  The 4 bars (top to bottom):
+  - Bar 1 — "工程" (40% / $800K): solid purple, takes 40% of the left zone width.
+  - Bar 2 — "设计" (25% / $500K): solid teal #2DD4BF, takes 25% of the left zone width.
+  - Bar 3 — "市场" (20% / $400K): solid purple, takes 20% of the left zone width.
+  - Bar 4 — "运营" (15% / $300K): solid teal, takes 15% of the left zone width.
+
+  Sum check: 40 + 25 + 20 + 15 = 100%. Sum dollar check: 800K + 500K + 400K + 300K = $2M.
+
+  ## RIGHT 55% of body: 18-MONTH MILESTONES TIMELINE
+  - Above the timeline, place a small uppercase kicker in JetBrains Mono 14pt, warm-white at medium opacity, ALL CAPS, single line: "18-MONTH MILESTONES" (the only text in this kicker, no opacity value, no percentage, no spec).
+  - A thin horizontal timeline line (1px tall, warm-white at low opacity) running across the right zone horizontally, at the vertical center of the body. 4 milestone markers on this line, evenly spaced left to right. Each marker is a SOLID TEAL CIRCLE 12px diameter (#2DD4BF) sitting ON the line. The 4 markers are positioned at: leftmost (near the left edge of the right zone), then 3 more evenly distributed toward the right edge. Do NOT show any position percentage as visible text. Do NOT show any opacity percentage as visible text.
+  - Below the timeline line, a small kicker text in JetBrains Mono 12pt, warm-white at medium opacity: "Q4 26 → Q4 27", centered horizontally on the timeline. This is the ONLY text in this caption line.
+  - Above each marker, a small content block (centered on the marker). Each block contains:
+    1. A small uppercase English quarter label in JetBrains Mono 12pt, warm-white at medium opacity, ALL CAPS:
+       - Marker 1: "Q4 2026"
+       - Marker 2: "Q2 2027"
+       - Marker 3: "Q3 2027"
+       - Marker 4: "Q4 2027"
+    2. A 2-3 line milestone summary in Simplified Chinese, 14pt warm-white at 80% opacity, line-height ~1.5, Noto Sans SC:
+       - Marker 1: "公测上线\n500 beta 用户"
+       - Marker 2: "Pro 付费转化\n5K 订阅"
+       - Marker 3: "Team 上线\n$50K MRR"
+       - Marker 4: "海外拓展\n$150K MRR"
+
+  - The right zone is the WIDER of the two (55% of body width). The left zone is 45% of body width. There is a thin vertical hairline divider (1px, warm-white at very low opacity) between the two zones for visual separation.
+
+  ## BELOW BOTH ZONES — SHORT FOOTER
+  - At the bottom of the body band (above the 8% margin), draw a thin horizontal hairline divider (1px, warm-white at 8% opacity) spanning ~80% of the slide width, centered. Below this divider, place a small centered caption in 14pt warm-white at 60% opacity: "18-month runway · SAFE · $8M cap". Single line, centered, English.
+
+- Bottom 92%–100% of the canvas: BOTTOM MARGIN (8% empty). Do NOT place any content in this band except the page number in the lower-right corner.
+
+# PAGE NUMBER
+- Lower-right corner, ~40px from right edge, ~32px from bottom: small page number text in JetBrains Mono 14pt, warm-white at 35% opacity, EXACTLY the string "10 / 10" (with a single space on each side of the slash). This is the ONLY text in the bottom 8% band.
+
+# TYPE & LANGUAGE POLICY
+- All Chinese text is REAL Simplified Chinese, rendered correctly with proper Chinese characters.
+- Quarter labels (Q4 2026 / Q2 2027 / Q3 2027 / Q4 2027) are rendered in standard English quarter format.
+- Dollar amounts use the "$" prefix and "K" / "M" abbreviations.
+- Percentages use the "%" suffix.
+- The "Y" letterform in the corner icon is a single capital Latin letter Y.
+
+# ABSOLUTE PROHIBITIONS (D1 §7 anti-patterns)
+- No waveform, no EKG, no sine wave, no audio visualizer anywhere.
+- No "AI" word rendered as a standalone icon, no "STYLE 1" label, no "TEST" / "Sample" / "Placeholder" labels.
+- No font-size spec text like "14pt" / "600" / "regular" rendered as visible UI text.
+- No opacity percentage text like "60%" / "30%" / "8%" / "45%" rendered as visible UI text — describe opacity as a color/lightness intent (e.g. "light grey" / "medium opacity" / "subtle"), not a numeric value.
+- No placeholder phrase like "LARGE PRICE" / "TITLE HERE" / "BIG NUMBER" / "LABEL" / "META" rendered as visible text.
+- No position percentage text like "10%" / "35%" / "50%" / "65%" / "90%" rendered as visible UI text — describe positions as "left" / "center" / "right" or "evenly spaced".
+- No two-circle / infinity / chat-bubble mark.
+- No cyberpunk glow, no neon outlines, no floating sparkles, no halo.
+- ABSOLUTELY NO PIE CHART. NO DONUT CHART. NO GAUGE. NO RADAR CHART. The use of funds is rendered as 4 HORIZONTAL STACKED BARS with proportional widths, NOT a pie chart. The bars are LEFT-aligned (so widths can be visually compared) and are SOLID color (purple or teal), NOT gradient-filled.
+- No "Bento" framed box with bold left-side label, no marketing words like 洞察/赋能/智能化/效率提升/全局掌控/AI 驱动.
+- No multi-color neon.
+- No literal single letter "X" used as a data placeholder.
+- No emoji used as icon. No real-person face. No product logo besides the Y mark.
+- No "AI" letters as an icon.
+- No watermark, no caption, no footer other than the page number.
+
+# PALETTE
+- Background: very dark, near-black with aurora wash.
+- Bars: solid #8A5BFF (purple) or solid #2DD4BF (teal). NO gradient fill. NO multi-color stripes.
+- Bar track (1px hairline extending right of bar): #F4F1EC at 8% opacity.
+- Bar percentage text: #F4F1EC.
+- Bar dollar value text: #F4F1EC at 60% opacity.
+- Bar Chinese label: #F4F1EC.
+- Timeline line: #F4F1EC at 30% opacity.
+- Milestone markers: solid #2DD4BF (12px circles).
+- Milestone labels (quarter / milestone / Chinese): #F4F1EC at 60-80% opacity.
+- Footer kicker: #F4F1EC at 60% opacity.
+- Title: #F4F1EC.
+- Page number: #F4F1EC at 35% opacity.
+- ONLY these colors plus the aurora wash.
+
+# ASPECT & RESOLUTION
+- 16:9 aspect ratio, 4K ultra high resolution (5504 × 3072 effective output).
+- No letterbox, no border, no frame.

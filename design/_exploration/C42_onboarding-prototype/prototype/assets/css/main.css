@@ -1,0 +1,934 @@
+/* ===================================================================
+ * 映话 (Yìnghuà) — Onboarding Prototype · main.css
+ * Source: design/design-tokens.json (D2 v1.0) + design-doc.md §2 / §6
+ * Single source of truth for all 4 onboarding screens + iPhone chrome
+ * =================================================================== */
+
+:root {
+  /* —— Brand · aurora gradient (D1 §2.1) —— */
+  --color-brand-purple-vivid: #B57BFF;
+  --color-brand-purple-mid: #8A5BFF;
+  --color-brand-purple-deep: #2A1240;
+  --color-brand-teal-vivid: #2DD4BF;
+  --color-brand-teal-deep: #0E2A2A;
+
+  /* —— Neutral · glass + text (D1 §2.1) —— */
+  --color-near-black: #0A0A0F;
+  --color-graphite: #1B1D22;
+  --color-glass-deep: rgba(10, 10, 15, 0.7);
+  --color-glass-mid: rgba(27, 29, 34, 0.55);
+  --color-glass-soft: rgba(244, 241, 236, 0.05);
+  --color-warm-white: #F4F1EC;
+  --color-text-secondary: rgba(244, 241, 236, 0.8);
+  --color-text-tertiary: rgba(244, 241, 236, 0.6);
+  --color-text-quaternary: rgba(244, 241, 236, 0.3);
+  --color-hairline: rgba(244, 241, 236, 0.08);
+  --color-hairline-strong: rgba(244, 241, 236, 0.15);
+
+  /* —— Semantic (D1 §2.1) —— */
+  --color-recording-red: #FF3B30;
+  --color-warning-orange: #FF9F0A;
+  --color-granted: #34C759;
+  --color-pending: rgba(244, 241, 236, 0.4);
+  --color-optional: rgba(244, 241, 236, 0.3);
+  --color-danger: #FF453A;
+
+  /* —— Typography (D1 §2.2) —— */
+  --font-display: "Noto Serif SC", "Newsreader", "Inter Display", system-ui, serif;
+  --font-text: "Noto Sans SC", "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
+
+  /* —— Radii (D1 §2.3) —— */
+  --radius-xs: 6px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-pill: 999px;
+
+  /* —— Shadows (D1 §2.5) —— */
+  --shadow-glow-purple: 0 0 16px rgba(181, 123, 255, 0.5);
+  --shadow-glow-teal: 0 0 16px rgba(45, 212, 191, 0.4);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-elevated: 0 20px 60px rgba(0, 0, 0, 0.6);
+
+  /* —— Motion (D1 §2.6) —— */
+  --ease-out-quart: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --duration-fast: 120ms;
+  --duration-base: 220ms;
+  --duration-slow: 420ms;
+}
+
+/* —— Reset —— */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-text);
+  font-size: 15px;
+  line-height: 1.5;
+  background: var(--color-near-black);
+  color: var(--color-warm-white);
+  overflow: hidden;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input {
+  font-family: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+/* ===================================================================
+ *  iPhone 14 Pro 模拟 chrome (index.html)
+ *  viewport 375×812 · 圆角 38px · 顶部 notch · 底部 home indicator
+ * =================================================================== */
+
+.host {
+  width: 100vw;
+  height: 100vh;
+  background:
+    radial-gradient(ellipse 1200px 800px at 30% 20%, rgba(181, 123, 255, 0.12), transparent 60%),
+    radial-gradient(ellipse 1000px 700px at 70% 80%, rgba(45, 212, 191, 0.10), transparent 60%),
+    var(--color-near-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.host::before {
+  /* 极淡星点 */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 20% 30%, rgba(244, 241, 236, 0.4), transparent),
+    radial-gradient(1px 1px at 60% 70%, rgba(244, 241, 236, 0.3), transparent),
+    radial-gradient(1px 1px at 80% 20%, rgba(244, 241, 236, 0.35), transparent),
+    radial-gradient(1px 1px at 40% 80%, rgba(244, 241, 236, 0.25), transparent),
+    radial-gradient(1px 1px at 90% 50%, rgba(244, 241, 236, 0.3), transparent);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.iphone-stage {
+  position: relative;
+  z-index: 1;
+}
+
+.iphone-frame {
+  width: 375px;
+  height: 812px;
+  background: #000;
+  border-radius: 50px;
+  border: 2px solid #2a2a30;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(244, 241, 236, 0.04),
+    0 30px 80px rgba(0, 0, 0, 0.7),
+    0 0 60px rgba(181, 123, 255, 0.08);
+}
+
+.iphone-notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 30px;
+  background: #000;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  z-index: 20;
+}
+
+.iphone-notch::before {
+  /* 前摄 */
+  content: "";
+  position: absolute;
+  right: 18px;
+  top: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #1a1a1f;
+  box-shadow: inset 0 0 0 1px rgba(244, 241, 236, 0.08);
+}
+
+.iphone-notch::after {
+  /* 听筒 */
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 12px;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 4px;
+  border-radius: 2px;
+  background: #0a0a0f;
+}
+
+.iphone-home-indicator {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 134px;
+  height: 5px;
+  background: rgba(244, 241, 236, 0.5);
+  border-radius: 3px;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.iphone-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 48px;
+}
+
+/* 宿主页脚标注 */
+.host-caption {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--color-text-quaternary);
+  z-index: 1;
+}
+
+/* ===================================================================
+ *  屏通用 (所有 screens/*.html)
+ *  375×812 viewport · 暗色 + 极光 tint
+ * =================================================================== */
+
+.screen {
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(ellipse 600px 500px at 50% 0%, rgba(181, 123, 255, 0.10), transparent 60%),
+    radial-gradient(ellipse 500px 400px at 50% 100%, rgba(45, 212, 191, 0.06), transparent 60%),
+    var(--color-near-black);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 56px 24px 32px;
+  overflow: hidden;
+  animation: screen-enter 420ms var(--ease-out-quart);
+}
+
+@keyframes screen-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* —— 3-dot progress —— */
+.progress-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 4px;
+  margin-bottom: 32px;
+}
+
+.progress-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1.5px solid rgba(244, 241, 236, 0.25);
+  transition: all var(--duration-base) var(--ease-out-quart);
+}
+
+.progress-dot.active {
+  background: var(--color-brand-purple-vivid);
+  border-color: var(--color-brand-purple-vivid);
+  width: 14px;
+  height: 14px;
+  box-shadow: var(--shadow-glow-purple);
+}
+
+.progress-dot.passed {
+  background: var(--color-brand-purple-mid);
+  border-color: var(--color-brand-purple-mid);
+}
+
+/* —— 内容区 —— */
+.screen-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.screen-footer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 16px;
+}
+
+/* ===================================================================
+ *  组件
+ * =================================================================== */
+
+/* —— Glass card —— */
+.glass-card {
+  background: var(--color-glass-deep);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+}
+
+/* —— Primary button (紫青渐变) —— */
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-brand-purple-vivid) 0%, var(--color-brand-purple-mid) 50%, var(--color-brand-teal-vivid) 100%);
+  color: #fff;
+  border-radius: var(--radius-md);
+  padding: 14px 24px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  width: 100%;
+  transition:
+    transform var(--duration-fast) ease-out,
+    box-shadow var(--duration-base) var(--ease-out-quart),
+    filter var(--duration-base) ease-out;
+  box-shadow: 0 4px 20px rgba(181, 123, 255, 0.3);
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: scale(1.02);
+  box-shadow: 0 6px 28px rgba(181, 123, 255, 0.45);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.btn-primary:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+  filter: saturate(0.5);
+}
+
+/* —— Ghost button —— */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid var(--color-hairline-strong);
+  border-radius: var(--radius-md);
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-warm-white);
+  cursor: pointer;
+  transition: all var(--duration-fast) ease-out;
+}
+
+.btn-ghost:hover {
+  background: var(--color-glass-soft);
+  border-color: rgba(244, 241, 236, 0.25);
+}
+
+.btn-ghost:active {
+  transform: scale(0.98);
+}
+
+/* —— Ghost link —— */
+.ghost-link {
+  display: block;
+  color: var(--color-text-tertiary);
+  text-align: center;
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  transition: color var(--duration-fast) ease-out;
+}
+
+.ghost-link:hover {
+  color: var(--color-warm-white);
+}
+
+/* —— Status pill —— */
+.pill {
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pill.granted {
+  background: var(--color-granted);
+  color: #fff;
+}
+
+.pill.pending {
+  background: rgba(244, 241, 236, 0.08);
+  color: var(--color-text-tertiary);
+  border: 1px solid var(--color-hairline-strong);
+}
+
+.pill.optional {
+  background: transparent;
+  color: var(--color-text-tertiary);
+  border: 1px solid var(--color-hairline);
+}
+
+.pill.testing {
+  background: rgba(181, 123, 255, 0.15);
+  color: var(--color-brand-purple-vivid);
+  border: 1px solid rgba(181, 123, 255, 0.3);
+}
+
+.pill.success {
+  background: var(--color-granted);
+  color: #fff;
+}
+
+.pill.failed {
+  background: rgba(255, 69, 58, 0.15);
+  color: var(--color-danger);
+  border: 1px solid rgba(255, 69, 58, 0.3);
+}
+
+/* ===================================================================
+ *  屏 1 — Welcome
+ * =================================================================== */
+
+.brand-mark {
+  width: 96px;
+  height: 96px;
+  border-radius: 22%;
+  background: rgba(27, 29, 34, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--color-hairline-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 24px auto 28px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.brand-mark::before {
+  /* 玻璃高光 */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(244, 241, 236, 0.05), transparent);
+  border-radius: 22% 22% 0 0;
+}
+
+.brand-mark-svg {
+  width: 56px;
+  height: 56px;
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--color-warm-white);
+  text-align: center;
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  text-align: center;
+  line-height: 1.5;
+  margin-bottom: 28px;
+  padding: 0 4px;
+}
+
+.bullet-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+
+.bullet-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-warm-white);
+}
+
+.bullet-dot {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-brand-purple-vivid);
+  margin-top: 7px;
+  box-shadow: 0 0 8px rgba(181, 123, 255, 0.5);
+}
+
+/* ===================================================================
+ *  屏 2 — Permission
+ * =================================================================== */
+
+.perm-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.perm-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  background: var(--color-glass-mid);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-md);
+  transition: border-color var(--duration-base) var(--ease-out-quart);
+}
+
+.perm-card:hover {
+  border-color: var(--color-hairline-strong);
+}
+
+.perm-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(244, 241, 236, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-brand-purple-vivid);
+}
+
+.perm-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.perm-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.perm-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-warm-white);
+}
+
+.perm-desc {
+  font-size: 12px;
+  color: var(--color-text-tertiary);
+  line-height: 1.4;
+}
+
+/* ===================================================================
+ *  屏 3 — BYOK
+ * =================================================================== */
+
+.disclaimer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: var(--color-glass-mid);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-md);
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  margin-bottom: 24px;
+  line-height: 1.4;
+}
+
+.disclaimer-icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  color: var(--color-brand-teal-vivid);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.disclaimer-icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+.provider-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.provider-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 8px;
+  background: var(--color-glass-mid);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--duration-base) var(--ease-out-quart);
+  position: relative;
+  text-align: center;
+}
+
+.provider-card:hover {
+  border-color: var(--color-hairline-strong);
+  background: rgba(27, 29, 34, 0.7);
+}
+
+.provider-card.selected {
+  border-color: var(--color-brand-purple-vivid);
+  background: linear-gradient(180deg, rgba(181, 123, 255, 0.10), rgba(181, 123, 255, 0.04));
+  box-shadow: 0 0 0 1px var(--color-brand-purple-vivid), var(--shadow-glow-purple);
+}
+
+.provider-card-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.provider-card-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.provider-card-name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-warm-white);
+  line-height: 1.2;
+}
+
+.provider-card-model {
+  font-size: 10px;
+  color: var(--color-text-tertiary);
+  line-height: 1.2;
+  font-family: var(--font-mono);
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.input-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-tertiary);
+  padding-left: 4px;
+}
+
+.input-wrap {
+  display: flex;
+  align-items: center;
+  background: var(--color-glass-mid);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  gap: 10px;
+  transition: border-color var(--duration-base) var(--ease-out-quart);
+}
+
+.input-wrap:focus-within {
+  border-color: var(--color-brand-purple-mid);
+  box-shadow: 0 0 0 3px rgba(138, 91, 255, 0.15);
+}
+
+.input-field {
+  flex: 1;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--color-warm-white);
+  letter-spacing: 0.02em;
+}
+
+.input-field::placeholder {
+  color: var(--color-text-quaternary);
+  font-family: var(--font-mono);
+}
+
+.eye-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: var(--color-text-tertiary);
+  cursor: pointer;
+  border-radius: 4px;
+  transition: color var(--duration-fast) ease-out;
+}
+
+.eye-toggle:hover {
+  color: var(--color-warm-white);
+}
+
+.eye-toggle svg {
+  width: 16px;
+  height: 16px;
+}
+
+.test-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.test-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--color-text-tertiary);
+  font-family: var(--font-mono);
+  min-height: 18px;
+  transition: color var(--duration-base) var(--ease-out-quart);
+}
+
+.test-status.testing {
+  color: var(--color-brand-purple-vivid);
+}
+
+.test-status.success {
+  color: var(--color-granted);
+}
+
+.test-status.failed {
+  color: var(--color-danger);
+}
+
+.test-spinner {
+  width: 12px;
+  height: 12px;
+  border: 1.5px solid rgba(181, 123, 255, 0.2);
+  border-top-color: var(--color-brand-purple-vivid);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.test-status.success .test-spinner,
+.test-status.failed .test-spinner {
+  display: none;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ===================================================================
+ *  屏 4 — Done
+ * =================================================================== */
+
+.done-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px 0;
+}
+
+.checkmark {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-brand-purple-vivid) 0%, var(--color-brand-purple-mid) 50%, var(--color-brand-teal-vivid) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28px;
+  position: relative;
+  box-shadow: var(--shadow-glow-purple);
+  transform: scale(0);
+  opacity: 0;
+}
+
+.checkmark.drawn {
+  animation: check-bounce 420ms var(--ease-out-quart) forwards;
+}
+
+@keyframes check-bounce {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.checkmark::before {
+  /* 二次光环 */
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  border: 1px solid rgba(181, 123, 255, 0.3);
+  animation: check-ring 1.2s var(--ease-out-quart) 220ms forwards;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+@keyframes check-ring {
+  to {
+    opacity: 0;
+    transform: scale(1.4);
+  }
+}
+
+.checkmark svg {
+  width: 44px;
+  height: 44px;
+  stroke: #fff;
+  stroke-width: 3.5;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 60;
+  stroke-dashoffset: 60;
+}
+
+.checkmark.drawn svg {
+  animation: check-draw 380ms var(--ease-out-quart) 180ms forwards;
+}
+
+@keyframes check-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.done-subtitle {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  margin-top: 4px;
+}
+
+/* ===================================================================
+ *  屏 2/3 标题小一号 (屏 1 品牌大)
+ * =================================================================== */
+
+.screen .title.small {
+  font-size: 26px;
+}
+
+/* ===================================================================
+ *  prefers-reduced-motion
+ * =================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .checkmark {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  .checkmark svg {
+    stroke-dashoffset: 0;
+  }
+}

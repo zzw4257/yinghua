@@ -1,0 +1,14 @@
+name = "yinghua-marketing"  # Cloudflare Pages project name
+compatibility_date = "2026-08-01"
+pages_build_output_dir = "./public"
+
+[build]
+command = "echo 'No build step needed - static HTML'"
+
+[vars]
+# 自定义域 (在 Cloudflare Dashboard 配,这里仅注释)
+# Domain: yinghua.zzw4257.cn
+# CNAME @ -> yinghua-marketing.pages.dev (Cloudflare 自动)
+# CNAME www -> yinghua-marketing.pages.dev
+
+CLOUDFLARE_PAGES_BRANCH = "main"

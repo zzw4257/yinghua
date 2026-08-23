@@ -1,0 +1,118 @@
+name: Yinghua-ios
+options:
+  bundleIdPrefix: app.yinghua
+  deploymentTarget:
+    iOS: "18.0"
+  createIntermediateGroups: true
+  groupSortPosition: top
+  generateEmptyDirectories: true
+  developmentLanguage: zh-Hans
+
+# C44 引入：YinghuaCore 共享 Package（macOS app + iOS app 共用 Models / Keychain / DesignTokens）
+packages:
+  YinghuaCore:
+    path: ../SharedKit
+
+settings:
+  base:
+    SWIFT_VERSION: "6.0"
+    IPHONEOS_DEPLOYMENT_TARGET: "18.0"
+    TARGETED_DEVICE_FAMILY: "1,2"  # iPhone + iPad
+    SDKROOT: "iphonesimulator"     # Build for iOS Simulator by default (no device platform required)
+    # Code signing — iOS Simulator build does not need signing
+    CODE_SIGN_STYLE: Automatic
+    CODE_SIGN_IDENTITY: ""
+    CODE_SIGNING_REQUIRED: NO
+    CODE_SIGNING_ALLOWED: NO
+    DEVELOPMENT_TEAM: ""
+    PRODUCT_BUNDLE_IDENTIFIER: app.yinghua.Yinghua-ios
+    # Build hygiene
+    SWIFT_TREAT_WARNINGS_AS_ERRORS: NO
+    GCC_TREAT_WARNINGS_AS_ERRORS: NO
+    ENABLE_USER_SCRIPT_SANDBOXING: YES
+    CLANG_ANALYZER_NONNULL: YES
+    CLANG_ENABLE_OBJC_ARC: YES
+    DEAD_CODE_STRIPPING: YES
+    COMBINE_HIDPI_IMAGES: YES
+
+targets:
+  Yinghua-ios:
+    type: application
+    platform: iOS
+    deploymentTarget: "18.0"
+    sources:
+      - path: Yinghua-ios
+        excludes:
+          - "**/*.md"
+    resources:
+      - path: Yinghua-ios/Resources/Assets.xcassets
+    dependencies:
+      # C44 共享 service 层
+      - package: YinghuaCore
+        product: YinghuaCore
+    info:
+      path: Yinghua-ios/Info.plist
+      properties:
+        CFBundleName: Yinghua-ios
+        CFBundleDisplayName: 映话
+        CFBundleIdentifier: app.yinghua.Yinghua-ios
+        CFBundleShortVersionString: "0.1.0"
+        CFBundleVersion: "1"
+        CFBundlePackageType: APPL
+        LSRequiresIPhoneOS: true
+        LSApplicationCategoryType: public.app-category.productivity
+        NSHumanReadableCopyright: "© 2026 Yinghua Inc."
+        # Privacy usage descriptions (C38 iOS scaffold)
+        NSMicrophoneUsageDescription: "映话 needs microphone access to record your voice during meetings."
+        NSCameraUsageDescription: "映话 uses the camera to optionally identify speakers in-person during meetings."
+        NSSpeechRecognitionUsageDescription: "映话 uses on-device speech recognition to transcribe your meetings in real time."
+        NSUserNotificationsUsageDescription: "映话 can notify you when a meeting ends and your AI summary is ready."
+        # iOS 18+ required keys
+        UILaunchScreen:
+          UIColorName: ""
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        # Status bar
+        UIStatusBarStyle: UIStatusBarStyleLightContent
+        UIViewControllerBasedStatusBarAppearance: true
+    entitlements:
+      path: Yinghua-ios/Yinghua-ios.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.device.audio-input: true
+        com.apple.security.device.microphone: true
+        com.apple.security.network.client: true
+    settings:
+      base:
+        SDKROOT: iphonesimulator
+        INFOPLIST_FILE: Yinghua-ios/Info.plist
+        CODE_SIGN_ENTITLEMENTS: Yinghua-ios/Yinghua-ios.entitlements
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        ENABLE_PREVIEWS: YES
+        SWIFT_EMIT_LOC_STRINGS: YES
+        COMBINE_HIDPI_IMAGES: YES
+        TARGETED_DEVICE_FAMILY: "1,2"
+        SUPPORTS_MACCATALYST: NO
+        SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
+
+schemes:
+  Yinghua-ios:
+    build:
+      targets:
+        Yinghua-ios: all
+    run:
+      config: Debug
+    test:
+      config: Debug
+    profile:
+      config: Release
+    analyze:
+      config: Debug
+    archive:
+      config: Release

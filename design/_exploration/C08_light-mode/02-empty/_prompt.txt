@@ -1,0 +1,52 @@
+Professional product screenshot of a macOS 26 desktop in LIGHT MODE showing the Yinghua (映话) app empty-state home window (no meeting is running), captured as a marketing-quality product screenshot.
+
+## BASE macOS LAYER (must be IDENTICAL to ref-01-macos-base and ref-02-dock-system, but in light mode)
+
+The desktop wallpaper is a real macOS-style LIGHT AURORA — predominantly warm cream off-white (#F4F1EC) at the edges, with a soft low-saturation aurora wash (pale purple top-left ~12% saturation, pale teal bottom-right ~12% saturation), no stars, no dark sky, no neon. Subtle warm white gradient throughout, like a real macOS Tahoe Sonoma light wallpaper.
+
+WHITE FROSTED menu bar at top (NOT black): translucent white panel with a 1px hairline #1B1D22 @ 8% border at the bottom edge. Left side items in GRAPHITE color #1B1D22: Apple logo, then "Finder  File  Edit  View  Window  Help" (plain English). Right side status icons in graphite: battery, Wi-Fi, search, control center, and clock reading "21:42".
+
+A WHITE FROSTED glass Dock sits at the bottom center of the screen, with EXACTLY these 11 icons in this order, all proper macOS system app icons (NOT generic placeholders). The Dock surface is translucent white with 1px #1B1D22 @ 8% hairline border and subtle blur: Finder (blue-white face), Safari (compass blue), Messages (green speech bubble), Mail (blue envelope), Notes (yellow notepad), Calendar (white page with the number "26" in red — make sure the "26" is clearly readable as numerals, not random letters), Reminders (white list with red/yellow/green dots), Maps (map with roads), Music (red note on white), System Settings (gray gear), separator dot, then Yinghua app icon (white Y on subtle aurora gradient squircle, small magenta dot below indicating running).
+
+## APP WINDOW — EMPTY STATE (centered, ~75% of desktop)
+
+A single macOS window (NOT multiple windows) with three standard traffic light buttons (red close, yellow minimize, green maximize) on the upper left. The window has WHITE / VERY LIGHT GLASS material (vibrancy — like a real macOS .regularMaterial in light mode), with a 1px #1B1D22 @ 8% hairline border and 14px corner radius. The aurora tint wash is very subtle (10% opacity purple→teal) on top of the white glass.
+
+The window is a 3-column layout:
+
+### LEFT SIDEBAR (~12% width) — Vertical icon nav
+A column of 4 circular glass nav buttons stacked vertically, centered. Each button is a white frosted glass circle (~48px diameter) with a 1px #1B1D22 @ 8% border and a small graphite icon inside (mic, chat-bubble, book, gear — in this order top to bottom). The TOP button (mic) is ACTIVE — it has a soft purple-to-teal gradient background and a small magenta dot below it, indicating selected state. The other 3 buttons are inactive (white glass only). DO NOT add any text labels to these nav buttons — they are icon-only.
+
+### CENTER (~55% width) — Hero empty state with 2x2 big action tiles
+A 2x2 grid of 4 large rounded square tiles (~28% of window width each, ~180px tall), each white frosted glass with 1px #1B1D22 @ 8% border and 16px corner radius. Each tile has a single small graphite icon centered (mic, chat-bubble, book, share/upload) and a small placeholder text line below the icon in graphite @ 65%. The tiles are evenly spaced with 16px gap. The top-left tile (mic) is subtly highlighted with a faint purple-to-teal aurora glow to suggest "primary action".
+
+### RIGHT SIDEBAR (~33% width) — Recent recordings list
+A column header: small graphite label "Recent" in 14pt SF Pro Text 600, with a thin #1B1D22 @ 8% 1px hairline divider below.
+Below header, 3 recent recording rows stacked vertically. Each row is a white glass card (~64px tall) with 1px #1B1D22 @ 8% border and 12px corner radius. Each row has:
+- Left: a small file icon (rounded purple Y file icon, ~28px).
+- Middle: a placeholder title in graphite 14pt 600 (use generic names like "Recording 1", "Recording 2", "Recording 3"), and a small subtitle in graphite @ 65% 12pt (e.g. "Today 14:30  ·  48 min").
+- Right: a small "Open" text button in graphite @ 65% (no fill, just text — this is a GHOST button style).
+
+The right column should feel light and airy with consistent vertical spacing.
+
+## STRICT RULES (must follow)
+- This is LIGHT MODE macOS — warm cream wallpaper, white glass surfaces, graphite text. NOT a dark mode with inverted colors.
+- The base macOS layer (light wallpaper, white menu bar, white Dock with 11 system icons) must be IDENTICAL to the reference layout but in light colors — do NOT make it dark.
+- Do NOT add any text labels, captions, or annotations to the image outside the app window content. No "PRIMARY", no "STYLE", no "65%", no meta-text visible. Only the actual UI text should be present.
+- The left nav buttons are ICON-ONLY — no text under or beside the icons.
+- The 2x2 center tiles are icon + 1 line placeholder only — no big text, no marketing language.
+- The right column "Recent" header should be the only header in that column — do not duplicate.
+- Use the same purple-to-teal brand gradient (vivid purple #B57BFF → teal #2DD4BF) for the active mic nav button and the top-left tile's subtle highlight, matching the rest of the brand.
+- NO waveform, NO EKG, NO sine wave anywhere.
+- NO cyberpunk glow, NO neon outlines, NO holographic effects, NO dark sky stars.
+- NO "AI" text burned into the image.
+- NO two-circle-overlap chat icon. NO sparkles decoration sprinkled around.
+- All visible text in English — no need to render Chinese characters (Figma pass will overlay them).
+- Window surface: white/light glass with very subtle aurora tint vibrancy (~10% opacity), 14px corner radius, 1px #1B1D22 @ 8% hairline border.
+- Title text: SF Pro Display style, weight 600, graphite #1B1D22.
+- Body text: SF Pro Text style, weight 400, graphite #1B1D22 with 65% opacity for secondary text.
+- The single visible main window is centered; nothing else floats over the desktop.
+- Real macOS feel: looks like a real SwiftUI empty-state home, not a web landing page.
+- Aspect ratio 16:9, 2K resolution.
+
+Output: a single product-quality screenshot, no text overlays, no watermark, no captions.

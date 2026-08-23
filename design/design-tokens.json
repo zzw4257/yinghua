@@ -1,0 +1,577 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "$description": "映话 (Yìnghuà) — Design Tokens (W3C DTCG format). Round 1 收口定调版, 2026-08-22. Source of truth: design/design-doc.md §2 视觉语言 (D1 master) + design/_exploration/C02_brand-assets/_design-system-prompt.md §1.1 色彩 + design/_exploration/C05_design-tokens-visual/ (5 visual references). 任何 dev / Figma 接手都从这里取 token, 不再翻 §2 的 prose.",
+  "$metadata": {
+    "version": "1.0.0",
+    "date": "2026-08-22",
+    "status": "Round 1 收口 / Round 2 待 Figma 精修 + 浅色模式",
+    "source": [
+      "design/design-doc.md §2 视觉语言 (D1 master)",
+      "design/_exploration/C02_brand-assets/_design-system-prompt.md §1.1 色彩",
+      "design/_exploration/C05_design-tokens-visual/ (5 visual references)",
+      "design/_exploration/C07_app-icon-v3/_audit-verdict.md (Y 几何比例)"
+    ],
+    "consumers": [
+      "SwiftUI (Color / Font / Animation extensions via Style Dictionary → Swift)",
+      "CSS variables (Style Dictionary → CSS / SCSS)",
+      "Figma Tokens / Tokens Studio plugin (Figma import)",
+      "Specify / Supernova 等 sync 工具"
+    ],
+    "naming-convention": "kebab-case keys; flat namespaces under each top-level category; 颜色按角色分组 (brand / semantic / neutral / speaker / glass / app-state) 而非按色相"
+  },
+
+  "color": {
+    "brand": {
+      "purple-vivid": {
+        "value": "#B57BFF",
+        "type": "color",
+        "description": "Aurora 渐变起 (D1 §2.1), primary button 渐变起点, speaker avatar A 备用. 跟 C02 §1.1 的 Aurora Purple #7B3FE4 不是一个色 — D1 偏亮, 跟青 vivid 配 135deg 渐变视觉重量均衡."
+      },
+      "purple-mid": {
+        "value": "#8A5BFF",
+        "type": "color",
+        "description": "Aurora 渐变中段, focus ring, speaker avatar STYLE 1 主色 (D1 §4.3). 跟 SwiftUI .tint 默认色一致, 可作 system accent 替换."
+      },
+      "purple-deep": {
+        "value": "#2A1240",
+        "type": "color",
+        "description": "玻璃暗色 wash, recording-active-dot 备用 (D1 §2.1). 渐变压暗收尾 / 玻璃 tint 也用它."
+      },
+      "teal-vivid": {
+        "value": "#2DD4BF",
+        "type": "color",
+        "description": "Aurora 渐变终, primary button 渐变终点, speaker avatar STYLE 1 主色 (D1 §2.1)."
+      },
+      "teal-deep": {
+        "value": "#0E2A2A",
+        "type": "color",
+        "description": "玻璃暗色 wash, 跟 purple-deep 配对做 aurora gradient tinted glass (D1 §2.1)."
+      },
+      "gradient-primary": {
+        "value": "linear-gradient(135deg, #B57BFF 0%, #8A5BFF 50%, #2DD4BF 100%)",
+        "type": "color",
+        "description": "Primary button / 渐变 Y 字形 (D1 §4.1 + §3.2). 135deg 对角线方向, 3 stop 紫→紫→青. CSS 直接用, SwiftUI 用 LinearGradient(stops:), Figma 用渐变填充."
+      },
+      "gradient-primary-2stop": {
+        "value": "linear-gradient(135deg, #B57BFF 0%, #2DD4BF 100%)",
+        "type": "color",
+        "description": "Primary button 简化版 (D1 §4.1 '紫青渐变 #B57BFF → #2DD4BF, 对角'). 适合 UI 控件的简略表达; marketing 大图用 3 stop 版."
+      }
+    },
+
+    "semantic": {
+      "recording-red": {
+        "value": "#FF3B30",
+        "type": "color",
+        "description": "REC 红点, end-call 按钮, 停止按钮 (D1 §2.1). 跟 control panel ref-04 的红点一致. 录制中脉动 (D1 §2.6)."
+      },
+      "warning-orange": {
+        "value": "#FF9F0A",
+        "type": "color",
+        "description": "麦克风静音指示, 电池警告 (D1 §2.1)."
+      },
+      "success-green": {
+        "value": "#34C759",
+        "type": "color",
+        "description": "macOS 系统色沿用, 不自定义 (D1 §2.1). 适合 '录制完成 / 导出成功' 状态."
+      },
+      "danger-red": {
+        "value": "#FF453A",
+        "type": "color",
+        "description": "macOS 系统色沿用 (D1 §2.1). 跟 recording-red 区别: danger 用于破坏性操作 (删除录音 / 退出账号), recording 是状态色."
+      }
+    },
+
+    "neutral": {
+      "near-black": {
+        "value": "#0A0A0F",
+        "type": "color",
+        "description": "App icon 主背景, splash, 菜单栏底色 (D1 §2.1). 跟 C02 §1.1 的 Deep Space #0B0C10 微差; D1 #0A0A0F 偏冷蓝, 跟暖白 #F4F1EC 文字对比更稳."
+      },
+      "graphite": {
+        "value": "#1B1D22",
+        "type": "color",
+        "description": "窗口深色底, 卡片底 (D1 §2.1). C02 §1.1 Graphite 同色. 玻璃 vibrancy 落在这个色上."
+      },
+      "glass-deep": {
+        "value": "rgba(10, 10, 15, 0.7)",
+        "type": "color",
+        "description": "玻璃 vibrancy base — near-black @ 70% (D1 §2.1). 实际渲染: NSVisualEffectView .regularMaterial 落这个色. CSS backdrop-filter 用这个值."
+      },
+      "warm-white": {
+        "value": "#F4F1EC",
+        "type": "color",
+        "description": "主文字色 (D1 §2.1). Apple Notes 主文字色同款. 绝对不要用纯白 #FFFFFF (刺眼)."
+      },
+      "secondary": {
+        "value": "rgba(244, 241, 236, 0.8)",
+        "type": "color",
+        "description": "次要文字 — warm-white @ 80% (D1 §2.1). 时间码 / 副标题 / metadata."
+      },
+      "tertiary": {
+        "value": "rgba(244, 241, 236, 0.6)",
+        "type": "color",
+        "description": "Tertiary 文字 / 占位符 — warm-white @ 60% (D1 §2.1). 禁用 placeholder / 计数."
+      },
+      "hairline": {
+        "value": "rgba(244, 241, 236, 0.08)",
+        "type": "color",
+        "description": "1px 灰边 — warm-white @ 8% (D1 §2.1 '灰边'). 玻璃面分割线, 卡片描边, 控制面板 4 段 hairline. 任何 '分隔线' 都先看这个 token."
+      }
+    },
+
+    "speaker": {
+      "purple": {
+        "value": "#8A5BFF",
+        "type": "color",
+        "description": "Speaker avatar STYLE 1 主色 (D1 §4.3). 跟 color.brand.purple-mid 同色, 独立分组是给 Figma tokens 明确 avatar 角色, 方便后续调 avatar 调色板不影响 brand gradient."
+      },
+      "teal": {
+        "value": "#2DD4BF",
+        "type": "color",
+        "description": "Speaker avatar STYLE 1 第二色 (D1 §4.3). 跟 color.brand.teal-vivid 同色."
+      },
+      "pink": {
+        "value": "#FF6FA9",
+        "type": "color",
+        "description": "Speaker avatar STYLE 1 第三色 (D1 §4.3 独有, C02 没列). 跟 magenta-active (C02 #E63FB8) 区别: 这个是 avatar 浅粉, 偏柔; magenta-active 是 Dock 指示点."
+      },
+      "warm-white-bg": {
+        "value": "#F4F1EC",
+        "type": "color",
+        "description": "Speaker avatar STYLE 1 第四色 (D1 §4.3) — 暖白底, 文字用 graphite #1B1D22. 跟 color.neutral.warm-white 同值, 角色独立."
+      }
+    },
+
+    "glass": {
+      "aurora-wash": {
+        "value": "linear-gradient(135deg, rgba(181, 123, 255, 0.15) 0%, rgba(45, 212, 191, 0.15) 100%)",
+        "type": "color",
+        "description": "自绘暗色 wash — 玻璃上方叠加 aurora tint (D1 §2.5). 紫→青 ~15% opacity. 落 .regularMaterial 上, 渲染出 macOS 26 的 'vibrancy + brand wash' 观感."
+      },
+      "edge-highlight": {
+        "value": "rgba(244, 241, 236, 0.08)",
+        "type": "color",
+        "description": "1px 玻璃边缘高光 (D1 §2.5 + C02 §1.3). 跟 color.neutral.hairline 同值, 独立命名强调 '高光' 角色, 不跟 '分隔线' 混."
+      },
+      "shadow-tint": {
+        "value": "rgba(0, 0, 0, 0.5)",
+        "type": "color",
+        "description": "长投影底色 (C02 §1.3). 跟 elevation.panel / elevation.floating 配合."
+      }
+    },
+
+    "app-state": {
+      "magenta-active": {
+        "value": "#E63FB8",
+        "type": "color",
+        "description": "Dock 运行时指示小点 (C02 §1.1 Magenta Spark + D1 §6.2 '运行时下方有 magenta 小点'). 仅用于系统级 'app running' 指示, 不入 UI. 跟 speaker.pink (#FF6FA9) 区别: 这个饱和度高, 是 macOS 活动点传统 magenta."
+      }
+    }
+  },
+
+  "typography": {
+    "font-family": {
+      "display": {
+        "value": "SF Pro Display, system-ui, -apple-system",
+        "type": "fontFamily",
+        "description": "大标题 (≥24pt) (D1 §2.2). 600 / 700 字重. 中文 fallback Noto Sans SC."
+      },
+      "text": {
+        "value": "SF Pro Text, system-ui, -apple-system",
+        "type": "fontFamily",
+        "description": "正文 (≥14pt) (D1 §2.2). 400 / 500 字重. 中英混排正文用这个 + Noto Sans SC fallback."
+      },
+      "mono": {
+        "value": "JetBrains Mono, ui-monospace, SFMono-Regular",
+        "type": "fontFamily",
+        "description": "等宽 — 时间码 / Speaker ID (D1 §2.2). 500 字重. transcript 时间码永远用这个, 跟名字同行 (D1 §4.5)."
+      },
+      "serif-zh": {
+        "value": "Noto Serif SC, Songti SC, serif",
+        "type": "fontFamily",
+        "description": "中文长文阅读 (D1 §2.2). 400 / 600 字重. 仅 onboarding 欢迎语 / 副标题 / 营销文案段落等 '读' 场景. UI 控件不要用, 会跟系统字体风格冲突."
+      },
+      "sans-zh": {
+        "value": "Noto Sans SC, PingFang SC, sans-serif",
+        "type": "fontFamily",
+        "description": "中文 fallback (D1 §2.2 '中英混排正文'). SF Pro Text 渲染中文字符时由系统自动 fallback 到这个."
+      }
+    },
+
+    "font-size": {
+      "display-1": {
+        "value": "32pt",
+        "type": "dimension",
+        "description": "Hero / 大标题 — onboarding 欢迎语 (D1 §2.2). 600 / 700."
+      },
+      "display-2": {
+        "value": "24pt",
+        "type": "dimension",
+        "description": "Section 标题 / 空状态主标 (D1 §2.2). 600 / 700."
+      },
+      "body-1": {
+        "value": "15pt",
+        "type": "dimension",
+        "description": "主正文 / Button label (D1 §2.2). 400 / 500."
+      },
+      "body-2": {
+        "value": "14pt",
+        "type": "dimension",
+        "description": "次正文 / Transcript 行内容 (D1 §2.2 + §4.5). 400."
+      },
+      "caption": {
+        "value": "12pt",
+        "type": "dimension",
+        "description": "副标题 / meta tag / 时间码 (D1 §4.5 '12pt JetBrains Mono 500 次白')."
+      },
+      "mono-sm": {
+        "value": "12pt",
+        "type": "dimension",
+        "description": "时间码 / Speaker ID (D1 §2.2 '等宽 — 时间码 / ID'). 配 typography.font-family.mono + font-weight.medium."
+      }
+    },
+
+    "font-weight": {
+      "regular": { "value": "400", "type": "fontWeight" },
+      "medium": { "value": "500", "type": "fontWeight" },
+      "semibold": { "value": "600", "type": "fontWeight" },
+      "bold": { "value": "700", "type": "fontWeight" }
+    }
+  },
+
+  "spacing": {
+    "0": { "value": "0", "type": "dimension" },
+    "xs": { "value": "4px", "type": "dimension", "description": "4 — 8pt grid 起点 (D1 §2.4)" },
+    "sm": { "value": "8px", "type": "dimension", "description": "8 — 8pt grid 主单位" },
+    "md": { "value": "12px", "type": "dimension", "description": "12 — Card 内 padding / 列表行间距" },
+    "lg": { "value": "16px", "type": "dimension", "description": "16 — Section padding / 控件间距" },
+    "xl": { "value": "20px", "type": "dimension", "description": "20 — Card 间距 / 大控件 padding" },
+    "2xl": { "value": "24px", "type": "dimension", "description": "24 — Section 间距" },
+    "3xl": { "value": "32px", "type": "dimension", "description": "32 — 屏级 padding / 容器间距" },
+    "4xl": { "value": "40px", "type": "dimension", "description": "40 — Hero 段间距" },
+    "5xl": { "value": "48px", "type": "dimension", "description": "48 — 屏顶/屏底留白" }
+  },
+
+  "radius": {
+    "none": { "value": "0", "type": "dimension", "description": "0 — 锐角 (D1 §2.3 不用, 仅占位)" },
+    "sm": { "value": "6px", "type": "dimension", "description": "6 — Section header chevron (D1 §2.3)" },
+    "md": { "value": "8px", "type": "dimension", "description": "8 — 输入框 (D1 §2.3)" },
+    "lg": { "value": "12px", "type": "dimension", "description": "12 — 按钮 primary/secondary, 卡片 (D1 §2.3 + §4.1)" },
+    "xl": { "value": "14px", "type": "dimension", "description": "14 — 窗口 (macOS 标准, D1 §2.3 '窗口 14px')" },
+    "2xl": { "value": "16px", "type": "dimension", "description": "16 — 大卡片 / 文件卡 (D1 §2.3 'Card 12-16px')" },
+    "window": {
+      "value": "14px",
+      "type": "dimension",
+      "description": "窗口圆角 alias (D1 §2.3). 跟 radius.xl 同值, 独立命名强调 '窗口' 角色."
+    },
+    "button": {
+      "value": "12px",
+      "type": "dimension",
+      "description": "按钮圆角 alias (D1 §4.1). 跟 radius.lg 同值, 独立命名强调 '按钮' 角色."
+    },
+    "icon-squircle": {
+      "value": "22.4%",
+      "type": "dimension",
+      "description": "macOS squircle (superellipse) 圆角 (D1 §2.3 + §3.1). macOS 26 Tahoe 之后所有 app icon 强制 22.4%. Figma 用 'Corner radius: 22.4%' 配 squircle 模式."
+    },
+    "circle": {
+      "value": "50%",
+      "type": "dimension",
+      "description": "圆形 — Avatar / Icon 按钮 / Toggle pill (D1 §2.3 + §4.3)"
+    }
+  },
+
+  "motion": {
+    "duration": {
+      "instant": {
+        "value": "80ms",
+        "type": "duration",
+        "description": "按钮 press (D1 §2.6 'scale 1.0 → 0.98, 80ms ease-in')"
+      },
+      "fast": {
+        "value": "120ms",
+        "type": "duration",
+        "description": "按钮 hover (D1 §2.6 'scale 1.0 → 1.02, 120ms spring')"
+      },
+      "normal": {
+        "value": "220ms",
+        "type": "duration",
+        "description": "折叠段展开 (D1 §2.6 '折叠段展开 height 0 → auto, 220ms spring')"
+      },
+      "slow": {
+        "value": "250ms",
+        "type": "duration",
+        "description": "窗口出现 (D1 §2.6 '窗口出现 scale 0.96 → 1.0 + opacity 0 → 1, 250ms ease-out')"
+      },
+      "recording-pulse": {
+        "value": "1400ms",
+        "type": "duration",
+        "description": "REC 红点 pulse (D1 §2.6 'REC 圆点 pulse 1.0 → 1.15 → 1.0, 1.4s infinite'). 配 motion.easing.standard + repeatForever(autoreverse)."
+      },
+      "dock-bounce": {
+        "value": "4000ms",
+        "type": "duration",
+        "description": "Dock Y 图标 4s 一次微小 bounce (D1 §2.6 '录制中 Y 图标 4s 一次的微小 bounce (4px amplitude)'). 配 motion.easing.spring."
+      }
+    },
+
+    "easing": {
+      "standard": {
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "type": "cubicBezier",
+        "description": "标准 Material easing (D1 §2.6 隐含). 默认."
+      },
+      "spring": {
+        "value": "cubic-bezier(0.34, 1.56, 0.64, 1)",
+        "type": "cubicBezier",
+        "description": "Back-spring — 略 overshoot (D1 §2.6 '按钮 hover 120ms spring'). hover / 折叠段展开用这个."
+      },
+      "ease-out": {
+        "value": "cubic-bezier(0, 0, 0.2, 1)",
+        "type": "cubicBezier",
+        "description": "出场 easing — 窗口出现 (D1 §2.6 '250ms ease-out')."
+      },
+      "ease-in": {
+        "value": "cubic-bezier(0.4, 0, 1, 1)",
+        "type": "cubicBezier",
+        "description": "按钮 press (D1 §2.6 '80ms ease-in')."
+      }
+    },
+
+    "reduce": {
+      "respect-prefers-reduced-motion": {
+        "value": "true",
+        "type": "boolean",
+        "description": "D1 §2.6 铁律 — 用户开了 prefers-reduced-motion 就全部退化为 fade. CSS / SwiftUI 都要 honor. SwiftUI: @Environment(\\.accessibilityReduceMotion); CSS: @media (prefers-reduced-motion: reduce) { transition: opacity }."
+      }
+    }
+  },
+
+  "elevation": {
+    "none": { "value": "none", "type": "shadow", "description": "无阴影 — 文字 / 浮层底部" },
+    "card": {
+      "value": "0 1px 8px rgba(0, 0, 0, 0.3)",
+      "type": "shadow",
+      "description": "卡片阴影 (C02 §1.3 紧贴 4px rgba(0,0,0,0.3) 系列). 玻璃卡 / File card."
+    },
+    "panel": {
+      "value": "0 8px 24px rgba(0, 0, 0, 0.5)",
+      "type": "shadow",
+      "description": "浮层阴影 (C02 §1.3 长投影 24px rgba(0,0,0,0.5)). 控制面板 / popover."
+    },
+    "floating": {
+      "value": "0 12px 40px rgba(0, 0, 0, 0.6)",
+      "type": "shadow",
+      "description": "最高浮层 — modal / sheet. 跟 z-index.modal 配合."
+    }
+  },
+
+  "z-index": {
+    "base": { "value": "0", "type": "number" },
+    "card": { "value": "10", "type": "number", "description": "卡片 / 列表行" },
+    "panel": { "value": "100", "type": "number", "description": "控制面板浮窗 (D1 §9 'NSPanel .floating level')" },
+    "floating": { "value": "1000", "type": "number", "description": "popover / tooltip" },
+    "modal": { "value": "10000", "type": "number", "description": "modal sheet / alert" }
+  },
+
+  "breakpoint": {
+    "sm": {
+      "value": "480px",
+      "type": "dimension",
+      "description": "compact popup (控制面板宽度)"
+    },
+    "md": {
+      "value": "768px",
+      "type": "dimension",
+      "description": "主窗口最小宽度 (D1 §1 'macOS 26+ 原生'). 720p 以下用紧凑布局."
+    },
+    "lg": {
+      "value": "1200px",
+      "type": "dimension",
+      "description": "全功能布局 — review-mode 2x2 按钮簇 + file card + AI 总结并排."
+    },
+    "xl": {
+      "value": "1600px",
+      "type": "dimension",
+      "description": "宽屏 / 多窗口 — transcript 列 + file list 同时可见."
+    }
+  },
+
+  "material": {
+    "regular": {
+      "value": "regularMaterial",
+      "type": "string",
+      "description": "NSVisualEffectView .regularMaterial (D1 §2.5). 主窗口背景 vibrancy. SwiftUI: .background(.regularMaterial)."
+    },
+    "popover": {
+      "value": "popoverMaterial",
+      "type": "string",
+      "description": ".popoverMaterial (D1 §2.5). 浮层 / tooltip / 菜单. SwiftUI: .background(.popoverMaterial)."
+    },
+    "sidebar": {
+      "value": "sidebarMaterial",
+      "type": "string",
+      "description": ".sidebarMaterial (D1 §2.5). 侧栏 (如有). SwiftUI: .background(.sidebarMaterial)."
+    },
+    "ultraThin": {
+      "value": "FORBIDDEN",
+      "type": "string",
+      "description": "❌ .ultraThinMaterial 禁 (D1 §6.4) — 玻璃太轻会糊. 见 forbidden-patterns.NO_ULTRA_THIN_GLASS."
+    }
+  },
+
+  "app-icon": {
+    "container": {
+      "shape": {
+        "value": "squircle-superellipse",
+        "type": "string",
+        "description": "macOS 26+ 强制 squircle superellipse (D1 §3.1 + C07 §A.3). 不是普通 rounded rect, 是 superellipse 公式 n=5. Figma: 选 Rectangle → 圆角改 22.4% + 启用 Squircle mode."
+      },
+      "radius": {
+        "value": "22.4%",
+        "type": "dimension",
+        "description": "App icon 容器圆角 (D1 §2.3 'App icon 22.4%')"
+      },
+      "size-px": {
+        "value": "1024px",
+        "type": "dimension",
+        "description": "App Store master size (D1 §3.1 '1024x1024')."
+      }
+    },
+    "y-geometry": {
+      "height-pct": {
+        "value": "52%",
+        "type": "dimension",
+        "description": "Y 占 icon 内高 (D1 §3.1 + C07 §A 'Y 占内高 52%'). 1024px container → Y 533px."
+      },
+      "width-pct": {
+        "value": "52%",
+        "type": "dimension",
+        "description": "Y 占 icon 内宽 (D1 §3.1 'Y 几何: 占 icon 内高 52%, 内宽 52%'). 1024px container → Y 533px."
+      },
+      "margin-pct": {
+        "value": "22%",
+        "type": "dimension",
+        "description": "Y 离容器边缘 margin (D1 §3.1). 1024px container → margin 225px. 跟 height/width 52% 配对, Y 居中."
+      },
+      "stroke-width-pct": {
+        "value": "5.5%",
+        "type": "dimension",
+        "description": "Y 笔画粗细 — 占 icon width 5-6%, 取中值 5.5% (C07 §A '3 个变体不是同一个 Y master' + Round 2 建议 4). 1024px container → stroke ~56px. Figma 矢量精修时 01 / 02 / 03 三个变体必须用同一 master 改 fill, 不允许 stroke 也变."
+      },
+      "stroke-linecap": {
+        "value": "round",
+        "type": "string",
+        "description": "Y 笔画收尾 (D1 §3.1 'round-cap 收尾'). Figma stroke cap round; SVG stroke-linecap=\"round\"."
+      },
+      "stroke-merge": {
+        "value": "continuous",
+        "type": "string",
+        "description": "Y 三笔 (左撇 + 右捺 + 中竖) 必须合并 (C07 §V1.2 / Round 2 #1 '02 GRADIENT Y 中间缝必须修'). Figma 用 Pathfinder > Unite; SVG 用 path 合并. 不允许 V + I 视觉错位."
+      }
+    },
+    "minimal-01": {
+      "background": {
+        "value": "{color.neutral.near-black.value}",
+        "type": "color",
+        "description": "01 MINIMAL 主背景 (D1 §3.1 '纯平 #0A0A0F'). Alias to color.neutral.near-black."
+      },
+      "y-fill": {
+        "value": "{color.neutral.warm-white.value}",
+        "type": "color",
+        "description": "01 MINIMAL Y 字 (D1 §3.1 'Y 字: solid #F4F1EC'). Alias to color.neutral.warm-white. 1px 白色 6% opacity 边缘高光 (D1 §3.1)."
+      }
+    },
+    "gradient-02": {
+      "background": {
+        "value": "linear-gradient(135deg, {color.brand.purple-deep.value} 0%, {color.brand.teal-deep.value} 100%)",
+        "type": "color",
+        "description": "02 GRADIENT 背景 wash (D1 §3.2 '暗色玻璃 + 极光渐变 wash (深紫 top-left → 深青 bottom-right, ~15% opacity)'). 1px 白色 8% opacity 玻璃高光."
+      },
+      "y-fill": {
+        "value": "linear-gradient(135deg, {color.brand.purple-vivid.value} 0%, {color.brand.purple-mid.value} 50%, {color.brand.teal-vivid.value} 100%)",
+        "type": "color",
+        "description": "02 GRADIENT Y 字 (D1 §3.2 'Y 内填充 vivid 渐变 #B57BFF → #8A5BFF → #2DD4BF, 对角线方向'). clip-mask Y 形 + 渐变填充."
+      }
+    }
+  },
+
+  "forbidden-patterns": {
+    "NO_WAVEFORM": {
+      "value": "forbidden",
+      "type": "string",
+      "description": "❌ 任何 waveform / EKG / sine wave / audio visualizer (D1 §7 + C02 §2.1). 真实 macOS 录音控件用红点 + REC 标签 + 时间码, 不画波形. 录间控制面板禁一切 visualizer (D1 §4.2 '铁律')."
+    },
+    "NO_AI_TEXT_IN_ICON": {
+      "value": "forbidden",
+      "type": "string",
+      "description": "❌ 'AI' 字样烧进 icon / hero (D1 §7). 占位符 Figma 后期替换, 但绝不直接烧图. C02 §2.3 'AI' 字母作为 provider card icon 也禁."
+    },
+    "NO_LEGACY_MARK": {
+      "value": "forbidden",
+      "type": "string",
+      "description": "❌ 双环 / ∞ 形 / 聊天气泡 mark (D1 §3.4 + §7). C02 v2 已废弃方向, 会让用户误以为是 Notion/Loom."
+    },
+    "NO_STARFIELD_BG": {
+      "value": "forbidden",
+      "type": "string",
+      "description": "❌ 星空 / 银河 / 行星背景 (D1 §7 + C02 §2.1), 除桌面壁纸外. 俗气 + cyberpunk 感. macOS 真实壁纸可接受, 但 UI 内部不要."
+    },
+    "NO_BENTO_FRAME": {
+      "value": "forbidden",
+      "type": "string",
+      "description": "❌ Bento 框 + 左侧 bold label (D1 §7). AI 生成的 SaaS landing 套路, Apple 不这么做. 我们用 Glass card + section, 不堆 6 宫格."
+    },
+    "NO_MARKETING_FLOURISH": {
+      "value": "forbidden",
+      "type": "string",
+      "description": "❌ 营销词: 洞察 / 赋能 / 智能化 / 效率提升 / 全局掌控 / AI 驱动 (D1 §7). 状态词升级、空话、不专业. 改用具体动词: '总结' / '转录' / '整理'."
+    },
+    "NO_PIE_DONUT_GAUGE": {
+      "value": "forbidden",
+      "type": "string",
+      "description": "❌ Pie / donut / gauge / radar chart (D1 §7). 真实 macOS app 几乎不用, design 调性不符. 统计需求用 numeric label + progress bar."
+    },
+    "NO_DECORATIVE_SPARKLES": {
+      "value": "forbidden",
+      "type": "string",
+      "description": "❌ 装饰性 sparkles 散落在 hero (D1 §7). sparkles 只能用在 AI 总结 section 的 marker, 不能满天飞. ✨ 用一次 = 强调 AI 触发, 用十次 = 廉价."
+    },
+    "NO_TWO_CIRCLES_CHAT_ICON": {
+      "value": "forbidden",
+      "type": "string",
+      "description": "❌ 渐变描边的'两圆相交'对话图标 (D1 §7 + C02 §2.1). 是 ChatGPT 的 icon, 不要撞. 映话只用 Y letterform / glass card 表达."
+    },
+    "NO_NEON_GLOW": {
+      "value": "forbidden",
+      "type": "string",
+      "description": "❌ Glow / halo / 霓虹外发光 (D1 §7). cyberpunk / 廉价感. macOS 26 调性是 flat + glass, 不是 neon."
+    },
+    "NO_MULTI_NEON": {
+      "value": "forbidden",
+      "type": "string",
+      "description": "❌ 多色霓虹 (紫 + 粉 + 青 + 黄全上) (D1 §7). 散乱. 最多 2-3 色: 紫 + 青 + (REC 红). C02 §1.1 主渐变也是 3 色."
+    },
+    "NO_PROMPT_TEXT_LEAK": {
+      "value": "forbidden",
+      "type": "string",
+      "description": "❌ Prompt 规则文字泄漏为可见 UI (C02 §2.3 + C07 audit V1 #1). 字号 / 字重 / 颜色 hex / 标签文字禁止出现在生图里. Figma 后期删除 'SF Pro 14pt 500' / 'color #6B6B72' / 'STYLE 1' 等泄漏."
+    },
+    "NO_PURE_WHITE_TEXT": {
+      "value": "forbidden",
+      "type": "string",
+      "description": "❌ 文字用纯白 #FFFFFF (D1 §2.1 注释). 刺眼. 一律用 color.neutral.warm-white #F4F1EC. Apple Notes 同款."
+    },
+    "NO_TWO_PRIMARY_BUTTONS": {
+      "value": "forbidden",
+      "type": "string",
+      "description": "❌ 单屏超过 1 个 Primary 按钮 (D1 §4.1 铁律). 2x2 网格 (review-mode) 里 3 Secondary + 1 Primary 是允许的, 因为 Share 是 hero CTA. 其他场景违反."
+    },
+    "NO_ULTRA_THIN_GLASS": {
+      "value": "forbidden",
+      "type": "string",
+      "description": "❌ .ultraThinMaterial 之类过轻的玻璃 (D1 §6.4). 会糊. 强制使用 material.regular / popover / sidebar."
+    }
+  }
+}

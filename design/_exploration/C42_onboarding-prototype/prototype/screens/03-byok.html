@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>映话 · 自带 API key</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;0,600;0,700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+<body>
+  <main class="screen" data-screen="03-byok">
+    <div class="progress-dots" aria-label="Onboarding progress · step 3 of 4">
+      <span class="progress-dot"></span>
+      <span class="progress-dot"></span>
+      <span class="progress-dot"></span>
+      <span class="progress-dot"></span>
+    </div>
+
+    <div class="screen-body">
+      <!-- 顶部 disclaimer · 玻璃条 -->
+      <div class="disclaimer" role="note">
+        <span class="disclaimer-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="11" width="16" height="10" rx="2" />
+            <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+          </svg>
+        </span>
+        <span>你的 key 只存本地 macOS Keychain，我们看不到</span>
+      </div>
+
+      <h1 class="title small">自带 API key</h1>
+      <p class="subtitle">选一个 provider，填 key，我们用它总结你的会议</p>
+
+      <!-- Provider 选择 (3 个, 水平) -->
+      <div class="provider-list" role="radiogroup" aria-label="选择 LLM provider">
+        <!-- OpenAI · interlocking-loop 几何 -->
+        <button class="provider-card" type="button" data-provider="openai" role="radio" aria-checked="false">
+          <div class="provider-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none">
+              <defs>
+                <linearGradient id="openaiGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#74AA9C" />
+                  <stop offset="100%" stop-color="#10A37F" />
+                </linearGradient>
+              </defs>
+              <!-- 莫比乌斯环式 interlocking loop 几何 -->
+              <path d="M16 4 C 22 4 28 8 28 14 C 28 18 24 20 20 20 L 12 20 C 8 20 4 18 4 14 C 4 8 10 4 16 4 Z" stroke="url(#openaiGrad)" stroke-width="2" fill="none" />
+              <path d="M16 28 C 10 28 4 24 4 18 C 4 14 8 12 12 12 L 20 12 C 24 12 28 14 28 18 C 28 24 22 28 16 28 Z" stroke="url(#openaiGrad)" stroke-width="2" fill="none" />
+            </svg>
+          </div>
+          <div class="provider-card-name">OpenAI</div>
+          <div class="provider-card-model">GPT-4o</div>
+        </button>
+
+        <!-- Anthropic · 钻石几何 (默认选中) -->
+        <button class="provider-card selected" type="button" data-provider="anthropic" role="radio" aria-checked="true">
+          <div class="provider-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none">
+              <defs>
+                <linearGradient id="anthGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#B57BFF" />
+                  <stop offset="50%" stop-color="#8A5BFF" />
+                  <stop offset="100%" stop-color="#2DD4BF" />
+                </linearGradient>
+              </defs>
+              <!-- 两个三角形拼成的垂直菱形 (kite shape) -->
+              <path d="M 16 4 L 26 16 L 16 28 L 6 16 Z" stroke="url(#anthGrad)" stroke-width="2" fill="rgba(181, 123, 255, 0.15)" />
+              <path d="M 16 4 L 16 28" stroke="url(#anthGrad)" stroke-width="1.2" fill="none" />
+              <path d="M 6 16 L 26 16" stroke="url(#anthGrad)" stroke-width="1.2" fill="none" />
+            </svg>
+          </div>
+          <div class="provider-card-name">Anthropic</div>
+          <div class="provider-card-model">Sonnet 4</div>
+        </button>
+
+        <!-- Custom · 六边形几何 -->
+        <button class="provider-card" type="button" data-provider="custom" role="radio" aria-checked="false">
+          <div class="provider-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none">
+              <defs>
+                <linearGradient id="customGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#F4F1EC" stop-opacity="0.5" />
+                  <stop offset="100%" stop-color="#F4F1EC" stop-opacity="0.9" />
+                </linearGradient>
+              </defs>
+              <!-- 六边形 -->
+              <path d="M 16 4 L 26 10 L 26 22 L 16 28 L 6 22 L 6 10 Z" stroke="url(#customGrad)" stroke-width="2" fill="none" />
+              <circle cx="16" cy="16" r="3" fill="url(#customGrad)" />
+            </svg>
+          </div>
+          <div class="provider-card-name">Custom</div>
+          <div class="provider-card-model">Self-host</div>
+        </button>
+      </div>
+
+      <!-- API key 输入 -->
+      <div class="input-group">
+        <label class="input-label" for="api-key">API key</label>
+        <div class="input-wrap">
+          <input
+            id="api-key"
+            class="input-field"
+            type="password"
+            placeholder="sk-..."
+            autocomplete="off"
+            spellcheck="false"
+            autocapitalize="off"
+            autocorrect="off"
+          />
+          <button id="eye-toggle" class="eye-toggle" type="button" aria-label="显示 / 隐藏 API key" aria-pressed="false">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.5" fill="none"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Test row -->
+      <div class="test-row">
+        <span id="test-status" class="test-status" aria-live="polite"></span>
+        <button id="test-btn" class="btn-ghost" type="button">Test connection</button>
+      </div>
+    </div>
+
+    <div class="screen-footer">
+      <button id="finish-cta" class="btn-primary" type="button" disabled onclick="YH.go('04-done.html')">完成设置</button>
+      <a class="ghost-link" href="#" onclick="event.preventDefault(); YH.go('04-done.html')">我稍后再做</a>
+    </div>
+  </main>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

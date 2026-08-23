@@ -1,0 +1,84 @@
+PAGE 07 — "商业模式" (Business model / Freemium table)
+
+A 16:9, 4K ultra high resolution investor deck slide. Pure dark aurora wallpaper background (deep purple at the upper-left fading through teal/cyan at the lower-right, soft subtle aurora ribbon curves, NOT cyberpunk, NOT neon, NOT a starry galaxy, NOT outer space). The slide is a CLEAN editorial slide — no macOS menu bar, no dock. Just the aurora backdrop with a freemium pricing table laid on top.
+
+# LAYOUT GRID
+- Top 0%–25% of the canvas: header band
+  - Upper-LEFT corner (small, ~64px squircle, 40px from top, 40px from left): a small dark glass app icon squircle (22.4% corner radius) containing a single letter "Y" rendered in a vivid purple-to-teal diagonal gradient (135deg, vivid purple #B57BFF → mid purple #8A5BFF → vivid teal #2DD4BF). The Y is a clean letterform: V-shape converging to a single point with a straight vertical stem below, no serifs, no glow, no halos, no decorations.
+  - To the right of the icon: small wordmark in white (JetBrains Mono): "YINGHUA · 映话"
+  - Centered horizontally in the header band: the slide title "商业模式" rendered in warm white (#F4F1EC), 64pt, semibold, SF Pro Display family, single line, NO quotation marks around the title.
+  - Far UPPER-RIGHT (small, JetBrains Mono 12pt, 45% white): "Investor Brief · 2026"
+  - Below the title, a short horizontal gradient line (120px wide, 2px tall, vivid purple-to-teal diagonal gradient), centered.
+
+- Middle 25%–92% of the canvas: the BODY, a SINGLE HORIZONTAL PRICING TABLE with 3 vertical tier cards. Each tier card is a tall dark glass panel (12px corner radius, 1px hairline border in warm-white at 8% opacity, dark glass at 65% opacity), arranged in a single row, equal width (~28% each, with ~8% total gutter split between them). All 3 cards share the same height (~70% of body height). Card top to bottom contains:
+  1. Top of card: a small uppercase tier label in JetBrains Mono 14pt, warm-white at 60% opacity, ALL CAPS:
+     - Card 1: "FREE"
+     - Card 2: "PRO"
+     - Card 3: "TEAM"
+  2. Below the tier label: a 1-line Chinese tier name in 22pt, warm white, semibold, Noto Serif SC:
+     - Card 1: "免费"
+     - Card 2: "专业版"
+     - Card 3: "团队版"
+  3. Below the name: a thin horizontal hairline divider (40px wide, 1px tall, teal at 50% opacity), left-aligned.
+  4. Below the divider: a very large price number in JetBrains Mono 72pt, warm white, semibold, with a small "$" prefix in 36pt and a small "/月" suffix in 18pt warm-white at 60% opacity. The price value is the visual hero of the card. Render the price values exactly as written below — no surrounding label, no tag, no caption above the price, no placeholder phrase, no spec text:
+     - Card 1: "$0" / "永久"
+     - Card 2: "$19" / "/月"
+     - Card 3: "$49" / "/席位/月"
+  5. Below the price: a 2-3 line feature list in Simplified Chinese, 14pt, warm-white at 75% opacity, SF Pro Text / Noto Sans SC, line-height ~1.6, each line preceded by a small solid teal 4px circular bullet:
+     - Card 1 (免费): bullets: "5 次 / 月 录制"; "本地录音 + 转录"; "单说话人识别".
+     - Card 2 (专业版): bullets: "无限录制"; "多说话人 + 中英日西"; "AI 总结 4 段"; "导出 Markdown / PDF".
+     - Card 3 (团队版): bullets: "Pro 全部功能"; "共享工作空间"; "管理员控制台"; "SSO + 审计日志".
+  6. At the bottom of each card: a small "Best for" caption in 12pt warm-white at 50% opacity, JetBrains Mono, single line:
+     - Card 1: "Personal · trial"
+     - Card 2: "Power user" (this middle card is the recommended tier, so draw a small teal-to-purple gradient 1px line ABOVE the card to subtly highlight it — no badge, no ribbon, just a thin gradient stroke)
+     - Card 3: "Org · 5+ seats"
+
+- Below the 3 cards, in the bottom 15% of the body band, draw a thin horizontal hairline divider (1px, warm-white at 8% opacity) spanning ~80% of the slide width, centered. Below this divider, place a small centered caption in 14pt warm-white at 60% opacity: "Annual = 2 months free · Education 50% off". This is one short English sentence, centered, single line.
+
+- Bottom 92%–100% of the canvas: BOTTOM MARGIN (8% empty). Do NOT place any content in this band except the page number in the lower-right corner.
+
+# PAGE NUMBER
+- Lower-right corner, ~40px from right edge, ~32px from bottom: small page number text in JetBrains Mono 14pt, warm-white at 35% opacity, EXACTLY the string "07 / 10" (with a single space on each side of the slash). This is the ONLY text in the bottom 8% band.
+
+# TYPE & LANGUAGE POLICY
+- All Chinese text is REAL Simplified Chinese, rendered correctly with proper Chinese characters.
+- All English text is short, factual, no sentences longer than 6 words.
+- Prices use the dollar sign "$" prefix, NOT "USD" word.
+- The "Y" letterform in the corner icon is a single capital Latin letter Y.
+
+# ABSOLUTE PROHIBITIONS (D1 §7 anti-patterns)
+- No waveform, no EKG, no sine wave, no audio visualizer anywhere.
+- No "AI" word rendered as a standalone icon, no "STYLE 1" label, no "TEST" / "Sample" / "Placeholder" labels.
+- No font-size spec text like "14pt" / "600" / "regular" rendered as visible UI text.
+- No opacity percentage text like "60%" / "30%" / "8%" rendered as visible UI text — describe opacity as a color/lightness intent, not a numeric value.
+- No placeholder phrase like "LARGE PRICE" / "TITLE HERE" / "BIG NUMBER" / "LABEL" rendered as visible text.
+- No position percentage text like "10%" / "35%" / "50%" / "65%" / "90%" rendered as visible UI text — describe positions as "left" / "center" / "right" or "evenly spaced".
+- No two-circle / infinity / chat-bubble mark.
+- No cyberpunk glow, no neon outlines, no floating sparkles, no halo.
+- ABSOLUTELY NO PIE CHART. NO DONUT CHART. NO GAUGE. NO RADAR CHART. The pricing layout is a 3-CARD TABLE, not a chart.
+- No "Bento" framed box with bold left-side label, no marketing words like 洞察/赋能/智能化/效率提升/全局掌控/AI 驱动.
+- No multi-color neon.
+- No literal single letter "X" used as a data placeholder.
+- No emoji used as icon. No real-person face. No product logo besides the Y mark.
+- No "AI" letters as an icon.
+- No watermark, no caption, no footer other than the page number.
+
+# PALETTE
+- Background: very dark, near-black with aurora wash.
+- Card glass: #0A0A0F at 65% opacity, 1px border #F4F1EC at 8% opacity.
+- Card 2 (Pro) has an EXTRA subtle highlight: a 1px gradient line on top of the card using #B57BFF → #2DD4BF.
+- Tier label (small uppercase): #F4F1EC at 60% opacity.
+- Tier name: #F4F1EC.
+- Price large (72pt): #F4F1EC.
+- "$" prefix (36pt): #F4F1EC.
+- "/月" suffix (18pt): #F4F1EC at 60% opacity.
+- Feature bullets text: #F4F1EC at 75% opacity.
+- Bullet dots: solid teal #2DD4BF (4px circles).
+- "Best for" caption: #F4F1EC at 50% opacity.
+- Title: #F4F1EC.
+- Page number: #F4F1EC at 35% opacity.
+- ONLY these colors plus the aurora wash.
+
+# ASPECT & RESOLUTION
+- 16:9 aspect ratio, 4K ultra high resolution (5504 × 3072 effective output).
+- No letterbox, no border, no frame.

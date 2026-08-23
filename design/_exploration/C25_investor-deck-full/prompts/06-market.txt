@@ -1,0 +1,75 @@
+PAGE 06 — "市场" (Market / TAM-SAM-SOM slide)
+
+A 16:9, 4K ultra high resolution investor deck slide. Pure dark aurora wallpaper background (deep purple at the upper-left fading through teal/cyan at the lower-right, soft subtle aurora ribbon curves, NOT cyberpunk, NOT neon, NOT a starry galaxy, NOT outer space). The slide is a CLEAN editorial slide — no macOS menu bar, no dock. Just the aurora backdrop with editorial content laid on top.
+
+# LAYOUT GRID
+- Top 0%–25% of the canvas: header band
+  - Upper-LEFT corner (small, ~64px squircle, 40px from top, 40px from left): a small dark glass app icon squircle (22.4% corner radius) containing a single letter "Y" rendered in a vivid purple-to-teal diagonal gradient (135deg, vivid purple #B57BFF → mid purple #8A5BFF → vivid teal #2DD4BF). The Y is a clean letterform: V-shape converging to a single point with a straight vertical stem below, no serifs, no glow, no halos, no decorations.
+  - To the right of the icon: small wordmark in white (JetBrains Mono): "YINGHUA · 映话"
+  - Centered horizontally in the header band: the slide title "市场" rendered in warm white (#F4F1EC), 64pt, semibold, SF Pro Display family, single line, NO quotation marks around the title.
+  - Far UPPER-RIGHT (small, JetBrains Mono 12pt, 45% white): "Investor Brief · 2026"
+  - Below the title, a short horizontal gradient line (120px wide, 2px tall, vivid purple-to-teal diagonal gradient), centered.
+
+- Middle 25%–92% of the canvas: the BODY, split into TWO HORIZONTAL ZONES.
+
+  ## LEFT 50% of body: 3 CONCENTRIC RINGS (TAM / SAM / SOM)
+  - 3 nested concentric ring outlines (NOT a pie chart, NOT a donut chart, NOT a filled disc, NOT a gauge). Each ring is a thin 1px circular outline (NOT a solid filled donut). The 3 rings share a common center and grow in radius outward. The outermost ring is largest. All rings are CENTERED VERTICALLY in the left zone.
+  - Outermost ring: radius ~38% of the left zone width, stroke 1px in teal #2DD4BF at 50% opacity, no fill. Label it "TAM" with a thin teal connecting line pointing from the ring to a small text label OUTSIDE the rings (upper-right of the rings) reading "TAM" in JetBrains Mono 14pt, warm-white at 70% opacity.
+  - Middle ring: radius ~26% of the left zone width, stroke 1px in purple #8A5BFF at 70% opacity, no fill. Label it "SAM" with a thin purple connecting line to a text label outside the rings reading "SAM" in JetBrains Mono 14pt, warm-white at 70% opacity.
+  - Innermost ring (small filled circle at center): a small solid teal disc with radius ~5% of the left zone width (NOT a ring outline, this is a small filled center dot), color #2DD4BF at 80% opacity. Label it "SOM" with a thin teal connecting line to a text label below the center reading "SOM" in JetBrains Mono 14pt, warm-white at 70% opacity.
+  - The 3 ring labels and the connecting lines are placed at the upper-right of the rings (for TAM and SAM) and lower-center (for SOM), arranged cleanly without overlapping.
+  - The 3 ring outlines and center dot have NO TEXTURE, NO GRADIENT, NO GLOW. Plain solid colors at the specified opacities.
+
+  ## RIGHT 50% of body: 3 STACKED DATA ROWS (one per market layer)
+  - 3 rows arranged vertically, each row a horizontal dark glass card (12px corner radius, 1px hairline border in warm-white at 8% opacity, dark glass at 65% opacity). Each row top to bottom contains:
+    - Left: a small uppercase English label in JetBrains Mono 13pt, warm-white at 60% opacity, ALL CAPS, plus a 1-line Chinese description in 14pt warm-white at 75% opacity on the right of the label:
+      - Row 1: "TAM" / "全球会议软件市场"
+      - Row 2: "SAM" / "macOS 会议 + 面试用户"
+      - Row 3: "SOM" / "3 年可达的英文 + 中文用户"
+    - Right side of the row: a LARGE NUMBER in JetBrains Mono 96pt, warm white (#F4F1EC), semibold, RIGHT-aligned, followed by a small unit label in JetBrains Mono 18pt, warm-white at 60% opacity:
+      - Row 1: "12.4" / "B USD"
+      - Row 2: "180" / "M users"
+      - Row 3: "1.2" / "M users"
+  - Between the 3 rows, leave a small vertical gap (~24px). Rows are equal height (~22% of body height each).
+
+  ## ABOVE THE LEFT ZONE — SHORT KICKER
+  - Above the rings, in the body band, place a small centered kicker in JetBrains Mono 14pt, warm-white at 60% opacity, single line: "Bottom-up · 2025 figures". This kicker sits in the upper portion of the body band, above the rings but below the gradient line.
+
+- Bottom 92%–100% of the canvas: BOTTOM MARGIN (8% empty). Do NOT place any content in this band except the page number in the lower-right corner.
+
+# PAGE NUMBER
+- Lower-right corner, ~40px from right edge, ~32px from bottom: small page number text in JetBrains Mono 14pt, warm-white at 35% opacity, EXACTLY the string "06 / 10" (with a single space on each side of the slash). This is the ONLY text in the bottom 8% band.
+
+# TYPE & LANGUAGE POLICY
+- All Chinese text is REAL Simplified Chinese, rendered correctly with proper Chinese characters.
+- Numbers in the right column are rendered as plain integers or decimals (12.4 / 180 / 1.2) — NOT as "X" placeholders, NOT as "N/A", NOT as "???".
+- The "Y" letterform in the corner icon is a single capital Latin letter Y.
+
+# ABSOLUTE PROHIBITIONS (D1 §7 anti-patterns)
+- No waveform, no EKG, no sine wave, no audio visualizer anywhere.
+- No "AI" word rendered as a standalone icon, no "STYLE 1" label, no "TEST" / "Sample" / "Placeholder" labels.
+- No font-size spec text like "14pt" / "600" / "regular" rendered as visible UI text.
+- No two-circle / infinity / chat-bubble mark.
+- No cyberpunk glow, no neon outlines, no floating sparkles, no halo.
+- ABSOLUTELY NO PIE CHART. NO DONUT CHART. NO GAUGE. NO RADAR CHART. Use ONLY concentric ring outlines (3 nested thin outlines) for the market diagram. Each ring is an OUTLINE (no fill), and the SOM is a tiny SOLID CENTER DOT. The 3 rings must be clearly distinguishable as nested outlines, not a pie/donut.
+- No "Bento" framed box with bold left-side label, no marketing words like 洞察/赋能/智能化/效率提升/全局掌控/AI 驱动.
+- No multi-color neon.
+- No literal single letter "X" used as a data placeholder (numbers must be real, not "X").
+- No emoji used as icon. No real-person face. No product logo besides the Y mark.
+- No "AI" letters as an icon.
+- No watermark, no caption, no footer other than the page number.
+
+# PALETTE
+- Background: very dark, near-black with aurora wash.
+- Ring outlines: outer = teal #2DD4BF at 50% opacity; middle = purple #8A5BFF at 70% opacity; center dot = teal #2DD4BF at 80% opacity (solid).
+- Row glass: #0A0A0F at 65% opacity, 1px border #F4F1EC at 8% opacity.
+- Big numbers (96pt): #F4F1EC.
+- Unit labels (18pt): #F4F1EC at 60% opacity.
+- Labels (13pt / 14pt): #F4F1EC at 60-75% opacity.
+- Title: #F4F1EC.
+- Page number: #F4F1EC at 35% opacity.
+- ONLY these colors plus the aurora wash.
+
+# ASPECT & RESOLUTION
+- 16:9 aspect ratio, 4K ultra high resolution (5504 × 3072 effective output).
+- No letterbox, no border, no frame.

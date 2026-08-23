@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=400" />
+  <title>Yinghua · 控制台</title>
+  <link rel="stylesheet" href="panel.css" />
+  <link rel="stylesheet" href="vu-meter.css" />
+</head>
+<body>
+  <main class="yh-panel" role="dialog" aria-label="Yinghua 控制台">
+    <!-- Header -->
+    <header class="yh-panel-header">
+      <div class="yh-panel-title">
+        <span class="yh-panel-dot" data-rec-dot aria-hidden="true"></span>
+        <span class="yh-panel-title-text">Yinghua</span>
+      </div>
+      <button class="yh-panel-close" data-close type="button" aria-label="关闭">
+        <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
+          <path d="M4 4 L12 12 M12 4 L4 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </header>
+
+    <!-- Big timecode -->
+    <section class="yh-panel-time" data-time>00:00:00</section>
+    <div class="yh-panel-time-label" data-status>未在录制</div>
+
+    <!-- VU meter (12 bars, filled by panel.js) -->
+    <section class="yh-panel-vu" data-vu aria-label="实时音量">
+      <div class="yh-vu" data-vu-bars></div>
+      <div class="yh-vu-scale" aria-hidden="true">
+        <span>−∞</span><span>−20</span><span>−10</span><span>0 dB</span>
+      </div>
+    </section>
+
+    <!-- Transcript scroll (5 lines visible) -->
+    <section class="yh-panel-transcript" aria-label="实时转录">
+      <div class="yh-panel-section-label">
+        <span>Transcript</span>
+        <span class="yh-panel-section-meta" data-transcript-meta>—</span>
+      </div>
+      <div class="yh-panel-transcript-body" data-transcript>
+        <div class="yh-panel-transcript-empty">等待转录内容…</div>
+      </div>
+    </section>
+
+    <!-- AI summary quick view (4 collapsible sections) -->
+    <section class="yh-panel-summary" aria-label="AI 总结预览">
+      <div class="yh-panel-section-label">
+        <span>AI Summary</span>
+        <span class="yh-panel-section-meta" data-summary-meta>未生成</span>
+      </div>
+      <div class="yh-panel-summary-body" data-summary>
+        <details class="yh-panel-sum-section" open>
+          <summary>
+            <span class="yh-panel-sum-num">01</span>
+            <span class="yh-panel-sum-title">Key moments</span>
+            <span class="yh-panel-sum-count" data-count="keyMoments">0</span>
+          </summary>
+          <ul class="yh-panel-sum-list" data-list="keyMoments">
+            <li class="yh-panel-sum-empty">—</li>
+          </ul>
+        </details>
+        <details class="yh-panel-sum-section">
+          <summary>
+            <span class="yh-panel-sum-num">02</span>
+            <span class="yh-panel-sum-title">Decisions</span>
+            <span class="yh-panel-sum-count" data-count="decisions">0</span>
+          </summary>
+          <ul class="yh-panel-sum-list" data-list="decisions">
+            <li class="yh-panel-sum-empty">—</li>
+          </ul>
+        </details>
+        <details class="yh-panel-sum-section">
+          <summary>
+            <span class="yh-panel-sum-num">03</span>
+            <span class="yh-panel-sum-title">Action items</span>
+            <span class="yh-panel-sum-count" data-count="actionItems">0</span>
+          </summary>
+          <ul class="yh-panel-sum-list" data-list="actionItems">
+            <li class="yh-panel-sum-empty">—</li>
+          </ul>
+        </details>
+        <details class="yh-panel-sum-section">
+          <summary>
+            <span class="yh-panel-sum-num">04</span>
+            <span class="yh-panel-sum-title">Open questions</span>
+            <span class="yh-panel-sum-count" data-count="openQuestions">0</span>
+          </summary>
+          <ul class="yh-panel-sum-list" data-list="openQuestions">
+            <li class="yh-panel-sum-empty">—</li>
+          </ul>
+        </details>
+      </div>
+    </section>
+
+    <!-- Footer: Stop + Settings -->
+    <footer class="yh-panel-footer">
+      <button class="yh-panel-stop" data-stop type="button" disabled>
+        <span class="yh-panel-stop-dot" aria-hidden="true"></span>
+        <span data-stop-label>开始录制</span>
+      </button>
+      <a class="yh-panel-settings" data-settings href="#" role="button">Settings</a>
+    </footer>
+  </main>
+
+  <script src="panel.js"></script>
+</body>
+</html>

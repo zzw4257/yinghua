@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>映话 · 欢迎</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;0,600;0,700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
+</head>
+<body>
+  <main class="screen" data-screen="01-welcome">
+    <div class="progress-dots" aria-label="Onboarding progress · step 1 of 4">
+      <span class="progress-dot"></span>
+      <span class="progress-dot"></span>
+      <span class="progress-dot"></span>
+      <span class="progress-dot"></span>
+    </div>
+
+    <div class="screen-body">
+      <!-- 品牌 mark · 96x96 暗玻璃 + 紫青 Y -->
+      <div class="brand-mark" aria-label="映话 品牌 mark">
+        <svg class="brand-mark-svg" viewBox="0 0 56 56" aria-hidden="true">
+          <defs>
+            <linearGradient id="yGradient" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#B57BFF" />
+              <stop offset="50%" stop-color="#8A5BFF" />
+              <stop offset="100%" stop-color="#2DD4BF" />
+            </linearGradient>
+          </defs>
+          <path
+            d="M 12 12 L 28 30 L 44 12 M 28 30 L 28 46"
+            stroke="url(#yGradient)"
+            stroke-width="5"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+
+      <h1 class="title">映话</h1>
+      <p class="subtitle">为面试而生的 macOS 智能助手</p>
+
+      <ul class="bullet-list" role="list">
+        <li class="bullet-item">
+          <span class="bullet-dot" aria-hidden="true"></span>
+          <span>系统级录音 + 麦克风，全程本地</span>
+        </li>
+        <li class="bullet-item">
+          <span class="bullet-dot" aria-hidden="true"></span>
+          <span>实时转录，自动分说话人</span>
+        </li>
+        <li class="bullet-item">
+          <span class="bullet-dot" aria-hidden="true"></span>
+          <span>AI 总结、决定、待办</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="screen-footer">
+      <button class="btn-primary" type="button" onclick="YH.go('02-permission.html')">
+        开始使用 <span aria-hidden="true">↗</span>
+      </button>
+      <a class="ghost-link" href="#" onclick="event.preventDefault(); YH.go('04-done.html')">已有账号</a>
+    </div>
+  </main>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

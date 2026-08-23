@@ -1,0 +1,113 @@
+PAGE 09 — "团队" (Team slide)
+
+A 16:9, 4K ultra high resolution investor deck slide. Pure dark aurora wallpaper background (deep purple at the upper-left fading through teal/cyan at the lower-right, soft subtle aurora ribbon curves, NOT cyberpunk, NOT neon, NOT a starry galaxy, NOT outer space). The slide is a CLEAN editorial slide — no macOS menu bar, no dock. Just the aurora backdrop with team member cards laid on top.
+
+# LAYOUT GRID
+- Top 0%–25% of the canvas: header band
+  - Upper-LEFT corner (small, ~64px squircle, 40px from top, 40px from left): a small dark glass app icon squircle (22.4% corner radius) containing a single letter "Y" rendered in a vivid purple-to-teal diagonal gradient (135deg, vivid purple #B57BFF → mid purple #8A5BFF → vivid teal #2DD4BF). The Y is a clean letterform: V-shape converging to a single point with a straight vertical stem below, no serifs, no glow, no halos, no decorations.
+  - To the right of the icon: small wordmark in white (JetBrains Mono): "YINGHUA · 映话"
+  - Centered horizontally in the header band: the slide title "团队" rendered in warm white (#F4F1EC), 64pt, semibold, SF Pro Display family, single line, NO quotation marks around the title.
+  - Far UPPER-RIGHT (small, JetBrains Mono 12pt, light grey): "Investor Brief · 2026"
+  - Below the title, a short horizontal gradient line (120px wide, 2px tall, vivid purple-to-teal diagonal gradient), centered.
+
+- Middle 25%–92% of the canvas: the BODY, a single horizontal row of 3 large team cards and a 4th smaller advisor card to the right. All cards are dark glass panels (12px corner radius, 1px hairline border in warm-white at 8% opacity, dark glass at 65% opacity). Cards are equal height (~70% of body height). The first 3 cards are equal width (~22% each), the 4th advisor card is smaller (~15% wide). Between cards, ~5% gutter.
+
+  ## CARD 1 — FOUNDER (largest, slight emphasis)
+  - Inside the card, top to bottom, centered horizontally:
+    1. An AVATAR at the top: a 96px solid colored circle (NOT a photo, NOT a real face). Color: vivid purple #8A5BFF. Centered inside the circle, a single warm-white capital letter "Z" in SF Pro Display 36pt, semibold.
+    2. Below the avatar: a 1-line name in 22pt warm white, semibold, Noto Serif SC for Chinese: "周子为".
+    3. Below the name: a 1-line role in 14pt warm-white at 75% opacity, Noto Sans SC: "创始人 · CEO".
+    4. Below the role: a thin horizontal hairline divider (40px wide, 1px tall, teal at 50% opacity), centered.
+    5. Below the divider: 3-4 short bullet lines in Simplified Chinese, 13pt warm-white at 70% opacity, line-height ~1.6, each line preceded by a small solid teal 4px circular bullet:
+       - "浙江大学 · 计算机科学"
+       - "前 字节 / 腾讯 实习"
+       - "8 个 C 系列 shippable"
+       - "SwiftUI 6 + CoreAudio"
+    6. A small uppercase English label at the bottom in JetBrains Mono 11pt, warm-white at 50% opacity, ALL CAPS: "FOUNDER".
+
+  ## CARD 2 — CO-FOUNDER / ENGINEERING
+  - Inside the card, top to bottom, centered:
+    1. An AVATAR: a 96px solid colored circle. Color: vivid teal #2DD4BF. Inside, a single warm-white capital letter "L" in SF Pro Display 36pt, semibold.
+    2. Name: "李明" in 22pt warm white, semibold, Noto Serif SC.
+    3. Role: "联合创始人 · CTO" in 14pt warm-white at 75% opacity.
+    4. A 40px wide, 1px tall teal divider, centered.
+    5. 3-4 bullet lines:
+       - "上海交通大学 · 计算机"
+       - "前 Apple SRE 工程师"
+       - "AVAudioEngine 核心作者"
+       - "macOS 26 早期适配者"
+    6. Bottom label: "CO-FOUNDER · CTO" in JetBrains Mono 11pt, warm-white at 50% opacity, ALL CAPS.
+
+  ## CARD 3 — DESIGN LEAD
+  - Inside the card, top to bottom, centered:
+    1. An AVATAR: a 96px solid colored circle. Color: pink #FF6FA9. Inside, a single warm-white capital letter "R" in SF Pro Display 36pt, semibold.
+    2. Name: "Rachel Wang" in 22pt warm white, semibold (mixed Chinese/English, use Noto Serif SC + SF Pro Display hybrid).
+    3. Role: "设计负责人" in 14pt warm-white at 75% opacity.
+    4. A 40px wide, 1px tall teal divider, centered.
+    5. 3-4 bullet lines:
+       - "CMU · 人机交互硕士"
+       - "前 Figma 设计主管"
+       - "12 年 SwiftUI 设计经验"
+       - "Design Tokens 主理人"
+    6. Bottom label: "DESIGN LEAD" in JetBrains Mono 11pt, warm-white at 50% opacity, ALL CAPS.
+
+  ## CARD 4 — ADVISOR (smaller, positioned to the right of the 3 main cards)
+  - Inside the card, top to bottom, centered:
+    1. A SMALLER AVATAR: a 64px solid colored circle. Color: warm white #F4F1EC. Inside, a single graphite (#1B1D22) capital letter "A" in SF Pro Display 28pt, semibold.
+    2. Name: "Advisor" in 16pt warm white, semibold.
+    3. Role: "战略顾问" in 12pt warm-white at 70% opacity.
+    4. 2 short bullet lines in 11pt warm-white at 65% opacity:
+       - "前 YC Partner"
+       - "AI 基础设施 20 年"
+    5. Bottom label: "ADVISOR" in JetBrains Mono 10pt, warm-white at 50% opacity, ALL CAPS.
+
+  ## BELOW THE 4 CARDS — SHORT KICKER
+  - At the bottom of the body band (above the 8% margin), draw a thin horizontal hairline divider (1px, warm-white at 8% opacity) spanning ~80% of the slide width, centered. Below this divider, place a small centered caption in 14pt warm-white at 60% opacity: "Hiring · Senior Swift Engineer · Senior Designer". Single line, centered, English.
+
+- Bottom 92%–100% of the canvas: BOTTOM MARGIN (8% empty). Do NOT place any content in this band except the page number in the lower-right corner.
+
+# PAGE NUMBER
+- Lower-right corner, ~40px from right edge, ~32px from bottom: small page number text in JetBrains Mono 14pt, warm-white at 35% opacity, EXACTLY the string "09 / 10" (with a single space on each side of the slash). This is the ONLY text in the bottom 8% band.
+
+# TYPE & LANGUAGE POLICY
+- All Chinese text is REAL Simplified Chinese, rendered correctly with proper Chinese characters.
+- Avatars are colored circles with SINGLE CAPITAL LETTERS (Latin alphabet Z, L, R, A), NOT initials of full names in any other script, NOT Chinese characters.
+- Names of people are stylized as "周子为" / "李明" / "Rachel Wang" / "Advisor" — DO NOT use a literal literal "X" or initials like "Z.Z." as data placeholders for names.
+- The "Y" letterform in the corner icon is a single capital Latin letter Y.
+
+# ABSOLUTE PROHIBITIONS (D1 §7 anti-patterns)
+- No waveform, no EKG, no sine wave, no audio visualizer anywhere.
+- No "AI" word rendered as a standalone icon, no "STYLE 1" label, no "TEST" / "Sample" / "Placeholder" labels.
+- No font-size spec text like "14pt" / "600" / "regular" rendered as visible UI text.
+- No opacity percentage text like "60%" / "30%" / "8%" / "45%" rendered as visible UI text — describe opacity as a color/lightness intent, not a numeric value.
+- No placeholder phrase like "LARGE PRICE" / "TITLE HERE" / "BIG NUMBER" / "LABEL" / "META" rendered as visible text.
+- No position percentage text like "10%" / "35%" / "50%" / "65%" / "90%" rendered as visible UI text — describe positions as "left" / "center" / "right" or "evenly spaced".
+- No two-circle / infinity / chat-bubble mark.
+- No cyberpunk glow, no neon outlines, no floating sparkles, no halo.
+- ABSOLUTELY NO PIE CHART. NO DONUT CHART. NO GAUGE. NO RADAR CHART.
+- No "Bento" framed box with bold left-side label, no marketing words like 洞察/赋能/智能化/效率提升/全局掌控/AI 驱动.
+- No multi-color neon.
+- No literal single letter "X" used as a data placeholder.
+- No emoji used as icon. No real-person face on the slide (avatars are abstract solid color circles, NOT photos).
+- No "AI" letters as an icon.
+- No watermark, no caption, no footer other than the page number.
+
+# PALETTE
+- Background: very dark, near-black with aurora wash.
+- Card glass: #0A0A0F at 65% opacity, 1px border #F4F1EC at 8% opacity.
+- Avatar 1 (founder): solid purple #8A5BFF, with warm white "Z".
+- Avatar 2 (co-founder): solid teal #2DD4BF, with warm white "L".
+- Avatar 3 (design): solid pink #FF6FA9, with warm white "R".
+- Avatar 4 (advisor): solid warm white #F4F1EC, with graphite #1B1D22 "A".
+- Bullet dots: solid teal #2DD4BF (4px circles).
+- Name (large): #F4F1EC.
+- Role (medium): #F4F1EC at 75% opacity.
+- Body bullets: #F4F1EC at 70% opacity.
+- Bottom label: #F4F1EC at 50% opacity.
+- Title: #F4F1EC.
+- Page number: #F4F1EC at 35% opacity.
+- ONLY these colors plus the aurora wash.
+
+# ASPECT & RESOLUTION
+- 16:9 aspect ratio, 4K ultra high resolution (5504 × 3072 effective output).
+- No letterbox, no border, no frame.

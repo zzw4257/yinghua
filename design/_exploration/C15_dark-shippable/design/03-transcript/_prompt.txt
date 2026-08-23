@@ -1,0 +1,81 @@
+A photorealistic screenshot of a real macOS 26 desktop. 16:9, 4K. The user has the Chinese AI meeting app "映话" (Yinghua) open in transcript-focus mode — the user is looking at a real-time transcript of a 2-person job interview.
+
+# CRITICAL: DOCK COUNT ENFORCEMENT
+
+The dock at the bottom of the screen contains EXACTLY 12 ICONS. NOT 11. NOT 13. NOT 14. NOT 15. EXACTLY 12. The model is known to add extra system icons like Launchpad, Photos, Contacts, Trash, FaceTime, or duplicate Notes and Calendar. DO NOT add any of these. ONLY the 12 listed below are in the dock.
+
+# LAYER 1 — WALLPAPER
+A dark aurora wallpaper with a starry night sky. Deep purple at the left, transitioning through teal/cyan in the middle, with a hint of magenta at the right edge. Subtle aurora ribbon curves. Soft, not cyberpunk, no neon.
+
+# LAYER 2 — TOP MENU BAR (translucent dark glass)
+From left to right exactly these items:
+- An Apple logo icon
+- The text "Yinghua" in white (this is the app name)
+- The text "File" "Edit" "View" "Window" "Help" in white, evenly spaced
+- A wide empty space
+- On the far right: a Control Center icon, a battery icon, a Wi-Fi icon, a Spotlight search icon, a Siri icon, and the text "21:42" in white
+
+That is the entire menu bar. No other text, no other icons, no clock text in any other position.
+
+# LAYER 3 — DOCK (bottom center, glass, blurred backdrop)
+The dock contains EXACTLY 12 icons in a single row. The order from left to right is fixed:
+
+Position 1: "Finder" — blue and white smiling face
+Position 2: "Safari" — blue compass
+Position 3: "Messages" — green speech bubble
+Position 4: "Mail" — blue envelope
+Position 5: "Notes" — yellow notepad with horizontal lines
+Position 6: "Calendar" — white page with ONLY the red number "26". Nothing else. No "MON" "TUE" "WED" "THU" "FRI" "SAT" "SUN". No "JAN" "FEB" "MAR". No Chinese day name. No Latin gibberish. Just the number 26 in red.
+Position 7: "Reminders" — white list with small colored dots
+Position 8: "Maps" — map with road lines
+Position 9: "Music" — red musical note on white
+Position 10: "System Settings" — gray gear
+Position 11: A small thin gray separator (single thin vertical line or small dot)
+Position 12: "Yinghua" — dark glass squircle with a SOLID WARM-WHITE letter "Y" in 01 MINIMAL flat style, with a tiny magenta active dot below
+
+FORBIDDEN IN THE DOCK: Launchpad, Photos, Contacts, Address Book, FaceTime, Trash, Keynote, Pages, Numbers, iMovie, GarageBand, App Store, TextEdit, Terminal, any duplicate of the 12 listed above. The dock has exactly 12 elements as listed.
+
+# LAYER 4 — THE APP WINDOW (centered, ~75% of desktop width)
+A single macOS window with three traffic light buttons (red, yellow, green) in the upper left in correct order. The window title text reads "面试 · 前端终面 · 转录" in white. The window background is dark glass with subtle aurora tinting, 14px corner radius, ~70% opacity.
+
+## TOP STATUS STRIP
+At the very top of the window content area (just below the title bar), a thin horizontal strip showing:
+- A small red dot (recording indicator) on the left
+- The text "录制中  02:34" in white (JetBrains Mono for the timecode)
+- A single thin static horizontal line on the right (NOT a waveform, NOT bars, NOT an EKG)
+- A small microphone icon indicating system audio + mic recording is active
+
+## MAIN CONTENT — TRANSCRIPT LIST
+A scrollable list of 7 transcript rows, each ~80px tall. Each row has:
+- A small timestamp on the left edge in JetBrains Mono light gray
+- A 32px circular avatar. The avatar is a SOLID COLORED CIRCLE (purple for 面试官, teal for 我, pink for 候选人 张三) with ONE white capital letter inside: "M" for 面试官, "W" for 我, "Z" for 候选人 张三.
+- To the right of the avatar, the SPEAKER NAME in bold white on the first line.
+- Below the speaker name, the BODY TEXT in light gray (one to three lines of real Simplified Chinese interview content).
+
+The 7 rows in order from top to bottom:
+
+ROW 1: timestamp "00:12", avatar M (purple), name "面试官", body "你好，欢迎参加今天的面试。请问你能先做一个简单的自我介绍吗？"
+ROW 2: timestamp "00:24", avatar W (teal), name "我", body "面试官你好，我叫张三，毕业于浙江大学计算机科学专业，本科 GPA 3.8。"
+ROW 3: timestamp "00:35", avatar M (purple), name "面试官", body "很好。能不能介绍一下你在 React 方面的项目经验？"
+ROW 4: timestamp "00:48", avatar W (teal), name "我", body "好的，我之前在字节跳动做了三年的 React 开发，主要负责公司核心组件库的设计和维护。"
+ROW 5: timestamp "01:02", avatar Z (pink), name "候选人 张三", body "我熟悉 Hooks 和性能优化，包括 memo、useMemo、useCallback 的使用场景。"
+ROW 6: timestamp "01:18", avatar M (purple), name "面试官", body "能否详细讲讲你在性能优化方面遇到的最大挑战？"
+ROW 7: timestamp "01:34", avatar W (teal), name "我", body "最近我们在做一个大型数据可视化项目，涉及上万条 DOM 节点的实时渲染。"
+
+All speaker names must be visible. All body text must be visible. Real Simplified Chinese. No "Speaker name" placeholder. No English placeholders. No gibberish. No random CJK fragments.
+
+## BOTTOM — CONTROL STRIP
+A thin strip at the very bottom of the window:
+- A small "停止" button (red stop icon + text) on the left
+- A small speaker/audio icon in the middle
+- A small settings gear icon on the right
+- A subtle 1px hairline above the strip
+
+# ABSOLUTE PROHIBITIONS
+- No waveform, no audio bars, no EKG, no sine wave anywhere
+- No "AI" text as a word, no "STYLE 1" label, no "TEST" label, no "Sample" label, no "Placeholder" label
+- No font-size or font-weight text like "14pt" "600" "regular"
+- No cyberpunk glow, no neon outlines, no floating sparkles, no two-circle chat icons
+- No English placeholder text in place of Chinese — all Chinese text must be real Simplified Chinese
+- No Latin gibberish, no Cyrillic, no random letters
+- 16:9, 4K, no watermark, no caption

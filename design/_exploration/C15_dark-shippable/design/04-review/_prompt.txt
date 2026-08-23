@@ -1,0 +1,116 @@
+A photorealistic screenshot of a real macOS 26 desktop. 16:9, 4K. The user is reviewing a recorded interview in the Chinese AI meeting app "映话" (Yinghua).
+
+# CRITICAL: DOCK COUNT ENFORCEMENT
+
+The dock at the bottom contains EXACTLY 12 ICONS. NOT 13. NOT 14. NOT 15. EXACTLY 12. The model is known to add extra system icons like Launchpad, Photos, Contacts, Trash, FaceTime, or duplicate Notes and Calendar. DO NOT add any of these. ONLY the 12 listed below are in the dock.
+
+# LAYER 1 — WALLPAPER
+A dark aurora wallpaper with a starry night sky. Deep purple at the left, transitioning through teal/cyan in the middle, with a hint of magenta at the right edge. Subtle aurora ribbon curves. Soft, not cyberpunk.
+
+# LAYER 2 — TOP MENU BAR (translucent dark glass)
+From left to right exactly these items:
+- An Apple logo icon
+- The text "Yinghua" in white (this is the app name)
+- The text "File" "Edit" "View" "Window" "Help" in white, evenly spaced
+- A wide empty space
+- On the far right: a Control Center icon, a battery icon, a Wi-Fi icon, a Spotlight search icon, a Siri icon, and the text "21:42" in white
+
+# LAYER 3 — DOCK (bottom center, glass, blurred backdrop)
+EXACTLY 12 icons in a single row, this order:
+
+Position 1: "Finder" — blue and white smiling face
+Position 2: "Safari" — blue compass
+Position 3: "Messages" — green speech bubble
+Position 4: "Mail" — blue envelope
+Position 5: "Notes" — yellow notepad with horizontal lines
+Position 6: "Calendar" — white page with ONLY the red number "26". No text, no day name, no month, no gibberish, just the number 26 in red.
+Position 7: "Reminders" — white list with small colored dots
+Position 8: "Maps" — map with road lines
+Position 9: "Music" — red musical note on white
+Position 10: "System Settings" — gray gear
+Position 11: A small thin gray separator
+Position 12: "Yinghua" — dark glass squircle with a SOLID WARM-WHITE letter "Y" in 01 MINIMAL flat style, with a tiny magenta active dot below
+
+FORBIDDEN IN THE DOCK: Launchpad, Photos, Contacts, Address Book, FaceTime, Trash, Keynote, Pages, Numbers, iMovie, GarageBand, App Store, TextEdit, Terminal, any duplicate. The dock has exactly 12 elements as listed.
+
+# LAYER 4 — APP WINDOW (centered, ~75% of desktop width)
+A single macOS window with three traffic light buttons (red, yellow, green) in the upper left in correct order. The window title text reads "张同学-前端-终面 · 复盘" in white. Window background is dark glass with subtle aurora tinting, 14px corner radius, ~70% opacity.
+
+The window has a 2-column layout:
+
+## LEFT COLUMN (38% width) — FILE CARD + TRANSCRIPT PREVIEW
+
+### TOP — FILE CARD
+A file card at the top of the left column. It has:
+- A small purple file icon (a generic audio/video file shape) on the left
+- In the middle: the file name "张同学-前端-终面" in bold white on the first line, and the subtitle "今天录制 · 48 分钟 · 1.2 GB" in light gray on the second line
+- On the right: a small "打开" pill button (secondary glass style)
+- Below the file card, three small inline meta tag chips in a row: "MP4" "中英双语" "2 位发言人"
+
+### BOTTOM — TRANSCRIPT PREVIEW (5 rows)
+A compact transcript list with 5 visible rows. Each row is ~48px tall. Each row has:
+- A 28px circular avatar. SOLID COLORED CIRCLE with ONE white capital letter: "M" for 面试官 (purple), "W" for 我 (teal), "Z" for 候选人 张三 (pink).
+- Bold white name on the first line
+- Timecode in JetBrains Mono light gray on the right
+- One line of real Simplified Chinese body text on the second line in light gray
+
+The 5 rows:
+ROW 1: avatar M, name "面试官", timecode "00:12", body "你好，欢迎参加今天的面试"
+ROW 2: avatar W, name "我", timecode "00:24", body "面试官你好，我叫张三"
+ROW 3: avatar M, name "面试官", timecode "00:35", body "能不能介绍一下你在 React 方面的项目经验"
+ROW 4: avatar W, name "我", timecode "00:48", body "好的，我之前在字节跳动做了三年的 React 开发"
+ROW 5: avatar M, name "面试官", timecode "01:18", body "能否详细讲讲你在性能优化方面遇到的最大挑战"
+
+## RIGHT COLUMN (62% width) — AI SUMMARY
+
+### TOP HEADER STRIP
+- On the left: a small sparkle icon (4-point star) in purple, followed by the text "AI 总结" in white
+- On the right: a small ghost text link "重新生成" in light gray with underline on hover
+
+### 4 COLLAPSIBLE SECTIONS
+Below the header, 4 collapsible section cards stacked vertically. Each card has:
+- A subtle 1px white hairline border
+- 12px corner radius
+- A header row with: a small section icon on the left, the bold section title in white, a right-side chevron toggle
+- A content area (first 2 expanded, last 2 collapsed showing count badge)
+
+SECTION 1 — "关键瞬间" (expanded):
+- 3 bullet points with timestamps:
+  - "12:04 — 候选人展示了字节跳动核心组件库的 React 性能优化方案"
+  - "23:18 — 讨论了 DOM 节点上万级数据可视化的实现思路"
+  - "35:42 — 候选人主动提出 memory leak 排查方法"
+
+SECTION 2 — "达成的决定" (expanded):
+- 2 bullet points:
+  - "候选人对 React 18 并发模式有深入理解"
+  - "技术深度匹配 P7 高级前端岗位要求"
+
+SECTION 3 — "待办" (collapsed, shows "3 项"):
+- Just a small "3 项" badge in the collapsed view
+
+SECTION 4 — "遗留问题" (collapsed, shows "5 项"):
+- Just a small "5 项" badge in the collapsed view
+
+### BOTTOM — ACTION BUTTONS
+A 2x2 grid of buttons in the bottom-right of the right column:
+- Top-left: Secondary glass button "复制总结"
+- Top-right: Secondary glass button "导出 PDF"
+- Bottom-left: Secondary glass button with a download icon "分享"
+- Bottom-right: PRIMARY gradient button (purple-to-teal) "完成" with subtle share arrow
+
+Below the 2x2 grid, a single ghost text link "返回" in light gray with underline.
+
+## BOTTOM-LEFT inside the window — SPEAKER CHIPS ROW
+Two small pill chips horizontally:
+- "● 面试官  62%" with a small purple dot and a thin progress segment in the pill
+- "● 我  38%" with a small teal dot and a thin progress segment in the pill
+
+# ABSOLUTE PROHIBITIONS
+- No waveform, no audio bars, no EKG, no sine wave anywhere
+- No "AI" text as a word by itself — use "AI 总结" as a 2-character phrase label only
+- No "STYLE 1" label, no "TEST" label, no "Sample" label, no "Placeholder" label
+- No font-size or font-weight text like "14pt" "600" "regular"
+- No cyberpunk glow, no neon outlines, no floating sparkles, no two-circle chat icons
+- No English placeholder text in place of Chinese — all Chinese text must be real Simplified Chinese
+- No Latin gibberish, no Cyrillic, no random letters
+- 16:9, 4K, no watermark, no caption

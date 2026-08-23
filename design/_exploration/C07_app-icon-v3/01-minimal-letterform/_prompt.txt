@@ -1,0 +1,61 @@
+Three professional macOS app icon variants for "Yinghua" (映话), shown side-by-side on a clean dark background, captured as marketing-quality product screenshot.
+
+## Layout
+
+A wide horizontal image (3:1 aspect) with:
+- 3 app icons displayed left-to-right, each in the same macOS squircle shape (1024x1024 each, 22.4% corner radius, same as Apple's standard), evenly spaced with generous padding (~80px gap between them).
+- Dark neutral background (#0A0A0F, near-black with a hint of cool tone). NO wallpaper, NO scenery — pure studio shot.
+- Below each icon, a small caption label in SF Pro Text 14pt weight 500, color #6B6B72 (muted gray): "01 MINIMAL", "02 GRADIENT", "03 GLASS".
+
+## THE Y MARK (must be IDENTICAL across all 3 variants)
+
+The letterform is a custom "Y" with these geometric rules:
+- The Y is composed of exactly 2 strokes: a left diagonal stroke from top-left going down-right, and a right diagonal stroke from top-right going down-left, meeting at the center, then continuing as a single vertical stroke down to the bottom.
+- All strokes have rounded ends (semicircular caps), ~16% of letter height thick.
+- The Y is centered both horizontally and vertically inside the icon's safe area (with ~22% margin on all sides).
+- The Y's overall height = ~52% of icon's inner height.
+- The Y's overall width = ~52% of icon's inner width.
+- The strokes are slightly tapered: thicker at the meeting point, slightly thinner at the ends.
+- No serifs, no flourishes, no additional dots, no speech bubble, no infinity loop. Just the Y.
+
+## VARIANT 01 — MINIMAL LETTERFORM (leftmost icon)
+
+- Background: pure flat near-black #0A0A0F filling the entire squircle. No gradient, no glass, no noise, no glow.
+- The squircle has a very subtle 1px white inner stroke at 6% opacity (the standard macOS icon edge highlight, optional).
+- The Y is in solid off-white #F4F1EC (Apple's warm-white). No gradient. No shadow. Just a clean white Y on near-black.
+- Mood: Apple Notes app icon. Stark, minimal, Apple-restrained.
+
+## VARIANT 02 — GRADIENT FILL (middle icon)
+
+- Background: dark glass with a subtle aurora gradient wash (top-left ~#2A1240 deep purple, bottom-right ~#0E2A2A deep teal, very subtle, ~15% opacity layered on a near-black #0A0A0F base).
+- The squircle has the standard macOS glass edge highlight (subtle 1px white at 8% opacity on top edge, slightly brighter on the top-left curve).
+- The Y is rendered using a clip-path: the Y letterform is a mask, and through the mask we see a vibrant aurora gradient: top-left #B57BFF (vivid purple) → middle #8A5BFF (purple) → bottom-right #2DD4BF (teal). The gradient runs diagonally from top-left to bottom-right.
+- The Y has a subtle inner shadow on its lower edge (very subtle, ~10% black) to give it slight depth without breaking the flatness.
+- The icon's overall feel: more colorful than V01 but still Apple-restrained. Like Apple Music's icon style (gradient + glass).
+
+## VARIANT 03 — GLASS ORB (rightmost icon)
+
+- Background: dark glass squircle (same dark aurora as V02 base, slightly more visible).
+- Inside the squircle, centered, sits a circular glass orb (~70% of icon width), rendered with:
+  - The orb has a 1px white edge stroke at 14% opacity (the glass rim).
+  - Inside the orb, a soft radial highlight in the upper-left (white at 8% opacity) and a soft inner glow on the lower-right (subtle teal at 10% opacity).
+  - The orb has a subtle blur on its content to suggest glass refraction.
+- Inside the orb, the Y is rendered in solid white #F4F1EC (same Y as V01, no gradient).
+- A soft drop shadow under the orb (~6% opacity, blur 30px, offset 0/8px) grounds it on the dark background.
+- Mood: like a Sonoma-era macOS widget icon — a piece of glass with content inside.
+
+## STRICT RULES (must follow)
+- All 3 icons must be in the same macOS squircle shape (1024x1024, 22.4% corner radius) — only the INSIDE content varies.
+- The Y letterform geometry must be IDENTICAL across all 3 variants — only color, material, and context differ.
+- NO "Yinghua" or any text on the icons themselves.
+- NO speech bubble. NO infinity loop. NO 2-ring chat icon. NO dot below the Y. NO "Y" with a circle around it.
+- The captions "01 MINIMAL", "02 GRADIENT", "03 GLASS" are the ONLY text in the image.
+- Background must be a flat dark studio color, not a wallpaper.
+- Output is a single product-quality horizontal image, no watermark, no caption overlay beyond the 3 labels.
+- Aspect ratio 3:1, 2K resolution.
+
+## CRITICAL ANTI-PATTERNS
+- The V2 mark (2 rings / chat bubble / infinity loop) is NOT what we want. Do NOT render 2 connected circles or any chat-bubble-like mark. The letterform is a literal Y, exactly as described above.
+- NO cyberpunk, NO neon outlines, NO glow halos around the Y.
+- NO multiple Y's arranged in a pattern.
+- NO "Y" plus a dot below (we want a clean Y, period).

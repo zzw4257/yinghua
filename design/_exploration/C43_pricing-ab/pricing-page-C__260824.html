@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0A0A0F" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#F4F1EC" media="(prefers-color-scheme: light)" />
+
+  <title>定价 · 变体 C (trial-driven) — 映话 · Yinghua</title>
+  <meta name="description" content="映话定价 · 变体 C（试用驱动）：14 天全功能免费试用，试用结束自动降级到 Free 3 场/月。Pro $19/月，Team $39/席位/月。" />
+  <meta name="ab-variant" content="C-trial-driven" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="../C29_marketing-website/website/favicon.png" />
+  <link rel="apple-touch-icon" href="../C29_marketing-website/website/assets/img/icon-02-gradient-128.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" />
+
+  <link rel="stylesheet" href="../C29_marketing-website/website/assets/css/main.css" />
+
+  <style>
+    /* ============================================================
+       Variant C — trial-driven
+       顶部 trial banner + 倒计时 + 4 cards (Trial / Free / Pro / Team)
+       ============================================================ */
+
+    /* 价格字号 88pt（比 A 略小，因为 banner 抢注意力） */
+    .price-amount .value {
+      font-size: 88px;
+      font-weight: 700;
+      letter-spacing: -0.05em;
+      line-height: 0.95;
+    }
+    .price-amount .currency {
+      font-size: 28px;
+      align-self: flex-start;
+      margin-top: 8px;
+    }
+    .price-amount .period { font-size: 15px; }
+
+    /* ===== Hero trial banner ===== */
+    .trial-banner {
+      position: relative;
+      padding: var(--space-7xl) 0 var(--space-6xl);
+      text-align: center;
+      isolation: isolate;
+      overflow: hidden;
+    }
+    .trial-banner::before {
+      content: '';
+      position: absolute; inset: 0; z-index: -2;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(181, 123, 255, 0.28), transparent 70%),
+        radial-gradient(ellipse 60% 50% at 50% 100%, rgba(45, 212, 191, 0.18), transparent 70%),
+        var(--bg-base);
+    }
+    .trial-banner::after {
+      content: '';
+      position: absolute; inset: 0; z-index: -1;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.95 0 0 0 0 0.95 0 0 0 0 0.95 0 0 0 0.03 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      opacity: 0.4;
+      mix-blend-mode: overlay;
+      pointer-events: none;
+    }
+    .trial-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(181, 123, 255, 0.12);
+      border: 1px solid rgba(181, 123, 255, 0.3);
+      color: var(--color-brand-purple-vivid);
+      padding: 6px 14px;
+      border-radius: var(--radius-circle);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-2xl);
+    }
+    .trial-eyebrow .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--color-brand-purple-vivid);
+      animation: pulse 1400ms var(--ease-standard) infinite;
+    }
+    .trial-title {
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      margin-bottom: var(--space-xl);
+    }
+    .trial-title .hl {
+      background: var(--gradient-primary-2stop);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .trial-subtitle {
+      font-family: var(--font-serif-zh);
+      font-size: clamp(18px, 1.8vw, 22px);
+      color: var(--text-secondary);
+      max-width: 640px;
+      margin: 0 auto var(--space-3xl);
+      line-height: 1.5;
+    }
+
+    /* 倒计时器 */
+    .countdown {
+      display: inline-flex;
+      gap: var(--space-lg);
+      margin: var(--space-2xl) 0 var(--space-3xl);
+    }
+    .countdown-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 84px;
+      padding: var(--space-lg) var(--space-xl);
+      background: rgba(27, 29, 34, 0.55);
+      border: 1px solid var(--border-hairline-strong);
+      border-radius: var(--radius-lg);
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+    }
+    .countdown-num {
+      font-family: var(--font-display);
+      font-size: 56px;
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      background: var(--gradient-primary-2stop);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .countdown-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-tertiary);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 6px;
+    }
+
+    .trial-cta-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-lg);
+      margin-bottom: var(--space-lg);
+    }
+    .trial-fineprint {
+      color: var(--text-tertiary);
+      font-size: 13px;
+    }
+    .trial-fineprint .check-inline {
+      color: var(--color-brand-teal-vivid);
+      font-weight: 600;
+    }
+
+    /* ===== 4 tier grid ===== */
+    .pricing-grid-4 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.1fr 1fr;
+      gap: var(--space-xl);
+      align-items: stretch;
+    }
+    /* Trial 卡特殊处理：更窄，主视觉锚已在上方 banner */
+    .price-card.trial {
+      background: linear-gradient(180deg, rgba(181, 123, 255, 0.08), transparent 60%), var(--bg-card);
+      border-color: rgba(181, 123, 255, 0.3);
+    }
+    .price-card.trial .price-amount .value {
+      font-size: 64px;
+    }
+    .trial-tier-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(181, 123, 255, 0.18);
+      color: var(--color-brand-purple-vivid);
+      padding: 3px 10px;
+      border-radius: var(--radius-circle);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-sm);
+    }
+    .price-card.trial .price-tier { color: var(--color-brand-purple-vivid); }
+
+    /* "What happens after trial" 说明框 */
+    .after-trial {
+      max-width: 760px;
+      margin: var(--space-4xl) auto 0;
+      padding: var(--space-2xl);
+      background: rgba(27, 29, 34, 0.5);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-lg);
+      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(20px);
+    }
+    .after-trial h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: var(--space-md);
+      font-family: var(--font-mono);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .after-trial ol {
+      list-style: none;
+      counter-reset: trial-step;
+      padding: 0;
+    }
+    .after-trial li {
+      counter-increment: trial-step;
+      padding: var(--space-md) 0;
+      border-top: 1px solid var(--border-hairline);
+      color: var(--text-secondary);
+      font-size: 14px;
+      line-height: 1.55;
+      position: relative;
+      padding-left: 36px;
+    }
+    .after-trial li:first-child { border-top: none; }
+    .after-trial li::before {
+      content: counter(trial-step);
+      position: absolute;
+      left: 0; top: var(--space-md);
+      width: 24px; height: 24px;
+      background: var(--gradient-primary-2stop);
+      color: #0A0A0F;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .after-trial li strong { color: var(--text-primary); }
+
+    /* 实验变体徽章 */
+    .ab-badge {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 1000;
+      background: rgba(10, 10, 15, 0.85);
+      border: 1px solid var(--color-brand-purple-mid);
+      color: var(--color-brand-teal-vivid);
+      padding: 10px 16px;
+      border-radius: var(--radius-circle);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+    }
+    .ab-badge strong { color: var(--color-brand-purple-vivid); }
+
+    @media (max-width: 1080px) {
+      .pricing-grid-4 { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .pricing-grid-4 { grid-template-columns: 1fr; }
+      .countdown-block { min-width: 60px; padding: var(--space-md); }
+      .countdown-num { font-size: 36px; }
+    }
+  </style>
+
+  <script>
+    (function () {
+      try { var t = localStorage.getItem('yinghua-theme') || 'dark'; document.documentElement.setAttribute('data-theme', t); }
+      catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    })();
+
+    /* 倒计时 — 14 天 · 不绑卡 · 显示「剩余天数 / 小时 / 分 / 秒」 */
+    (function initCountdown() {
+      // 用一个固定锚点（页面加载时起算 14 天），保证 marketing 看 demo 时数字始终是「距结束剩 14 天」
+      // 上线时改为：var deadline = new Date(user.createdAt + 14d);
+      var ANCHOR = new Date();
+      ANCHOR.setHours(ANCHOR.getHours() + 1); // demo: 14 天后到期
+      var stored = null;
+      try { stored = localStorage.getItem('yinghua-trial-deadline'); } catch (e) {}
+      var deadline = stored ? new Date(stored) : ANCHOR;
+      try { if (!stored) localStorage.setItem('yinghua-trial-deadline', deadline.toISOString()); } catch (e) {}
+
+      function pad(n) { return String(n).padStart(2, '0'); }
+      function tick() {
+        var now = new Date();
+        var diff = Math.max(0, deadline - now);
+        var days = Math.floor(diff / 86400000);
+        var hours = Math.floor((diff % 86400000) / 3600000);
+        var mins = Math.floor((diff % 3600000) / 60000);
+        var secs = Math.floor((diff % 60000) / 1000);
+
+        var el = document.querySelector('[data-countdown]');
+        if (!el) return;
+        var dEl = el.querySelector('[data-cd-day]');
+        var hEl = el.querySelector('[data-cd-hour]');
+        var mEl = el.querySelector('[data-cd-min]');
+        var sEl = el.querySelector('[data-cd-sec]');
+        if (dEl) dEl.textContent = pad(days);
+        if (hEl) hEl.textContent = pad(hours);
+        if (mEl) mEl.textContent = pad(mins);
+        if (sEl) sEl.textContent = pad(secs);
+
+        if (diff === 0) {
+          var cta = document.querySelector('[data-cta-trial]');
+          if (cta) {
+            cta.textContent = '试用已结束 · 升级到 Pro';
+            cta.classList.remove('btn-primary');
+            cta.classList.add('btn-secondary');
+          }
+        }
+      }
+      tick();
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        setInterval(tick, 1000);
+      } else {
+        setInterval(tick, 60000);
+      }
+    })();
+  </script>
+</head>
+<body>
+
+<header class="nav" role="banner">
+  <div class="container nav-inner">
+    <a href="../C29_marketing-website/website/index.html" class="nav-brand" aria-label="映话 主页">
+      <img src="../C29_marketing-website/website/assets/img/icon-02-gradient-32.png" alt="" width="32" height="32" />
+      <span class="brand-name"><span class="brand-zh">映话</span> · Yinghua</span>
+    </a>
+    <nav class="nav-links" aria-label="主导航">
+      <a href="../C29_marketing-website/website/index.html#features">功能</a>
+      <a href="../C29_marketing-website/website/index.html#preview">预览</a>
+      <a href="../C29_marketing-website/website/index.html#teams">团队</a>
+      <a href="../C29_marketing-website/website/index.html#pricing" class="active">定价</a>
+      <a href="../C29_marketing-website/website/features.html">所有功能</a>
+      <a href="../C29_marketing-website/website/download.html">下载</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle" data-theme-toggle aria-label="切换主题" title="切换主题">
+        <svg class="icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+      <a href="../C29_marketing-website/website/download.html" class="btn btn-primary btn-sm">免费下载</a>
+      <button class="nav-mobile-toggle" data-mobile-toggle aria-label="打开菜单" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="nav-mobile-menu" aria-label="移动导航">
+    <a href="../C29_marketing-website/website/index.html#features">功能</a>
+    <a href="../C29_marketing-website/website/index.html#preview">预览</a>
+    <a href="../C29_marketing-website/website/index.html#teams">团队</a>
+    <a href="../C29_marketing-website/website/index.html#pricing">定价</a>
+    <a href="../C29_marketing-website/website/features.html">所有功能</a>
+    <a href="../C29_marketing-website/website/download.html">下载</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- Trial banner (顶部最强视觉锚) -->
+<section class="trial-banner" aria-labelledby="trial-title">
+  <div class="container">
+    <span class="trial-eyebrow"><span class="dot"></span>14 天 · 全功能 · 不绑卡</span>
+    <h1 id="trial-title" class="trial-title">
+      先用 <span class="hl">14 天</span><br />再决定要不要付费
+    </h1>
+    <p class="trial-subtitle">
+      全功能解锁：无限转录、AI 总结、跨设备同步。试用结束自动降级到 Free 3 场/月，不收任何费用。
+    </p>
+
+    <!-- 倒计时 -->
+    <div class="countdown" data-countdown aria-live="polite">
+      <div class="countdown-block">
+        <span class="countdown-num" data-cd-day>14</span>
+        <span class="countdown-label">天</span>
+      </div>
+      <div class="countdown-block">
+        <span class="countdown-num" data-cd-hour>00</span>
+        <span class="countdown-label">时</span>
+      </div>
+      <div class="countdown-block">
+        <span class="countdown-num" data-cd-min>00</span>
+        <span class="countdown-label">分</span>
+      </div>
+      <div class="countdown-block">
+        <span class="countdown-num" data-cd-sec>00</span>
+        <span class="countdown-label">秒</span>
+      </div>
+    </div>
+
+    <div class="trial-cta-row">
+      <a href="../C29_marketing-website/website/download.html" class="btn btn-primary btn-lg" data-cta-trial>
+        开始免费试用
+        <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"></path></svg>
+      </a>
+    </div>
+    <p class="trial-fineprint">
+      <span class="check-inline">✓</span> 无需信用卡
+      &nbsp;·&nbsp;
+      <span class="check-inline">✓</span> 1 秒退出
+      &nbsp;·&nbsp;
+      <span class="check-inline">✓</span> 数据 100% 本地
+    </p>
+  </div>
+</section>
+
+<!-- Pricing cards (4 tier) -->
+<section class="section" aria-label="定价方案">
+  <div class="container">
+    <div class="pricing-grid-4">
+
+      <article class="price-card trial">
+        <span class="trial-tier-tag">14 天</span>
+        <div class="price-tier">Trial</div>
+        <div class="price-amount">
+          <span class="currency">¥</span>
+          <span class="value">0</span>
+          <span class="period">/ 14 天</span>
+        </div>
+        <p class="price-description">全功能解锁。试用结束自动降级到 Free 3 场/月。</p>
+        <ul class="price-features">
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span><strong style="color:var(--text-primary);">全功能无限</strong> 14 天</li>
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>本地 Whisper 转录</li>
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>AI 总结（BYOK）</li>
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>iCloud 同步</li>
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Chrome 扩展</li>
+        </ul>
+        <div class="price-cta">
+          <a href="../C29_marketing-website/website/download.html" class="btn btn-primary">开始试用</a>
+        </div>
+      </article>
+
+      <article class="price-card">
+        <div class="price-tier">Free</div>
+        <div class="price-amount">
+          <span class="currency">¥</span>
+          <span class="value">0</span>
+          <span class="period">/ 永久</span>
+        </div>
+        <p class="price-description" style="color:var(--text-tertiary); font-style:italic;">（试用结束后的默认状态）</p>
+        <ul class="price-features">
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>每月 <strong style="color:var(--text-primary);">3 场</strong>免费转录</li>
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>本地 Whisper 转录</li>
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>声纹分人</li>
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>导出 Markdown / SRT / JSON</li>
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>macOS 26 玻璃界面</li>
+        </ul>
+        <div class="price-cta">
+          <a href="../C29_marketing-website/website/download.html" class="btn btn-secondary">继续用 Free</a>
+        </div>
+      </article>
+
+      <article class="price-card featured">
+        <div class="price-tier">Pro</div>
+        <div class="price-amount">
+          <span class="currency">$</span>
+          <span class="value">19</span>
+          <span class="period">/ 月</span>
+        </div>
+        <p class="price-description">BYOK 解锁 AI 总结、无限转录、跨设备同步。</p>
+        <ul class="price-features">
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>包含 Free 所有功能</li>
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>无限转录场次</li>
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>AI 总结（BYOK）</li>
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>关键时刻、决定、待办、问题</li>
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>iCloud 端到端加密同步</li>
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>Chrome 浏览器扩展</li>
+        </ul>
+        <div class="price-cta">
+          <a href="../C29_marketing-website/website/download.html" class="btn btn-primary">升级到 Pro</a>
+        </div>
+      </article>
+
+      <article class="price-card">
+        <div class="price-tier">Team</div>
+        <div class="price-amount">
+          <span class="currency">$</span>
+          <span class="value">39</span>
+          <span class="period">/ 席位 / 月</span>
+        </div>
+        <p class="price-description" style="color:var(--text-secondary);">
+          <span style="background: var(--gradient-primary-2stop); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:600;">便宜 20%</span> · 主打转化率
+        </p>
+        <ul class="price-features">
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>包含 Pro 所有功能</li>
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>团队共享工作区</li>
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>SSO（Okta / Azure AD）</li>
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>审计日志与角色权限</li>
+          <li><span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>统一账单</li>
+        </ul>
+        <div class="price-cta">
+          <a href="mailto:team@yinghua.app" class="btn btn-secondary">联系销售</a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- 试用结束会发生什么 -->
+    <div class="after-trial">
+      <h3>试用结束会发生什么</h3>
+      <ol>
+        <li><strong>第 1-14 天：</strong>全功能无限，14 天倒计时实时显示在 banner 顶端。</li>
+        <li><strong>第 14 天结束：</strong>自动降级到 Free 3 场/月，<strong>不会扣任何费用</strong>（你没绑卡）。</li>
+        <li><strong>试用结束后 7 天：</strong>邮件提醒一次，附 30% 升级优惠码（仅本次）。</li>
+        <li><strong>之后：</strong>可以随时手动升级 Pro。所有已有录音、转录、向量索引<strong>保留</strong>，不会因为降级而删除。</li>
+      </ol>
+    </div>
+
+    <p style="text-align:center; color: var(--text-tertiary); font-size: 14px; margin-top: var(--space-4xl);">
+      院校与非营利组织 7 折 · 年付再 8 折
+    </p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section-divider" aria-labelledby="faq-title">
+  <div class="container">
+    <header class="section-header">
+      <span class="eyebrow">常见问题</span>
+      <h2 id="faq-title">还有疑问？</h2>
+    </header>
+
+    <div class="faq">
+
+      <div class="faq-item open">
+        <button class="faq-trigger" aria-expanded="true">
+          <span>14 天试用真的不绑卡吗？</span>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+        <div class="faq-content">
+          <div class="faq-content-inner">
+            <p>真的。下载 app 即可使用全功能 14 天，不需要注册账号、不需要信用卡。试用结束自动降级到 Free 3 场/月，不会自动扣费。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span>试用结束后，我的数据还在吗？</span>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+        <div class="faq-content">
+          <div class="faq-content-inner">
+            <p>在。所有录音、转录文本、向量索引都存在你的 Mac 本地（SQLite 文件 + 文件系统），降级不会删除任何数据。Free 3 场/月只是限制新增转录场次，老数据完全保留。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span>为什么 Free 只有 3 场，比 A 档（5 场）少？</span>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+        <div class="faq-content">
+          <div class="faq-content-inner">
+            <p>因为试用期内已经"全功能用过 14 天"，试用后再给 5 场会弱化升级动力。3 场足以让轻度用户继续白嫖，但够不上一个活跃周会的用量，逼迫决策。这是 trial-driven 模型的标准做法（参考 Notion / Figma / Linear 的 freemium 策略）。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span>Team 版 $39/席位 为什么比 A 档便宜？</span>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+        <div class="faq-content">
+          <div class="faq-content-inner">
+            <p>策略性降价。当一个团队 ≥ 3 人订阅 Pro，总价就已经超过 A 档的 Team。把 Team 价格降到 $39 是为了降低"团队升级"的决策门槛，目标是提升 3 人以上团队的转化率。这是 C 档的核心假设之一，会通过 A/B test 验证。</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-bottom" style="border-top: 1px solid var(--border-hairline); padding-top: var(--space-2xl);">
+      <div>© <span data-current-year>2026</span> 映话 · Yinghua. All rights reserved.</div>
+      <div style="color: var(--text-tertiary); font-size: 13px; font-family: var(--font-mono);">
+        A/B test variant · <strong style="color: var(--color-brand-purple-vivid);">C · trial-driven</strong>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="ab-badge">A/B · <strong>C trial-driven</strong> · 4 tier</div>
+
+<script src="../C29_marketing-website/website/assets/js/main.js"></script>
+</body>
+</html>

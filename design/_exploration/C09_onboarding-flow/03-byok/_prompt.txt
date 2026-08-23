@@ -1,0 +1,58 @@
+Professional product screenshot of a macOS 26 desktop showing the Yinghua app third-step onboarding window (API Key / BYOK Configuration), captured as a marketing-quality product screenshot. This is step 3 of a 3-step first-launch flow, the final setup step.
+
+## BASE macOS LAYER (must be IDENTICAL to C05 ref-01 and ref-02)
+
+The desktop wallpaper is a real macOS-style dark aurora over a starry sky — predominantly deep purple at left transitioning to teal/cyan at right, with subtle aurora ribbon curves. Black menu bar at top with system status items: Apple logo, "File Edit View Window Help" (plain English, not styled icons), battery icon, Wi-Fi icon, search icon, control center icon, and clock reading "09:42". All system status text in white. A glass Dock sits at the bottom center of the screen, with EXACTLY these 11 icons in this order, all proper macOS system app icons (NOT generic placeholders): Finder (blue-white face), Safari (compass blue), Messages (green speech bubble), Mail (blue envelope), Notes (yellow notepad), Calendar (white page with "26" in red), Reminders (white list with red/yellow/green dots), Maps (map with roads), Music (red note on white), System Settings (gray gear), separator dot, then Yinghua app icon (purple aurora Y on dark glass, small magenta dot below indicating running). The Dock is glass with subtle blur.
+
+## APP WINDOW — BYOK CONFIGURATION (centered, ~55% of desktop width)
+
+A single macOS window (NOT multiple windows) with three standard traffic light buttons (red close, yellow minimize, green maximize) on the upper left. The window is taller than wide (~3:4 ratio), centered horizontally, with dark glass material (vibrancy) and 14px corner radius.
+
+### CONTENT (vertical stack, top to bottom)
+
+- **Top progress indicator**: A horizontal 3-dot progress indicator, centered at the top of the content area (~32px below the title bar). The three dots are evenly spaced with thin connecting lines between them. Dot 1 (left) is a small SOLID PURPLE FILLED circle (8px diameter) — step 1 complete. Dot 2 (center) is a small SOLID PURPLE FILLED circle (8px diameter) — step 2 complete. Dot 3 (right) is a LARGER SOLID PURPLE FILLED circle (12px diameter) with a subtle purple glow halo around it — ACTIVE step (this is the final step). All dots on one horizontal line.
+
+- **Disclaimer bar** (~24px below the progress dots, ~32px horizontal padding from window edges):
+  A small horizontal glass strip, ~36px tall, dark glass with 1px white 8% hairline border, 8px corner radius. Inside, a small lock SF Symbol icon (16px, muted gray) on the left, then a single line of text: "Your key is stored locally in macOS Keychain. We never see it." in muted gray ~12pt 400.
+
+- **Header section** (~32px below the disclaimer):
+  - Heading: "Bring your own key" in SF Pro Display, weight 600, white, ~26pt, left-aligned.
+  - Subheading: "Choose a provider and paste your API key. We use it to summarize your meetings." in SF Pro Text, weight 400, ~14pt, muted gray (~70% white), left-aligned.
+
+- **Section 1 — Provider selection** (~32px below the header, ~32px horizontal padding):
+  Small section label "PROVIDER" in uppercase, ~10pt, muted gray (~50% white), letter-spacing 0.06em, left-aligned. Then a horizontal row of 3 small provider cards (~140px wide each, ~76px tall, 12px corner radius, dark glass with 1px white 8% hairline border), ~12px gap between them.
+
+  - **OpenAI card** (unselected): Left has a 28x28 dark glass squircle with a small abstract "spiral" logo (white). Below the squircle: name "OpenAI" in white ~13pt 600, and a tiny tagline "GPT-4o, o1" in muted gray ~10pt.
+  - **Anthropic card** (SELECTED — this is the active choice): Same layout. Left has a 28x28 dark glass squircle with a small abstract geometric mark (white) — a stylized upward-pointing diamond or chevron, no text, no letters. Name "Anthropic" in white ~13pt 600, tagline "Claude Sonnet 4" in muted gray ~10pt. The SELECTED card has a 1.5px purple border (#8A5BFF) around the whole card and a soft purple tinted background wash (~8% purple wash inside the glass).
+  - **Custom card** (unselected): Same layout. Left has a 28x28 dark glass squircle with a small abstract "node / endpoint" icon (white). Name "Custom" in white ~13pt 600, tagline "Self-hosted" in muted gray ~10pt.
+
+- **Section 2 — API Key input** (~28px below the provider row):
+  Small section label "API KEY" in uppercase, ~10pt, muted gray, letter-spacing 0.06em, left-aligned. Then a single horizontal row, ~32px horizontal padding from window edges, containing:
+  - A wide input field, dark glass with 1px white 12% border, 8px corner radius, ~48px tall. Inside the field on the left: small key SF Symbol icon (16px, muted gray), then a placeholder text reading "sk-••••••••••••••••" in muted gray monospace font, ~13pt, representing a hidden API key. On the right side of the field: a small eye toggle icon button (32x32 glass circle with an eye SF Symbol).
+  - To the right of the input field, a small ghost button "Test connection" ~120px wide, ~32px tall, glass background, 1px white 8% border, 8px corner radius, text in white ~12pt 500, no icon.
+
+- **Section 3 — Status hint** (~16px below the API key row):
+  A horizontal inline status bar, ~40px tall, ~32px horizontal padding from window edges, with a left vertical accent bar (3px wide, ~24px tall, gray #6B6B70, because this is a "Testing..." state). Background dark glass with 1px white 6% border, 8px corner radius. Inside: a small circular spinner (rotating circle) icon on the left (16px, muted gray), then the text "Testing connection..." in white ~13pt 500.
+
+- **Footer section** (~32px below the status hint):
+  - Primary CTA: A wide button, ~360px wide, ~44px tall, 12px corner radius, centered horizontally. Purple-to-teal gradient (vivid purple #B57BFF to teal #2DD4BF, diagonal), but at 50% OPACITY (faded, disabled state). Label "Finish setup" in white SF Pro Text weight 600 ~14pt. NO arrow icon.
+  - Below the CTA, a small ghost link: "I'll do this later" in muted gray ~12pt, no underline, centered.
+
+## STRICT RULES (must follow)
+- The base macOS layer (menu bar text, Dock with 11 system icons, aurora wallpaper) must be IDENTICAL to the reference images — not invented.
+- The 3-dot progress indicator must be at the TOP of the window content, NOT the bottom. Dot 3 is the active step (larger + purple + glow). Dots 1 and 2 are small solid purple filled (complete).
+- The provider card that is "selected" must be the MIDDLE one (Anthropic). It has a 1.5px purple border AND a soft purple tinted background wash. The other two (OpenAI, Custom) are unselected (just the standard hairline border, no tint).
+- The "Finish setup" CTA is in DISABLED state — at 50% opacity, faded. This is because the key is still being tested.
+- The status bar shows "Testing connection..." (a transient state). The spinner is just a small circular icon (not animated, this is a static screenshot).
+- NO waveform, NO EKG, NO sine wave anywhere.
+- NO cyberpunk glow, NO neon outlines, NO holographic effects, NO "futuristic" decoration.
+- NO "AI" text anywhere in the image — NOT as decoration, NOT in the Anthropic provider logo (the model must use an abstract geometric mark, not the letters A and I), NOT anywhere. Provider names like "OpenAI" and "Anthropic" are allowed as text labels. "GPT-4o" and "Claude Sonnet 4" are real product names — also allowed. The Anthropic icon MUST be a non-text abstract mark (a diamond, chevron, or geometric symbol), never the letters "AI".
+- NO sparkles decoration, NO halo, NO glow ring around the icons (except the tiny progress dot 3 glow which is required).
+- All visible text in plain English — NO Chinese characters, NO style spec text (no "600 15pt", no "12pt regular", no font weight spec rendered as visible text).
+- The primary CTA uses the same purple-to-teal gradient as the Yinghua brand Y.
+- Window surface: dark glass with aurora-tinted vibrancy, ~70% opacity, 14px corner radius.
+- Real macOS feel: looks like a real SwiftUI window, not a web landing page overlay.
+- Single window only. NO additional panels, NO floating control panels, NO sidebar.
+- Aspect ratio 16:9, 2K resolution.
+
+Output: a single product-quality screenshot, no text overlays, no watermark, no captions.

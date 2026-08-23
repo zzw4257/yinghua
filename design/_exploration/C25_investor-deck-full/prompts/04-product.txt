@@ -1,0 +1,63 @@
+PAGE 04 — "产品形态" (Product / 5 shippable surfaces slide)
+
+A 16:9, 4K ultra high resolution investor deck slide. Pure dark aurora wallpaper background (deep purple at the upper-left fading through teal/cyan at the lower-right, soft subtle aurora ribbon curves, NOT cyberpunk, NOT neon, NOT a starry galaxy, NOT outer space). The slide is a CLEAN editorial slide — no macOS menu bar, no dock. Just the aurora backdrop with editorial content laid on top.
+
+# LAYOUT GRID
+- Top 0%–25% of the canvas: header band
+  - Upper-LEFT corner (small, ~64px squircle, 40px from top, 40px from left): a small dark glass app icon squircle (22.4% corner radius) containing a single letter "Y" rendered in a vivid purple-to-teal diagonal gradient (135deg, vivid purple #B57BFF → mid purple #8A5BFF → vivid teal #2DD4BF). The Y is a clean letterform: V-shape converging to a single point with a straight vertical stem below, no serifs, no glow, no halos, no decorations.
+  - To the right of the icon: small wordmark in white (JetBrains Mono): "YINGHUA · 映话"
+  - Centered horizontally in the header band: the slide title "产品形态" rendered in warm white (#F4F1EC), 64pt, semibold, SF Pro Display family, single line, NO quotation marks around the title.
+  - Far UPPER-RIGHT (small, JetBrains Mono 12pt, 45% white): "Investor Brief · 2026"
+  - Below the title, a short horizontal gradient line (120px wide, 2px tall, vivid purple-to-teal diagonal gradient), centered.
+
+- Middle 25%–92% of the canvas: the BODY, 5 equal-width vertical cards arranged horizontally in a single row, each ~18% wide with ~2% gutter. Each card is a tall dark glass panel (12px corner radius, 1px hairline border in warm-white at 8% opacity, subtle inner aurora tint, semi-transparent so the backdrop shows through softly). Each card top to bottom contains:
+  1. A SCREEN MOCKUP THUMBNAIL at the top, taking ~55% of the card height. The thumbnail is a small fake macOS window (with three traffic light dots red/yellow/green in upper-left, 8px corner radius, dark glass background) showing a simplified abstract of one of the 5 product surfaces. The thumbnails are schematic — they show UI elements in a flat dark-glass style, NOT photorealistic, NOT a full desktop scene. Each thumbnail has a thin teal-to-purple gradient 1px line at its bottom edge.
+  2. A short 2-character Chinese label below the thumbnail (22pt, warm white, semibold, Noto Serif SC).
+  3. A 1-line English caption below the Chinese label (JetBrains Mono 12pt, warm-white at 50% opacity).
+  4. A 2-3 line body description in Simplified Chinese (14pt, warm-white at 70% opacity, SF Pro Text / Noto Sans SC, line-height ~1.5).
+
+The 5 cards from left to right:
+- Card 1 — "会议中" (Meeting): thumbnail shows a 2x2 video grid (4 abstract blurred face silhouettes in muted purple/teal, no real faces) with a small red REC dot and a thin static horizontal line (NOT a waveform, NOT bars) at the top. Caption English: "Meeting". Body: "录音 + 转录\n实时副屏".
+- Card 2 — "空状态" (Empty): thumbnail shows 4 small circular nav icons in a row at the top and 4 large square tiles in a 2x2 grid below, with a 1px hairline frame. Caption English: "Empty". Body: "开始录制\n浏览历史".
+- Card 3 — "转录" (Transcript): thumbnail shows 4-5 stacked horizontal rows, each row has a small solid colored circle avatar (purple / teal / pink — no faces, no letters inside, just colored dots) on the left and 2 short abstract horizontal lines (placeholder text bars) on the right. Caption English: "Transcript". Body: "说话人分离\n滚动追听".
+- Card 4 — "复盘" (Review): thumbnail shows a left file card (dark glass, thin frame, no text inside) and a right summary panel with 3 small colored bullet dots (purple, teal, pink) next to 3 short abstract horizontal lines. Caption English: "Review". Body: "AI 总结\n关键 / 决定 / 待办".
+- Card 5 — "引导" (Onboarding): thumbnail shows a centered large Y letterform (white on dark, no gradient) and below it 1 short abstract horizontal line and 1 small button-shaped rounded rectangle. Caption English: "Onboarding". Body: "5 分钟\n3 步开录".
+
+- Bottom 92%–100% of the canvas: BOTTOM MARGIN (8% empty). Do NOT place any content in this band except the page number in the lower-right corner.
+
+# PAGE NUMBER
+- Lower-right corner, ~40px from right edge, ~32px from bottom: small page number text in JetBrains Mono 14pt, warm-white at 35% opacity, EXACTLY the string "04 / 10" (with a single space on each side of the slash). This is the ONLY text in the bottom 8% band.
+
+# TYPE & LANGUAGE POLICY
+- All Chinese text is REAL Simplified Chinese, rendered correctly with proper Chinese characters (no Latin letters, no Pinyin, no gibberish, no Cyrillic, no random Latin like "MIY" or "TUE").
+- English captions are short words, not sentences.
+- The "Y" letterform in the corner icon is a single capital Latin letter Y.
+
+# ABSOLUTE PROHIBITIONS (D1 §7 anti-patterns)
+- No waveform, no EKG, no sine wave, no audio visualizer anywhere.
+- No "AI" word rendered as a standalone icon, no "STYLE 1" label, no "TEST" / "Sample" / "Placeholder" labels.
+- No font-size spec text like "14pt" / "600" / "regular" rendered as visible UI text.
+- No two-circle / infinity / chat-bubble mark.
+- No cyberpunk glow, no neon outlines, no floating sparkles scattered around the slide, no halo.
+- No pie chart, no donut chart, no gauge, no radar chart.
+- No "Bento" framed box with bold left-side label, no marketing words like 洞察/赋能/智能化/效率提升/全局掌控/AI 驱动.
+- No multi-color neon (only purple + teal + warm-white).
+- No literal single letter "X" used as a data placeholder.
+- No emoji used as icon. No real-person face on the slide. No product logo besides the Y mark.
+- No "AI" letters rendered as an icon inside the thumbnail (use a non-text abstract shape instead).
+- No watermark, no caption, no footer other than the page number.
+
+# PALETTE
+- Background: very dark, near-black with aurora wash (top-left vivid purple #B57BFF at ~20% opacity, bottom-right vivid teal #2DD4BF at ~18% opacity).
+- Card glass: #0A0A0F at 65% opacity, with 1px border #F4F1EC at 8% opacity.
+- Text warm-white: #F4F1EC.
+- Title text: #F4F1EC.
+- Gradient accent line: #B57BFF → #8A5BFF → #2DD4BF (135deg).
+- Card thumbnails use: dark glass + 1px white 8% border + small abstract shapes in purple / teal / pink solid colors (NO gradient fills).
+- Avatar circle colors: #8A5BFF (purple) / #2DD4BF (teal) / #FF6FA9 (pink), solid, no gradient.
+- Page number: #F4F1EC at 35% opacity.
+- ONLY these colors plus the aurora wash.
+
+# ASPECT & RESOLUTION
+- 16:9 aspect ratio, 4K ultra high resolution (5504 × 3072 effective output).
+- No letterbox, no border, no frame.

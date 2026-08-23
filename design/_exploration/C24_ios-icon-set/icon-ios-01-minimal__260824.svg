@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="1024" height="1024"
+     viewBox="0 0 1024 1024"
+     shape-rendering="geometricPrecision">
+
+  <!--
+    Yinghua - iOS App Icon 01 MINIMAL - master SVG
+    Date:        2026-08-24
+    Source spec: design/design-doc.md section 3.1 + C10 master + C07 _audit-verdict.md
+    Platform:    iOS 18+ (superellipse, 22.37% corner radius)
+
+    iOS and macOS share the same Y master - geometry 100% reused from C10 SVG:
+      path d="M 372 256 L 512 416 L 652 256 M 512 416 L 512 768"
+    C07 audit 6 fixes also applied to iOS:
+      #1 [high]   single path, V+stem topology, all three Y strokes
+                  meet at (512, 416), no seam
+      #2 [high]   identical Y master as C10; only fill changes per variant
+      #3 [medium] right arm is a STRAIGHT line (no hook)
+      #4 [medium] stroke-width = 58  (5.66% of 1024, uniform w/ 02)
+    iOS-specific adjustments:
+      - Container 22.37% iOS squircle (rx = 229.069) vs macOS 22.4% (rx = 229.376)
+        iOS icon aligns with Apple official iOS 18+ App Store template.
+      - 1024 master for App Store hero + iOS asset catalog 1x at 1024
+      - iOS 18 dark mode auto-inherits (squircle is already near-black with
+        warm-white Y, visually consistent across light/dark, no extra dark variant)
+      - iOS 18 tinted mode is provided by the AppIcon-tinted monochrome variant
+        (separate SVG, no background, system applies the tint)
+  -->
+
+  <title>Yinghua App Icon - iOS 01 MINIMAL</title>
+  <desc>iOS 18+ squircle 1024x1024, 22.37% corner radius (rx=229.069). Warm-white Y on near-black. Same Y master path as C10 macOS master - only the container radius changes (22.37% iOS vs 22.4% macOS). V+stem topology, single path with two subpaths meeting at (512, 416), no seam. Used for iOS App Store, iPhone Home Screen, iPad, Settings, Spotlight, Notifications.</desc>
+
+  <!--
+    Container: iOS 18+ squircle 22.37% corner radius.
+    Apple officially uses 22.37% (continuous rounded rect, the iOS standard
+    since iOS 7, and re-affirmed for iOS 18+ App Store).
+    macOS Big Sur+ uses 22.4% (true superellipse, the squircle with n=5).
+    The 0.03% visual delta is sub-pixel at all icon sizes, but using the
+    platform-correct ratio is important for Xcode Asset Catalog validation
+    and App Store submission previews.
+  -->
+  <rect x="0" y="0" width="1024" height="1024"
+        rx="229.069" ry="229.069"
+        fill="#0A0A0F" />
+
+  <!--
+    Y master path: IDENTICAL to C10 macOS 01 MINIMAL (byte-for-byte).
+    V+stem topology - both subpaths meet at (512, 416), no seam.
+    This is the cross-platform Y master; macOS uses the same path.
+  -->
+  <path d="M 372 256 L 512 416 L 652 256 M 512 416 L 512 768"
+        fill="none"
+        stroke="#F4F1EC"
+        stroke-width="58"
+        stroke-linecap="round"
+        stroke-linejoin="round" />
+
+</svg>

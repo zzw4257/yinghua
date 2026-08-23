@@ -1,0 +1,211 @@
+name: Build & Test
+
+# 触发：
+#   - pull_request：所有 PR 都跑 build + test
+#   - push to main：main 每次 commit 都跑
+# 跑在 macos-14（Apple Silicon M1）— xcodebuild 在 arm64 上最快
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+# 取消同 branch 上正在跑的旧 run，节省 CI 资源
+concurrency:
+  group: build-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ─────────────────────────────────────────
+  # Job 1: Debug build
+  # ─────────────────────────────────────────
+  build-debug:
+    name: Build (Debug)
+    runs-on: macos-14
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Select Xcode 26.6
+        run: |
+          sudo xcode-select -s /Applications/Xcode_26.6.app
+          xcodebuild -version
+          swift --version
+
+      - name: Cache DerivedData
+        uses: actions/cache@v4
+        with:
+          path: ~/Library/Developer/Xcode/DerivedData
+          key: ${{ runner.os }}-derivedData-debug-${{ hashFiles('code/Yinghua/project.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-derivedData-debug-
+            ${{ runner.os }}-derivedData-
+
+      - name: Install xcodegen
+        run: |
+          brew update
+          brew install xcodegen
+
+      - name: Generate Xcode project
+        run: cd code/Yinghua && xcodegen generate
+
+      - name: Build (Debug)
+        run: |
+          xcodebuild \
+            -project code/Yinghua/Yinghua.xcodeproj \
+            -scheme Yinghua \
+            -configuration Debug \
+            -destination 'platform=macOS' \
+            CODE_SIGN_IDENTITY="-" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+
+      - name: Upload .app artifact
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: Yinghua-Debug
+          path: |
+            ~/Library/Developer/Xcode/DerivedData/**/Build/Products/Debug/Yinghua.app
+          if-no-files-found: warn
+          retention-days: 7
+
+  # ─────────────────────────────────────────
+  # Job 2: Unit tests
+  # 当前 project.yml 没有 XCTest target（C13 骨架阶段不写测试）
+  # 这里 xcodebuild test 跑空 target — 用 continue-on-error 软失败
+  # 等业务代码稳定 + 补 XCTest target 后，去掉 continue-on-error
+  # ─────────────────────────────────────────
+  test:
+    name: Test (XCTest)
+    runs-on: macos-14
+    timeout-minutes: 30
+    needs: build-debug
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Select Xcode 26.6
+        run: sudo xcode-select -s /Applications/Xcode_26.6.app
+
+      - name: Cache DerivedData
+        uses: actions/cache@v4
+        with:
+          path: ~/Library/Developer/Xcode/DerivedData
+          key: ${{ runner.os }}-derivedData-test-${{ hashFiles('code/Yinghua/project.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-derivedData-test-
+            ${{ runner.os }}-derivedData-
+
+      - name: Install xcodegen
+        run: |
+          brew update
+          brew install xcodegen
+
+      - name: Generate Xcode project
+        run: cd code/Yinghua && xcodegen generate
+
+      - name: Run XCTest
+        continue-on-error: true
+        run: |
+          set +e
+          xcodebuild test \
+            -project code/Yinghua/Yinghua.xcodeproj \
+            -scheme Yinghua \
+            -destination 'platform=macOS' \
+            CODE_SIGN_IDENTITY="-" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO
+          TEST_EXIT=$?
+          if [ $TEST_EXIT -ne 0 ]; then
+            echo "::warning::xcodebuild test exited $TEST_EXIT (当前无 XCTest target — 软失败，等补 test target 后改为硬失败)"
+          fi
+          exit 0
+
+  # ─────────────────────────────────────────
+  # Job 3: Release build
+  # 跑 Release 配置做编译期检查（编译器优化路径可能暴露 Debug 看不到的问题）
+  # ─────────────────────────────────────────
+  build-release:
+    name: Build (Release)
+    runs-on: macos-14
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Select Xcode 26.6
+        run: sudo xcode-select -s /Applications/Xcode_26.6.app
+
+      - name: Cache DerivedData
+        uses: actions/cache@v4
+        with:
+          path: ~/Library/Developer/Xcode/DerivedData
+          key: ${{ runner.os }}-derivedData-release-${{ hashFiles('code/Yinghua/project.yml') }}
+          restore-keys: |
+            ${{ runner.os }}-derivedData-release-
+            ${{ runner.os }}-derivedData-
+
+      - name: Install xcodegen
+        run: |
+          brew update
+          brew install xcodegen
+
+      - name: Generate Xcode project
+        run: cd code/Yinghua && xcodegen generate
+
+      - name: Build (Release)
+        run: |
+          xcodebuild \
+            -project code/Yinghua/Yinghua.xcodeproj \
+            -scheme Yinghua \
+            -configuration Release \
+            -destination 'platform=macOS' \
+            CODE_SIGN_IDENTITY="-" \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGNING_ALLOWED=NO \
+            clean build
+
+  # ─────────────────────────────────────────
+  # Job 4: PR 失败通知
+  # 只在 PR 上跑 + 任一上游 job 失败时触发
+  # 自动在 PR 上 comment，引导 reviewer 看 logs
+  # ─────────────────────────────────────────
+  pr-comment:
+    name: PR Comment on Failure
+    if: failure() && github.event_name == 'pull_request'
+    needs: [build-debug, test, build-release]
+    runs-on: macos-14
+    timeout-minutes: 5
+    permissions:
+      pull-requests: write
+      contents: read
+    steps:
+      - name: Find failed jobs
+        id: failures
+        run: |
+          echo "failed_jobs<<EOF" >> $GITHUB_OUTPUT
+          echo "Build Debug · Test · Build Release（任意失败）" >> $GITHUB_OUTPUT
+          echo "EOF"
+
+      - name: Comment on PR
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: ci-failure
+          message: |
+            ❌ **CI failed**
+
+            | Job | Status |
+            |-----|--------|
+            | Build (Debug) | ${{ needs.build-debug.result }} |
+            | Test (XCTest) | ${{ needs.test.result }} |
+            | Build (Release) | ${{ needs.build-release.result }} |
+
+            👉 [View run logs](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})
+
+            **常见原因**：
+            - 改 `project.yml` 后忘了 `xcodegen generate`（本地先跑一遍）
+            - 新加的 Swift 文件没在 sources 里
+            - macOS 26 SDK API 用法变化
+            - 当前 `test` job 是软失败（无 XCTest target），状态显示 cancelled/success 属正常

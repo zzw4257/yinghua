@@ -1,0 +1,14 @@
+# 根路径 → 英文（fallback 到中文版，因为 C29 内容实际是中文）
+/ /index.html 200
+
+# 默认语言 fallback
+/zh /zh-Hans/ 301
+/ja /ja-JP/ 301
+
+# Privacy + Terms 跨语言
+/privacy /privacy.html 200
+/terms /terms.html 200
+/zh-Hans/privacy /zh-Hans/privacy.html 200
+/zh-Hans/terms /zh-Hans/terms.html 200
+/ja-JP/privacy /ja-JP/privacy.html 200
+/ja-JP/terms /ja-JP/terms.html 200

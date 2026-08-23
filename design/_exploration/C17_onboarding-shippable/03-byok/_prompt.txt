@@ -1,0 +1,86 @@
+Professional product screenshot of a macOS 26 desktop showing the Yinghua (映话) app THIRD-STEP onboarding window (BRING YOUR OWN KEY), captured as a marketing-quality product screenshot. This is step 3 of a 3-step first-launch flow, the final setup step. All UI text in the rendered window MUST be in Simplified Chinese (real word combinations, no gibberish, no English).
+
+## BASE macOS LAYER (IDENTICAL across all 3 onboarding screens)
+
+The desktop wallpaper is a real macOS-style dark aurora over a starry sky — predominantly deep purple at left transitioning to teal/cyan at right, with subtle aurora ribbon curves and faint star points. The wallpaper MUST be visually consistent with screen 1 (welcome) and screen 2 (permission) of this same onboarding flow.
+
+Menu bar (top, black frosted glass): translucent black bar. Left side in WHITE text: Apple logo, then "Yinghua", then "File  Edit  View  Window  Help" (the active app name MUST be "Yinghua", not "Finder"). Right side status icons in white: Control Center, Battery, Wi-Fi, Search, and clock reading EXACTLY "21:42". Do NOT add any other menu items.
+
+Dock (bottom center, glass with subtle blur): EXACTLY these 12 elements in this EXACT order (must match screens 1 and 2):
+1. Finder (blue-white face)
+2. Safari (compass blue)
+3. Messages (green speech bubble)
+4. Mail (blue envelope)
+5. Notes (YELLOW notepad — the iconic macOS yellow lined-paper notepad)
+6. Calendar (white page with the number "26" in red, and a real weekday "WED" in small grey text below "26" — NOT gibberish, NOT random letters, NOT Cyrillic)
+7. Reminders (white list with red/yellow/green dots)
+8. Maps (map with roads)
+9. Music (red note on white)
+10. System Settings (gray gear)
+11. A small separator dot
+12. The Yinghua app icon (purple-to-teal aurora Y on dark glass, with a small magenta active dot below indicating the app is running)
+
+DO NOT add Contacts, Photos, FaceTime, Trash, Launchpad, App Store, TV, or any other icon. DO NOT change the order.
+
+## APP WINDOW — BYOK (centered, ~720px wide, taller than wide)
+
+A single macOS window (NOT multiple windows) with three standard traffic light buttons (red close, yellow minimize, green maximize) on the upper left. The window is centered horizontally on the screen, with dark glass material (vibrancy) and 14px corner radius. The window width is approximately 720px (matches screen 1 and screen 2 of this onboarding flow).
+
+### CONTENT (vertical stack, top to bottom)
+
+- **Top 3-dot progress indicator**: a horizontal 3-dot progress indicator centered at the top of the content area (~32px below the title bar). Dot 1 (left) is a small solid purple filled circle (8px diameter) — step 1 complete. Dot 2 (center) is a small solid purple filled circle (8px diameter) — step 2 complete. Dot 3 (right) is a LARGER SOLID PURPLE FILLED circle (12px diameter) with a subtle purple glow halo around it — ACTIVE step (this is the FINAL step). Thin purple connecting lines run between dot 1 and dot 2, and between dot 2 and dot 3.
+
+- **Disclaimer bar** (~24px below the progress dots, ~32px horizontal padding from window edges):
+  A small horizontal glass strip, ~36px tall, dark glass with 1px white 8% hairline border, 8px corner radius. Inside, a small lock SF Symbol-style icon (16px, muted gray) on the left, then a single line of text: "🔒 你的 key 只存本地 macOS Keychain，我们看不到" in muted gray ~12pt 400. Real Chinese mixed with the English word "key", no gibberish.
+
+- **Header section** (~32px below the disclaimer):
+  - Heading "自带 API key" in SF Pro Display, weight 600, warm white (#F4F1EC), ~26pt, left-aligned.
+  - Subheading "选一个 provider，填 key，我们用它总结你的会议" in SF Pro Text, weight 400, ~14pt, muted gray (~70% white), left-aligned. Real Chinese mixed with the English word "provider" and "key", no gibberish.
+
+- **Section 1 — Provider selection** (~32px below the header, ~32px horizontal padding):
+  Small section label "PROVIDER" in uppercase, ~10pt, muted gray (~50% white), letter-spacing 0.06em, left-aligned. Then a horizontal row of 3 small provider cards (~140px wide each, ~84px tall, 12px corner radius, dark glass with 1px white 8% hairline border), ~12px gap between them.
+
+  - **OpenAI card** (unselected): Left has a 28x28 dark glass squircle with a small abstract geometric mark (white) — a stylized interlocking-loop pattern (NOT the word "OpenAI", NOT any letters). Below the squircle: name "OpenAI" in warm white ~13pt 600, and a tiny tagline "GPT-4o, o1" in muted gray ~10pt.
+  - **Anthropic card** (SELECTED — this is the active choice): Same layout. Left has a 28x28 dark glass squircle with a small abstract GEOMETRIC DIAMOND mark (white) — a stylized upward-pointing diamond or chevron made of two triangular shapes, NO text, NO letters, NOT the letters "A" and "I", NOT the word "Anthropic", NOT a logo. Name "Anthropic" in warm white ~13pt 600, tagline "Claude Sonnet 4" in muted gray ~10pt. The SELECTED card has a 1.5px purple border (#8A5BFF) around the whole card and a soft purple tinted background wash (~8% purple wash inside the glass).
+  - **Custom card** (unselected): Same layout. Left has a 28x28 dark glass squircle with a small abstract geometric server/hexagon icon (white) — a stylized hexagon shape with a small dot inside, NOT the word "Custom", NOT the word "node", NOT any letters. Name "Custom" in warm white ~13pt 600, tagline "Self-hosted" in muted gray ~10pt.
+
+- **Section 2 — API Key input** (~28px below the provider row, ~32px horizontal padding):
+  Small section label "API KEY" in uppercase, ~10pt, muted gray, letter-spacing 0.06em, left-aligned. Then a single horizontal row containing:
+  - A wide input field, dark glass with 1px white 12% border, 8px corner radius, ~48px tall. Inside the field on the left: small key SF Symbol-style icon (16px, muted gray), then a placeholder text reading "sk-..." in muted gray monospace font, ~13pt. On the right side of the field: a small eye toggle icon button (32x32 glass circle with an eye SF Symbol).
+  - To the right of the input field, a small ghost button "测试连接" ~120px wide, ~32px tall, glass background, 1px white 8% border, 8px corner radius, text in warm white ~12pt 500, no icon. The Chinese characters mean "Test connection" — render as a real word combination, not fragments.
+
+- **Section 3 — Status hint** (~16px below the API key row, ~32px horizontal padding):
+  A horizontal inline status bar, ~40px tall, with a left vertical accent bar (3px wide, ~24px tall, gray #6B6B70, because this is a "Testing..." state). Background dark glass with 1px white 6% border, 8px corner radius. Inside: a small circular spinner (rotating circle) icon on the left (16px, muted gray), then the text "Testing connection..." in warm white ~13pt 500.
+
+- **Footer section** (~32px below the status hint):
+  - Primary CTA: A wide purple-to-teal gradient button, ~360px wide, ~44px tall, 12px corner radius, centered horizontally. Vivid purple #B57BFF top-left to teal #2DD4BF bottom-right diagonal gradient, but at 50% OPACITY (faded, disabled state). Label "完成设置" in white SF Pro Text weight 600 ~14pt. NO arrow icon. The Chinese characters mean "Finish setup" — render as a real word combination, not fragments.
+  - Below the CTA, a small ghost link: "我稍后再做" in muted gray ~12pt, no underline, centered. Real Chinese phrase meaning "I'll do this later" — render as a real word combination, not fragments.
+
+## STRICT RULES (must follow)
+
+- The base macOS layer (menu bar with "Yinghua" app name, Dock with 12 elements in the locked order, aurora wallpaper, clock 21:42) must be IDENTICAL across this screen and screens 1 and 2 of this onboarding flow — do NOT invent a different wallpaper or dock.
+- The 3-dot progress indicator MUST be at the TOP of the window content, NOT the bottom. Dot 3 is the active step (larger + purple + glow). Dots 1 and 2 are small solid purple filled (complete).
+- The provider card that is "selected" MUST be the MIDDLE one (Anthropic). It has a 1.5px purple border AND a soft purple tinted background wash. The other two (OpenAI, Custom) are unselected (just the standard hairline border, no tint).
+- The "完成设置" CTA is in DISABLED state — at 50% opacity, faded. This is because the key is still being tested.
+- The status bar shows "Testing connection..." (a transient state). The spinner is just a small circular icon (not animated, this is a static screenshot).
+- NO waveform, NO EKG, NO sine wave anywhere.
+- NO cyberpunk glow, NO neon outlines, NO holographic effects, NO "futuristic" decoration.
+- NO "AI" text anywhere in the image — NOT as decoration, NOT in the Anthropic provider logo (the model MUST use an abstract geometric diamond mark, NOT the letters A and I), NOT anywhere. The Anthropic icon MUST be a non-text abstract mark (a diamond, chevron, or geometric symbol), never the letters "AI".
+- The Custom provider icon MUST be a non-text abstract mark (a hexagon, server, or geometric symbol), never the letters "node" or the word "Custom" rendered as icon text.
+- NO sparkles decoration. NO halo. NO glow ring (except the tiny progress dot 3 glow which is required).
+- All visible UI text inside the window MUST be the Simplified Chinese (mixed with a few English technical words like "provider", "key", "GPT-4o, o1", "Claude Sonnet 4", "Self-hosted", "Testing connection...", "API KEY", "PROVIDER") listed above, rendered as real word combinations. Do NOT translate the Chinese to English. Do NOT use lorem ipsum. Do NOT use character fragments.
+- The primary CTA uses the same purple-to-teal gradient as the Yinghua brand Y.
+- Window surface: dark glass with aurora-tinted vibrancy, ~70% opacity, 14px corner radius.
+- Real macOS feel: looks like a real SwiftUI window, not a web landing page overlay.
+- Single window only. NO additional panels, NO floating control panels, NO sidebar.
+- Aspect ratio 16:9, 4K resolution.
+
+## STRICT RULES (anti-leak addendum)
+
+- Do NOT render any text that appears inside this prompt itself. Specifically forbidden visible text: any font-size, font-weight, hex color, "STYLE 1", "STYLE 2", "vibrancy", "regularMaterial", "regular material", "AI", "node", "TEST", "Sample", "Placeholder", "SF Pro", "JetBrains Mono", "~14pt regular", "600 15pt", "graphite", "65%", "80%", "8%", "1px", "12px", "14px", "26pt", "44px", "360px", "84px", "140px", "32x32", "28x28", "16px", "3px", or any design-system metadata, font name, font size, or weight spec.
+- Do NOT render brand names as icon glyphs. Provider cards (OpenAI / Anthropic / Custom) and other concept tiles MUST use abstract geometric shapes (diamond / chevron / hexagon / interlocking loop), never letters or words.
+- Do NOT invent labels for app menu names, status bars, or dock indicators beyond what is explicitly listed above. If unsure, leave the area empty.
+- The Dock calendar app icon MUST show "26" in red AND a real weekday ("MON" or "TUE" or "WED" or "THU" or "FRI" or "SAT" or "SUN") in small grey text below. Do NOT render gibberish like "NEN", "MEM", "MIY", "MEN", "ПАН" or Cyrillic characters.
+- The Dock 5th icon MUST be the macOS Notes app (yellow notepad). Do NOT render Contacts, Photos, or any other app in position 5.
+
+Output: a single product-quality screenshot, no text overlays, no watermark, no captions, no prompt artifacts.

@@ -1,0 +1,58 @@
+Professional product screenshot of a macOS 26 desktop showing the Yinghua app second-step onboarding window (Permission Request), captured as a marketing-quality product screenshot. This is step 2 of a 3-step first-launch flow.
+
+## BASE macOS LAYER (must be IDENTICAL to C05 ref-01 and ref-02)
+
+The desktop wallpaper is a real macOS-style dark aurora over a starry sky — predominantly deep purple at left transitioning to teal/cyan at right, with subtle aurora ribbon curves. Black menu bar at top with system status items: Apple logo, "File Edit View Window Help" (plain English, not styled icons), battery icon, Wi-Fi icon, search icon, control center icon, and clock reading "09:42". All system status text in white. A glass Dock sits at the bottom center of the screen, with EXACTLY these 11 icons in this order, all proper macOS system app icons (NOT generic placeholders): Finder (blue-white face), Safari (compass blue), Messages (green speech bubble), Mail (blue envelope), Notes (yellow notepad), Calendar (white page with "26" in red), Reminders (white list with red/yellow/green dots), Maps (map with roads), Music (red note on white), System Settings (gray gear), separator dot, then Yinghua app icon (purple aurora Y on dark glass, small magenta dot below indicating running). The Dock is glass with subtle blur.
+
+## APP WINDOW — PERMISSION REQUEST (centered, ~55% of desktop width)
+
+A single macOS window (NOT multiple windows) with three standard traffic light buttons (red close, yellow minimize, green maximize) on the upper left. The window is taller than wide (~3:4 ratio), centered horizontally, with dark glass material (vibrancy) and 14px corner radius.
+
+### CONTENT (vertical stack, top to bottom)
+
+- **Top progress indicator**: A horizontal 3-dot progress indicator, centered at the top of the content area (~32px below the title bar). The three dots are evenly spaced with thin connecting lines between them. Dot 1 (left) is a small SOLID PURPLE FILLED circle (8px diameter) — meaning step 1 complete. Dot 2 (center) is a LARGER SOLID PURPLE FILLED circle (12px diameter) with a subtle purple glow halo around it — ACTIVE step. Dot 3 (right) is a small HOLLOW GRAY circle (8px diameter, 1px gray border) — pending. All dots on one horizontal line.
+
+- **Header section** (~48px below the progress dots):
+  - Heading: "Grant access" in SF Pro Display, weight 600, white, ~26pt, left-aligned with horizontal padding ~32px from window edges.
+  - Subheading: "Yinghua needs a few macOS permissions to record and transcribe your meetings." in SF Pro Text, weight 400, ~14pt, muted gray (~70% white), left-aligned, same horizontal padding.
+
+- **3 permission cards** (vertical stack, ~12px gap between cards, ~32px horizontal padding from window edges):
+  Each card is a horizontal row, ~72px tall, dark glass material with 1px white 8% hairline border, 12px corner radius. Layout: left 32x32 icon area, middle text area (flex), right status pill area.
+
+  **Card 1 — Microphone (REQUIRED, GRANTED)**
+  - Left: 32x32 dark glass squircle with a small microphone SF Symbol icon (white) inside.
+  - Middle: bold title "Microphone" in white ~14pt 600, below it a one-line description "Record system audio + mic for live transcription." in muted gray ~12pt 400.
+  - Right: small status pill, ~80x24px, rounded capsule. Background soft green tinted glass (#34C759 at 20% opacity), text "Granted" in green #34C759 ~11pt 600.
+
+  **Card 2 — Screen & System Audio (REQUIRED, PENDING)**
+  - Left: 32x32 dark glass squircle with a small screen-recording SF Symbol icon (white) — rectangle with a filled circle inside.
+  - Middle: bold title "Screen & System Audio" in white ~14pt 600, below it "Capture audio from apps and meetings on your screen." in muted gray ~12pt 400.
+  - Right: small status pill, ~80x24px. Background dark gray glass, text "Pending" in muted gray ~11pt 600.
+
+  **Card 3 — Notifications (OPTIONAL, PENDING)**
+  - Left: 32x32 dark glass squircle with a small bell SF Symbol icon (white) inside.
+  - Middle: bold title "Notifications" in white ~14pt 600, below it "Get a gentle reminder when a meeting ends." in muted gray ~12pt 400.
+  - Right: small status pill, ~80x24px. Background dark gray glass, text "Optional" in muted gray ~11pt 600.
+
+- **Footer section** (~32px below the last card):
+  - Primary CTA: A wide button, ~360px wide, ~44px tall, 12px corner radius, centered horizontally. Purple-to-teal gradient (vivid purple #B57BFF to teal #2DD4BF, diagonal). Label "Continue" in white SF Pro Text weight 600 ~14pt. NO arrow icon.
+  - Below the CTA, a small ghost link: "Skip for now" in muted gray ~12pt, no underline, centered.
+
+## STRICT RULES (must follow)
+- The base macOS layer (menu bar text, Dock with 11 system icons, aurora wallpaper) must be IDENTICAL to the reference images — not invented.
+- The 3-dot progress indicator must be at the TOP of the window content, NOT the bottom. Dot 2 is the active step (larger + purple + glow).
+- All status pills use SOLID COLOR TEXT (not just colored backgrounds). Use system colors: green #34C759 for granted, gray for pending/optional, purple #8A5BFF for required (if shown).
+- Card 1 status must be "Granted" (green pill) — this is the example that one permission is already open. Cards 2 and 3 must be "Pending" (gray pill).
+- NO waveform, NO EKG, NO sine wave anywhere.
+- NO cyberpunk glow, NO neon outlines, NO holographic effects, NO "futuristic" decoration.
+- NO "AI" text anywhere in the image.
+- NO sparkles decoration, NO halo, NO glow ring around the icons (except the tiny progress dot 2 glow which is required).
+- All visible text in plain English — NO Chinese characters, NO style spec text (no "600 15pt", no "12pt regular", no font weight spec rendered as visible text).
+- The primary CTA uses the same purple-to-teal gradient as the Yinghua brand Y.
+- Window surface: dark glass with aurora-tinted vibrancy, ~70% opacity, 14px corner radius.
+- Real macOS feel: looks like a real SwiftUI window, not a web landing page overlay.
+- Single window only. NO additional panels, NO floating control panels, NO sidebar.
+- Aspect ratio 16:9, 2K resolution.
+- Do NOT render any "AI" word. Do NOT render any audio bar or visualizer.
+
+Output: a single product-quality screenshot, no text overlays, no watermark, no captions.

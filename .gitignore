@@ -1,0 +1,86 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Xcode
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+ios/.DS_Store
+
+# Swift Package Manager
+.build/
+Packages/
+Package.resolved
+*.xcodeproj
+.swiftpm/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Secrets
+.env
+*.local
+secrets.yml
+*.key
+*.pem
+
+# Build outputs
+dist/
+build/
+out/
+*.app
+*.pkg
+*.dmg
+
+# Audio / video
+*.wav
+*.mp3
+*.m4a
+*.mp4
+*.mov
+
+# Crash reports (contains PII)
+crashes/
+
+# Generated design files
+*.sketch
+*.fig
+*.figma
+
+# Reference repositories (Round 1 asset harvest sources · excluded from commit)
+AirTranslate/
+AnswerCue/
+DockDoor/
+textream/
+parrot/
+
+# User tools directory (not part of project)
+tools/
+
+# V1 large hero images (superseded by C01 v3+)
+c01_redo_v*.jpg
+
+# Cloudflare wrangler cache (deploy artifacts)
+**/.wrangler/
+**/node_modules/

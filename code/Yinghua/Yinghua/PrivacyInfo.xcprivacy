@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!--
+	PrivacyInfo.xcprivacy — 映话 (Yinghua) · 强制 required for Mac App Store (2024+)
+
+	映话隐私原则：
+	  - 不收集任何用户数据（无 tracking、无 analytics、无 telemetry）
+	  - 录音文件只存在本地 Application Support 目录，不上传（除非用户主动选 custom AI provider）
+	  - API key 只在 Keychain，从不写到任何文件 / UserDefaults / 网络 body
+	  - 转录全程在 macOS 26+ SpeechAnalyzer 本机处理，无云端 ASR
+	-->
+	<key>NSPrivacyTracking</key>
+	<false/>
+	<key>NSPrivacyTrackingDomains</key>
+	<array/>
+	<key>NSPrivacyCollectedDataTypes</key>
+	<array>
+		<!-- 映话不收集任何数据 — 此 array 为空 -->
+	</array>
+	<key>NSPrivacyAccessedAPITypes</key>
+	<array>
+		<!--
+		  FileTimestamp (C617.1) — 显示给用户
+		  C617.1: "Display to the user, files or directories they have explicitly granted access to"
+		  用途: AVAudioFile 在录音前 stat Application Support 目录下的 recordings/ 子目录
+		-->
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategoryFileTimestamp</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>C617.1</string>
+			</array>
+		</dict>
+		<!--
+		  DiskSpace (E174.1) — 必要
+		  E174.1: "Necessary in order to check the disk space before downloading or writing files"
+		  用途: 写录音 .caf 前检查 Application Support 目录剩余空间
+		-->
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategoryDiskSpace</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>E174.1</string>
+			</array>
+		</dict>
+		<!--
+		  SystemBootTime (35F9.1) — 必要
+		  35F9.1: "Access info about system boot time, in order to determine session age"
+		  用途: 计算录音会话起始时间戳、elapsed 计时
+		-->
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategorySystemBootTime</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>35F9.1</string>
+			</array>
+		</dict>
+		<!--
+		  UserDefaults (CA92.1) — 必要
+		  CA92.1: "Access info from same app, per documentation"
+		  用途: 持久化用户 UI 偏好（最近 meeting id / 当前 provider / onboarding 已读等）
+		-->
+		<dict>
+			<key>NSPrivacyAccessedAPIType</key>
+			<string>NSPrivacyAccessedAPICategoryUserDefaults</string>
+			<key>NSPrivacyAccessedAPITypeReasons</key>
+			<array>
+				<string>CA92.1</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

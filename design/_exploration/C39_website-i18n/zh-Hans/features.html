@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0A0A0F" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#F4F1EC" media="(prefers-color-scheme: light)" />
+
+  <title>所有功能 — 映话 · Yinghua</title>
+  <meta name="description" content="映话的完整功能：实时转录、说话人分离、AI 总结、本地优先存储、BYOK、端到端加密。" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="../C29_marketing-website/website/favicon.png" />
+  <link rel="apple-touch-icon" href="../C29_marketing-website/website/assets/img/icon-02-gradient-128.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" />
+
+  <link rel="stylesheet" href="../C29_marketing-website/website/assets/css/main.css" />
+
+  <script>
+    (function () {
+      try { var t = localStorage.getItem('yinghua-theme') || 'dark'; document.documentElement.setAttribute('data-theme', t); }
+      catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    })();
+  </script>
+</head>
+<body>
+
+<header class="nav" role="banner">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-brand" aria-label="映话 主页">
+      <img src="../C29_marketing-website/website/assets/img/icon-02-gradient-32.png" alt="" width="32" height="32" />
+      <span class="brand-name"><span class="brand-zh">映话</span> · Yinghua</span>
+    </a>
+    <nav class="nav-links" aria-label="主导航">
+      <a href="index.html#features">功能</a>
+      <a href="index.html#preview">预览</a>
+      <a href="index.html#teams">团队</a>
+      <a href="index.html#pricing">定价</a>
+      <a href="features.html" class="active">所有功能</a>
+      <a href="download.html">下载</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle" data-theme-toggle aria-label="切换主题" title="切换主题">
+        <svg class="icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+      <a href="download.html" class="btn btn-primary btn-sm">免费下载</a>
+      <button class="nav-mobile-toggle" data-mobile-toggle aria-label="打开菜单" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="nav-mobile-menu" aria-label="移动导航">
+    <a href="index.html#features">功能</a>
+    <a href="index.html#preview">预览</a>
+    <a href="index.html#teams">团队</a>
+    <a href="index.html#pricing">定价</a>
+    <a href="features.html">所有功能</a>
+    <a href="download.html">下载</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- Page hero -->
+<section class="page-hero" aria-labelledby="page-title">
+  <div class="container">
+    <span class="eyebrow">所有功能</span>
+    <h1 id="page-title">每一处都为<br class="hide-mobile" />克制与可靠而设计。</h1>
+    <p>实时转录、AI 总结、本地优先、BYOK — 映话的每个功能都遵循同一个原则：数据属于你。</p>
+  </div>
+</section>
+
+<!-- ========================================================================
+     Detailed feature blocks
+     ======================================================================== -->
+<section class="section" aria-labelledby="feature-transcription">
+  <div class="container">
+
+    <article class="feature-block">
+      <div class="feature-block-content">
+        <span class="eyebrow">实时转录</span>
+        <h2 id="feature-transcription">讲到哪儿，<br />文字就跟到哪儿。</h2>
+        <p class="lede">系统音频 + 麦克风双轨录入，毫秒级延迟输出文本。讲完一句，文字就定稿了。</p>
+        <ul>
+          <li>
+            <span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+            <span><strong>声纹分人</strong> — 自动识别 2-8 个说话人，每个人的发言单独成段</span>
+          </li>
+          <li>
+            <span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+            <span><strong>中文优化</strong> — Whisper large-v3 中文模型 + 行业术语自定义词表</span>
+          </li>
+          <li>
+            <span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+            <span><strong>离线运行</strong> — 录音与转录全程在本地完成，无网络依赖</span>
+          </li>
+          <li>
+            <span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+            <span><strong>时间码定位</strong> — 点击文本任何一行，音频直接跳到对应位置</span>
+          </li>
+        </ul>
+      </div>
+      <div class="feature-block-visual">
+        <img src="../C29_marketing-website/website/assets/img/screenshots/02-transcript.png" alt="实时转录视图：说话人分离的文本" />
+      </div>
+    </article>
+
+    <article class="feature-block">
+      <div class="feature-block-content">
+        <span class="eyebrow">AI 总结</span>
+        <h2>四类结构化输出，<br />会后立刻可用。</h2>
+        <p class="lede">映话不写长篇"会议纪要" — 训练模型按照面试与会议的真实使用场景，输出四类内容。</p>
+        <ul>
+          <li>
+            <span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+            <span><strong>关键时刻</strong> — 关键判断、技术难点、转折点的原文摘录</span>
+          </li>
+          <li>
+            <span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+            <span><strong>决定事项</strong> — 双方达成共识的具体结论，附原文上下文</span>
+          </li>
+          <li>
+            <span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+            <span><strong>待办</strong> — 带负责人、截止时间、需要跟进的具体动作</span>
+          </li>
+          <li>
+            <span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+            <span><strong>遗留问题</strong> — 没有结论、需要后续会议继续讨论的开放问题</span>
+          </li>
+        </ul>
+      </div>
+      <div class="feature-block-visual">
+        <img src="../C29_marketing-website/website/assets/img/screenshots/03-summary.png" alt="AI 总结视图：关键时刻、决定、待办、问题" />
+      </div>
+    </article>
+
+    <article class="feature-block">
+      <div class="feature-block-content">
+        <span class="eyebrow">本地优先</span>
+        <h2>数据属于你，<br />不是某家云厂商。</h2>
+        <p class="lede">映话的所有录音、转录、向量索引默认存在你的 Mac 上。我们不运营服务器，也不收集遥测。</p>
+        <ul>
+          <li>
+            <span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+            <span><strong>零遥测</strong> — 没有分析脚本、没有崩溃上报、没有使用统计</span>
+          </li>
+          <li>
+            <span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+            <span><strong>SQLite + 本地向量</strong> — 单文件存储，可以直接 Time Machine 备份</span>
+          </li>
+          <li>
+            <span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+            <span><strong>端到端加密</strong> — iCloud 同步采用 Apple E2EE 协议，我们无法解密</span>
+          </li>
+          <li>
+            <span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+            <span><strong>导出</strong> — 任何时刻导出 Markdown / SRT / JSON / 原始音频</span>
+          </li>
+        </ul>
+      </div>
+      <div class="feature-block-visual">
+        <img src="../C29_marketing-website/website/assets/img/screenshots/01-meeting.png" alt="映话主窗口：会议进行中" />
+      </div>
+    </article>
+
+    <article class="feature-block">
+      <div class="feature-block-content">
+        <span class="eyebrow">BYOK · 自备 Key</span>
+        <h2>用你自己的 AI Key，<br />或完全跑本地模型。</h2>
+        <p class="lede">映话不内置 AI 模型。我们提供调用接口，但 token、计费、合规都掌握在你手里。</p>
+        <ul>
+          <li>
+            <span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+            <span><strong>Anthropic Claude</strong> — Sonnet / Opus，按 token 计费</span>
+          </li>
+          <li>
+            <span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+            <span><strong>OpenAI</strong> — GPT-4o / GPT-5 系列，OpenAI 兼容 API</span>
+          </li>
+          <li>
+            <span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+            <span><strong>本地 Ollama</strong> — Llama 3 / Qwen 2.5 / DeepSeek，零数据外传</span>
+          </li>
+          <li>
+            <span class="check" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+            <span><strong>Key 存储</strong> — macOS Keychain 加密保存，不上传任何服务</span>
+          </li>
+        </ul>
+      </div>
+      <div class="feature-block-visual">
+        <img src="../C29_marketing-website/website/assets/img/screenshots/04-onboarding.png" alt="映话首次启动：BYOK 配置" />
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- Privacy & security -->
+<section class="section section-divider" aria-labelledby="privacy-title">
+  <div class="container">
+    <div class="prose" style="max-width: 720px; margin: 0 auto;">
+      <span class="eyebrow">隐私与安全</span>
+      <h2 id="privacy-title" style="font-size: 40px; margin-bottom: var(--space-2xl);">我们没拿到的东西，<br />就不可能泄露。</h2>
+
+      <p>映话不会收集：</p>
+      <ul>
+        <li>你的录音内容（除非你主动选择上传分享）</li>
+        <li>转录文本与 AI 总结</li>
+        <li>你的 AI Key（仅存在 macOS Keychain）</li>
+        <li>崩溃日志（默认关闭，可在设置中开启）</li>
+        <li>设备信息、操作系统版本、安装路径</li>
+      </ul>
+
+      <p>映话仅在以下情况连接网络：</p>
+      <ul>
+        <li>你选择启用云端转录（按次计费）</li>
+        <li>你使用 BYOK 调用 Anthropic / OpenAI API</li>
+        <li>你启用 iCloud 端到端加密同步</li>
+        <li>应用内更新检查（可关闭）</li>
+      </ul>
+
+      <h3>开源与可审计</h3>
+      <p>映话的核心转录与加密模块在 GitHub 开源，欢迎审计。<a href="https://github.com/yinghua-app">查看源代码 →</a></p>
+
+      <h3>更多阅读</h3>
+      <p>完整隐私政策见 <a href="privacy.html">隐私政策</a>，服务条款见 <a href="terms.html">服务条款</a>。</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA strip -->
+<section class="section">
+  <div class="container" style="text-align: center;">
+    <h2 style="font-size: clamp(32px, 4vw, 48px); margin-bottom: var(--space-xl);">下一个面试，<br />让它替你记住。</h2>
+    <p style="font-size: 18px; color: var(--text-secondary); margin-bottom: var(--space-3xl);">免费版每月 5 场 · Pro 14 天试用 · 不绑信用卡</p>
+    <a href="download.html" class="btn btn-primary btn-lg">
+      免费下载 macOS
+      <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"></path></svg>
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-brand" aria-label="映话 主页">
+          <img src="../C29_marketing-website/website/assets/img/icon-02-gradient-32.png" alt="" width="32" height="32" />
+          <span class="brand-zh">映话 · Yinghua</span>
+        </a>
+        <p>为面试而生的 macOS 智能助手。本地优先、克制、可靠。</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="features.html">所有功能</a></li>
+          <li><a href="pricing.html">定价</a></li>
+          <li><a href="download.html">下载</a></li>
+          <li><a href="features.html#changelog">更新日志</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="features.html#docs">使用文档</a></li>
+          <li><a href="features.html#privacy">隐私保护</a></li>
+          <li><a href="mailto:support@yinghua.app">技术支持</a></li>
+          <li><a href="mailto:press@yinghua.app">媒体询问</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="features.html#about">关于我们</a></li>
+          <li><a href="mailto:hello@yinghua.app">联系我们</a></li>
+          <li><a href="privacy.html">隐私政策</a></li>
+          <li><a href="terms.html">服务条款</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© <span data-current-year>2026</span> 映话 · Yinghua. All rights reserved.</div>
+      <div class="footer-socials" aria-label="社交媒体">
+        <a href="https://twitter.com/yinghua_app" aria-label="Twitter / X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
+        <a href="https://github.com/yinghua-app" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"></path></svg></a>
+        <a href="mailto:hello@yinghua.app" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><polyline points="3 7 12 13 21 7"></polyline></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../C29_marketing-website/website/assets/js/main.js"></script>
+</body>
+</html>
