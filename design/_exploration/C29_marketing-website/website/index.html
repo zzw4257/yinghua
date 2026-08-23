@@ -44,7 +44,7 @@
 <header class="nav" role="banner">
   <div class="container nav-inner">
     <a href="index.html" class="nav-brand" aria-label="映话 主页">
-      <img src="assets/img/icon-02-gradient-32.png" alt="" width="32" height="32" />
+      <img class="y-mark-3d" src="assets/img/icon-02-gradient-32.png" alt="" width="32" height="32" />
       <span class="brand-name"><span class="brand-zh">映话</span> · Yinghua</span>
     </a>
 
@@ -104,9 +104,9 @@
         <span>macOS 26+ Tahoe 原生应用</span>
       </div>
 
-      <h1 id="hero-title">
-        <span class="brand-zh">映话</span>
-        <span class="brand-en">Yìnghuà · Yinghua</span>
+      <h1 id="hero-title" class="hero-title">
+        <span class="brand-zh word-1">映话</span>
+        <span class="brand-en word-2">Yìnghuà · Yinghua</span>
       </h1>
 
       <p class="hero-tagline">为面试而生的 macOS 智能助手。<br />实时转录、说话人分离、AI 总结 — 全在本地。</p>
@@ -130,6 +130,73 @@
 
     <div class="hero-visual">
       <img src="assets/img/hero-typography.png" alt="映话主视觉：暗色 macOS 桌面与 02 GRADIENT Y 标志" width="1600" height="900" />
+    </div>
+  </div>
+
+  <!-- 3D Y icon (interactive parallax, mouse-move) -->
+  <div class="y-icon-3d" aria-hidden="true">
+    <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+      <rect width="1024" height="1024" rx="229" fill="#0A0A0F"/>
+      <path d="M 372 256 L 512 416 L 652 256 M 512 416 L 512 768"
+            stroke="#F4F1EC" stroke-width="58"
+            stroke-linecap="round" stroke-linejoin="round"
+            fill="none"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ========================================================================
+     Hero stats (C79 — trust bar)
+     ======================================================================== -->
+<section class="hero-stats" aria-label="产品数据">
+  <div class="container">
+    <div class="hero-stats-grid">
+      <div class="hero-stat">
+        <div><span class="stat-number" data-target="100">0</span><span class="stat-suffix">+</span></div>
+        <div class="stat-label">早期测试用户</div>
+      </div>
+      <div class="hero-stat">
+        <div><span class="stat-number" data-target="60">0</span><span class="stat-suffix">秒</span></div>
+        <div class="stat-label">设置时间</div>
+      </div>
+      <div class="hero-stat">
+        <div><span class="stat-number" data-target="0">0</span></div>
+        <div class="stat-label">数据上传</div>
+      </div>
+      <div class="hero-stat">
+        <div><span class="stat-number" data-target="14">0</span></div>
+        <div class="stat-label">独立审计</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================================
+     Recording demo (live app window mock, 10s loop)
+     ======================================================================== -->
+<section class="demo-section" aria-label="映话实时录制演示">
+  <div class="container">
+    <header class="section-header">
+      <span class="eyebrow">应用预览</span>
+      <h2>从按下 REC，到 AI 总结，<br class="hide-mobile" />就在一扇玻璃窗里。</h2>
+      <p>10 秒看完一次完整的会议流。鼠标动一动，Y 标志也会跟。</p>
+    </header>
+  </div>
+
+  <div class="recording-demo demo-window" aria-label="映话录制窗口模拟">
+    <div class="demo-titlebar">
+      <span class="demo-traffic" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span class="demo-filename">映话 · Recording</span>
+    </div>
+    <div class="demo-toolbar">
+      <span class="demo-rec-dot" aria-hidden="true"></span>
+      <span class="demo-timecode">00:00</span>
+      <span class="demo-spacer"></span>
+      <button class="demo-btn-stop" type="button" aria-label="停止">⏹</button>
+    </div>
+    <div class="demo-content">
+      <div class="demo-transcript" aria-live="polite"></div>
+      <div class="demo-summary" aria-label="AI 总结"></div>
     </div>
   </div>
 </section>
@@ -335,7 +402,7 @@
 
     <div class="pricing-grid">
 
-      <article class="price-card">
+      <article class="price-card glass-card">
         <div class="price-tier">Free</div>
         <div class="price-amount">
           <span class="currency">¥</span>
@@ -352,9 +419,12 @@
         <div class="price-cta">
           <a href="download.html" class="btn btn-secondary">下载</a>
         </div>
+        <div class="progress-bar-label"><span>用户增长</span><span>32%</span></div>
+        <div class="progress-bar" style="--progress: 32%"></div>
       </article>
 
-      <article class="price-card featured">
+      <article class="price-card featured glass-card">
+        <div class="price-ribbon">最受欢迎</div>
         <div class="price-tier">Pro</div>
         <div class="price-amount">
           <span class="currency">$</span>
@@ -373,9 +443,11 @@
         <div class="price-cta">
           <a href="download.html" class="btn btn-primary">开始 14 天试用</a>
         </div>
+        <div class="progress-bar-label"><span>用户增长</span><span>74%</span></div>
+        <div class="progress-bar" style="--progress: 74%"></div>
       </article>
 
-      <article class="price-card">
+      <article class="price-card glass-card">
         <div class="price-tier">Team</div>
         <div class="price-amount">
           <span class="currency">$</span>
@@ -394,6 +466,8 @@
         <div class="price-cta">
           <a href="mailto:team@yinghua.app" class="btn btn-secondary">联系销售</a>
         </div>
+        <div class="progress-bar-label"><span>团队增长</span><span>18%</span></div>
+        <div class="progress-bar" style="--progress: 18%"></div>
       </article>
 
     </div>
@@ -471,6 +545,8 @@
   </div>
 </footer>
 
+<script src="assets/js/3d-y-icon.js"></script>
+<script src="assets/js/recording-demo.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
 </html>

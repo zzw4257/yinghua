@@ -1740,10 +1740,595 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 
 /* -------------------------------------------------------------------------
-   19. Print
+   19. Interactive demos (C80)
+   - Y icon 3D parallax
+   - Recording app window mock
+   ------------------------------------------------------------------------- */
+
+/* Y icon 3D */
+.y-icon-3d {
+  width: 240px;
+  height: 240px;
+  margin: 60px auto 0;
+  perspective: 1200px;
+  cursor: grab;
+  filter: drop-shadow(0 30px 60px rgba(181, 123, 255, 0.3));
+}
+.y-icon-3d:active { cursor: grabbing; }
+.y-icon-3d svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+.y-icon-3d svg path {
+  transform-origin: center;
+}
+
+/* Recording demo window */
+.demo-section {
+  padding: var(--space-7xl) 0 var(--space-6xl);
+}
+.demo-window {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(20, 20, 25, 0.85);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border: 1px solid var(--border-hairline-strong);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+}
+.demo-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid var(--border-hairline);
+}
+.demo-traffic { display: flex; gap: 6px; }
+.demo-traffic i {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.demo-traffic i:nth-child(1) { background: #FF5F57; }
+.demo-traffic i:nth-child(2) { background: #FEBC2E; }
+.demo-traffic i:nth-child(3) { background: #28C840; }
+.demo-filename {
+  flex: 1;
+  text-align: center;
+  font-size: 12px;
+  color: rgba(244, 241, 236, 0.5);
+  font-family: var(--font-sans-zh);
+}
+.demo-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border-hairline);
+}
+.demo-rec-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 59, 48, 0.3);
+  transition: background 0.3s;
+  flex-shrink: 0;
+}
+.demo-rec-dot.active {
+  background: #FF3B30;
+  box-shadow: 0 0 8px rgba(255, 59, 48, 0.6);
+  animation: recPulse 1.4s ease-in-out infinite;
+}
+@keyframes recPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.demo-timecode {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+  font-size: 14px;
+}
+.demo-spacer { flex: 1; }
+.demo-btn-stop {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 59, 48, 0.2);
+  border: 1px solid rgba(255, 59, 48, 0.4);
+  color: #FF3B30;
+  cursor: pointer;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
+}
+.demo-content {
+  padding: 20px;
+  min-height: 240px;
+}
+.demo-transcript {
+  max-height: 120px;
+  overflow-y: auto;
+  font-size: 13px;
+  line-height: 1.6;
+  color: rgba(244, 241, 236, 0.85);
+  font-family: var(--font-sans-zh);
+}
+.demo-transcript::-webkit-scrollbar { width: 4px; }
+.demo-transcript::-webkit-scrollbar-thumb { background: rgba(244, 241, 236, 0.15); border-radius: 2px; }
+.demo-line {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 6px;
+  animation: lineFadeIn 0.4s ease-out both;
+}
+@keyframes lineFadeIn {
+  from { opacity: 0; transform: translateX(-8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+.demo-speaker {
+  font-weight: 600;
+  flex-shrink: 0;
+  min-width: 32px;
+}
+.demo-text { flex: 1; }
+.demo-summary {
+  margin-top: 16px;
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+}
+.demo-summary.visible {
+  display: flex;
+}
+.demo-summary-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid var(--border-hairline);
+  animation-delay: var(--delay, 0s);
+  animation: sectionFadeIn 0.5s ease-out both;
+}
+@keyframes sectionFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.demo-summary-title {
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 500;
+  font-family: var(--font-sans-zh);
+}
+.demo-summary-count {
+  color: var(--color-brand-teal-vivid);
+  font-size: 12px;
+  font-family: var(--font-mono);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .demo-rec-dot.active,
+  .demo-summary-section,
+  .demo-line {
+    animation: none;
+  }
+  .demo-summary { display: flex; }
+}
+
+/* -------------------------------------------------------------------------
+   20. Print
    ------------------------------------------------------------------------- */
 
 @media print {
   .nav, .footer, .nav-mobile-toggle, .theme-toggle, .nav-actions { display: none; }
   body { background: #fff; color: #000; }
+}
+
+/* -------------------------------------------------------------------------
+   21. Motion — Apple-style micro-animations (C79 visual polish)
+   ------------------------------------------------------------------------- */
+
+/* Token — shared easing for motion layer */
+:root {
+  --ease-spring-soft: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring-snap: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* === 1. Hero title — staggered text fade-in === */
+@keyframes yh-textFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.hero-title,
+.hero-title > span {
+  animation: yh-textFadeIn 1.2s var(--ease-spring-soft) both;
+}
+
+.hero-title .word-1 { animation-delay: 0s; }
+.hero-title .word-2 { animation-delay: 0.18s; }
+.hero-title .word-3 { animation-delay: 0.36s; }
+
+/* === 2. Feature card — scroll-in float === */
+@keyframes yh-cardFloatUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.feature-card,
+.stat,
+.screenshot-card,
+.teams-card,
+.price-card,
+.testimonial {
+  opacity: 0;
+  transform: translateY(40px) scale(0.96);
+  transition:
+    opacity 0.8s var(--ease-spring-soft),
+    transform 0.8s var(--ease-spring-soft),
+    border-color 220ms var(--ease-standard),
+    box-shadow 220ms var(--ease-standard);
+}
+
+.feature-card.revealed,
+.stat.revealed,
+.screenshot-card.revealed,
+.teams-card.revealed,
+.price-card.revealed,
+.testimonial.revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Staggered delays via inline custom prop or :nth-child */
+.feature-card.revealed:nth-child(1) { transition-delay: 0s; }
+.feature-card.revealed:nth-child(2) { transition-delay: 0.1s; }
+.feature-card.revealed:nth-child(3) { transition-delay: 0.2s; }
+.feature-card.revealed:nth-child(4) { transition-delay: 0.3s; }
+.feature-card.revealed:nth-child(5) { transition-delay: 0.4s; }
+.feature-card.revealed:nth-child(6) { transition-delay: 0.5s; }
+
+.price-card.revealed:nth-child(1) { transition-delay: 0s; }
+.price-card.revealed:nth-child(2) { transition-delay: 0.12s; }
+.price-card.revealed:nth-child(3) { transition-delay: 0.24s; }
+
+/* === 3. Y mark — 3D tilt on hover (mouse-tracked in motion.js) === */
+@keyframes yh-yRotate {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+
+.y-mark-3d {
+  display: inline-block;
+  transform-style: preserve-3d;
+  transition: transform 0.6s var(--ease-spring-soft);
+  will-change: transform;
+}
+
+.y-mark-3d:hover {
+  animation: yh-yRotate 1.2s var(--ease-spring-soft) forwards;
+}
+
+/* === 4. Primary button — liquid glass hover + shimmer sweep === */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.28) 50%, transparent 100%);
+  pointer-events: none;
+  transition: left 0.7s var(--ease-spring-soft);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px) scale(1.01);
+  box-shadow:
+    0 12px 40px rgba(181, 123, 255, 0.40),
+    0 4px 12px rgba(45, 212, 191, 0.20);
+}
+
+.btn-primary:hover::after {
+  left: 100%;
+}
+
+.btn-primary:active {
+  transform: translateY(0) scale(0.99);
+  transition-duration: 80ms;
+}
+
+/* === 5. Progress bar — width fill === */
+@keyframes yh-progressFill {
+  from { width: 0%; }
+  to { width: var(--progress, 100%); }
+}
+
+.progress-bar {
+  position: relative;
+  height: 4px;
+  background: var(--color-hairline);
+  border-radius: var(--radius-circle);
+  overflow: hidden;
+  margin-top: auto;
+  padding-top: var(--space-lg);
+}
+
+.progress-bar::before {
+  content: '';
+  display: block;
+  height: 100%;
+  width: var(--progress, 60%);
+  background: var(--gradient-primary-2stop);
+  border-radius: var(--radius-circle);
+  animation: yh-progressFill 1.4s var(--ease-spring-soft) both;
+  animation-delay: 0.4s;
+}
+
+[data-theme="light"] .progress-bar {
+  background: rgba(27, 29, 34, 0.08);
+}
+
+.progress-bar-label {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 6px;
+}
+
+/* === 6. REC dot — recording pulse === */
+@keyframes yh-recPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+}
+
+.rec-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-circle);
+  background: var(--color-recording-red);
+  animation: yh-recPulse 1.4s ease-in-out infinite;
+  box-shadow: 0 0 0 0 rgba(255, 59, 48, 0.45);
+}
+
+/* === 7. Stat number — count-up reveal === */
+@keyframes yh-countUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.stat-number {
+  display: inline-block;
+  animation: yh-countUp 0.8s var(--ease-spring-soft) both;
+  animation-delay: var(--delay, 0s);
+}
+
+/* === 8. Glass card — liquid shimmer (very subtle) === */
+@keyframes yh-glassShimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.glass-card {
+  position: relative;
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.06) 0%,
+    rgba(255, 255, 255, 0.02) 50%,
+    rgba(255, 255, 255, 0.06) 100%
+  );
+  background-size: 200% 200%;
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  backdrop-filter: blur(40px) saturate(180%);
+  animation: yh-glassShimmer 9s ease-in-out infinite;
+}
+
+[data-theme="light"] .glass-card,
+[data-theme="auto"] .glass-card {
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0.30) 50%,
+    rgba(255, 255, 255, 0.55) 100%
+  );
+}
+
+/* === 9. Hero stats — trust bar === */
+.hero-stats {
+  position: relative;
+  padding: var(--space-6xl) 0 var(--space-5xl);
+  isolation: isolate;
+  border-top: 1px solid var(--border-hairline);
+}
+
+.hero-stats::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 60% 80% at 50% 0%, rgba(181, 123, 255, 0.10), transparent 70%),
+    radial-gradient(ellipse 50% 60% at 50% 100%, rgba(45, 212, 191, 0.08), transparent 70%);
+  pointer-events: none;
+}
+
+.hero-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4xl);
+  align-items: end;
+}
+
+.hero-stat {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s var(--ease-spring-soft), transform 0.7s var(--ease-spring-soft);
+}
+
+.hero-stat.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-stat:nth-child(1).revealed { transition-delay: 0s; }
+.hero-stat:nth-child(2).revealed { transition-delay: 0.1s; }
+.hero-stat:nth-child(3).revealed { transition-delay: 0.2s; }
+.hero-stat:nth-child(4).revealed { transition-delay: 0.3s; }
+
+.hero-stat .stat-number {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 5vw, 56px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  background: var(--gradient-primary-2stop);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.hero-stat .stat-suffix {
+  font-family: var(--font-display);
+  font-size: 0.5em;
+  color: var(--text-tertiary);
+  font-weight: 500;
+  -webkit-text-fill-color: var(--text-tertiary);
+  margin-left: 2px;
+  letter-spacing: 0;
+}
+
+.hero-stat .stat-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+@media (max-width: 768px) {
+  .hero-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2xl);
+  }
+  .hero-stat .stat-number { font-size: 36px; }
+}
+
+/* === 10. Price card — glassmorphism + featured ribbon === */
+.price-card.glass-card {
+  background-color: var(--bg-card);
+}
+
+.price-card .price-ribbon {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gradient-primary-2stop);
+  color: #0A0A0F;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 5px var(--space-md);
+  border-radius: var(--radius-circle);
+  box-shadow: 0 4px 12px rgba(181, 123, 255, 0.30);
+  z-index: 2;
+}
+
+/* === 11. Hero background — soft scroll-driven parallax (CSS only) === */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-bg {
+    will-change: transform;
+  }
+}
+
+/* === 12. Nav brand icon — gentle 3D hover lift === */
+.nav-brand img {
+  transition: transform 0.5s var(--ease-spring-soft);
+}
+
+.nav-brand:hover img {
+  transform: rotateZ(-6deg) scale(1.08);
+}
+
+/* === 13. Reduced motion override (in addition to existing section 18) === */
+@media (prefers-reduced-motion: reduce) {
+  .feature-card,
+  .stat,
+  .screenshot-card,
+  .teams-card,
+  .price-card,
+  .testimonial,
+  .hero-stat {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .y-mark-3d,
+  .rec-dot,
+  .glass-card {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .btn-primary:hover,
+  .btn-primary:active {
+    transform: none !important;
+  }
+
+  .progress-bar::before {
+    width: var(--progress, 60%) !important;
+    animation: none !important;
+  }
 }

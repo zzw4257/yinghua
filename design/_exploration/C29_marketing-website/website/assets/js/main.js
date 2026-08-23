@@ -204,4 +204,121 @@
     if (mq.addEventListener) mq.addEventListener('change', handler);
     else if (mq.addListener) mq.addListener(handler);
   }
+
+  // ---------------------------------------------------------------------------
+  // 9. C79 motion — Apple-style micro-animations
+  //    - Hero parallax scroll
+  //    - Y-mark 3D mouse-tracked tilt
+  //    - Scroll reveal (IntersectionObserver)
+  //    - Number count-up
+  //    - All wrapped with prefers-reduced-motion guards
+  // ---------------------------------------------------------------------------
+
+  document.addEventListener('DOMContentLoaded', function () {
+    if (prefersReducedMotion()) {
+      // Reveal everything immediately, no motion
+      document.querySelectorAll(
+        '.feature-card, .stat, .screenshot-card, .teams-card, .price-card, .testimonial, .hero-stat'
+      ).forEach(function (el) { el.classList.add('revealed'); });
+      return;
+    }
+
+    // 1. Hero parallax (rAF-throttled)
+    const heroBg = document.querySelector('.hero-bg');
+    if (heroBg) {
+      let ticking = false;
+      function updateParallax() {
+        const scrolled = window.pageYOffset || window.scrollY;
+        // Limit parallax range so it doesn't drift too far
+        const offset = Math.min(scrolled * 0.3, 200);
+        heroBg.style.transform = 'translate3d(0, ' + offset + 'px, 0)';
+        ticking = false;
+      }
+      function onScroll() {
+        if (!ticking) {
+          window.requestAnimationFrame(updateParallax);
+          ticking = true;
+        }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+    }
+
+    // 2. Y-mark 3D mouse tilt
+    document.querySelectorAll('.y-mark-3d').forEach(function (el) {
+      el.addEventListener('mousemove', function (e) {
+        const rect = el.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        el.style.transform =
+          'perspective(800px) rotateY(' + (x * 25) + 'deg) rotateX(' + (-y * 25) + 'deg)';
+      });
+      el.addEventListener('mouseleave', function () {
+        el.style.transform = 'perspective(800px) rotateY(0) rotateX(0)';
+      });
+    });
+
+    // 3. Scroll reveal (IntersectionObserver)
+    if ('IntersectionObserver' in window) {
+      const revealTargets = document.querySelectorAll(
+        '.feature-card, .stat, .screenshot-card, .teams-card, .price-card, .testimonial, .hero-stat'
+      );
+      const revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      revealTargets.forEach(function (el) { revealObserver.observe(el); });
+    } else {
+      // Fallback: reveal all immediately
+      document.querySelectorAll(
+        '.feature-card, .stat, .screenshot-card, .teams-card, .price-card, .testimonial, .hero-stat'
+      ).forEach(function (el) { el.classList.add('revealed'); });
+    }
+
+    // 4. Counter animation
+    function animateCounter(el, target, duration) {
+      duration = duration || 1500;
+      const start = 0;
+      const startTime = performance.now();
+      const useLocale = (target >= 1000);
+      function update(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        // easeOutCubic
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = Math.floor(start + (target - start) * eased);
+        el.textContent = useLocale ? current.toLocaleString() : String(current);
+        if (progress < 1) {
+          window.requestAnimationFrame(update);
+        } else {
+          el.textContent = useLocale ? target.toLocaleString() : String(target);
+        }
+      }
+      window.requestAnimationFrame(update);
+    }
+
+    if ('IntersectionObserver' in window) {
+      document.querySelectorAll('.stat-number[data-target]').forEach(function (el) {
+        const raw = el.getAttribute('data-target');
+        const target = parseInt(raw, 10);
+        if (isNaN(target)) return;
+        const obs = new IntersectionObserver(function (entries) {
+          if (entries[0].isIntersecting) {
+            animateCounter(el, target, 1400);
+            obs.disconnect();
+          }
+        }, { threshold: 0.5 });
+        obs.observe(el);
+      });
+    } else {
+      // No-op fallback: just show the target
+      document.querySelectorAll('.stat-number[data-target]').forEach(function (el) {
+        const target = parseInt(el.getAttribute('data-target'), 10);
+        if (!isNaN(target)) el.textContent = String(target);
+      });
+    }
+  });
 })();
