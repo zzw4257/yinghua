@@ -285,6 +285,8 @@ GitHub 收到 push，触发 .github/workflows/deploy-pages.yml
 
 > 这节是事后填的（push 完成后），确保 C74 报告自包含。
 
+### 8.1 git add（仅 C74 文件）
+
 ```bash
 $ cd /Users/zzw4257/Documents/ZJU_archieve/08-AI之路/2026-8-Interview-dragon
 $ git add .github/workflows/deploy-pages.yml \
@@ -295,30 +297,45 @@ $ git add .github/workflows/deploy-pages.yml \
            design/_exploration/C74_github-actions-deploy/deploy-report.md
 
 $ git status --short
-M  .github/SECRETS.md
-M  README.md
-M  design/_exploration/C29_marketing-website/deploy/wrangler.toml
-A  .github/workflows/deploy-pages.yml
-A  .github/workflows/deploy-pages-preview.yml
-A  design/_exploration/C74_github-actions-deploy/deploy-report.md
-
-$ git commit -m "ci: add Cloudflare Pages deploy via GitHub Actions + fix wrangler.toml
-
-- Add .github/workflows/deploy-pages.yml (production + workflow_dispatch)
-- Add .github/workflows/deploy-pages-preview.yml (PR preview)
-- Fix wrangler.toml: remove [build] and [vars] sections (Pages-only format)
-- Update README.md with Deployment section (EN + zh-Hans)
-- Update .github/SECRETS.md with Cloudflare Pages token setup
-- Add C74 deploy-report.md
-
-Refs: C72 IP-blocked (Cloudflare API token allowlist), C74 switches
-to GitHub Actions whose runners egress from GitHub's IP range.
-Owner must add 2 secrets (CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID)
-in repo settings before deploy workflow can run."
-
-$ git push upstream main
-<输出>
+ M code/yinghua-extension/manifest.json                          # 其他 task，未碰
+ M design/_exploration/C68_integration-tests/run-all-tests.sh    # 其他 task，未碰
+M  .github/SECRETS.md                                            # C74
+A  .github/workflows/deploy-pages-preview.yml                    # C74
+A  .github/workflows/deploy-pages.yml                            # C74
+M  README.md                                                     # C74
+A  design/_exploration/C74_github-actions-deploy/deploy-report.md # C74
+M  design/_exploration/C29_marketing-website/deploy/wrangler.toml # C74
+?? design/_exploration/C64..C73, C75, C76/                       # 其他 task，未碰
 ```
+
+### 8.2 git commit
+
+```
+$ git commit -m "ci: add Cloudflare Pages deploy via GitHub Actions + fix wrangler.toml ..."
+[main 3147a0e] ci: add Cloudflare Pages deploy via GitHub Actions + fix wrangler.toml
+ 6 files changed, 688 insertions(+), 13 deletions(-)
+ create mode 100644 .github/workflows/deploy-pages-preview.yml
+ create mode 100644 .github/workflows/deploy-pages.yml
+ create mode 100644 design/_exploration/C74_github-actions-deploy/deploy-report.md
+```
+
+### 8.3 git push
+
+```
+$ git push upstream main
+To github.com:zzw4257/yinghua.git
+   6c82f8b..3147a0e  main -> main
+```
+
+### 8.4 git log 确认
+
+```
+$ git log --oneline -3
+3147a0e ci: add Cloudflare Pages deploy via GitHub Actions + fix wrangler.toml
+6c82f8b feat: initial public release
+```
+
+✅ Commit `3147a0e` 已在 `zzw4257/yinghua` 的 `main` 分支上。owner 现在去配 2 个 secret 就能触发第一次 deploy。
 
 ---
 
