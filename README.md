@@ -70,8 +70,43 @@ This repository hosts three deliverables:
 | [**Build & Test**](./.github/workflows/build.yml) | PR + push to `main` | `macos-14` + Xcode 26.6 · xcodegen · xcodebuild Debug / Test / Release · auto-comment on failure |
 | [**Release**](./.github/workflows/release.yml) | tag `v*` | `macos-14` · sign + notarize + staple · upload `.dmg` + `.pkg` to GitHub Release (draft) + App Store Connect |
 | [**Chrome Extension**](./.github/workflows/extension.yml) | tag `ext-v*` | `ubuntu-latest` · manifest validation · zip · upload to GitHub Release (draft) + optional Chrome Web Store |
+| [**Deploy Pages**](./.github/workflows/deploy-pages.yml) | push to `main` (website paths) + manual | `ubuntu-latest` · bundle `C29` + `C39 ja-JP` · `cloudflare/pages-action@v1` → Cloudflare Pages `yinghua-marketing` |
+| [**Preview Pages**](./.github/workflows/deploy-pages-preview.yml) | PR (website paths) | `ubuntu-latest` · same bundle → Cloudflare Pages `preview` branch · URL auto-commented on PR |
 
-See [`.github/SECRETS.md`](./.github/SECRETS.md) for the 4 required secrets (`APPLE_TEAM_ID`, `APPLE_ID`, `APP_SPECIFIC_PASSWORD`, `SLACK_WEBHOOK_URL`) and 4 optional Chrome Web Store secrets.
+See [`.github/SECRETS.md`](./.github/SECRETS.md) for the 4 required macOS secrets, 4 optional Chrome Web Store secrets, and 2 required Cloudflare Pages secrets.
+
+### Deployment (marketing website)
+
+The marketing site at <https://yinghua.zzw4257.cn> is deployed to Cloudflare
+Pages via GitHub Actions. Two workflows:
+
+- **[Deploy Pages](./.github/workflows/deploy-pages.yml)** — runs on every
+  push to `main` that touches `C29_marketing-website/website/**`,
+  `C39_website-i18n/**`, `C29_marketing-website/deploy/**`, or the workflow
+  itself. Builds a bundle of `C29` (zh-Hans, root) + `C39 ja-JP/`
+  (subdirectory), then uploads to the `main` branch of the
+  `yinghua-marketing` Cloudflare Pages project → production at
+  <https://yinghua-marketing.pages.dev> and the custom domain
+  <https://yinghua.zzw4257.cn>. Can also be triggered manually via
+  **Run workflow** in the Actions tab.
+- **[Preview Pages](./.github/workflows/deploy-pages-preview.yml)** — runs
+  on every PR that touches the same paths. Uploads to the `preview` branch
+  and comments the preview URL on the PR.
+
+**Why GitHub Actions (not local `wrangler`)?** Earlier attempts to deploy
+directly from this machine hit Cloudflare's IP allowlist on the API token
+(see C72 report). GitHub Actions runners egress from GitHub's IP range,
+which is more likely to satisfy any account-level allowlist.
+
+**Required GitHub repo secrets** (set under
+`Settings → Secrets and variables → Actions`):
+
+| Secret | Value |
+|--------|-------|
+| `CLOUDFLARE_API_TOKEN` | A token created from the **Edit Cloudflare Pages** template, with **no IP allowlist** (or with GitHub Actions' IP range allowed). Permissions: `Account → Account Settings: Read` + `Account → Cloudflare Pages: Edit`. |
+| `CLOUDFLARE_ACCOUNT_ID` | `a802c5b7499e1f9e2259a295823d853d` |
+
+See [`.github/SECRETS.md` §Cloudflare Pages](./.github/SECRETS.md#cloudflare-pages-2) for the full setup.
 
 ### Quick start
 
@@ -217,8 +252,40 @@ within 30 days.
 | [**Build & Test**](./.github/workflows/build.yml) | PR + push 到 `main` | `macos-14` + Xcode 26.6 · xcodegen · xcodebuild Debug / Test / Release · 失败自动 comment PR |
 | [**Release**](./.github/workflows/release.yml) | tag `v*` | `macos-14` · 签名 + notarize + staple · 上传 `.dmg` + `.pkg` 到 GitHub Release（draft）+ App Store Connect |
 | [**Chrome Extension**](./.github/workflows/extension.yml) | tag `ext-v*` | `ubuntu-latest` · manifest 校验 · zip · 上传到 GitHub Release（draft）+ 可选 Chrome Web Store |
+| [**Deploy Pages**](./.github/workflows/deploy-pages.yml) | push 到 `main`（website 路径）+ 手动 | `ubuntu-latest` · 打包 `C29` + `C39 ja-JP` · `cloudflare/pages-action@v1` → Cloudflare Pages `yinghua-marketing` |
+| [**Preview Pages**](./.github/workflows/deploy-pages-preview.yml) | PR（website 路径） | `ubuntu-latest` · 同上打包 → Cloudflare Pages `preview` 分支 · URL 自动 comment 到 PR |
 
-4 个必配 secret + 4 个可选 Chrome Web Store secret 配置见 [`.github/SECRETS.md`](./.github/SECRETS.md)。
+4 个 macOS 必配 secret + 4 个 Chrome Web Store 可选 secret + 2 个 Cloudflare Pages 必配 secret 配置见 [`.github/SECRETS.md`](./.github/SECRETS.md)。
+
+### 部署（marketing 官网）
+
+映话官网 <https://yinghua.zzw4257.cn> 通过 GitHub Actions 部署到 Cloudflare
+Pages。两个 workflow：
+
+- **[Deploy Pages](./.github/workflows/deploy-pages.yml)** — 任何 push 到
+  `main` 且改动 `C29_marketing-website/website/**`、`C39_website-i18n/**`、
+  `C29_marketing-website/deploy/**` 或本 workflow 文件时触发。打包
+  `C29`（zh-Hans，根）+ `C39 ja-JP/`（子目录），上传到 `yinghua-marketing`
+  项目的 `main` 分支 → 生产环境 <https://yinghua-marketing.pages.dev>
+  以及自定义域 <https://yinghua.zzw4257.cn>。也可在 Actions 标签里手动
+  **Run workflow**。
+- **[Preview Pages](./.github/workflows/deploy-pages-preview.yml)** —
+  任何改动相同路径的 PR 触发。上传到 `preview` 分支，预览 URL 自动
+  comment 到 PR。
+
+**为什么用 GitHub Actions（不用本地 `wrangler`）？** 之前尝试从本机直接
+部署撞上 Cloudflare token 的 IP 白名单（见 C72 报告）。GitHub Actions
+runner 从 GitHub 出口 IP 段发出请求，更容易满足账号级 IP 限制。
+
+**必配 GitHub repo secrets**（在
+`Settings → Secrets and variables → Actions` 配置）：
+
+| Secret | 值 |
+|--------|------|
+| `CLOUDFLARE_API_TOKEN` | 用 **Edit Cloudflare Pages** 模板创建的 token，**不设 IP 白名单**（或把 GitHub Actions IP 段加白）。权限：`Account → Account Settings: Read` + `Account → Cloudflare Pages: Edit`。 |
+| `CLOUDFLARE_ACCOUNT_ID` | `a802c5b7499e1f9e2259a295823d853d` |
+
+详细配置步骤见 [`.github/SECRETS.md` §Cloudflare Pages](./.github/SECRETS.md#cloudflare-pages-2)。
 
 ### 快速开始
 

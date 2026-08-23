@@ -1,14 +1,15 @@
-name = "yinghua-marketing"  # Cloudflare Pages project name
+name = "yinghua-marketing"
 compatibility_date = "2026-08-01"
 pages_build_output_dir = "./public"
 
-[build]
-command = "echo 'No build step needed - static HTML'"
-
-[vars]
-# 自定义域 (在 Cloudflare Dashboard 配,这里仅注释)
-# Domain: yinghua.zzw4257.cn
-# CNAME @ -> yinghua-marketing.pages.dev (Cloudflare 自动)
-# CNAME www -> yinghua-marketing.pages.dev
-
-CLOUDFLARE_PAGES_BRANCH = "main"
+# Custom domain (yinghua.zzw4257.cn) is configured in Cloudflare Dashboard
+# under Pages project → Custom domains, not here. CNAME @ → yinghua-marketing.pages.dev
+# is auto-created by Cloudflare once the custom domain is attached.
+#
+# For GitHub Actions deployment (see .github/workflows/deploy-pages.yml):
+#   - CLOUDFLARE_API_TOKEN (no IP allowlist, Pages:Edit + Account Settings:Read)
+#   - CLOUDFLARE_ACCOUNT_ID = a802c5b7499e1f9e2259a295823d853d
+#
+# Note: [build] and [vars] sections were removed — they are Workers-only
+# and not supported by Pages. The previous C29/C72 wrangler.toml incorrectly
+# included both. See C72 report §4 and C74 deploy-report.md for details.

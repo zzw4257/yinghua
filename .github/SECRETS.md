@@ -105,6 +105,104 @@
 
 ---
 
+<a id="cloudflare-pages-2"></a>
+
+## 必配：Cloudflare Pages marketing 网站（2 个）
+
+> 这 2 个 secret 配齐后，`.github/workflows/deploy-pages.yml` 和
+> `deploy-pages-preview.yml` 才能正常跑 deploy。
+> **不配**也不会让现有 build/release/extension workflow 失败（独立的工作流），
+> 但 marketing 站点无法通过 CI 自动部署。
+
+### 9. `CLOUDFLARE_API_TOKEN`
+
+- **值**：从 Cloudflare Dashboard 创建的 API token
+- **在哪生成**（推荐正式方案）：
+  1. 打开 <https://dash.cloudflare.com/profile/api-tokens>
+  2. **Create Token** → 模板 **Edit Cloudflare Pages**
+  3. **Account Resources**：`Include → zzw4257 account`
+  4. **Zone Resources**：Include → Specific zone → `yinghua.zzw4257.cn`（如已接入 Cloudflare）或留空
+  5. **Permissions** 检查清单：
+     - `Account → Account Settings: Read`（zone 读必需）
+     - `Account → Cloudflare Pages: Edit`（Pages 部署必需）
+  6. **IP Address Filtering**：**留空**（推荐）或把 GitHub Actions 的 IP 段加白
+     - GitHub Actions IP 段：<https://api.github.com/meta> 里 `actions` 字段
+  7. **TTL**：可选；不设默认不过期
+  8. 点击 **Continue to summary** → **Create Token**
+  9. 复制 token（**只显示一次**）
+- **用于**：
+  - `.github/workflows/deploy-pages.yml` 的 `cloudflare/pages-action@v1` 步骤
+  - `.github/workflows/deploy-pages-preview.yml` 同上
+- **C72 教训**：早期 token 配了 IP allowlist + 缺 Pages:Edit 权限，从 worker 本机调 API
+  一直 401/403（错误码 9109 / 10000）。C74 改走 GitHub Actions 是因为 runner
+  出口 IP 在 GitHub 段，大概率不在原 token 的 deny list 里。如果新 token 也
+  失败，**第一件事**就是确认 IP filtering 留空。
+- **安全注意**：
+  - token 等同于账号 Pages 写入权限，泄漏立即在 Dashboard 撤销
+  - 不要在 commit / PR comment / log / 公开频道里出现
+  - GitHub Actions 的 `secrets.*` 引用会自动 mask（但只在引用处）
+
+### 10. `CLOUDFLARE_ACCOUNT_ID`
+
+- **值**：`a802c5b7499e1f9e2259a295823d853d`（硬编码常量）
+- **在哪找**：
+  1. 打开 <https://dash.cloudflare.com/>
+  2. 右下角 **API** 卡片里 **Account ID** 字段
+  3. 或 URL `https://dash.cloudflare.com/<ACCOUNT_ID>/...` 里的那串
+- **用于**：
+  - Cloudflare API 所有 endpoint 的 path 参数 `/accounts/{id}/...`
+  - GitHub Actions `cloudflare/pages-action@v1` 的 `accountId` 输入
+
+---
+
+<a id="cloudflare-pages-setup"></a>
+
+### Cloudflare Pages 项目初始化（owner 一次性操作）
+
+> 这步**只在第一次**需要做。GitHub Actions 只负责上传文件，不创建项目
+> 也不配自定义域。
+
+#### 1. 创建 Pages project
+
+1. <https://dash.cloudflare.com/> → **Workers & Pages** → **Create application** → **Pages** → **Direct Upload**
+2. **Project name**：`yinghua-marketing`
+3. **Production branch**：`main`（与 GitHub repo 默认分支对齐）
+4. **Build command**：留空（静态站无构建）
+5. **Build output directory**：留空（稍后从 GitHub Actions 上传，不需要 CF 自己 build）
+6. 点 **Save and Deploy** — 这会创建一个空的 `preview` 部署，可忽略
+
+#### 2. 添加自定义域
+
+1. Pages project → **Custom domains** → **Set up a custom domain**
+2. 输入 `yinghua.zzw4257.cn` → **Continue**
+3. Cloudflare 会自动检测 DNS（如果 zone 已在 CF）→ **Activate**
+4. 如 zone 不在 Cloudflare，按提示去域名注册商加 CNAME
+5. 重复 1-4 加 `www.yinghua.zzw4257.cn`（301 → 裸域）
+
+#### 3. 第一次手动上传（验证项目配置）
+
+如果想不等 GitHub Actions 触发，先在 Dashboard 跑一次：
+
+1. Pages project → **Create deployment** → **Direct Upload**
+2. 上传 `design/_exploration/C29_marketing-website/deploy/public/` 的 zip
+3. 部署完成后访问 <https://yinghua-marketing.pages.dev/> 验证 6 页面 + ja-JP/ + zh-Hans/ 子目录
+
+#### 4. 配置 GitHub repo secrets
+
+按上面 §9 §10 在 `Settings → Secrets and variables → Actions` 加 2 个 secret。
+
+#### 5. 触发第一次 Actions deploy
+
+```bash
+git commit --allow-empty -m "ci: trigger first Cloudflare Pages deploy"
+git push upstream main
+```
+
+去 GitHub Actions 看 `Deploy Pages` workflow 跑完，访问
+<https://yinghua.zzw4257.cn/> 验证。
+
+---
+
 ## 校验清单
 
 配置完成后本地校验：
@@ -130,6 +228,8 @@ git push origin v0.0.0-test-ci
 | `APP_SPECIFIC_PASSWORD` | 6 个月 / 怀疑泄漏 | 在 appleid.apple.com revoke + GitHub 重新生成 |
 | `SLACK_WEBHOOK_URL` | 1 年 / 团队成员变动 | 在 Slack 重新生成 |
 | `CHROME_WEBSTORE_*` | 1 年 / 怀疑泄漏 | Google Cloud Console 撤销 + 重新走 OAuth flow |
+| `CLOUDFLARE_API_TOKEN` | 1 年 / 怀疑泄漏 | Dashboard 撤销 + 重新创建（IP filtering 留空） |
+| `CLOUDFLARE_ACCOUNT_ID` | 几乎不变 | 换 Cloudflare 账号时 |
 
 ---
 

@@ -1,0 +1,73 @@
+name: Preview Deploy
+
+# Triggers:
+#   - pull_request touching website/i18n files → deploy to a preview branch
+#
+# Each PR gets its own preview URL on the `preview` branch of the
+# yinghua-marketing Cloudflare Pages project. The URL is posted as a
+# comment on the PR by the cloudflare/pages-action@v1 step (uses
+# ${{ secrets.GITHUB_TOKEN }} for that).
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'design/_exploration/C29_marketing-website/website/**'
+      - 'design/_exploration/C39_website-i18n/**'
+      - 'design/_exploration/C29_marketing-website/deploy/**'
+      - '.github/workflows/deploy-pages-preview.yml'
+
+permissions:
+  contents: read
+  pull-requests: write
+  deployments: write
+
+concurrency:
+  group: pages-preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  preview:
+    name: Build + Preview Deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build preview bundle
+        run: |
+          set -euo pipefail
+          BUILD=/tmp/yinghua-preview
+          rm -rf "$BUILD"
+          mkdir -p "$BUILD"
+
+          # 1) Root (zh-Hans) from C29
+          cp -r design/_exploration/C29_marketing-website/website/. "$BUILD/"
+
+          # 2) ja-JP subdirectory from C39
+          mkdir -p "$BUILD/ja-JP"
+          cp -r design/_exploration/C39_website-i18n/ja-JP/. "$BUILD/ja-JP/"
+
+          # 3) _redirects and _headers (CSP + HSTS + i18n routing)
+          for f in _redirects _headers; do
+            if [ -f "design/_exploration/C29_marketing-website/deploy/public/$f" ]; then
+              cp "design/_exploration/C29_marketing-website/deploy/public/$f" "$BUILD/"
+            fi
+          done
+
+          echo "--- Bundle root ---"
+          ls -la "$BUILD"
+          echo
+          echo "HTML count: $(find "$BUILD" -name '*.html' | wc -l | tr -d ' ')"
+          echo "Total size: $(du -sh "$BUILD" | cut -f1)"
+
+      - name: Deploy preview
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: yinghua-marketing
+          directory: /tmp/yinghua-preview
+          # Force preview branch for PR deployments
+          branch: preview
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}

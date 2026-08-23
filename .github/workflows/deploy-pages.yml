@@ -1,0 +1,93 @@
+name: Deploy Marketing Website to Cloudflare Pages
+
+# Triggers:
+#   - push to main that touches website/i18n/deploy/workflow files → auto deploy to production
+#   - workflow_dispatch (manual) → choose production or preview branch
+#
+# C74: switches deployment from C72 (blocked by CF token IP allowlist) to
+# GitHub Actions, whose runners are in GitHub's IP range and likely not
+# affected by Cloudflare account-level geo/IP restrictions on the API token.
+# The owner only needs to add two secrets (see .github/SECRETS.md §CF).
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'design/_exploration/C29_marketing-website/website/**'
+      - 'design/_exploration/C39_website-i18n/**'
+      - 'design/_exploration/C29_marketing-website/deploy/**'
+      - '.github/workflows/deploy-pages.yml'
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Cloudflare Pages environment (preview branch / production)'
+        required: true
+        default: 'production'
+        type: choice
+        options:
+          - production
+          - preview
+
+permissions:
+  contents: read
+  deployments: write
+
+concurrency:
+  group: pages-${{ github.event.inputs.environment || 'production' }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Build + Deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build deploy bundle
+        # C29 website/ is zh-Hans (root = primary locale), C39 ja-JP/ becomes
+        # a /ja-JP/ subdirectory. _redirects / _headers come from C29 deploy/public
+        # (validated by C47 audit for CSP + HSTS + i18n routing).
+        run: |
+          set -euo pipefail
+          BUILD=/tmp/yinghua-pages
+          rm -rf "$BUILD"
+          mkdir -p "$BUILD"
+
+          # 1) Copy root (zh-Hans / default locale) from C29
+          cp -r design/_exploration/C29_marketing-website/website/. "$BUILD/"
+
+          # 2) Add ja-JP subdirectory from C39
+          mkdir -p "$BUILD/ja-JP"
+          cp -r design/_exploration/C39_website-i18n/ja-JP/. "$BUILD/ja-JP/"
+
+          # 3) Optional _redirects and _headers from pre-bundled deploy/public
+          for f in _redirects _headers; do
+            if [ -f "design/_exploration/C29_marketing-website/deploy/public/$f" ]; then
+              cp "design/_exploration/C29_marketing-website/deploy/public/$f" "$BUILD/"
+            fi
+          done
+
+          # Verify bundle
+          echo "--- Bundle root ---"
+          ls -la "$BUILD"
+          echo
+          echo "--- Bundle ja-JP ---"
+          ls -la "$BUILD/ja-JP" || true
+          echo
+          echo "HTML count: $(find "$BUILD" -name '*.html' | wc -l | tr -d ' ')"
+          echo "Asset count (non-HTML): $(find "$BUILD" -type f -not -name '*.html' | wc -l | tr -d ' ')"
+          echo "Total size: $(du -sh "$BUILD" | cut -f1)"
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: yinghua-marketing
+          directory: /tmp/yinghua-pages
+          # Optional: split traffic between branches for preview
+          branch: ${{ github.event.inputs.environment == 'preview' && 'preview' || 'main' }}
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          ENVIRONMENT: ${{ github.event.inputs.environment || 'production' }}
