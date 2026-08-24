@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- zh-Hans (default, served at root) -->
+  <url>
+    <loc>https://yinghua.zzw4257.cn/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yinghua.zzw4257.cn/"/>
+    <xhtml:link rel="alternate" hreflang="ja-JP" href="https://yinghua.zzw4257.cn/ja-JP/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yinghua.zzw4257.cn/"/>
+  </url>
+  <url>
+    <loc>https://yinghua.zzw4257.cn/features.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yinghua.zzw4257.cn/features.html"/>
+    <xhtml:link rel="alternate" hreflang="ja-JP" href="https://yinghua.zzw4257.cn/ja-JP/features.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yinghua.zzw4257.cn/features.html"/>
+  </url>
+  <url>
+    <loc>https://yinghua.zzw4257.cn/pricing.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yinghua.zzw4257.cn/pricing.html"/>
+    <xhtml:link rel="alternate" hreflang="ja-JP" href="https://yinghua.zzw4257.cn/ja-JP/pricing.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yinghua.zzw4257.cn/pricing.html"/>
+  </url>
+  <url>
+    <loc>https://yinghua.zzw4257.cn/download.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yinghua.zzw4257.cn/download.html"/>
+    <xhtml:link rel="alternate" hreflang="ja-JP" href="https://yinghua.zzw4257.cn/ja-JP/download.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yinghua.zzw4257.cn/download.html"/>
+  </url>
+  <url>
+    <loc>https://yinghua.zzw4257.cn/privacy.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yinghua.zzw4257.cn/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="ja-JP" href="https://yinghua.zzw4257.cn/ja-JP/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yinghua.zzw4257.cn/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://yinghua.zzw4257.cn/terms.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yinghua.zzw4257.cn/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="ja-JP" href="https://yinghua.zzw4257.cn/ja-JP/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yinghua.zzw4257.cn/terms.html"/>
+  </url>
+  <url>
+    <loc>https://yinghua.zzw4257.cn/changelog.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yinghua.zzw4257.cn/changelog.html"/>
+    <xhtml:link rel="alternate" hreflang="ja-JP" href="https://yinghua.zzw4257.cn/ja-JP/changelog.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yinghua.zzw4257.cn/changelog.html"/>
+  </url>
+  <url>
+    <loc>https://yinghua.zzw4257.cn/roadmap.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yinghua.zzw4257.cn/roadmap.html"/>
+    <xhtml:link rel="alternate" hreflang="ja-JP" href="https://yinghua.zzw4257.cn/ja-JP/roadmap.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yinghua.zzw4257.cn/roadmap.html"/>
+  </url>
+  <url>
+    <loc>https://yinghua.zzw4257.cn/security.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yinghua.zzw4257.cn/security.html"/>
+    <xhtml:link rel="alternate" hreflang="ja-JP" href="https://yinghua.zzw4257.cn/ja-JP/security.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yinghua.zzw4257.cn/security.html"/>
+  </url>
+  <url>
+    <loc>https://yinghua.zzw4257.cn/compare.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yinghua.zzw4257.cn/compare.html"/>
+    <xhtml:link rel="alternate" hreflang="ja-JP" href="https://yinghua.zzw4257.cn/ja-JP/compare.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yinghua.zzw4257.cn/compare.html"/>
+  </url>
+
+  <!-- ja-JP -->
+  <url>
+    <loc>https://yinghua.zzw4257.cn/ja-JP/</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yinghua.zzw4257.cn/"/>
+    <xhtml:link rel="alternate" hreflang="ja-JP" href="https://yinghua.zzw4257.cn/ja-JP/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yinghua.zzw4257.cn/"/>
+  </url>
+  <url>
+    <loc>https://yinghua.zzw4257.cn/ja-JP/features.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yinghua.zzw4257.cn/features.html"/>
+    <xhtml:link rel="alternate" hreflang="ja-JP" href="https://yinghua.zzw4257.cn/ja-JP/features.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yinghua.zzw4257.cn/features.html"/>
+  </url>
+  <url>
+    <loc>https://yinghua.zzw4257.cn/ja-JP/pricing.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yinghua.zzw4257.cn/pricing.html"/>
+    <xhtml:link rel="alternate" hreflang="ja-JP" href="https://yinghua.zzw4257.cn/ja-JP/pricing.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yinghua.zzw4257.cn/pricing.html"/>
+  </url>
+  <url>
+    <loc>https://yinghua.zzw4257.cn/ja-JP/download.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yinghua.zzw4257.cn/download.html"/>
+    <xhtml:link rel="alternate" hreflang="ja-JP" href="https://yinghua.zzw4257.cn/ja-JP/download.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yinghua.zzw4257.cn/download.html"/>
+  </url>
+  <url>
+    <loc>https://yinghua.zzw4257.cn/ja-JP/privacy.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yinghua.zzw4257.cn/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="ja-JP" href="https://yinghua.zzw4257.cn/ja-JP/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yinghua.zzw4257.cn/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://yinghua.zzw4257.cn/ja-JP/terms.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yinghua.zzw4257.cn/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="ja-JP" href="https://yinghua.zzw4257.cn/ja-JP/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yinghua.zzw4257.cn/terms.html"/>
+  </url>
+  <url>
+    <loc>https://yinghua.zzw4257.cn/ja-JP/changelog.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yinghua.zzw4257.cn/changelog.html"/>
+    <xhtml:link rel="alternate" hreflang="ja-JP" href="https://yinghua.zzw4257.cn/ja-JP/changelog.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yinghua.zzw4257.cn/changelog.html"/>
+  </url>
+  <url>
+    <loc>https://yinghua.zzw4257.cn/ja-JP/roadmap.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yinghua.zzw4257.cn/roadmap.html"/>
+    <xhtml:link rel="alternate" hreflang="ja-JP" href="https://yinghua.zzw4257.cn/ja-JP/roadmap.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yinghua.zzw4257.cn/roadmap.html"/>
+  </url>
+  <url>
+    <loc>https://yinghua.zzw4257.cn/ja-JP/security.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yinghua.zzw4257.cn/security.html"/>
+    <xhtml:link rel="alternate" hreflang="ja-JP" href="https://yinghua.zzw4257.cn/ja-JP/security.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yinghua.zzw4257.cn/security.html"/>
+  </url>
+  <url>
+    <loc>https://yinghua.zzw4257.cn/ja-JP/compare.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yinghua.zzw4257.cn/compare.html"/>
+    <xhtml:link rel="alternate" hreflang="ja-JP" href="https://yinghua.zzw4257.cn/ja-JP/compare.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yinghua.zzw4257.cn/compare.html"/>
+  </url>
+  <url>
+    <loc>https://yinghua.zzw4257.cn/faq.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yinghua.zzw4257.cn/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ja-JP" href="https://yinghua.zzw4257.cn/ja-JP/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yinghua.zzw4257.cn/faq.html"/>
+  </url>
+  <url>
+    <loc>https://yinghua.zzw4257.cn/ja-JP/faq.html</loc>
+    <lastmod>2026-08-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://yinghua.zzw4257.cn/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="ja-JP" href="https://yinghua.zzw4257.cn/ja-JP/faq.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yinghua.zzw4257.cn/faq.html"/>
+  </url>
+</urlset>

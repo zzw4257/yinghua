@@ -12,17 +12,17 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="映话 — 为面试而生的 macOS 智能助手" />
   <meta property="og:description" content="macOS 26+ 原生 · 本地优先 · 高级 BYOK。下载映话，让每一次对话都被记住。" />
-  <meta property="og:image" content="../C29_marketing-website/website/assets/img/hero-typography.png" />
+  <meta property="og:image" content="../assets/img/hero-typography.png" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="../C29_marketing-website/website/favicon.png" />
-  <link rel="apple-touch-icon" href="../C29_marketing-website/website/assets/img/icon-02-gradient-128.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon.png" />
+  <link rel="apple-touch-icon" href="../assets/img/icon-02-gradient-128.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" />
 
-  <link rel="stylesheet" href="../C29_marketing-website/website/assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
 
   <script>
     // Early theme init to prevent flash
@@ -44,7 +44,7 @@
 <header class="nav" role="banner">
   <div class="container nav-inner">
     <a href="index.html" class="nav-brand" aria-label="映话 主页">
-      <img class="y-mark-3d" src="../C29_marketing-website/website/assets/img/icon-02-gradient-32.png" alt="" width="32" height="32" />
+      <img class="y-mark-3d" src="../assets/img/icon-02-gradient-32.png" alt="" width="32" height="32" />
       <span class="brand-name"><span class="brand-zh">映话</span> · Yinghua</span>
     </a>
 
@@ -129,7 +129,31 @@
     </div>
 
     <div class="hero-visual">
-      <img src="../C29_marketing-website/website/assets/img/hero-typography.png" alt="映话主视觉：暗色 macOS 桌面与 02 GRADIENT Y 标志" width="1600" height="900" />
+      <img src="../assets/img/hero-typography.png" alt="映话主视觉：暗色 macOS 桌面与 02 GRADIENT Y 标志" width="1600" height="900" />
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================================
+     3D Y icon showcase (C86 — moved out of hero to its own section)
+     ======================================================================== -->
+<section class="y-showcase" aria-label="映话 Y 标志交互演示">
+  <div class="container y-showcase-inner">
+    <header class="section-header">
+      <span class="eyebrow">Brand</span>
+      <h2>一个字母，一整套隐私承诺。</h2>
+      <p>映话的 Y 标志由 3 笔组成，每一笔代表一个原则：本地 · 透明 · 安静。鼠标拖动可旋转。</p>
+    </header>
+    <div class="y-showcase-stage">
+      <div class="y-icon-3d" id="y-icon-3d-stage">
+        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+          <rect width="1024" height="1024" rx="229" fill="#0A0A0F"/>
+          <path d="M 372 256 L 512 416 L 652 256 M 512 416 L 512 768"
+                stroke="#F4F1EC" stroke-width="58"
+                stroke-linecap="round" stroke-linejoin="round"
+                fill="none"/>
+        </svg>
+      </div>
     </div>
   </div>
 </section>
@@ -243,7 +267,7 @@
     <div class="screenshots-row">
       <div class="screenshot-card">
         <div class="screenshot-frame">
-          <img src="../C29_marketing-website/website/assets/img/screenshots/01-meeting.png" alt="映话主窗口：正在进行中的 4 人会议" width="800" height="500" />
+          <img src="../assets/img/screenshots/01-meeting.png" alt="映话主窗口：正在进行中的 4 人会议" width="800" height="500" />
         </div>
         <div class="screenshot-label">实时会议</div>
         <div class="screenshot-caption">REC · 时间码 · 声纹分人</div>
@@ -251,7 +275,7 @@
 
       <div class="screenshot-card">
         <div class="screenshot-frame">
-          <img src="../C29_marketing-website/website/assets/img/screenshots/02-transcript.png" alt="映话转录视图：说话人分离的实时文本" width="800" height="500" />
+          <img src="../assets/img/screenshots/02-transcript.png" alt="映话转录视图：说话人分离的实时文本" width="800" height="500" />
         </div>
         <div class="screenshot-label">说话人转录</div>
         <div class="screenshot-caption">按声纹分人 · 时间码定位</div>
@@ -259,7 +283,7 @@
 
       <div class="screenshot-card">
         <div class="screenshot-frame">
-          <img src="../C29_marketing-website/website/assets/img/screenshots/03-summary.png" alt="映话 AI 总结视图：关键时刻与待办" width="800" height="500" />
+          <img src="../assets/img/screenshots/03-summary.png" alt="映话 AI 总结视图：关键时刻与待办" width="800" height="500" />
         </div>
         <div class="screenshot-label">AI 总结</div>
         <div class="screenshot-caption">关键时刻 · 决定 · 待办 · 问题</div>
@@ -267,7 +291,7 @@
 
       <div class="screenshot-card">
         <div class="screenshot-frame">
-          <img src="../C29_marketing-website/website/assets/img/screenshots/04-onboarding.png" alt="映话首次启动引导：BYOK 与权限设置" width="800" height="500" />
+          <img src="../assets/img/screenshots/04-onboarding.png" alt="映话首次启动引导：BYOK 与权限设置" width="800" height="500" />
         </div>
         <div class="screenshot-label">首次启动</div>
         <div class="screenshot-caption">BYOK · 麦克风 · 屏幕录制权限</div>
@@ -275,7 +299,7 @@
 
       <div class="screenshot-card">
         <div class="screenshot-frame">
-          <img src="../C29_marketing-website/website/assets/img/screenshots/05-empty.png" alt="映话空状态：未开始录制时的等待视图" width="800" height="500" />
+          <img src="../assets/img/screenshots/05-empty.png" alt="映话空状态：未开始录制时的等待视图" width="800" height="500" />
         </div>
         <div class="screenshot-label">空状态</div>
         <div class="screenshot-caption">零干扰 · 一键开始</div>
@@ -332,15 +356,15 @@
 
       <div class="teams-visual">
         <div class="teams-card">
-          <img src="../C29_marketing-website/website/assets/img/screenshots/03-summary.png" alt="映话 AI 总结视图：团队共享的工作区" />
+          <img src="../assets/img/screenshots/03-summary.png" alt="映话 AI 总结视图：团队共享的工作区" />
           <div class="teams-card-label">共享工作区</div>
         </div>
         <div class="teams-card">
-          <img src="../C29_marketing-website/website/assets/img/screenshots/02-transcript.png" alt="映话转录视图：候选人评估实时同步" />
+          <img src="../assets/img/screenshots/02-transcript.png" alt="映话转录视图：候选人评估实时同步" />
           <div class="teams-card-label">候选人评估</div>
         </div>
         <div class="teams-card">
-          <img src="../C29_marketing-website/website/assets/img/screenshots/04-onboarding.png" alt="映话团队管理：SSO 与审计日志" />
+          <img src="../assets/img/screenshots/04-onboarding.png" alt="映话团队管理：SSO 与审计日志" />
           <div class="teams-card-label">团队管理</div>
         </div>
       </div>
@@ -448,7 +472,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="index.html" class="nav-brand" aria-label="映话 主页">
-          <img src="../C29_marketing-website/website/assets/img/icon-02-gradient-32.png" alt="" width="32" height="32" />
+          <img src="../assets/img/icon-02-gradient-32.png" alt="" width="32" height="32" />
           <span class="brand-zh">映话 · Yinghua</span>
         </a>
         <p>为面试而生的 macOS 智能助手。本地优先、克制、可靠。</p>
@@ -504,6 +528,8 @@
   </div>
 </footer>
 
-<script src="../C29_marketing-website/website/assets/js/main.js"></script>
+<script src="../assets/js/3d-y-icon.js"></script>
+<script src="../assets/js/recording-demo.js"></script>
+<script src="../assets/js/main.js"></script>
 </body>
 </html>

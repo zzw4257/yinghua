@@ -12,3 +12,20 @@
 /zh-Hans/terms /zh-Hans/terms.html 200
 /ja-JP/privacy /ja-JP/privacy.html 200
 /ja-JP/terms /ja-JP/terms.html 200
+
+# 5 新增页面（root + zh-Hans + ja-JP）— C78
+/changelog /changelog.html 200
+/security /security.html 200
+/roadmap /roadmap.html 200
+/compare /compare.html 200
+/faq /faq.html 200
+/zh-Hans/changelog /zh-Hans/changelog.html 200
+/zh-Hans/security /zh-Hans/security.html 200
+/zh-Hans/roadmap /zh-Hans/roadmap.html 200
+/zh-Hans/compare /zh-Hans/compare.html 200
+/zh-Hans/faq /zh-Hans/faq.html 200
+/ja-JP/changelog /ja-JP/changelog.html 200
+/ja-JP/security /ja-JP/security.html 200
+/ja-JP/roadmap /ja-JP/roadmap.html 200
+/ja-JP/compare /ja-JP/compare.html 200
+/ja-JP/faq /ja-JP/faq.html 200

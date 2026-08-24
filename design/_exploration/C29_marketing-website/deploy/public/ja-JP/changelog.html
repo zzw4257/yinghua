@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ja-JP" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0A0A0F" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#F4F1EC" media="(prefers-color-scheme: light)" />
+
+  <title>更新履歴 v0.1.0 — 映話 · Yinghua</title>
+
+  <link rel="canonical" href="https://yinghua.zzw4257.cn/ja-JP/changelog.html" />
+  <link rel="alternate" hreflang="ja-JP" href="https://yinghua.zzw4257.cn/ja-JP/changelog.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://yinghua.zzw4257.cn/changelog.html" />
+  <link rel="alternate" hreflang="en" href="https://yinghua.zzw4257.cn/changelog.html" />
+
+  <meta property="og:image" content="../assets/img/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="zh_Hans" />
+  <meta property="og:locale:alternate" content="ja_JP" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta name="twitter:image" content="../assets/img/og-image.png" />
+
+
+
+
+
+
+  <meta name="description" content="映話 v0.1.0 公開ベータ版リリースノート。システムレベルの録音、リアルタイム文字起こし、AI 要約、高度な BYOK、Chrome 拡張。14 項目の独立監査に通過。" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon.png" />
+  <link rel="apple-touch-icon" href="../assets/img/icon-02-gradient-128.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;600&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" />
+
+  <style>:root{--color-brand-purple-vivid:#B57BFF;--color-brand-purple-mid:#8A5BFF;--color-recording-red:#FF3B30;--color-near-black:#0A0A0F;--color-graphite:#1B1D22;--color-warm-white:#F4F1EC;--color-warm-white-80:rgba(244,241,236,0.8);--color-warm-white-60:rgba(244,241,236,0.6);--color-warm-white-40:rgba(244,241,236,0.4);--color-hairline:rgba(244,241,236,0.08);--color-hairline-strong:rgba(244,241,236,0.14);--bg-base:var(--color-near-black);--bg-card:rgba(27,29,34,0.6);--bg-glass:rgba(27,29,34,0.55);--text-primary:var(--color-warm-white);--text-secondary:var(--color-warm-white-80);--text-tertiary:var(--color-warm-white-60);--text-quaternary:var(--color-warm-white-40);--border-hairline:var(--color-hairline);--border-hairline-strong:var(--color-hairline-strong);--space-sm:8px;--space-md:12px;--space-lg:16px;--space-xl:20px;--space-2xl:24px;--space-3xl:32px;--space-6xl:64px;--space-7xl:96px;--space-8xl:128px;--radius-button:12px;--radius-circle:50%;--font-display:'Inter Display','SF Pro Display',system-ui,-apple-system,'Noto Serif SC',serif;--font-text:'Inter','SF Pro Text',system-ui,-apple-system,'Noto Sans SC',sans-serif;--font-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,monospace;--font-serif-zh:'Noto Serif SC','Songti SC',serif;--ease-standard:cubic-bezier(0.4,0,0.2,1);--ease-spring:cubic-bezier(0.34,1.56,0.64,1);--ease-in:cubic-bezier(0.4,0,1,1);--z-nav:100;--container-max:1200px;--container-padding:24px}[data-theme="light"]{--bg-base:#F4F1EC;--bg-card:rgba(255,255,255,0.7);--bg-glass:rgba(255,255,255,0.6);--text-primary:#1B1D22;--text-secondary:rgba(27,29,34,0.8);--text-tertiary:rgba(27,29,34,0.6);--text-quaternary:rgba(27,29,34,0.4);--border-hairline:rgba(27,29,34,0.10);--border-hairline-strong:rgba(27,29,34,0.18)}*,*::before,*::after{box-sizing:border-box}html{-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;scroll-behavior:smooth;scroll-padding-top:80px}body{margin:0;font-family:var(--font-text);font-size:15px;line-height:1.55;color:var(--text-primary);background:var(--bg-base);min-height:100vh;font-feature-settings:'cv11','ss01','ss03'}a{color:inherit;text-decoration:none;transition:color 120ms var(--ease-standard)}a:hover{color:var(--color-brand-purple-vivid)}button{font-family:inherit;font-size:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}img{display:block;max-width:100%;height:auto}.container{max-width:var(--container-max);margin:0 auto;padding:0 var(--container-padding)}.nav{position:fixed;top:0;left:0;right:0;z-index:var(--z-nav);background:var(--bg-glass);-webkit-backdrop-filter:blur(40px) saturate(180%);backdrop-filter:blur(40px) saturate(180%);border-bottom:1px solid var(--border-hairline)}.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;gap:var(--space-2xl);max-width:var(--container-max);margin:0 auto;padding:0 var(--container-padding)}.nav-brand{display:flex;align-items:center;gap:var(--space-md);font-family:var(--font-display);font-weight:600;font-size:17px;color:var(--text-primary)}.nav-brand img{width:32px;height:32px;border-radius:7.17px}.nav-brand .brand-zh{font-family:var(--font-serif-zh);font-weight:600}.nav-links{display:flex;align-items:center;gap:var(--space-2xl)}.nav-links a{color:var(--text-secondary);font-size:14px;font-weight:500;transition:color 120ms}.nav-links a:hover{color:var(--text-primary)}.nav-actions{display:flex;align-items:center;gap:var(--space-md)}.theme-toggle{display:none}.nav-mobile-toggle{display:none}.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--space-sm);height:44px;padding:0 var(--space-xl);border-radius:var(--radius-button);font-family:var(--font-text);font-size:15px;font-weight:500;letter-spacing:-0.01em;cursor:pointer;transition:transform 120ms var(--ease-spring),box-shadow 120ms var(--ease-standard),background 120ms var(--ease-standard),color 120ms var(--ease-standard);user-select:none;white-space:nowrap}.btn:active{transform:scale(0.98)}.btn-primary{background:linear-gradient(135deg,#B57BFF 0%,#2DD4BF 100%);color:#0A0A0F;font-weight:600;box-shadow:0 4px 16px rgba(181,123,255,0.25)}.btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(181,123,255,0.35)}.btn-secondary{background:var(--bg-card);color:var(--text-primary);border:1px solid var(--border-hairline-strong)}.btn-lg{height:52px;padding:0 32px;font-size:16px}.btn-sm{height:36px;padding:0 var(--space-lg);font-size:14px}.btn .icon-arrow{width:14px;height:14px;margin-left:2px}.hero{position:relative;padding:calc(var(--space-8xl)+64px) 0 var(--space-7xl);overflow:hidden;isolation:isolate}.hero-bg{position:absolute;inset:0;z-index:-2;background:radial-gradient(ellipse 80% 50% at 30% 0%,rgba(181,123,255,0.20),transparent 70%),radial-gradient(ellipse 70% 50% at 70% 30%,rgba(45,212,191,0.18),transparent 70%),var(--bg-base)}[data-theme="light"] .hero-bg,[data-theme="auto"] .hero-bg{background:radial-gradient(ellipse 80% 50% at 30% 0%,rgba(181,123,255,0.12),transparent 70%),radial-gradient(ellipse 70% 50% at 70% 30%,rgba(45,212,191,0.10),transparent 70%),var(--bg-base)}.hero-noise{position:absolute;inset:0;z-index:-1;opacity:0.4;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.95 0 0 0 0 0.95 0 0 0 0 0.95 0 0 0 0.03 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");mix-blend-mode:overlay}.hero-inner{display:grid;grid-template-columns:1.05fr 0.95fr;gap:var(--space-6xl);align-items:center;position:relative}.hero-content{max-width:560px}.hero-badge{display:inline-flex;align-items:center;gap:var(--space-sm);height:32px;padding:0 var(--space-md);border-radius:var(--radius-circle);background:var(--bg-card);border:1px solid var(--border-hairline);-webkit-backdrop-filter:blur(20px);backdrop-filter:blur(20px);font-size:13px;font-weight:500;color:var(--text-secondary);margin-bottom:var(--space-2xl)}.hero-badge .pulse{width:6px;height:6px;border-radius:var(--radius-circle);background:var(--color-recording-red);animation:pulse 1400ms var(--ease-standard) infinite}@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.3);opacity:0.6}}.hero h1{font-size:clamp(44px,7vw,80px);font-weight:700;letter-spacing:-0.04em;margin:0 0 var(--space-xl);line-height:1.02;font-family:var(--font-display)}.hero h1 .brand-zh{font-family:var(--font-serif-zh);font-weight:600;letter-spacing:-0.06em}.hero h1 .brand-en{display:block;font-size:0.42em;font-weight:500;color:var(--text-tertiary);letter-spacing:0.04em;margin-top:var(--space-md);font-family:var(--font-mono);text-transform:uppercase}.hero-tagline{font-family:var(--font-serif-zh);font-size:clamp(20px,2.2vw,26px);font-weight:400;color:var(--text-secondary);line-height:1.45;margin:0 0 var(--space-3xl)}.hero-cta-row{display:flex;align-items:center;gap:var(--space-lg);flex-wrap:wrap;margin-bottom:var(--space-lg)}.hero-microcopy{font-size:13px;color:var(--text-tertiary);display:flex;align-items:center;gap:var(--space-sm);font-family:var(--font-mono);letter-spacing:0.02em}.hero-microcopy span:not(:last-child)::after{content:'·';margin-left:var(--space-sm);color:var(--text-quaternary)}.hero-visual img{width:100%;height:auto;border-radius:var(--radius-lg,12px)}@media (max-width:768px){.nav-links{display:none}.theme-toggle{display:inline-flex}.nav-mobile-toggle{display:inline-flex}.hero-inner{grid-template-columns:1fr;gap:var(--space-3xl)}.hero{padding:calc(var(--space-7xl)+64px) 0 var(--space-5xl)}}.y-showcase{padding:96px 0;background:var(--bg-base);position:relative;overflow:hidden}.y-showcase-inner{position:relative;z-index:1;display:grid;gap:32px;text-align:center}.y-showcase-stage{display:flex;align-items:center;justify-content:center;width:100%;height:480px;perspective:1200px}.y-icon-3d{width:240px;height:240px;flex-shrink:0;cursor:grab;filter:drop-shadow(0 30px 60px rgba(181,123,255,0.35));transform-style:preserve-3d}.y-icon-3d svg{width:100%;height:100%;display:block;transform-style:preserve-3d}</style>
+  <link rel="preload" href="../assets/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="../assets/css/main.css" /></noscript>
+
+  <style>
+    html[lang="ja-JP"] {
+      --font-display: 'Noto Serif JP', 'Inter Display', 'SF Pro Display', 'Hiragino Mincho ProN', system-ui, serif;
+      --font-text: 'Noto Sans JP', 'Inter', 'SF Pro Text', 'Hiragino Kaku Gothic ProN', system-ui, -apple-system, sans-serif;
+      --font-serif-zh: 'Noto Serif JP', 'Yu Mincho', 'Hiragino Mincho ProN', serif;
+      --font-sans-zh: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+    }
+  </style>
+
+  <script>
+    (function () {
+      try { var t = localStorage.getItem('yinghua-theme') || 'dark'; document.documentElement.setAttribute('data-theme', t); }
+      catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "映话 Yinghua",
+    "alternateName": "Yìnghuà",
+    "applicationCategory": "ProductivityApplication",
+    "operatingSystem": "macOS 26+",
+    "description": "映话是 macOS 26+ 原生、本地优先的会议 / 面试智能助手。系统级录音、实时转录、AI 总结、自带 BYOK 高级隐私。",
+    "url": "https://yinghua.zzw4257.cn/",
+    "downloadUrl": "https://yinghua.zzw4257.cn/download.html",
+    "softwareVersion": "0.1.0",
+    "datePublished": "2026-08-23",
+    "author": {
+      "@type": "Organization",
+      "name": "Yinghua Inc."
+    },
+    "offers": [
+      { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "Pro", "price": "19", "priceCurrency": "USD", "priceSpecification": {"billingIncrement": 1, "unitCode": "MON"} },
+      { "@type": "Offer", "name": "Team", "price": "49", "priceCurrency": "USD", "priceSpecification": {"billingIncrement": 1, "unitCode": "MON"} }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "120"
+    }
+  }
+  </script>
+            </head>
+<body>
+
+  <a href="#main" class="skip-link">メインコンテンツへスキップ</a>
+
+<header class="nav" role="banner" aria-label="映话导航">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-brand" aria-label="映話 ホーム">
+      <img src="../assets/img/icon-02-gradient-32.png" alt="" width="32" height="32" />
+      <span class="brand-name"><span class="brand-zh">映話</span> · Yinghua</span>
+    </a>
+    <nav class="nav-links" aria-label="メインナビゲーション">
+      <a href="index.html#features">機能</a>
+      <a href="index.html#preview">プレビュー</a>
+      <a href="index.html#teams">チーム</a>
+      <a href="index.html#pricing">料金</a>
+      <a href="features.html">すべての機能</a>
+      <a href="download.html">ダウンロード</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle" data-theme-toggle aria-pressed="false" aria-label="テーマを切り替える" title="テーマを切り替える">
+        <svg class="icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+      <a href="download.html" class="btn btn-primary btn-sm">無料ダウンロード</a>
+      <button class="nav-mobile-toggle" data-mobile-toggle aria-label="メニューを開く" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="nav-mobile-menu" aria-label="モバイルナビゲーション">
+    <a href="index.html#features">機能</a>
+    <a href="index.html#preview">プレビュー</a>
+    <a href="index.html#teams">チーム</a>
+    <a href="index.html#pricing">料金</a>
+    <a href="features.html">すべての機能</a>
+    <a href="download.html">ダウンロード</a>
+  </nav>
+</header>
+
+<main id="main" role="main" aria-label="主要内容">
+
+<section class="page-hero" aria-labelledby="page-title">
+  <div class="container">
+    <span class="eyebrow">v0.1.0 · 2026-08-23</span>
+    <h1 id="page-title">映話 v0.1.0 · 公開ベータ。</h1>
+    <p>2026 年 8 月 23 日リリース · 100 名以上の早期ユーザー · 14 項目の独立監査に通過。</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top: var(--space-4xl);">
+  <div class="container-narrow">
+
+    <!-- 新機能 -->
+    <article class="changelog-section">
+      <header class="changelog-section-header">
+        <span class="changelog-tag tag-shipping">リリース</span>
+        <h2>新機能</h2>
+      </header>
+
+      <ul class="changelog-list">
+        <li>
+          <span class="changelog-bullet bullet-plus" aria-hidden="true">+</span>
+          <div>
+            <strong>システムレベルの録音</strong>。macOS 26 の ScreenCaptureKit でシステム音声をキャプチャし、AVAudioEngine でマイク入力を取り込みます。サンプリングレート 48 kHz / 16-bit、ドライバ不要、依存ゼロ。
+          </div>
+        </li>
+        <li>
+          <span class="changelog-bullet bullet-plus" aria-hidden="true">+</span>
+          <div>
+            <strong>リアルタイム文字起こし</strong>。macOS 26 SpeechAnalyzer エンジンを内蔵、言語は自動検出、中国語・英語・日本語の 3 言語をデフォルトで有効化、文節遅延 200 ms 未満。
+          </div>
+        </li>
+        <li>
+          <span class="changelog-bullet bullet-plus" aria-hidden="true">+</span>
+          <div>
+            <strong>AI 要約 · 4 段構成</strong>。重要な瞬間、決定事項、ToDo、未解決の課題。会議終了直後に Markdown と JSON の両形式で生成。
+          </div>
+        </li>
+        <li>
+          <span class="changelog-bullet bullet-plus" aria-hidden="true">+</span>
+          <div>
+            <strong>高度な BYOK</strong>。Anthropic Claude Sonnet / OpenAI GPT-4o / ローカル Ollama（Qwen 2.5 / Llama 3.1）に対応、Key は macOS Keychain に保存され、本機を離れません。
+          </div>
+        </li>
+        <li>
+          <span class="changelog-bullet bullet-plus" aria-hidden="true">+</span>
+          <div>
+            <strong>Chrome 拡張</strong>。Google Meet、Zoom Web、Microsoft Teams の Web 版を自動認識して文字起こし。拡張機能自体には一切データを保存しません。
+          </div>
+        </li>
+        <li>
+          <span class="changelog-bullet bullet-plus" aria-hidden="true">+</span>
+          <div>
+            <strong>14 項目の独立監査</strong>。ローカル文字起こし、暗号化モジュール、BYOK 呼び出しチェーン、macOS 権限境界、HTTPS 強制、クラッシュレポートのデフォルト無効化など、監査可能な 14 項目すべてが PASS。
+          </div>
+        </li>
+        <li>
+          <span class="changelog-bullet bullet-plus" aria-hidden="true">+</span>
+          <div>
+            <strong>話者分離</strong>。声紋特徴に基づくローカル分離モデル、1 会議あたり最大 8 名対応、ラベルは手動で修正可能。
+          </div>
+        </li>
+      </ul>
+    </article>
+
+    <!-- 修正 -->
+    <article class="changelog-section">
+      <header class="changelog-section-header">
+        <span class="changelog-tag tag-fixed">修正</span>
+        <h2>主要な修正</h2>
+      </header>
+
+      <ul class="changelog-list">
+        <li>
+          <span class="changelog-bullet bullet-fix" aria-hidden="true">×</span>
+          <div>
+            <strong>BYOK 失敗時にモック要約へフォールバックしていた問題</strong>。初期テスト版ではネットワークが不安定な際、モック内容を本物の要約として返していました。現在は BYOK 失敗時に「AI 要約は一時的に利用できません」と明示し、いかなる架空の内容も返しません。
+          </div>
+        </li>
+        <li>
+          <span class="changelog-bullet bullet-fix" aria-hidden="true">×</span>
+          <div>
+            <strong>録音停止後 30 秒以内に Keychain がロックされると文字起こしが失われる問題</strong>。文字起こしワーカープロセスを launchd 配下に移し、ユーザーログインセッションに依存しない構成に変更。
+          </div>
+        </li>
+        <li>
+          <span class="changelog-bullet bullet-fix" aria-hidden="true">×</span>
+          <div>
+            <strong>中国語長会議（2 時間超）で声紋ドリフトが発生</strong>。声紋モデルに 90 秒スライディングウィンドウによる再アンカーを導入し、8 名会議のドリフト率を 12% から 1.4% に低減。
+          </div>
+        </li>
+        <li>
+          <span class="changelog-bullet bullet-fix" aria-hidden="true">×</span>
+          <div>
+            <strong>SRT 書き出しタイムコードの ±500 ms オフセット</strong>。VAD セグメント末尾の無音が文境界と一致していなかったのが原因。句読点での区切りに変更しました。
+          </div>
+        </li>
+      </ul>
+    </article>
+
+    <!-- 既知の問題 -->
+    <article class="changelog-section">
+      <header class="changelog-section-header">
+        <span class="changelog-tag tag-known">既知</span>
+        <h2>既知の問題</h2>
+      </header>
+
+      <div class="known-issues">
+        <ul>
+          <li><strong>カレンダーイベントが現地長形式ではなく曜日名（"Mon" / "火"）を表示</strong>。zh_CN / en_US へ切り替えても更新されません。v0.1.1 で修正予定。</li>
+          <li><strong>メニューバー app 名が「映話」ではなく「yinghua」と表示される</strong>。Bundle ID のリネームはコード署名に関わるため、v0.1.1 で同期更新。</li>
+          <li><strong>Stage Manager 起動時に Dock アイコンの並びが時折圧縮される</strong>。見た目のレイアウトのみで機能には影響なし。</li>
+          <li><strong>Chrome 拡張が Manifest V3 厳格モード下でシステム音声を取得できないことがある</strong>。Web 側で先にマイク権限を許可する必要があります。v0.1.2 で対応予定。</li>
+          <li><strong>ローカル Ollama モデル（Qwen 2.5 7B）で M1 要約に約 18 秒</strong>。より小さい 3B モデルか外付け GPU の使用を推奨します。</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- 次バージョン -->
+    <article class="changelog-section">
+      <header class="changelog-section-header">
+        <span class="changelog-tag tag-planned">次回</span>
+        <h2>v0.2.0 予告 · 2026 Q4</h2>
+      </header>
+
+      <ul class="changelog-list">
+        <li>
+          <span class="changelog-bullet bullet-arrow" aria-hidden="true">→</span>
+          <div>
+            <strong>ライトモード</strong>。既存の dark / auto に light を追加し、すべてのガラス面とハイライト色を最適化。
+          </div>
+        </li>
+        <li>
+          <span class="changelog-bullet bullet-arrow" aria-hidden="true">→</span>
+          <div>
+            <strong>iOS 完全版</strong>。iOS 26+ ネイティブ SwiftUI で書き直し、macOS と iCloud E2EE 経由でローカルデータベースを共有。
+          </div>
+        </li>
+        <li>
+          <span class="changelog-bullet bullet-arrow" aria-hidden="true">→</span>
+          <div>
+            <strong>チーム协作</strong>。共有ワークスペース、SSO、監査ログ、候補者評価テンプレートライブラリ（詳細は <a href="pricing.html">料金</a> 参照）。
+          </div>
+        </li>
+        <li>
+          <span class="changelog-bullet bullet-arrow" aria-hidden="true">→</span>
+          <div>
+            <strong>Apple Watch</strong>。会議中、手首に話者・残り時間・ワンタップミュートを表示。
+          </div>
+        </li>
+      </ul>
+    </article>
+
+    <!-- 購読 -->
+    <article class="changelog-subscribe">
+      <h2>更新を購読</h2>
+      <p>新バージョン公開のたびに、変更点のサマリーをメールまたは RSS リーダーにお届けします。マーケティングコンテンツは一切送りません。</p>
+      <div class="changelog-subscribe-cta">
+        <a href="/changelog.rss" class="btn btn-secondary">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg>
+          RSS を購読
+        </a>
+        <a href="mailto:changelog@yinghua.zzw4257.cn?subject=映話更新履歴の購読" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><polyline points="3 7 12 13 21 7"></polyline></svg>
+          メールで購読
+        </a>
+      </div>
+    </article>
+
+    <hr style="border: 0; border-top: 1px solid var(--border-hairline); margin: var(--space-5xl) 0;" />
+    <p style="font-size: 14px; color: var(--text-tertiary);">
+      フィードバック：<a href="mailto:support@yinghua.zzw4257.cn">support@yinghua.zzw4257.cn</a> · セキュリティ脆弱性の報告：<a href="mailto:security@yinghua.zzw4257.cn">security@yinghua.zzw4257.cn</a>
+    </p>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="footer" role="contentinfo" aria-label="页脚">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-brand" aria-label="映話 ホーム">
+          <img src="../assets/img/icon-02-gradient-32.png" alt="" width="32" height="32" />
+          <span class="brand-zh">映話 · Yinghua</span>
+        </a>
+        <p>面接のための macOS スマートアシスタント。ローカル優先、抑制、信頼性。</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="features.html">すべての機能</a></li>
+          <li><a href="pricing.html">料金</a></li>
+          <li><a href="download.html">ダウンロード</a></li>
+          <li><a href="changelog.html">更新履歴</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="security.html">セキュリティ</a></li>
+          <li><a href="faq.html">よくある質問</a></li>
+          <li><a href="compare.html">競合との比較</a></li>
+          <li><a href="mailto:support@yinghua.zzw4257.cn">サポート</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="roadmap.html">ロードマップ</a></li>
+          <li><a href="mailto:hello@yinghua.zzw4257.cn">お問い合わせ</a></li>
+          <li><a href="privacy.html">プライバシーポリシー</a></li>
+          <li><a href="terms.html">利用規約</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© <span data-current-year>2026</span> 映話 · Yinghua. All rights reserved.</div>
+      <div class="footer-socials" aria-label="ソーシャル">
+        <a href="https://twitter.com/yinghua_app" aria-label="Twitter / X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
+        <a href="https://github.com/yinghua-app" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"></path></svg></a>
+        <a href="mailto:hello@yinghua.zzw4257.cn" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><polyline points="3 7 12 13 21 7"></polyline></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .changelog-section { margin-bottom: var(--space-6xl); }
+  .changelog-section-header { margin-bottom: var(--space-3xl); display: flex; align-items: center; gap: var(--space-md); flex-wrap: wrap; }
+  .changelog-section-header h2 { font-size: 28px; letter-spacing: -0.02em; color: var(--text-primary); }
+  .changelog-tag { display: inline-block; font-family: var(--font-mono); font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border-hairline-strong); }
+  .tag-shipping { color: #34C759; border-color: rgba(52, 199, 89, 0.3); background: rgba(52, 199, 89, 0.08); }
+  .tag-fixed { color: #2DD4BF; border-color: rgba(45, 212, 191, 0.3); background: rgba(45, 212, 191, 0.08); }
+  .tag-known { color: #FF9F0A; border-color: rgba(255, 159, 10, 0.3); background: rgba(255, 159, 10, 0.08); }
+  .tag-planned { color: #B57BFF; border-color: rgba(181, 123, 255, 0.3); background: rgba(181, 123, 255, 0.08); }
+
+  .changelog-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: var(--space-lg); }
+  .changelog-list li { display: grid; grid-template-columns: 28px 1fr; gap: var(--space-md); font-size: 15px; line-height: 1.7; color: var(--text-secondary); }
+  .changelog-bullet { width: 22px; height: 22px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 13px; font-weight: 600; flex-shrink: 0; margin-top: 2px; }
+  .bullet-plus { color: #34C759; background: rgba(52, 199, 89, 0.12); }
+  .bullet-fix { color: #2DD4BF; background: rgba(45, 212, 191, 0.12); }
+  .bullet-arrow { color: #B57BFF; background: rgba(181, 123, 255, 0.12); }
+
+  .changelog-subscribe { margin-top: var(--space-6xl); padding: var(--space-4xl); background: var(--bg-card); border: 1px solid var(--border-hairline); border-radius: var(--radius-2xl); text-align: center; }
+  .changelog-subscribe h2 { font-size: 24px; margin-bottom: var(--space-md); color: var(--text-primary); }
+  .changelog-subscribe p { color: var(--text-secondary); margin-bottom: var(--space-2xl); font-size: 15px; }
+  .changelog-subscribe-cta { display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap; }
+  .changelog-subscribe-cta .btn svg { vertical-align: -2px; margin-right: 6px; }
+</style>
+
+<script src="../assets/js/main.js" defer></script>
+</body>
+</html>

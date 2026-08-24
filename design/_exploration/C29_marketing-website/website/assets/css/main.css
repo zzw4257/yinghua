@@ -1745,26 +1745,48 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
    - Recording app window mock
    ------------------------------------------------------------------------- */
 
-/* Y icon 3D */
+/* Y icon 3D — C86: moved out of hero to its own .y-showcase section */
+.y-showcase {
+  padding: var(--space-8xl) 0;
+  background: var(--bg-base);
+  position: relative;
+  overflow: hidden;
+}
+.y-showcase-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: var(--space-3xl);
+  text-align: center;
+}
+.y-showcase-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 320px;
+  /* C87 fix: removed perspective — caused SVG to render at viewBox 1024×1024
+     inside the 240×240 stage when 3D transform stack was active. */
+}
 .y-icon-3d {
   width: 240px;
   height: 240px;
-  margin: 60px auto 0;
-  perspective: 1200px;
+  max-width: 240px;
+  max-height: 240px;
+  flex-shrink: 0;
   cursor: grab;
-  filter: drop-shadow(0 30px 60px rgba(181, 123, 255, 0.3));
+  filter: drop-shadow(0 30px 60px rgba(181, 123, 255, 0.35));
+  transform-style: flat;
+  /* C87 fix: removed preserve-3d / will-change / perspective
+     to stop the SVG from blowing out of the stage. */
 }
 .y-icon-3d:active { cursor: grabbing; }
 .y-icon-3d svg {
   width: 100%;
   height: 100%;
   display: block;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  transform-style: preserve-3d;
-  will-change: transform;
-}
-.y-icon-3d svg path {
-  transform-origin: center;
+  transform-style: flat;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Recording demo window */

@@ -12,17 +12,17 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="映話 — 面接のための macOS スマートアシスタント" />
   <meta property="og:description" content="macOS 26+ ネイティブ · ローカル優先 · 上級 BYOK。映話をダウンロードして、すべての会話を記憶に残しましょう。" />
-  <meta property="og:image" content="../C29_marketing-website/website/assets/img/hero-typography.png" />
+  <meta property="og:image" content="../assets/img/hero-typography.png" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="../C29_marketing-website/website/favicon.png" />
-  <link rel="apple-touch-icon" href="../C29_marketing-website/website/assets/img/icon-02-gradient-128.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon.png" />
+  <link rel="apple-touch-icon" href="../assets/img/icon-02-gradient-128.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+JP:wght@400;500;600&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" />
 
-  <link rel="stylesheet" href="../C29_marketing-website/website/assets/css/main.css" />
+  <link rel="stylesheet" href="../assets/css/main.css" />
 
   <style>
     /* ja-JP: prefer Noto Serif/Sans JP over the SC defaults in shared CSS */
@@ -54,7 +54,7 @@
 <header class="nav" role="banner">
   <div class="container nav-inner">
     <a href="index.html" class="nav-brand" aria-label="映話 ホーム">
-      <img class="y-mark-3d" src="../C29_marketing-website/website/assets/img/icon-02-gradient-32.png" alt="" width="32" height="32" />
+      <img class="y-mark-3d" src="../assets/img/icon-02-gradient-32.png" alt="" width="32" height="32" />
       <span class="brand-name"><span class="brand-zh">映話</span> · Yinghua</span>
     </a>
 
@@ -139,7 +139,31 @@
     </div>
 
     <div class="hero-visual">
-      <img src="../C29_marketing-website/website/assets/img/hero-typography.png" alt="映話のメインビジュアル：ダークな macOS デスクトップと 02 GRADIENT Y ロゴ" width="1600" height="900" />
+      <img src="../assets/img/hero-typography.png" alt="映話のメインビジュアル：ダークな macOS デスクトップと 02 GRADIENT Y ロゴ" width="1600" height="900" />
+    </div>
+  </div>
+</section>
+
+<!-- ========================================================================
+     3D Y icon showcase (C86 — moved out of hero to its own section)
+     ======================================================================== -->
+<section class="y-showcase" aria-label="映話 Y ロゴ インタラクティブデモ">
+  <div class="container y-showcase-inner">
+    <header class="section-header">
+      <span class="eyebrow">Brand</span>
+      <h2>ひとつの文字が、<br class="hide-mobile" />プライバシーへの約束を語る。</h2>
+      <p>映話の Y ロゴは 3 画で構成され、各画が原則を表します：ローカル · 透明 · 静寂。マウスでドラッグして回転できます。</p>
+    </header>
+    <div class="y-showcase-stage">
+      <div class="y-icon-3d" id="y-icon-3d-stage">
+        <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+          <rect width="1024" height="1024" rx="229" fill="#0A0A0F"/>
+          <path d="M 372 256 L 512 416 L 652 256 M 512 416 L 512 768"
+                stroke="#F4F1EC" stroke-width="58"
+                stroke-linecap="round" stroke-linejoin="round"
+                fill="none"/>
+        </svg>
+      </div>
     </div>
   </div>
 </section>
@@ -253,7 +277,7 @@
     <div class="screenshots-row">
       <div class="screenshot-card">
         <div class="screenshot-frame">
-          <img src="../C29_marketing-website/website/assets/img/screenshots/01-meeting.png" alt="映話のメインウィンドウ：進行中の 4 人会議" width="800" height="500" />
+          <img src="../assets/img/screenshots/01-meeting.png" alt="映話のメインウィンドウ：進行中の 4 人会議" width="800" height="500" />
         </div>
         <div class="screenshot-label">リアルタイム会議</div>
         <div class="screenshot-caption">REC · タイムコード · 話者分離</div>
@@ -261,7 +285,7 @@
 
       <div class="screenshot-card">
         <div class="screenshot-frame">
-          <img src="../C29_marketing-website/website/assets/img/screenshots/02-transcript.png" alt="映話の文字起こしビュー：話者分離されたリアルタイムテキスト" width="800" height="500" />
+          <img src="../assets/img/screenshots/02-transcript.png" alt="映話の文字起こしビュー：話者分離されたリアルタイムテキスト" width="800" height="500" />
         </div>
         <div class="screenshot-label">話者文字起こし</div>
         <div class="screenshot-caption">話者ごとに分離 · タイムコードで位置指定</div>
@@ -269,7 +293,7 @@
 
       <div class="screenshot-card">
         <div class="screenshot-frame">
-          <img src="../C29_marketing-website/website/assets/img/screenshots/03-summary.png" alt="映話の AI 要約ビュー：重要な瞬間と ToDo" width="800" height="500" />
+          <img src="../assets/img/screenshots/03-summary.png" alt="映話の AI 要約ビュー：重要な瞬間と ToDo" width="800" height="500" />
         </div>
         <div class="screenshot-label">AI 要約</div>
         <div class="screenshot-caption">重要な瞬間 · 決定 · ToDo · 課題</div>
@@ -277,7 +301,7 @@
 
       <div class="screenshot-card">
         <div class="screenshot-frame">
-          <img src="../C29_marketing-website/website/assets/img/screenshots/04-onboarding.png" alt="映話の初回起動オンボーディング：BYOK と権限設定" width="800" height="500" />
+          <img src="../assets/img/screenshots/04-onboarding.png" alt="映話の初回起動オンボーディング：BYOK と権限設定" width="800" height="500" />
         </div>
         <div class="screenshot-label">初回起動</div>
         <div class="screenshot-caption">BYOK · マイク · 画面収録の権限</div>
@@ -285,7 +309,7 @@
 
       <div class="screenshot-card">
         <div class="screenshot-frame">
-          <img src="../C29_marketing-website/website/assets/img/screenshots/05-empty.png" alt="映話の空状態：未録音時の待機ビュー" width="800" height="500" />
+          <img src="../assets/img/screenshots/05-empty.png" alt="映話の空状態：未録音時の待機ビュー" width="800" height="500" />
         </div>
         <div class="screenshot-label">空状態</div>
         <div class="screenshot-caption">ゼロ干渉 · ワンクリックで開始</div>
@@ -342,15 +366,15 @@
 
       <div class="teams-visual">
         <div class="teams-card">
-          <img src="../C29_marketing-website/website/assets/img/screenshots/03-summary.png" alt="映話の AI 要約ビュー：チーム共有ワークスペース" />
+          <img src="../assets/img/screenshots/03-summary.png" alt="映話の AI 要約ビュー：チーム共有ワークスペース" />
           <div class="teams-card-label">共有ワークスペース</div>
         </div>
         <div class="teams-card">
-          <img src="../C29_marketing-website/website/assets/img/screenshots/02-transcript.png" alt="映話の文字起こしビュー：候補者評価のリアルタイム同期" />
+          <img src="../assets/img/screenshots/02-transcript.png" alt="映話の文字起こしビュー：候補者評価のリアルタイム同期" />
           <div class="teams-card-label">候補者評価</div>
         </div>
         <div class="teams-card">
-          <img src="../C29_marketing-website/website/assets/img/screenshots/04-onboarding.png" alt="映話のチーム管理：SSO と監査ログ" />
+          <img src="../assets/img/screenshots/04-onboarding.png" alt="映話のチーム管理：SSO と監査ログ" />
           <div class="teams-card-label">チーム管理</div>
         </div>
       </div>
@@ -458,7 +482,7 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="index.html" class="nav-brand" aria-label="映話 ホーム">
-          <img src="../C29_marketing-website/website/assets/img/icon-02-gradient-32.png" alt="" width="32" height="32" />
+          <img src="../assets/img/icon-02-gradient-32.png" alt="" width="32" height="32" />
           <span class="brand-zh">映話 · Yinghua</span>
         </a>
         <p>面接のための macOS スマートアシスタント。ローカル優先、抑制、信頼性。</p>
@@ -514,6 +538,8 @@
   </div>
 </footer>
 
-<script src="../C29_marketing-website/website/assets/js/main.js"></script>
+<script src="../assets/js/3d-y-icon.js"></script>
+<script src="../assets/js/recording-demo.js"></script>
+<script src="../assets/js/main.js"></script>
 </body>
 </html>

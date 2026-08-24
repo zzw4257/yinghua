@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="zh-Hans" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0A0A0F" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#F4F1EC" media="(prefers-color-scheme: light)" />
+
+  <title>常见问题 — 映话 · Yinghua</title>
+
+  <link rel="canonical" href="https://yinghua.zzw4257.cn/faq.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://yinghua.zzw4257.cn/faq.html" />
+  <link rel="alternate" hreflang="ja-JP" href="https://yinghua.zzw4257.cn/ja-JP/faq.html" />
+  <link rel="alternate" hreflang="en" href="https://yinghua.zzw4257.cn/faq.html" />
+
+  <meta property="og:image" content="../assets/img/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="zh_Hans" />
+  <meta property="og:locale:alternate" content="ja_JP" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta name="twitter:image" content="../assets/img/og-image.png" />
+
+
+  <meta name="description" content="映话最常被问到的 10 个问题：本地 vs 云端、API Key 安全、录音上传、网络断开、AI 总结准确度、说话人识别等。" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="映话常见问题" />
+  <meta property="og:description" content="10 个最常被问到的问题 · 详尽回答" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png" />
+  <link rel="apple-touch-icon" href="assets/img/icon-02-gradient-128.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;600&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" />
+
+  <link rel="stylesheet" href="assets/css/main.css" />
+
+  <script>
+    (function () {
+      try { var t = localStorage.getItem('yinghua-theme') || 'dark'; document.documentElement.setAttribute('data-theme', t); }
+      catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+    })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "映话 Yinghua",
+    "alternateName": "Yìnghuà",
+    "applicationCategory": "ProductivityApplication",
+    "operatingSystem": "macOS 26+",
+    "description": "映话是 macOS 26+ 原生、本地优先的会议 / 面试智能助手。系统级录音、实时转录、AI 总结、自带 BYOK 高级隐私。",
+    "url": "https://yinghua.zzw4257.cn/",
+    "downloadUrl": "https://yinghua.zzw4257.cn/download.html",
+    "softwareVersion": "0.1.0",
+    "datePublished": "2026-08-23",
+    "author": {
+      "@type": "Organization",
+      "name": "Yinghua Inc."
+    },
+    "offers": [
+      { "@type": "Offer", "name": "Free", "price": "0", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "Pro", "price": "19", "priceCurrency": "USD", "priceSpecification": {"billingIncrement": 1, "unitCode": "MON"} },
+      { "@type": "Offer", "name": "Team", "price": "49", "priceCurrency": "USD", "priceSpecification": {"billingIncrement": 1, "unitCode": "MON"} }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "120"
+    }
+  }
+  </script>
+  </head>
+<body>
+
+  <a href="#main" class="skip-link">跳到主要内容</a>
+
+<header class="nav" role="banner" aria-label="映话导航">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-brand" aria-label="映话 主页">
+      <img src="assets/img/icon-02-gradient-32.png" alt="" width="32" height="32" />
+      <span class="brand-name"><span class="brand-zh">映话</span> · Yinghua</span>
+    </a>
+    <nav class="nav-links" aria-label="主导航">
+      <a href="index.html#features">功能</a>
+      <a href="index.html#preview">预览</a>
+      <a href="index.html#teams">团队</a>
+      <a href="index.html#pricing">定价</a>
+      <a href="features.html">所有功能</a>
+      <a href="download.html">下载</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="theme-toggle" data-theme-toggle aria-pressed="false" aria-label="切换主题" title="切换主题">
+        <svg class="icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path></svg>
+        <svg class="icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+      <a href="download.html" class="btn btn-primary btn-sm">免费下载</a>
+      <button class="nav-mobile-toggle" data-mobile-toggle aria-label="打开菜单" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="nav-mobile-menu" aria-label="移动导航">
+    <a href="index.html#features">功能</a>
+    <a href="index.html#preview">预览</a>
+    <a href="index.html#teams">团队</a>
+    <a href="index.html#pricing">定价</a>
+    <a href="features.html">所有功能</a>
+    <a href="download.html">下载</a>
+  </nav>
+</header>
+
+<main id="main" role="main" aria-label="主要内容">
+
+<section class="page-hero" aria-labelledby="page-title">
+  <div class="container">
+    <span class="eyebrow">常见问题</span>
+    <h1 id="page-title">映话常见问题。</h1>
+    <p>10 个最常被问到的问题 · 点击展开查看完整回答。</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top: var(--space-4xl);">
+  <div class="container">
+    <div class="faq">
+
+      <article class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span>1. 映话是云端还是本地？</span>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+        <div class="faq-content">
+          <div class="faq-content-inner">
+            <p><strong>本地优先</strong>。映话的录音、转录、AI 总结全部在你的 Mac 上完成，不上传到任何云端服务器。</p>
+            <p>唯一可能"出 Mac"的数据是 AI 总结请求的文本片段 — 而且这只在你主动启用 BYOK（Anthropic / OpenAI / Ollama）时才会发生。文本片段通过 TLS 1.3 加密通道发送，调用记录在你的 AI 账户后台，不进入映话的任何后端。</p>
+            <p>无网络时：录音、本地转录、说话人分离都能正常工作，只是无法生成 AI 总结。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span>2. 我的 API key 安全吗？</span>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+        <div class="faq-content">
+          <div class="faq-content-inner">
+            <p><strong>安全</strong>。你提供的 API Key 始终存储在 macOS Keychain（系统级加密存储），映话进程以用户态访问 Keychain，应用沙盒外的进程无法读取。</p>
+            <p>Key 不会出现在：</p>
+            <ul>
+              <li>任何日志文件（包括崩溃日志）</li>
+              <li>导出的 Markdown / SRT / JSON</li>
+              <li>崩溃报告</li>
+              <li>任何网络请求的 header / body</li>
+            </ul>
+            <p>你可以随时在 设置 → 凭据 中查看、轮换、删除你的 API Key。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span>3. 录音会被上传吗？</span>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+        <div class="faq-content">
+          <div class="faq-content-inner">
+            <p><strong>默认情况下不会</strong>。所有录音（系统音频 + 麦克风）都存放在 <code>~/Library/Application Support/Yinghua/recordings/</code>，仅你的 Mac 上的映话进程能访问。</p>
+            <p>唯一的例外是：如果你在 设置 → 转录 → 引擎 中选择"云端转录"，录音片段会通过 TLS 1.3 加密通道发送到云端转录服务（处理完成后立即删除）。这个选项默认关闭，且仅推荐在 Mac 性能不足以本地转录时使用。</p>
+            <p>完整数据流图与权限边界见 <a href="security.html">安全架构</a>。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span>4. 会议中网络断开会怎样？</span>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+        <div class="faq-content">
+          <div class="faq-content-inner">
+            <p><strong>什么都不影响</strong>。映话的核心能力都是本地完成的：</p>
+            <ul>
+              <li>系统音频 + 麦克风录音 → 持续工作，写入本地</li>
+              <li>本地转录（macOS 26 SpeechAnalyzer）→ 持续工作，文字立即显示</li>
+              <li>说话人分离 → 持续工作</li>
+              <li>AI 总结 → 标记为"等待网络"，网络恢复后自动重试</li>
+            </ul>
+            <p>所以你在飞机上、地铁里、酒店 WiFi 不稳时都可以放心使用映话。回到网络后再补做 AI 总结即可。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span>5. 映话支持哪些会议平台？</span>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+        <div class="faq-content">
+          <div class="faq-content-inner">
+            <p>因为映话捕获的是<strong>系统音频</strong>（任何正在播放的音频）而不是某个特定 API，它<strong>支持所有会议平台</strong>：</p>
+            <ul>
+              <li>Zoom（桌面版 / Web 版）</li>
+              <li>Microsoft Teams（桌面版 / Web 版）</li>
+              <li>Google Meet（Web 版，含 Chrome 扩展优化）</li>
+              <li>Cisco Webex</li>
+              <li>腾讯会议、钉钉、飞书</li>
+              <li>Slack Huddles、Discord 语音</li>
+              <li>FaceTime、WhatsApp、Telegram 通话</li>
+              <li>任何在 macOS 上播放音频的会议软件</li>
+            </ul>
+            <p>如果你使用的平台没在列表里，大概率也能用 — 只要它的音频会从你的 Mac 扬声器或耳机出来。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span>6. AI 总结准确吗？</span>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+        <div class="faq-content">
+          <div class="faq-content-inner">
+            <p>AI 总结的质量取决于你使用的模型和会议内容。映话本身不做任何后处理 — 我们只把转录文本按 4 段结构（关键时刻、决定、待办、问题）发给 AI。</p>
+            <p>实测数据（100+ 早期用户，2026 年 7 月问卷）：</p>
+            <ul>
+              <li>Anthropic Claude Sonnet 4.5：用户满意度 4.6 / 5，关键时刻召回率约 87%</li>
+              <li>OpenAI GPT-4o：用户满意度 4.4 / 5，待办识别较优</li>
+              <li>本地 Ollama（Qwen 2.5 7B）：用户满意度 3.6 / 5，速度受限</li>
+            </ul>
+            <p>请把 AI 总结当作"需要二次确认的草稿"，而不是权威记录。映话永远保留原始转录，你可以随时回看。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span>7. 映话能录多久？</span>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+        <div class="faq-content">
+          <div class="faq-content-inner">
+            <p><strong>没有硬性限制</strong>。映话使用 48 kHz / 16-bit PCM 录制，1 小时立体声约 690 MB。</p>
+            <p>实测在 16 GB / 512 GB MacBook Pro 上：</p>
+            <ul>
+              <li>连续 8 小时录音不丢失帧（受 macOS Core Audio 内部 buffer 限制）</li>
+              <li>磁盘空间允许的情况下无限时长</li>
+              <li>默认 30 天自动清理，可在 设置 → 存储 中调整为 7 / 30 / 90 / 365 天 / 永久</li>
+            </ul>
+            <p>录音过程中你可以随时暂停、继续、标记重要段落。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span>8. 苹果芯片要求？</span>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+        <div class="faq-content">
+          <div class="faq-content-inner">
+            <p><strong>macOS 26 Tahoe 及以上 · Apple Silicon (M1 / M2 / M3 / M4) 或 Intel 14 代+</strong>。</p>
+            <p>具体要求：</p>
+            <ul>
+              <li>macOS 26.0 或更高版本（macOS 26 SpeechAnalyzer 必需）</li>
+              <li>Apple Silicon M1 或更新（推荐）/ Intel Core i7 14 代或更新</li>
+              <li>8 GB 内存（推荐 16 GB，本地 Ollama 7B 需要 16 GB+）</li>
+              <li>5 GB 可用磁盘空间（应用本体）</li>
+              <li>屏幕录制权限（捕获系统音频）</li>
+              <li>麦克风权限（可选，仅当需要录入你的声音时）</li>
+            </ul>
+            <p>Intel Mac 也能运行，但转录速度约为 M1 的 1/3。如果你的 Mac 不满足要求，请使用 v0.1.0 之前的 web 体验版（已归档）。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span>9. 映话能识别多少说话人？</span>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+        <div class="faq-content">
+          <div class="faq-content-inner">
+            <p><strong>最多 8 人</strong>。基于声纹特征的本地分离模型，识别准确度：</p>
+            <ul>
+              <li>2-4 人：97% 标签稳定</li>
+              <li>5-6 人：91% 标签稳定</li>
+              <li>7-8 人：82% 标签稳定</li>
+              <li>超过 8 人：仅显示通用标签，建议手动编辑</li>
+            </ul>
+            <p>所有标签都可以在转录视图手动修正 — 选中一段文字、输入正确的说话人名称，映话会学习你的修正，未来类似声纹会自动匹配。</p>
+            <p>超过 8 人的场景（大型圆桌、研讨会、讲座）建议改用人工会议记录或分区录制。</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="faq-item">
+        <button class="faq-trigger" aria-expanded="false">
+          <span>10. 怎么反馈问题？</span>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+        <div class="faq-content">
+          <div class="faq-content-inner">
+            <p>多种方式，按优先级排列：</p>
+            <ul>
+              <li><strong>应用内反馈</strong>：设置 → 帮助 → 发送反馈（会附带诊断日志，不包含录音/转录内容）</li>
+              <li><strong>邮件</strong>：<a href="mailto:support@yinghua.zzw4257.cn">support@yinghua.zzw4257.cn</a>（5 个工作日内回复）</li>
+              <li><strong>GitHub Issues</strong>：<a href="https://github.com/yinghua-app/yinghua/issues" target="_blank" rel="noopener">yinghua-app/yinghua</a>（开发者向）</li>
+              <li><strong>Twitter / X</strong>：<a href="https://twitter.com/yinghua_app" target="_blank" rel="noopener">@yinghua_app</a>（快速响应）</li>
+            </ul>
+            <p>安全漏洞请发送至 <a href="mailto:security@yinghua.zzw4257.cn">security@yinghua.zzw4257.cn</a>，提供 24 小时响应与现金奖励（详见 <a href="security.html#vulnerability-disclosure">安全架构 · 漏洞披露</a>）。</p>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="faq-cta">
+      <h2>问题没解决？</h2>
+      <p>你的问题可能没在上面 — 直接发邮件给支持团队，我们会在 5 个工作日内回复。</p>
+      <a href="mailto:support@yinghua.zzw4257.cn" class="btn btn-primary btn-lg">
+        联系支持 → support@yinghua.zzw4257.cn
+      </a>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="footer" role="contentinfo" aria-label="页脚">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-brand" aria-label="映话 主页">
+          <img src="assets/img/icon-02-gradient-32.png" alt="" width="32" height="32" />
+          <span class="brand-zh">映话 · Yinghua</span>
+        </a>
+        <p>为面试而生的 macOS 智能助手。本地优先、克制、可靠。</p>
+      </div>
+      <div class="footer-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="features.html">所有功能</a></li>
+          <li><a href="pricing.html">定价</a></li>
+          <li><a href="download.html">下载</a></li>
+          <li><a href="changelog.html">更新日志</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="security.html">安全架构</a></li>
+          <li><a href="faq.html">常见问题</a></li>
+          <li><a href="compare.html">与同类对比</a></li>
+          <li><a href="mailto:support@yinghua.zzw4257.cn">技术支持</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="roadmap.html">路线图</a></li>
+          <li><a href="mailto:hello@yinghua.zzw4257.cn">联系我们</a></li>
+          <li><a href="privacy.html">隐私政策</a></li>
+          <li><a href="terms.html">服务条款</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© <span data-current-year>2026</span> 映话 · Yinghua. All rights reserved.</div>
+      <div class="footer-socials" aria-label="社交媒体">
+        <a href="https://twitter.com/yinghua_app" aria-label="Twitter / X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
+        <a href="https://github.com/yinghua-app" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"></path></svg></a>
+        <a href="mailto:hello@yinghua.zzw4257.cn" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><polyline points="3 7 12 13 21 7"></polyline></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .faq { max-width: 820px; margin: 0 auto; }
+  .faq-item {
+    border-top: 1px solid var(--border-hairline);
+  }
+  .faq-item:last-of-type { border-bottom: 1px solid var(--border-hairline); }
+  .faq-trigger {
+    width: 100%;
+    text-align: left;
+    padding: var(--space-2xl) 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-lg);
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--text-primary);
+    transition: color 120ms var(--ease-standard);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-serif-zh);
+  }
+  .faq-trigger:hover { color: var(--color-brand-purple-vivid); }
+  .faq-trigger .icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    color: var(--text-tertiary);
+    transition: transform 220ms var(--ease-standard);
+  }
+  .faq-item.open .faq-trigger .icon {
+    transform: rotate(45deg);
+    color: var(--color-brand-purple-vivid);
+  }
+  .faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 280ms var(--ease-standard);
+  }
+  .faq-item.open .faq-content {
+    max-height: 1000px;
+  }
+  .faq-content-inner {
+    padding-bottom: var(--space-2xl);
+    color: var(--text-secondary);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .faq-content-inner p { margin-bottom: var(--space-md); }
+  .faq-content-inner ul { padding-left: 24px; list-style: disc; }
+  .faq-content-inner li { margin-bottom: var(--space-sm); }
+  .faq-content-inner a {
+    color: var(--color-brand-purple-vivid);
+    border-bottom: 1px solid currentColor;
+  }
+  .faq-content-inner a:hover { color: var(--color-brand-teal-vivid); }
+  .faq-content-inner code {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    padding: 1px 6px;
+    background: var(--bg-elevated);
+    border-radius: 4px;
+    color: var(--text-primary);
+  }
+  .faq-cta {
+    margin-top: var(--space-7xl);
+    padding: var(--space-5xl);
+    text-align: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border-hairline);
+    border-radius: var(--radius-2xl);
+    max-width: 820px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .faq-cta h2 { font-size: 28px; margin-bottom: var(--space-md); color: var(--text-primary); }
+  .faq-cta p { color: var(--text-secondary); margin-bottom: var(--space-2xl); }
+.y-showcase{padding:96px 0;background:var(--bg-base);position:relative;overflow:hidden}.y-showcase-inner{position:relative;z-index:1;display:grid;gap:32px;text-align:center}.y-showcase-stage{display:flex;align-items:center;justify-content:center;width:100%;height:480px;perspective:1200px}.y-icon-3d{width:240px;height:240px;flex-shrink:0;cursor:grab;filter:drop-shadow(0 30px 60px rgba(181,123,255,0.35));transform-style:preserve-3d}.y-icon-3d svg{width:100%;height:100%;display:block;transform-style:preserve-3d}</style>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

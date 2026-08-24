@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Disallow private areas
+Disallow: /zh-Hans/_assets/
+Disallow: /ja-JP/_assets/
+
+# Sitemap
+Sitemap: https://yinghua.zzw4257.cn/sitemap.xml
